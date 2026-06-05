@@ -11,13 +11,24 @@ export default function HomePage() {
         <p className="hero-lead"><T id="home.lead" /></p>
         <div className="button-row">
           <Link className="button button-primary" href="/draft">
-            <T id="home.start" />
-            <span aria-hidden="true">→</span>
+            <T id="home.normalMode" />
+          </Link>
+          <Link className="button button-hardcore" href="/draft">
+            <T id="home.hardcoreMode" />
           </Link>
           <Link className="button button-secondary" href="/rules">
             <T id="home.rules" />
           </Link>
         </div>
+        <a
+          className="support-link"
+          href="https://donatello.to/mkornieiev"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <T id="home.support" />
+          <span aria-hidden="true">↗</span>
+        </a>
       </div>
       <div className="hero-visual">
         <Image

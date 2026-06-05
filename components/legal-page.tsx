@@ -1,5 +1,4 @@
 import { T } from "@/components/localized-text";
-import { PageHero } from "@/components/page-hero";
 import type { TranslationKey } from "@/lib/translations";
 
 type LegalPageProps = {
@@ -10,12 +9,12 @@ export function LegalPage({ prefix }: LegalPageProps) {
   const key = (suffix: string) => `${prefix}.${suffix}` as TranslationKey;
 
   return (
-    <>
-      <PageHero
-        eyebrow={key("eyebrow")}
-        title={key("title")}
-        lead={key("lead")}
-      />
+    <div className="legal-page">
+      <header className="legal-heading">
+        <p className="eyebrow"><T id={key("eyebrow")} /></p>
+        <h1><T id={key("title")} /></h1>
+        <p><T id={key("lead")} /></p>
+      </header>
       <div className="legal-layout">
         <aside className="legal-aside">
           <strong><T id="legal.contents" /></strong>
@@ -33,6 +32,6 @@ export function LegalPage({ prefix }: LegalPageProps) {
           })}
         </article>
       </div>
-    </>
+    </div>
   );
 }
