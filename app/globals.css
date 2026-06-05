@@ -1335,26 +1335,83 @@ body:has(.draft-workspace) .site-footer {
     grid-template-columns: 1fr;
   }
 
-  .pitch {
-    min-height: 610px;
-    padding: 34px 12px;
+  .formation-shell {
+    overflow: visible;
   }
 
+  .pitch {
+    overflow: visible;
+    min-height: 680px;
+    padding: 28px 16px;
+    grid-template-rows: repeat(4, 130px);
+    gap: 12px;
+  }
+
+  .formation-row {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-around;
+    gap: 6px;
+    overflow: visible;
+  }
+
+  /* Avoid mobile compositing drops when disabled slots become valid after a pick. */
   .player-card {
+    display: flex;
+    visibility: visible !important;
     width: 74px;
+    min-width: 74px;
+    height: 86px;
+    min-height: 86px;
     padding: 8px 4px;
+    flex: 0 0 74px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    opacity: 1 !important;
+    transform: none !important;
+    box-shadow: none;
+    backdrop-filter: none;
+    transition: none;
+  }
+
+  .player-card.is-valid {
+    border-color: var(--yellow);
+    outline: 3px solid rgb(255 213 0 / 34%);
+    outline-offset: 1px;
+    box-shadow: none;
+  }
+
+  .player-card.is-valid:hover {
+    border-color: var(--yellow);
+    outline-color: rgb(255 213 0 / 48%);
+    box-shadow: none;
   }
 
   .player-number {
     width: auto;
     min-width: 28px;
+    max-width: 66px;
     min-height: 20px;
     height: auto;
     padding: 3px 6px;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .player-card strong {
+    width: 100%;
     font-size: 9px;
+  }
+
+  .player-card span:last-child {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .formation-toolbar {
