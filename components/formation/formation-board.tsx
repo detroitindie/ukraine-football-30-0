@@ -19,6 +19,13 @@ const lineOrder: FormationLine[] = [
   "goalkeeper",
 ];
 
+const visualSlotOrder: Record<string, number> = {
+  lm: 1,
+  cm: 2,
+  am_cm: 3,
+  rm: 4,
+};
+
 function cleanPlayerName(name: string) {
   return name.replace(/\s+\(\d+\)$/, "");
 }
@@ -48,7 +55,11 @@ export function FormationBoard({
           <div className="formation-row" key={line}>
             {slots
               .filter((slot) => slot.line === line)
-              .sort((left, right) => left.slot_order - right.slot_order)
+              .sort(
+                (left, right) =>
+                  (visualSlotOrder[left.slot_id] ?? left.slot_order) -
+                  (visualSlotOrder[right.slot_id] ?? right.slot_order),
+              )
               .map((slot) => {
                 const player = lineup[slot.slot_id];
                 const valid = validSlotIds.has(slot.slot_id);

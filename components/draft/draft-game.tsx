@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 import { FormationBoard } from "@/components/formation/formation-board";
 import { T } from "@/components/localized-text";
 import type {
@@ -51,6 +52,7 @@ function randomItem<T>(items: T[]) {
 }
 
 export function DraftGame({ mode }: DraftGameProps) {
+  const router = useRouter();
   const [data, setData] = useState<DraftData>(EMPTY_DATA);
   const [loading, setLoading] = useState(true);
   const [loadFailed, setLoadFailed] = useState(false);
@@ -153,11 +155,10 @@ export function DraftGame({ mode }: DraftGameProps) {
 
   const filled = Object.keys(lineup).length;
   const draftComplete = data.slots.length > 0 && filled === data.slots.length;
-  const canRoll =
+  const canUsePrimaryAction =
     !loading &&
     !loadFailed &&
-    !draftComplete &&
-    (currentRoll === null || pickLockedForRoll);
+    (draftComplete || currentRoll === null || pickLockedForRoll);
 
   function rollNext() {
     const validRolls = data.rollPool.filter((roll) =>
@@ -175,6 +176,15 @@ export function DraftGame({ mode }: DraftGameProps) {
     setCurrentRoll(randomItem(validRolls));
     setCandidate(null);
     setPickLockedForRoll(false);
+  }
+
+  function usePrimaryAction() {
+    if (draftComplete) {
+      router.push("/result");
+      return;
+    }
+
+    rollNext();
   }
 
   function lockCandidate(slotId: string) {
@@ -286,12 +296,12 @@ export function DraftGame({ mode }: DraftGameProps) {
               <strong>{availablePlayers.length}</strong>
             </div>
             <button
-              className="compact-button"
-              disabled={!canRoll}
+              className="draft-primary-action"
+              disabled={!canUsePrimaryAction}
               type="button"
-              onClick={rollNext}
+              onClick={usePrimaryAction}
             >
-              <T id="draft.reroll" />
+              <T id={draftComplete ? "draft.seeResult" : "draft.reroll"} />
             </button>
           </div>
 

@@ -60,6 +60,26 @@ button {
   font: inherit;
 }
 
+button,
+.button,
+.compact-button,
+.theme-button,
+.language-button,
+.available-player,
+.player-card {
+  transition:
+    transform 140ms ease,
+    opacity 140ms ease,
+    box-shadow 140ms ease,
+    border-color 140ms ease,
+    background-color 140ms ease;
+}
+
+button:not(:disabled):active,
+.button:active {
+  transform: scale(0.975);
+}
+
 .site-shell {
   display: flex;
   min-height: 100vh;
@@ -592,17 +612,22 @@ body:has(.draft-workspace) .site-footer {
 }
 
 .player-number {
-  display: grid;
-  width: 25px;
-  height: 25px;
+  display: inline-flex;
+  width: auto;
+  min-width: 30px;
+  min-height: 22px;
   margin: 0 auto 3px;
-  place-items: center;
-  border-radius: 50%;
+  padding: 3px 7px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
   background: var(--yellow);
   color: #111827;
   font-family: var(--font-unbounded), sans-serif;
-  font-size: 9px;
+  font-size: 8px;
   font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
 }
 
 .player-card strong {
@@ -626,6 +651,10 @@ body:has(.draft-workspace) .site-footer {
     0 0 0 3px rgb(255 213 0 / 24%),
     0 10px 24px rgb(0 0 0 / 20%);
   cursor: pointer;
+}
+
+.player-card.is-valid:hover {
+  transform: translateY(-2px) scale(1.025);
 }
 
 .player-card.is-filled {
@@ -768,14 +797,23 @@ body:has(.draft-workspace) .site-footer {
   font-size: 15px;
 }
 
-.compact-button {
-  padding: 6px 10px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface-soft);
-  color: var(--muted);
-  font-size: 11px;
+.draft-primary-action {
+  min-width: 118px;
+  min-height: 38px;
+  padding: 8px 16px;
+  border: 1px solid var(--blue);
+  border-radius: 9px;
+  background: var(--blue);
+  color: white;
+  box-shadow: 0 8px 18px rgb(7 87 214 / 22%);
+  cursor: pointer;
+  font-size: 12px;
   font-weight: 800;
+}
+
+.draft-primary-action:not(:disabled):hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 11px 24px rgb(7 87 214 / 28%);
 }
 
 .available-list {
@@ -807,6 +845,11 @@ body:has(.draft-workspace) .site-footer {
 .available-player.is-selected {
   border-color: var(--blue);
   background: color-mix(in srgb, var(--blue) 8%, var(--surface));
+}
+
+.available-player:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 12px rgb(22 45 84 / 8%);
 }
 
 .available-position {
@@ -874,9 +917,10 @@ body:has(.draft-workspace) .site-footer {
   font-weight: 800;
 }
 
+.draft-primary-action:disabled,
 .compact-button:disabled {
   cursor: not-allowed;
-  opacity: 0.65;
+  opacity: 0.5;
 }
 
 .draft-note {
@@ -1199,8 +1243,11 @@ body:has(.draft-workspace) .site-footer {
   }
 
   .player-number {
-    width: 30px;
-    height: 30px;
+    width: auto;
+    min-width: 28px;
+    min-height: 20px;
+    height: auto;
+    padding: 3px 6px;
   }
 
   .player-card strong {
