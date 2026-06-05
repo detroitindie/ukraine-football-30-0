@@ -84,11 +84,22 @@ def select_fields(
     }
 
 
-def export_players() -> list[dict[str, Any]]:
-    return [
-        select_fields(row, PLAYER_FIELDS)
-        for row in read_csv("club_decade_players.csv")
-    ]
+def has_player_name(row: dict[str, str]) -> bool:
+    player_name = row.get("player_name")
+    return (
+        isinstance(player_name, str)
+        and bool(player_name.strip())
+        and player_name.strip().lower() not in {"nan", "null", "none"}
+    )
+
+
+def export_players() -> tuple[list[dict[str, Any]], int]:
+    rows = read_csv("club_decade_players.csv")
+    valid_rows = [row for row in rows if has_player_name(row)]
+    return (
+        [select_fields(row, PLAYER_FIELDS) for row in valid_rows],
+        len(rows) - len(valid_rows),
+    )
 
 
 def export_roll_pool() -> list[dict[str, Any]]:
@@ -130,8 +141,9 @@ def write_json(filename: str, data: list[dict[str, Any]]) -> None:
 
 
 def main() -> None:
+    players, removed_players = export_players()
     exports = {
-        "players.json": export_players(),
+        "players.json": players,
         "roll_pool.json": export_roll_pool(),
         "formation_slots.json": export_formation_slots(),
     }
@@ -139,6 +151,8 @@ def main() -> None:
     for filename, data in exports.items():
         write_json(filename, data)
         print(f"Wrote {OUTPUT_DIR / filename} ({len(data)} records)")
+
+    print(f"Removed {removed_players} player records with missing names")
 
 
 if __name__ == "__main__":

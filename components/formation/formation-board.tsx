@@ -4,6 +4,10 @@ import type {
   FormationSlot,
   Lineup,
 } from "@/lib/draft-types";
+import {
+  cleanPlayerName,
+  safePlayerText,
+} from "@/lib/player-display";
 
 type FormationBoardProps = {
   slots: FormationSlot[];
@@ -25,10 +29,6 @@ const visualSlotOrder: Record<string, number> = {
   am_cm: 3,
   rm: 4,
 };
-
-function cleanPlayerName(name: string) {
-  return name.replace(/\s+\(\d+\)$/, "");
-}
 
 export function FormationBoard({
   slots,
@@ -76,7 +76,11 @@ export function FormationBoard({
                     <strong>
                       {player ? cleanPlayerName(player.player_name) : <T id="draft.emptySlot" />}
                     </strong>
-                    <span>{player ? player.game_position : slot.allowed_positions.join("/")}</span>
+                    <span>
+                      {player
+                        ? safePlayerText(player.game_position, slot.slot_label)
+                        : slot.allowed_positions.join("/")}
+                    </span>
                   </button>
                 );
               })}

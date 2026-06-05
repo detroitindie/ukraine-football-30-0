@@ -10,6 +10,7 @@ import {
   type SeasonResult,
   type SeasonVerdict,
 } from "@/lib/seasonSimulation";
+import { cleanPlayerName } from "@/lib/player-display";
 
 const verdictKeys: Record<
   SeasonVerdict,
@@ -76,10 +77,6 @@ function getServerSeason() {
 
 function signedGoalDifference(value: number) {
   return value > 0 ? `+${value}` : String(value);
-}
-
-function cleanPlayerName(name: string) {
-  return name.replace(/\s+\(\d+\)$/, "");
 }
 
 const lineupGroups = [

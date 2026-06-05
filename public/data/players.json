@@ -32130,27 +32130,6 @@
     "effective_global_rating": 70.7
   },
   {
-    "club_decade_player_id": "2783_metalurg_donetsk__2015_2010s_37430",
-    "club_decade_id": "2783_metalurg_donetsk__2015_2010s",
-    "team_id": 2783,
-    "team_name": "Metalurg Donetsk (- 2015)",
-    "decade": "2010s",
-    "player_id": 37430,
-    "player_name": null,
-    "position": "Defender - Centre-Back",
-    "main_position": "Defender",
-    "game_position": "CB",
-    "goals": 2,
-    "assists": 1,
-    "clean_sheets": 0,
-    "raw_score": 17,
-    "local_rating": 53.6,
-    "global_rating": 68.6,
-    "global_percentile": 0.6645417368294443,
-    "hidden_modifier": 1,
-    "effective_global_rating": 68.6
-  },
-  {
     "club_decade_player_id": "2783_metalurg_donetsk__2015_2010s_59440",
     "club_decade_id": "2783_metalurg_donetsk__2015_2010s",
     "team_id": 2783,

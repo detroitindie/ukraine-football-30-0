@@ -18,6 +18,11 @@ import {
   simulateSeason,
   type SavedSeason,
 } from "@/lib/seasonSimulation";
+import {
+  cleanPlayerName,
+  safePlayerStat,
+  safePlayerText,
+} from "@/lib/player-display";
 
 type DraftGameProps = {
   mode: DraftMode;
@@ -40,16 +45,11 @@ const lineSummary: Array<{
   { key: "draft.forwardsShort", line: "attack", total: 2 },
 ];
 
-function cleanPlayerName(name: string) {
-  return name.replace(/\s+\(\d+\)$/, "");
-}
-
 function playerFitsSlot(player: DraftPlayer, slot: FormationSlot) {
-  return slot.allowed_positions.includes(player.game_position);
-}
-
-function hasValue(value: number | null | undefined): value is number {
-  return value !== null && value !== undefined;
+  return (
+    typeof player.game_position === "string" &&
+    slot.allowed_positions.includes(player.game_position)
+  );
 }
 
 function randomItem<T>(items: T[]) {
@@ -258,13 +258,17 @@ export function DraftGame({ mode }: DraftGameProps) {
             <div>
               <span><T id="draft.currentClub" /></span>
               <strong>
-                {currentRoll ? currentRoll.team_name : <T id="draft.awaitingRoll" />}
+                {currentRoll
+                  ? safePlayerText(currentRoll.team_name, "Unknown club")
+                  : <T id="draft.awaitingRoll" />}
               </strong>
             </div>
             <div>
               <span><T id="draft.currentDecade" /></span>
               <strong>
-                {currentRoll ? currentRoll.decade : <T id="draft.awaitingRoll" />}
+                {currentRoll
+                  ? safePlayerText(currentRoll.decade, "Unknown decade")
+                  : <T id="draft.awaitingRoll" />}
               </strong>
             </div>
           </div>
@@ -321,30 +325,39 @@ export function DraftGame({ mode }: DraftGameProps) {
           <div className="available-list">
             {availablePlayers.map((player) => {
               const selected = candidate?.club_decade_player_id === player.club_decade_player_id;
+              const goals = safePlayerStat(player.goals);
+              const assists = safePlayerStat(player.assists);
+              const cleanSheets = safePlayerStat(player.clean_sheets);
+              const position = safePlayerText(player.game_position, "POS");
+              const club = safePlayerText(player.team_name, "Unknown club");
+              const decade = safePlayerText(player.decade, "Unknown decade");
               const showCleanSheets =
-                player.game_position === "GK" && hasValue(player.clean_sheets);
+                position === "GK" && cleanSheets !== null;
 
               return (
                 <button
                   className={`available-player${selected ? " is-selected" : ""}`}
-                  key={player.club_decade_player_id}
+                  key={safePlayerText(
+                    player.club_decade_player_id,
+                    `player-${player.player_id}`,
+                  )}
                   type="button"
                   onClick={() => setCandidate(player)}
                 >
-                  <span className="available-position">{player.game_position}</span>
+                  <span className="available-position">{position}</span>
                   <span className="available-player-copy">
                     <strong>{cleanPlayerName(player.player_name)}</strong>
-                    <span>{player.team_name} / {player.decade}</span>
+                    <span>{club} / {decade}</span>
                     {mode === "normal" && (
                       <small>
-                        {hasValue(player.goals) && (
-                          <span><T id="draft.statGoals" /> {player.goals}</span>
+                        {goals !== null && (
+                          <span><T id="draft.statGoals" /> {goals}</span>
                         )}
-                        {hasValue(player.assists) && (
-                          <span><T id="draft.statAssists" /> {player.assists}</span>
+                        {assists !== null && (
+                          <span><T id="draft.statAssists" /> {assists}</span>
                         )}
                         {showCleanSheets && (
-                          <span><T id="draft.statCleanSheets" /> {player.clean_sheets}</span>
+                          <span><T id="draft.statCleanSheets" /> {cleanSheets}</span>
                         )}
                       </small>
                     )}
