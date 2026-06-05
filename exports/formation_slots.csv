@@ -1,0 +1,12 @@
+slot_id,slot_label,line,allowed_positions,slot_order
+gk,GK,goalkeeper,GK,1
+lb,LB,defense,LB,2
+cb_1,CB,defense,CB,3
+cb_2,CB,defense,CB,4
+rb,RB,defense,RB,5
+cm,CM,midfield,"CM,CDM",6
+am_cm,AM/CM,midfield,"AM,CM",7
+lm,LM,midfield,LM,8
+rm,RM,midfield,RM,9
+am_fw,AM/FW,attack,"AM,FW",10
+fw,FW,attack,FW,11

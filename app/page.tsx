@@ -10,10 +10,10 @@ export default function HomePage() {
         <h1><T id="home.title" /></h1>
         <p className="hero-lead"><T id="home.lead" /></p>
         <div className="button-row">
-          <Link className="button button-primary" href="/draft">
+          <Link className="button button-primary" href="/draft?mode=normal">
             <T id="home.normalMode" />
           </Link>
-          <Link className="button button-hardcore" href="/draft">
+          <Link className="button button-hardcore" href="/draft?mode=hardcore">
             <T id="home.hardcoreMode" />
           </Link>
           <Link className="button button-secondary" href="/rules">

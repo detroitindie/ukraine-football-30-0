@@ -1,0 +1,104 @@
+[
+  {
+    "slot_id": "gk",
+    "slot_label": "GK",
+    "line": "goalkeeper",
+    "allowed_positions": [
+      "GK"
+    ],
+    "slot_order": 1
+  },
+  {
+    "slot_id": "lb",
+    "slot_label": "LB",
+    "line": "defense",
+    "allowed_positions": [
+      "LB"
+    ],
+    "slot_order": 2
+  },
+  {
+    "slot_id": "cb_1",
+    "slot_label": "CB",
+    "line": "defense",
+    "allowed_positions": [
+      "CB"
+    ],
+    "slot_order": 3
+  },
+  {
+    "slot_id": "cb_2",
+    "slot_label": "CB",
+    "line": "defense",
+    "allowed_positions": [
+      "CB"
+    ],
+    "slot_order": 4
+  },
+  {
+    "slot_id": "rb",
+    "slot_label": "RB",
+    "line": "defense",
+    "allowed_positions": [
+      "RB"
+    ],
+    "slot_order": 5
+  },
+  {
+    "slot_id": "cm",
+    "slot_label": "CM",
+    "line": "midfield",
+    "allowed_positions": [
+      "CM",
+      "CDM"
+    ],
+    "slot_order": 6
+  },
+  {
+    "slot_id": "am_cm",
+    "slot_label": "AM/CM",
+    "line": "midfield",
+    "allowed_positions": [
+      "AM",
+      "CM"
+    ],
+    "slot_order": 7
+  },
+  {
+    "slot_id": "lm",
+    "slot_label": "LM",
+    "line": "midfield",
+    "allowed_positions": [
+      "LM"
+    ],
+    "slot_order": 8
+  },
+  {
+    "slot_id": "rm",
+    "slot_label": "RM",
+    "line": "midfield",
+    "allowed_positions": [
+      "RM"
+    ],
+    "slot_order": 9
+  },
+  {
+    "slot_id": "am_fw",
+    "slot_label": "AM/FW",
+    "line": "attack",
+    "allowed_positions": [
+      "AM",
+      "FW"
+    ],
+    "slot_order": 10
+  },
+  {
+    "slot_id": "fw",
+    "slot_label": "FW",
+    "line": "attack",
+    "allowed_positions": [
+      "FW"
+    ],
+    "slot_order": 11
+  }
+]
