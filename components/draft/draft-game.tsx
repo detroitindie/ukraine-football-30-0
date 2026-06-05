@@ -13,6 +13,11 @@ import type {
   Lineup,
   RollPoolEntry,
 } from "@/lib/draft-types";
+import {
+  SEASON_RESULT_STORAGE_KEY,
+  simulateSeason,
+  type SavedSeason,
+} from "@/lib/seasonSimulation";
 
 type DraftGameProps = {
   mode: DraftMode;
@@ -180,6 +185,14 @@ export function DraftGame({ mode }: DraftGameProps) {
 
   function usePrimaryAction() {
     if (draftComplete) {
+      const savedSeason: SavedSeason = {
+        lineup,
+        result: simulateSeason(Object.values(lineup)),
+      };
+      sessionStorage.setItem(
+        SEASON_RESULT_STORAGE_KEY,
+        JSON.stringify(savedSeason),
+      );
       router.push("/result");
       return;
     }

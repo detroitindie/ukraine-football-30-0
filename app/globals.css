@@ -809,6 +809,7 @@ body:has(.draft-workspace) .site-footer {
   cursor: pointer;
   font-size: 12px;
   font-weight: 800;
+  -webkit-text-fill-color: white;
 }
 
 .draft-primary-action:not(:disabled):hover {
@@ -920,6 +921,18 @@ body:has(.draft-workspace) .site-footer {
 .draft-primary-action:disabled,
 .compact-button:disabled {
   cursor: not-allowed;
+}
+
+.draft-primary-action:disabled {
+  border-color: var(--line);
+  background: var(--surface-soft);
+  color: var(--muted);
+  box-shadow: none;
+  opacity: 0.72;
+  -webkit-text-fill-color: var(--muted);
+}
+
+.compact-button:disabled {
   opacity: 0.5;
 }
 
@@ -1009,8 +1022,98 @@ body:has(.draft-workspace) .site-footer {
   flex-direction: column;
 }
 
+.result-page .compact-heading {
+  margin-bottom: 16px;
+}
+
 .result-page .stats-grid {
   width: 100%;
+}
+
+.result-lineup {
+  width: 100%;
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+
+.result-lineup h2 {
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.result-lineup-groups {
+  display: grid;
+  gap: 7px;
+}
+
+.result-line {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: baseline;
+  gap: 14px;
+  font-size: 13px;
+}
+
+.result-line strong {
+  color: var(--blue);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.result-line span {
+  overflow: hidden;
+  color: var(--ink);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.result-actions {
+  display: flex;
+  min-height: 50px;
+  margin-top: 18px;
+  align-items: center;
+  gap: 10px;
+}
+
+.result-actions .button {
+  min-height: 42px;
+}
+
+.copy-confirmation {
+  color: var(--muted);
+  font-size: 12px;
+  opacity: 0;
+  transition: opacity 160ms ease;
+}
+
+.copy-confirmation.is-visible {
+  opacity: 1;
+}
+
+.result-empty {
+  width: min(560px, 100%);
+  padding: 30px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.result-empty h1 {
+  margin-bottom: 10px;
+  font-size: clamp(28px, 4vw, 42px);
+}
+
+.result-empty > p:not(.eyebrow) {
+  margin-bottom: 22px;
+  color: var(--muted);
+}
+
+.result-loading {
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .legal-page {
@@ -1261,6 +1364,20 @@ body:has(.draft-workspace) .site-footer {
 
   .compact-page {
     padding: 34px 0 50px;
+  }
+
+  .result-line {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .result-line span {
+    white-space: normal;
+  }
+
+  .result-actions {
+    align-items: stretch;
+    flex-direction: column;
   }
 }
 
