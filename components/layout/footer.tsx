@@ -7,7 +7,6 @@ export function Footer() {
       <div className="footer-inner">
         <div>
           <Link className="brand" href="/">
-            <span className="brand-mark">30.0</span>
             <span><T id="common.brand" /></span>
           </Link>
           <p className="footer-copy"><T id="footer.copy" /></p>

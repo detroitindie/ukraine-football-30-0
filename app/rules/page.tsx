@@ -1,6 +1,4 @@
 import { T } from "@/components/localized-text";
-import { PageHero } from "@/components/page-hero";
-
 const rules = [
   ["01", "rules.oneTitle", "rules.oneBody"],
   ["02", "rules.twoTitle", "rules.twoBody"],
@@ -10,9 +8,13 @@ const rules = [
 
 export default function RulesPage() {
   return (
-    <>
-      <PageHero eyebrow="rules.eyebrow" title="rules.title" lead="rules.lead" />
-      <section className="card-grid section">
+    <div className="compact-page">
+      <header className="compact-heading">
+        <p className="eyebrow"><T id="rules.eyebrow" /></p>
+        <h1><T id="rules.title" /></h1>
+        <p><T id="rules.lead" /></p>
+      </header>
+      <section className="card-grid compact-card-grid">
         {rules.map(([number, title, body]) => (
           <article className="content-card" key={number}>
             <span className="step-number">{number}</span>
@@ -21,6 +23,6 @@ export default function RulesPage() {
           </article>
         ))}
       </section>
-    </>
+    </div>
   );
 }

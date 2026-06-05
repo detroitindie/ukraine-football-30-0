@@ -15,7 +15,6 @@ export function Header() {
     <header className="site-header">
       <div className="header-inner">
         <Link className="brand" href="/">
-          <span className="brand-mark">30.0</span>
           <span className="brand-text"><T id="common.brand" /></span>
         </Link>
         <nav className="desktop-nav" aria-label="Primary navigation">

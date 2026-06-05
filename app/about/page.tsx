@@ -1,6 +1,4 @@
 import { T } from "@/components/localized-text";
-import { PageHero } from "@/components/page-hero";
-
 const cards = [
   ["about.ideaTitle", "about.ideaBody"],
   ["about.milestoneTitle", "about.milestoneBody"],
@@ -9,9 +7,13 @@ const cards = [
 
 export default function AboutPage() {
   return (
-    <>
-      <PageHero eyebrow="about.eyebrow" title="about.title" lead="about.lead" />
-      <section className="card-grid section">
+    <div className="compact-page">
+      <header className="compact-heading">
+        <p className="eyebrow"><T id="about.eyebrow" /></p>
+        <h1><T id="about.title" /></h1>
+        <p><T id="about.lead" /></p>
+      </header>
+      <section className="card-grid compact-card-grid">
         {cards.map(([title, body]) => (
           <article className="content-card" key={title}>
             <h2><T id={title} /></h2>
@@ -19,6 +21,6 @@ export default function AboutPage() {
           </article>
         ))}
       </section>
-    </>
+    </div>
   );
 }

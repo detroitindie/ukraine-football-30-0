@@ -17,8 +17,8 @@ const unbounded = Unbounded({
 
 export const metadata: Metadata = {
   title: {
-    default: "Ukraine Football 30.0",
-    template: "%s | Ukraine Football 30.0",
+    default: "30-0: Українська ліга",
+    template: "%s | 30-0: Українська ліга",
   },
   description: "Build a Ukrainian football squad and explore a season simulation.",
 };
