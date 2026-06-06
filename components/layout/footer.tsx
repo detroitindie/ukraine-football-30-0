@@ -9,7 +9,6 @@ export function Footer() {
           <Link className="brand" href="/">
             <span><T id="common.brand" /></span>
           </Link>
-          <p className="footer-copy"><T id="footer.copy" /></p>
         </div>
         <nav className="footer-links" aria-label="Legal navigation">
           <Link href="/privacy"><T id="footer.privacy" /></Link>

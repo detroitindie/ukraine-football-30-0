@@ -115,7 +115,6 @@ export function SeasonResultView() {
     return (
       <div className="compact-page result-page">
         <section className="result-empty">
-          <p className="eyebrow"><T id="result.eyebrow" /></p>
           <h1><T id="result.emptyTitle" /></h1>
           <p><T id="result.emptyBody" /></p>
           <Link className="button button-primary" href="/draft">
@@ -172,7 +171,6 @@ export function SeasonResultView() {
   return (
     <div className="compact-page result-page">
       <header className="compact-heading">
-        <p className="eyebrow"><T id="result.eyebrow" /></p>
         <h1><T id="result.seasonResult" /></h1>
       </header>
       <section className="stats-grid">

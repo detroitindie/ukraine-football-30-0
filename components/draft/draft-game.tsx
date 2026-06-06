@@ -223,11 +223,10 @@ export function DraftGame({ mode }: DraftGameProps) {
     <div className="draft-workspace">
       <header className="draft-heading">
         <div>
-          <p className="eyebrow"><T id="draft.eyebrow" /></p>
           <h1><T id="draft.title" /></h1>
         </div>
         <div className="draft-mode">
-          <span><T id="draft.mode" /></span>
+          <span className="draft-mode-prefix"><T id="draft.mode" /></span>
           <strong>
             <T id={mode === "hardcore" ? "draft.modeHardcore" : "draft.modeNormal"} />
           </strong>

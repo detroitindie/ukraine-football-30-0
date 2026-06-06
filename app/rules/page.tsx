@@ -1,4 +1,8 @@
 import { T } from "@/components/localized-text";
+import { createPageMetadata } from "@/lib/page-metadata";
+
+export const metadata = createPageMetadata("/rules");
+
 const rules = [
   ["01", "rules.oneTitle", "rules.oneBody"],
   ["02", "rules.twoTitle", "rules.twoBody"],
@@ -10,9 +14,7 @@ export default function RulesPage() {
   return (
     <div className="compact-page">
       <header className="compact-heading">
-        <p className="eyebrow"><T id="rules.eyebrow" /></p>
         <h1><T id="rules.title" /></h1>
-        <p><T id="rules.lead" /></p>
       </header>
       <section className="card-grid compact-card-grid">
         {rules.map(([number, title, body]) => (

@@ -3,6 +3,8 @@ import { Manrope, Unbounded } from "next/font/google";
 import Script from "next/script";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
+import { MetadataSync } from "@/components/metadata-sync";
+import { siteDescriptions } from "@/lib/page-metadata";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -15,12 +17,41 @@ const unbounded = Unbounded({
   subsets: ["cyrillic", "latin"],
 });
 
+const metadataBase = new URL(
+  process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000"),
+);
+
 export const metadata: Metadata = {
-  title: {
-    default: "30-0: Українська ліга",
-    template: "%s | 30-0: Українська ліга",
+  metadataBase,
+  title: "30-0: Ukrainian League",
+  description: siteDescriptions.en,
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
-  description: "Build a Ukrainian football squad and explore a season simulation.",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    alternateLocale: ["uk_UA"],
+    title: "30-0: Ukrainian League",
+    description: siteDescriptions.en,
+    images: [
+      {
+        url: "/og-image.png",
+        alt: "30-0: Ukrainian League",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "30-0: Ukrainian League",
+    description: siteDescriptions.en,
+    images: ["/og-image.png"],
+  },
 };
 
 const preferenceScript = `
@@ -48,6 +79,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
+        <MetadataSync />
         <Script
           id="preference-script"
           strategy="beforeInteractive"

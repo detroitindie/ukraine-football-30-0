@@ -1,12 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { T } from "@/components/localized-text";
+import { createPageMetadata } from "@/lib/page-metadata";
+
+export const metadata = createPageMetadata("/");
 
 export default function HomePage() {
   return (
     <section className="hero home-hero">
       <div className="hero-copy">
-        <p className="eyebrow"><T id="home.eyebrow" /></p>
         <h1><T id="home.title" /></h1>
         <p className="hero-lead"><T id="home.lead" /></p>
         <div className="button-row">

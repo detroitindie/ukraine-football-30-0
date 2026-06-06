@@ -1,5 +1,8 @@
 import { DraftGame } from "@/components/draft/draft-game";
 import type { DraftMode } from "@/lib/draft-types";
+import { createPageMetadata } from "@/lib/page-metadata";
+
+export const metadata = createPageMetadata("/draft");
 
 type DraftPageProps = {
   searchParams: Promise<{ mode?: string | string[] }>;

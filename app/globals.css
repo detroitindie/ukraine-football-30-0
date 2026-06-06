@@ -502,6 +502,10 @@ body:has(.draft-workspace) .site-footer {
   text-transform: uppercase;
 }
 
+html[data-language="ua"] .draft-mode-prefix {
+  display: none;
+}
+
 .draft-mode strong {
   color: var(--blue);
   font-family: var(--font-unbounded), sans-serif;
@@ -1012,6 +1016,34 @@ body:has(.draft-workspace) .site-footer {
   font-size: 14px;
 }
 
+.about-contact {
+  max-width: 680px;
+  margin-top: 24px;
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.about-contact h2 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.about-contact p {
+  margin: 0 0 8px;
+  color: var(--muted);
+}
+
+.about-contact a,
+.legal-content a {
+  color: var(--blue);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .compact-card-grid .step-number {
   margin-bottom: 22px;
 }
@@ -1177,6 +1209,11 @@ body:has(.draft-workspace) .site-footer {
 .legal-content p {
   margin-bottom: 0;
   font-size: 14px;
+}
+
+.legal-content ul {
+  margin: 12px 0;
+  padding-left: 22px;
 }
 
 .legal-content li + li {
