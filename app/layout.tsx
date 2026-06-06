@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope, Unbounded } from "next/font/google";
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/next";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { MetadataSync } from "@/components/metadata-sync";
@@ -90,6 +91,7 @@ export default function RootLayout({
           <main className="site-main">{children}</main>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
