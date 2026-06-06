@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteDescriptions = {
-  en: "Build an XI from Ukrainian club football history and try to win the simulation 30-0.",
+  en: "Draft your starting 11 from various teams and years. See if this team can go 30-0 in the Ukrainian League.",
   ua: "Збери XI з історії українського клубного футболу та спробуй виграти симуляцію 30-0.",
 } as const;
 
