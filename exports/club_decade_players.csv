@@ -1,4 +1,4 @@
-club_decade_player_id,club_decade_id,team_id,team_name,decade,player_id,player_name,citizenship,position,main_position,game_position,seasons_count,rows_count,goals,assists,clean_sheets,goals_conceded,yellow_cards,direct_red_cards,penalty_goals,minutes_played,raw_score,local_rating,global_rating,global_percentile,hidden_modifier,effective_global_rating
+﻿club_decade_player_id,club_decade_id,team_id,team_name,decade,player_id,player_name,citizenship,position,main_position,game_position,seasons_count,rows_count,goals,assists,clean_sheets,goals_conceded,yellow_cards,direct_red_cards,penalty_goals,minutes_played,raw_score,local_rating,global_rating,global_percentile,hidden_modifier,effective_global_rating
 10468_stal_alchevsk_2000s_24008,10468_stal_alchevsk_2000s,10468,Stal Alchevsk,2000s,24008,Rubén Gomez (24008),Argentina,Midfield - Central Midfield,Midfield,CM,2,2,1.0,5,0,0,6,0,0,1397.0,31.0,95.0,74.0,0.8010584556170315,1.0,74.0
 10468_stal_alchevsk_2000s_418361,10468_stal_alchevsk_2000s,10468,Stal Alchevsk,2000s,418361,Yakiv Kripak (418361),Ukraine,Attack - Centre-Forward,Attack,FW,1,1,2.0,1,0,0,0,0,0,429.0,17.0,74.7,68.6,0.6645417368294443,1.0,68.6
 10468_stal_alchevsk_2000s_59039,10468_stal_alchevsk_2000s,10468,Stal Alchevsk,2000s,59039,Andriy Gavryushov (59039),Ukraine,Defender - Right-Back,Defender,RB,2,2,0.0,1,0,0,12,0,0,0.0,10.0,64.5,63.6,0.5188838104402214,1.0,63.6
@@ -4156,3 +4156,125 @@ club_decade_player_id,club_decade_id,team_id,team_name,decade,player_id,player_n
 9007_arsenal_kyiv__2019_2010s_606248,9007_arsenal_kyiv__2019_2010s,9007,Arsenal Kyiv ( -2019),2010s,606248,Danylo Karas (606248),Ukraine,Defender - Centre-Back,Defender,CB,1,1,0.0,0,0,0,1,0,0,0.0,3.0,50.9,51.2,0.16754871301419294,1.0,51.2
 9007_arsenal_kyiv__2019_2010s_625144,9007_arsenal_kyiv__2019_2010s,9007,Arsenal Kyiv ( -2019),2010s,625144,Vladyslav Semotyuk (625144),Ukraine,Midfield - Central Midfield,Midfield,CM,1,1,0.0,0,0,0,0,0,0,0.0,3.0,50.9,51.2,0.16754871301419294,1.0,51.2
 9007_arsenal_kyiv__2019_2010s_58970,9007_arsenal_kyiv__2019_2010s,9007,Arsenal Kyiv ( -2019),2010s,58970,Yevgen Shakhov (58970),Ukraine,Midfield - Central Midfield,Midfield,CM,1,1,0.0,0,0,0,5,0,0,0.0,2.0,50.6,45.6,0.016237671397642532,1.0,45.6
+338_dynamo_kyiv_1990s_8816756,338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,8816756,Oleksandr Shovkovskyi (8816756),,Goalkeeper,Goalkeeper,GK,7,7,0,,,,,,,,21.0,70.3,70.3,,1,70.3
+338_dynamo_kyiv_2000s_8816756,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8816756,Oleksandr Shovkovskyi (8816756),,Goalkeeper,Goalkeeper,GK,10,10,0,,,,,,,,30.0,74.1,74.1,,1,74.1
+338_dynamo_kyiv_2010s_8816756,338_dynamo_kyiv_2010s,338,Dynamo Kyiv,2010s,8816756,Oleksandr Shovkovskyi (8816756),,Goalkeeper,Goalkeeper,GK,7,7,0,,,,,,,,21.0,81.2,81.2,,1,81.2
+338_dynamo_kyiv_2000s_8318705,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8318705,Oleg Gusev (8318705),,Midfield - Right Midfield,Midfield,RM,7,7,,,,,,,,,21.0,78.1,78.1,,1,78.1
+338_dynamo_kyiv_2010s_8318705,338_dynamo_kyiv_2010s,338,Dynamo Kyiv,2010s,8318705,Oleg Gusev (8318705),,Midfield - Right Midfield,Midfield,RM,7,7,,,,,,,,,21.0,92.0,92.0,,1,92.0
+338_dynamo_kyiv_1990s_8789170,338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,8789170,Vladyslav Vashchuk (8789170),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,89.3,89.3,,1,89.3
+338_dynamo_kyiv_2000s_8789170,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8789170,Vladyslav Vashchuk (8789170),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,85.4,85.4,,1,85.4
+338_dynamo_kyiv_1990s_8205827,338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,8205827,Serhiy Rebrov (8205827),,Attack - Centre-Forward,Attack,FW,,,,,,,,,,,,92.0,92.0,,1,92.0
+338_dynamo_kyiv_2000s_8205827,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8205827,Serhiy Rebrov (8205827),,Attack - Centre-Forward,Attack,FW,,,,,,,,,,,,92.0,92.0,,1,92.0
+338_dynamo_kyiv_1990s_8841428,338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,8841428,Andriy Nesmachnyi (8841428),,Defender - Left-Back,Defender,LB,3,3,,,,,,,,,9.0,88.2,88.2,,1,88.2
+338_dynamo_kyiv_2000s_8841428,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8841428,Andriy Nesmachnyi (8841428),,Defender - Left-Back,Defender,LB,10,10,,,,,,,,,30.0,83.3,83.3,,1,83.3
+338_dynamo_kyiv_2010s_8841428,338_dynamo_kyiv_2010s,338,Dynamo Kyiv,2010s,8841428,Andriy Nesmachnyi (8841428),,Defender - Left-Back,Defender,LB,1,1,,,,,,,,,3.0,74.9,74.9,,1,74.9
+338_dynamo_kyiv_1990s_8647189,338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,8647189,Valentyn Belkevych (8647189),,Midfield - Attacking Midfield,Midfield,AM,4,4,,,,,,,,,12.0,84.0,84.0,,1,84.0
+338_dynamo_kyiv_2000s_8647189,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8647189,Valentyn Belkevych (8647189),,Midfield - Attacking Midfield,Midfield,AM,8,8,,,,,,,,,24.0,86.5,86.5,,1,86.5
+338_dynamo_kyiv_1990s_8620253,338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,8620253,Andriy Husin (8620253),,Midfield - Central Midfield,Midfield,CM,7,7,,,,,,,,,21.0,87.6,87.6,,1,87.6
+338_dynamo_kyiv_2000s_8620253,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8620253,Andriy Husin (8620253),,Midfield - Central Midfield,Midfield,CM,5,5,,,,,,,,,15.0,73.1,73.1,,1,73.1
+338_dynamo_kyiv_1990s_8657409,338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,8657409,Yuriy Kalitvintsev (8657409),,Midfield - Attacking Midfield,Midfield,AM,6,6,,,,,,,,,18.0,84.0,84.0,,1,84.0
+338_dynamo_kyiv_2000s_8657409,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8657409,Yuriy Kalitvintsev (8657409),,Midfield - Attacking Midfield,Midfield,AM,0,0,,,,,,,,,0.0,86.5,86.5,,1,86.5
+338_dynamo_kyiv_1990s_8833780,338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,8833780,Vitaliy Kosovskyi (8833780),,Midfield - Left Midfield,Midfield,LM,6,6,,,,,,,,,18.0,89.3,89.3,,1,89.3
+338_dynamo_kyiv_2000s_8833780,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8833780,Vitaliy Kosovskyi (8833780),,Midfield - Left Midfield,Midfield,LM,3,3,,,,,,,,,9.0,74.5,74.5,,1,74.5
+338_dynamo_kyiv_1990s_8341301,338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,8341301,Serhiy Fedorov (8341301),,Defender - Centre-Back,Defender,CB,8,8,,,,,,,,,24.0,88.2,88.2,,1,88.2
+338_dynamo_kyiv_2000s_8341301,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8341301,Serhiy Fedorov (8341301),,Defender - Centre-Back,Defender,CB,9,9,,,,,,,,,27.0,84.1,84.1,,1,84.1
+338_dynamo_kyiv_1990s_8716042,338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,8716042,Yuriy Dmytrulin (8716042),,Defender - Left-Back,Defender,LB,8,8,,,,,,,,,24.0,88.2,88.2,,1,88.2
+338_dynamo_kyiv_2000s_8716042,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8716042,Yuriy Dmytrulin (8716042),,Defender - Left-Back,Defender,LB,5,5,,,,,,,,,15.0,83.3,83.3,,1,83.3
+338_dynamo_kyiv_2000s_8995023,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8995023,Taras Mykhalyk (8995023),,Defender - Centre-Back,Defender,CB,4,4,,,,,,,,,12.0,84.1,84.1,,1,84.1
+338_dynamo_kyiv_2010s_8995023,338_dynamo_kyiv_2010s,338,Dynamo Kyiv,2010s,8995023,Taras Mykhalyk (8995023),,Defender - Centre-Back,Defender,CB,3,3,,,,,,,,,9.0,75.3,75.3,,1,75.3
+660_shakhtar_donetsk_1990s_8562832,660_shakhtar_donetsk_1990s,660,Shakhtar Donetsk,1990s,8562832,Anatoliy Tymoshchuk (8562832),,Midfield - Defensive Midfield,Midfield,CDM,3,3,,,,,,,,,9.0,83.3,83.3,,1,83.3
+660_shakhtar_donetsk_2000s_8562832,660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,8562832,Anatoliy Tymoshchuk (8562832),,Midfield - Defensive Midfield,Midfield,CDM,7,7,,,,,,,,,21.0,92.0,92.0,,1,92.0
+660_shakhtar_donetsk_2000s_8822964,660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,8822964,Brandao (8822964),,Attack - Centre-Forward,Attack,FW,7,7,,,,,,,,,21.0,92.0,92.0,,1,92.0
+660_shakhtar_donetsk_1990s_8433084,660_shakhtar_donetsk_1990s,660,Shakhtar Donetsk,1990s,8433084,Gennadiy Zubov (8433084),,Midfield - Right Midfield,Midfield,RM,6,6,,,,,,,,,18.0,78.7,78.7,,1,78.7
+660_shakhtar_donetsk_2000s_8433084,660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,8433084,Gennadiy Zubov (8433084),,Midfield - Right Midfield,Midfield,RM,4,4,,,,,,,,,12.0,79.4,79.4,,1,79.4
+660_shakhtar_donetsk_1990s_8037576,660_shakhtar_donetsk_1990s,660,Shakhtar Donetsk,1990s,8037576,Serhiy Atelkin (8037576),,Attack - Centre-Forward,Attack,FW,,,,,,,,,,,,85.1,85.1,,1,85.1
+660_shakhtar_donetsk_2000s_8037576,660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,8037576,Serhiy Atelkin (8037576),,Attack - Centre-Forward,Attack,FW,,,,,,,,,,,,92.0,92.0,,1,92.0
+660_shakhtar_donetsk_1990s_8736782,660_shakhtar_donetsk_1990s,660,Shakhtar Donetsk,1990s,8736782,Oleg Matveev (8736782),,Attack - Centre-Forward,Attack,FW,,,,,,,,,,,,85.1,85.1,,1,85.1
+660_shakhtar_donetsk_2000s_8601307,660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,8601307,Elano (8601307),,Midfield - Central Midfield,Midfield,CM,3,3,,,,,,,,,9.0,78.7,78.7,,1,78.7
+660_shakhtar_donetsk_2000s_8087111,660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,8087111,Mariusz Lewandowski (8087111),,Midfield - Defensive Midfield,Midfield,CDM,9,9,,,,,,,,,27.0,92.0,92.0,,1,92.0
+660_shakhtar_donetsk_2010s_8087111,660_shakhtar_donetsk_2010s,660,Shakhtar Donetsk,2010s,8087111,Mariusz Lewandowski (8087111),,Midfield - Defensive Midfield,Midfield,CDM,0,0,,,,,,,,,0.0,88.3,88.3,,1,88.3
+6414_metalist_kharkiv_2000s_8183704,6414_metalist_kharkiv_2000s,6414,Metalist Kharkiv,2000s,8183704,Serhiy Valyayev (8183704),,Midfield - Central Midfield,Midfield,CM,5,5,,,,,,,,,15.0,84.9,84.9,,1,84.9
+6414_metalist_kharkiv_2010s_8183704,6414_metalist_kharkiv_2010s,6414,Metalist Kharkiv,2010s,8183704,Serhiy Valyayev (8183704),,Midfield - Central Midfield,Midfield,CM,2,2,,,,,,,,,6.0,78.6,78.6,,1,78.6
+6414_metalist_kharkiv_1990s_8603941,6414_metalist_kharkiv_1990s,6414,Metalist Kharkiv,1990s,8603941,Vadym Goldin (8603941),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,72.6,72.6,,1,72.6
+6414_metalist_kharkiv_2000s_8603941,6414_metalist_kharkiv_2000s,6414,Metalist Kharkiv,2000s,8603941,Vadym Goldin (8603941),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,84.3,84.3,,1,84.3
+6994_metalurg_zaporizhya_2000s_8602786,6994_metalurg_zaporizhya_2000s,6994,Metalurg Zaporizhya,2000s,8602786,Oleksiy Godin (8602786),,Midfield - Central Midfield,Midfield,CM,10,10,,,,,,,,,30.0,77.7,77.7,,1,77.7
+6994_metalurg_zaporizhya_2010s_8602786,6994_metalurg_zaporizhya_2010s,6994,Metalurg Zaporizhya,2010s,8602786,Oleksiy Godin (8602786),,Midfield - Central Midfield,Midfield,CM,5,5,,,,,,,,,15.0,72.6,72.6,,1,72.6
+6994_metalurg_zaporizhya_2000s_8713027,6994_metalurg_zaporizhya_2000s,6994,Metalurg Zaporizhya,2000s,8713027,Dmytro Nevmyvaka (8713027),,Defender - Centre-Back,Defender,CB,5,5,,,,,,,,,15.0,75.2,75.2,,1,75.2
+6994_metalurg_zaporizhya_2010s_8713027,6994_metalurg_zaporizhya_2010s,6994,Metalurg Zaporizhya,2010s,8713027,Dmytro Nevmyvaka (8713027),,Defender - Centre-Back,Defender,CB,5,5,,,,,,,,,15.0,70.7,70.7,,1,70.7
+6992_chornomorets_odesa_1990s_8094516,6992_chornomorets_odesa_1990s,6992,Chornomorets Odesa,1990s,8094516,Tymerlan Huseynov (8094516),,Attack - Centre-Forward,Attack,FW,5,5,,,,,,,,,15.0,72.4,72.4,,1,72.4
+6992_chornomorets_odesa_1990s_8369832,6992_chornomorets_odesa_1990s,6992,Chornomorets Odesa,1990s,8369832,Yuriy Nikiforov (8369832),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,75.2,75.2,,1,75.2
+6992_chornomorets_odesa_1990s_8285473,6992_chornomorets_odesa_1990s,6992,Chornomorets Odesa,1990s,8285473,Ihor Zhabchenko (8285473),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,73.7,73.7,,1,73.7
+2477_karpaty_lviv_2000s_8717675,2477_karpaty_lviv_2000s,2477,Karpaty Lviv,2000s,8717675,Ihor Khudobyak (8717675),,Midfield - Attacking Midfield,Midfield,AM,5,5,,,,,,,,,15.0,69.6,69.6,,1,69.6
+2477_karpaty_lviv_2010s_8717675,2477_karpaty_lviv_2010s,2477,Karpaty Lviv,2010s,8717675,Ihor Khudobyak (8717675),,Midfield - Attacking Midfield,Midfield,AM,7,7,,,,,,,,,21.0,80.1,80.1,,1,80.1
+2477_karpaty_lviv_2000s_8574234,2477_karpaty_lviv_2000s,2477,Karpaty Lviv,2000s,8574234,Serhiy Kuznetsov (8574234),,Attack - Centre-Forward,Attack,FW,2,2,,,,,,,,,6.0,85.9,85.9,,1,85.9
+2477_karpaty_lviv_2010s_8574234,2477_karpaty_lviv_2010s,2477,Karpaty Lviv,2010s,8574234,Serhiy Kuznetsov (8574234),,Attack - Centre-Forward,Attack,FW,2,2,,,,,,,,,6.0,84.0,84.0,,1,84.0
+2740_vorskla_poltava_2000s_8986233,2740_vorskla_poltava_2000s,2740,Vorskla Poltava,2000s,8986233,Serhiy Dolhanskyi (8986233),,Goalkeeper,Goalkeeper,GK,,,,,,,,,,,,81.2,81.2,,1,81.2
+2740_vorskla_poltava_2010s_8986233,2740_vorskla_poltava_2010s,2740,Vorskla Poltava,2010s,8986233,Serhiy Dolhanskyi (8986233),,Goalkeeper,Goalkeeper,GK,,,,,,,,,,,,75.6,75.6,,1,75.6
+2783_metalurg_donetsk__2015_2000s_8518009,2783_metalurg_donetsk__2015_2000s,2783,Metalurg Donetsk (- 2015),2000s,8518009,Vyacheslav Checher (8518009),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,72.5,72.5,,1,72.5
+2783_metalurg_donetsk__2015_2010s_8518009,2783_metalurg_donetsk__2015_2010s,2783,Metalurg Donetsk (- 2015),2010s,8518009,Vyacheslav Checher (8518009),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,70.3,70.3,,1,70.3
+2783_metalurg_donetsk__2015_1990s_8913731,2783_metalurg_donetsk__2015_1990s,2783,Metalurg Donetsk (- 2015),1990s,8913731,Serhiy Shyshchenko (8913731),,Midfield - Attacking Midfield,Midfield,AM,,,,,,,,,,,,74.8,74.8,,1,74.8
+2783_metalurg_donetsk__2015_2000s_8913731,2783_metalurg_donetsk__2015_2000s,2783,Metalurg Donetsk (- 2015),2000s,8913731,Serhiy Shyshchenko (8913731),,Midfield - Attacking Midfield,Midfield,AM,,,,,,,,,,,,77.1,77.1,,1,77.1
+18303_pfc_oleksandriya_2010s_8547951,18303_pfc_oleksandriya_2010s,18303,PFC Oleksandriya,2010s,8547951,Yevhen Banada (8547951),,Midfield - Defensive Midfield,Midfield,CDM,,,,,,,,,,,,66.6,66.6,,1,66.6
+60551_sc_dnipro_1_2010s_8786524,60551_sc_dnipro_1_2010s,60551,SC Dnipro-1,2010s,8786524,Ihor Kohut (8786524),,Midfield - Central Midfield,Midfield,CM,3,3,,,,,,,,,9.0,68.6,68.6,,1,68.6
+60551_sc_dnipro_1_2020s_8786524,60551_sc_dnipro_1_2020s,60551,SC Dnipro-1,2020s,8786524,Ihor Kohut (8786524),,Midfield - Central Midfield,Midfield,CM,3,3,,,,,,,,,9.0,81.4,81.4,,1,81.4
+60551_sc_dnipro_1_2010s_8718789,60551_sc_dnipro_1_2010s,60551,SC Dnipro-1,2010s,8718789,Oleksandr Nazarenko (8718789),,Midfield - Left Midfield,Midfield,LM,3,3,,,,,,,,,9.0,73.3,73.3,,1,73.3
+60551_sc_dnipro_1_2020s_8718789,60551_sc_dnipro_1_2020s,60551,SC Dnipro-1,2020s,8718789,Oleksandr Nazarenko (8718789),,Midfield - Left Midfield,Midfield,LM,3,3,,,,,,,,,9.0,72.9,72.9,,1,72.9
+338_dynamo_kyiv_2000s_8384773,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,8384773,Tiberiu Ghioane (8384773),,Midfield - Central Midfield,Midfield,CM,9,9,,,,,,,,,27.0,65.7,65.7,,1,65.7
+338_dynamo_kyiv_2010s_8384773,338_dynamo_kyiv_2010s,338,Dynamo Kyiv,2010s,8384773,Tiberiu Ghioane (8384773),,Midfield - Central Midfield,Midfield,CM,1,1,,,,,,,,,3.0,61.6,61.6,,1,61.6
+338_dynamo_kyiv_2010s_8240332,338_dynamo_kyiv_2010s,338,Dynamo Kyiv,2010s,8240332,Artem Besyedin (8240332),,Attack - Centre-Forward,Attack,FW,4,4,,,,,,,,,12.0,82.5,82.5,,1,82.5
+338_dynamo_kyiv_2020s_8240332,338_dynamo_kyiv_2020s,338,Dynamo Kyiv,2020s,8240332,Artem Besyedin (8240332),,Attack - Centre-Forward,Attack,FW,2,2,,,,,,,,,6.0,71.9,71.9,,1,71.9
+339_dnipro_dnipropetrovsk__2020_2010s_8417697,339_dnipro_dnipropetrovsk__2020_2010s,339,Dnipro Dnipropetrovsk (- 2020),2010s,8417697,Yevhen Cheberyachko (8417697),,Defender - Centre-Back,Defender,CB,7,7,,,,,,,,,21.0,64.6,64.6,,1,64.6
+339_dnipro_dnipropetrovsk__2020_2010s_8637248,339_dnipro_dnipropetrovsk__2020_2010s,339,Dnipro Dnipropetrovsk (- 2020),2010s,8637248,Ivan Strinic (8637248),,Defender - Centre-Back,Defender,CB,5,5,,,,,,,,,15.0,64.6,64.6,,1,64.6
+6414_metalist_kharkiv_2000s_8326545,6414_metalist_kharkiv_2000s,6414,Metalist Kharkiv,2000s,8326545,Serhiy Mizin (8326545),,Midfield - Central Midfield,Midfield,CM,4,4,,,,,,,,,12.0,76.9,76.9,,1,76.9
+9007_arsenal_kyiv__2019_2000s_8082537,9007_arsenal_kyiv__2019_2000s,9007,Arsenal Kyiv ( -2019),2000s,8082537,Vitaliy Levchenko (8082537),,Midfield - Central Midfield,Midfield,CM,7,7,,,,,,,,,21.0,63.8,63.8,,1,63.8
+6992_chornomorets_odesa_1990s_8221215,6992_chornomorets_odesa_1990s,6992,Chornomorets Odesa,1990s,8221215,Vitaliy Rudenko (8221215),,Goalkeeper,Goalkeeper,GK,1,1,0,,,,,,,,3.0,73.2,73.2,,1,73.2
+6992_chornomorets_odesa_2000s_8221215,6992_chornomorets_odesa_2000s,6992,Chornomorets Odesa,2000s,8221215,Vitaliy Rudenko (8221215),,Goalkeeper,Goalkeeper,GK,10,10,0,,,,,,,,30.0,68.5,68.5,,1,68.5
+6992_chornomorets_odesa_2010s_8221215,6992_chornomorets_odesa_2010s,6992,Chornomorets Odesa,2010s,8221215,Vitaliy Rudenko (8221215),,Goalkeeper,Goalkeeper,GK,3,3,0,,,,,,,,9.0,70.2,70.2,,1,70.2
+6992_chornomorets_odesa_1990s_8906036,6992_chornomorets_odesa_1990s,6992,Chornomorets Odesa,1990s,8906036,Vitaliy Kolesnichenko (8906036),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,69.9,69.9,,1,69.9
+6992_chornomorets_odesa_2000s_8906036,6992_chornomorets_odesa_2000s,6992,Chornomorets Odesa,2000s,8906036,Vitaliy Kolesnichenko (8906036),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,68.5,68.5,,1,68.5
+6992_chornomorets_odesa_1990s_8958356,6992_chornomorets_odesa_1990s,6992,Chornomorets Odesa,1990s,8958356,Yuriy Bukel (8958356),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,73.2,73.2,,1,73.2
+6992_chornomorets_odesa_2000s_8958356,6992_chornomorets_odesa_2000s,6992,Chornomorets Odesa,2000s,8958356,Yuriy Bukel (8958356),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,69.9,69.9,,1,69.9
+6992_chornomorets_odesa_2000s_8960761,6992_chornomorets_odesa_2000s,6992,Chornomorets Odesa,2000s,8960761,Oleksandr Zotov (8960761),,Midfield - Central Midfield,Midfield,CM,5,5,,,,,,,,,15.0,67.8,67.8,,1,67.8
+6992_chornomorets_odesa_2010s_8960761,6992_chornomorets_odesa_2010s,6992,Chornomorets Odesa,2010s,8960761,Oleksandr Zotov (8960761),,Midfield - Central Midfield,Midfield,CM,4,4,,,,,,,,,12.0,73.3,73.3,,1,73.3
+6992_chornomorets_odesa_2010s_8691785,6992_chornomorets_odesa_2010s,6992,Chornomorets Odesa,2010s,8691785,Oleksiy Hai (8691785),,Midfield - Central Midfield,Midfield,CM,2,2,,,,,,,,,6.0,73.3,73.3,,1,73.3
+6992_chornomorets_odesa_2010s_8369233,6992_chornomorets_odesa_2010s,6992,Chornomorets Odesa,2010s,8369233,Dmytro Bezotosnyi (8369233),,Goalkeeper,Goalkeeper,GK,4,4,0,,,,,,,,12.0,70.0,70.0,,1,70.0
+6992_chornomorets_odesa_2000s_8342846,6992_chornomorets_odesa_2000s,6992,Chornomorets Odesa,2000s,8342846,Oleksandr Didenko (8342846),,Attack - Centre-Forward,Attack,FW,4,4,,,,,,,,,12.0,67.6,67.6,,1,67.6
+6992_chornomorets_odesa_2010s_8342846,6992_chornomorets_odesa_2010s,6992,Chornomorets Odesa,2010s,8342846,Oleksandr Didenko (8342846),,Attack - Centre-Forward,Attack,FW,2,2,,,,,,,,,6.0,72.5,72.5,,1,72.5
+2783_metalurg_donetsk__2015_2000s_8226238,2783_metalurg_donetsk__2015_2000s,2783,Metalurg Donetsk (- 2015),2000s,8226238,Velizar Dimitrov (8226238),,Midfield - Central Midfield,Midfield,CM,2,2,,,,,,,,,6.0,72.6,72.6,,1,72.6
+2783_metalurg_donetsk__2015_2010s_8226238,2783_metalurg_donetsk__2015_2010s,2783,Metalurg Donetsk (- 2015),2010s,8226238,Velizar Dimitrov (8226238),,Midfield - Central Midfield,Midfield,CM,2,2,,,,,,,,,6.0,62.8,62.8,,1,62.8
+3592_kryvbas_kryvyi_rig_1990s_8835292,3592_kryvbas_kryvyi_rig_1990s,3592,Kryvbas Kryvyi Rig,1990s,8835292,Viktor Gromov (8835292),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,62.0,62.0,,1,62.0
+3592_kryvbas_kryvyi_rig_2000s_8835292,3592_kryvbas_kryvyi_rig_2000s,3592,Kryvbas Kryvyi Rig,2000s,8835292,Viktor Gromov (8835292),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,68.3,68.3,,1,68.3
+3592_kryvbas_kryvyi_rig_2000s_8960761,3592_kryvbas_kryvyi_rig_2000s,3592,Kryvbas Kryvyi Rig,2000s,8960761,Oleksandr Zotov (8960761),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,63.6,63.6,,1,63.6
+2477_karpaty_lviv_2000s_8557816,2477_karpaty_lviv_2000s,2477,Karpaty Lviv,2000s,8557816,Ihor Oshchypko (8557816),,Defender - Centre-Back,Defender,CB,2,2,,,,,,,,,6.0,68.2,68.2,,1,68.2
+2477_karpaty_lviv_2010s_8557816,2477_karpaty_lviv_2010s,2477,Karpaty Lviv,2010s,8557816,Ihor Oshchypko (8557816),,Defender - Centre-Back,Defender,CB,3,3,,,,,,,,,9.0,62.6,62.6,,1,62.6
+18303_fc_oleksandriya_2010s_8822269,18303_fc_oleksandriya_2010s,18303,FC Oleksandriya,2010s,8822269,Andriy Hitchenko (8822269),,Defender - Centre-Back,Defender,CB,4,4,,,,,,,,,12.0,67.0,67.0,,1,67.0
+18303_fc_oleksandriya_2020s_8822269,18303_fc_oleksandriya_2020s,18303,FC Oleksandriya,2020s,8822269,Andriy Hitchenko (8822269),,Defender - Centre-Back,Defender,CB,1,1,,,,,,,,,3.0,66.4,66.4,,1,66.4
+3593_borysfen_boryspil__2007_2000s_8918748,3593_borysfen_boryspil__2007_2000s,3593,Borysfen Boryspil (- 2007),2000s,8918748,Roman Lytovchak (8918748),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,68.6,68.6,,1,68.6
+3593_borysfen_boryspil__2007_2000s_8183978,3593_borysfen_boryspil__2007_2000s,3593,Borysfen Boryspil (- 2007),2000s,8183978,Maksym Stoyan (8183978),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,67.7,67.7,,1,67.7
+16239_desna_chernigiv_2010s_8402999,16239_desna_chernigiv_2010s,16239,Desna Chernigiv,2010s,8402999,Volodymyr Avramenko (8402999),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,74.2,74.2,,1,74.2
+16239_desna_chernigiv_2010s_8195541,16239_desna_chernigiv_2010s,16239,Desna Chernigiv,2010s,8195541,Oleksandr Kozhemyachenko (8195541),,Attack - Centre-Forward,Attack,FW,,,,,,,,,,,,73.7,73.7,,1,73.7
+660_shakhtar_donetsk_1990s_8738345,660_shakhtar_donetsk_1990s,660,Shakhtar Donetsk,1990s,8738345,Dmytro Shutkov (8738345),,Goalkeeper,Goalkeeper,GK,,,0,,,,,,,,0.0,66.9,66.9,,1,66.9
+660_shakhtar_donetsk_2000s_8738345,660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,8738345,Dmytro Shutkov (8738345),,Goalkeeper,Goalkeeper,GK,,,0,,,,,,,,0.0,74.2,74.2,,1,74.2
+660_shakhtar_donetsk_1990s_8410378,660_shakhtar_donetsk_1990s,660,Shakhtar Donetsk,1990s,8410378,Serhiy Popov (8410378),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,58.6,58.6,,1,58.6
+660_shakhtar_donetsk_2000s_8410378,660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,8410378,Serhiy Popov (8410378),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,58.6,58.6,,1,58.6
+6414_metalist_kharkiv_1990s_8088274,6414_metalist_kharkiv_1990s,6414,Metalist Kharkiv,1990s,8088274,Oleksandr Horyainov (8088274),,Goalkeeper,Goalkeeper,GK,,,0,,,,,,,,0.0,64.4,64.4,,1,64.4
+6414_metalist_kharkiv_2000s_8088274,6414_metalist_kharkiv_2000s,6414,Metalist Kharkiv,2000s,8088274,Oleksandr Horyainov (8088274),,Goalkeeper,Goalkeeper,GK,,,0,,,,,,,,0.0,61.2,61.2,,1,61.2
+6414_metalist_kharkiv_2010s_8088274,6414_metalist_kharkiv_2010s,6414,Metalist Kharkiv,2010s,8088274,Oleksandr Horyainov (8088274),,Goalkeeper,Goalkeeper,GK,,,0,,,,,,,,0.0,59.4,59.4,,1,59.4
+2477_karpaty_lviv_1990s_8926557,2477_karpaty_lviv_1990s,2477,Karpaty Lviv,1990s,8926557,Oleksandr Chyzhevskyi (8926557),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,67.5,67.5,,1,67.5
+2477_karpaty_lviv_2000s_8926557,2477_karpaty_lviv_2000s,2477,Karpaty Lviv,2000s,8926557,Oleksandr Chyzhevskyi (8926557),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,64.6,64.6,,1,64.6
+2477_karpaty_lviv_2000s_8161802,2477_karpaty_lviv_2000s,2477,Karpaty Lviv,2000s,8161802,Oleh Holodyuk (8161802),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,63.1,63.1,,1,63.1
+2477_karpaty_lviv_2010s_8161802,2477_karpaty_lviv_2010s,2477,Karpaty Lviv,2010s,8161802,Oleh Holodyuk (8161802),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,69.4,69.4,,1,69.4
+2227_tavriya_simferopol_1990s_8823936,2227_tavriya_simferopol_1990s,2227,Tavriya Simferopol,1990s,8823936,Oleksandr Gaydash (8823936),,Attack - Centre-Forward,Attack,FW,,,,,,,,,,,,64.4,64.4,,1,64.4
+2227_tavriya_simferopol_1990s_8815625,2227_tavriya_simferopol_1990s,2227,Tavriya Simferopol,1990s,8815625,Oleksandr Holovko (8815625),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,64.4,64.4,,1,64.4
+3592_kryvbas_kryvyi_rig_1990s_8657778,3592_kryvbas_kryvyi_rig_1990s,3592,Kryvbas Kryvyi Rig,1990s,8657778,Oleksandr Granovskyi (8657778),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,58.6,58.6,,1,58.6
+3592_kryvbas_kryvyi_rig_2000s_8657778,3592_kryvbas_kryvyi_rig_2000s,3592,Kryvbas Kryvyi Rig,2000s,8657778,Oleksandr Granovskyi (8657778),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,59.1,59.1,,1,59.1
+4482_volyn_lutsk_1990s_8412376,4482_volyn_lutsk_1990s,4482,Volyn Lutsk,1990s,8412376,Oleh Fedyukov (8412376),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,69.3,69.3,,1,69.3
+4482_volyn_lutsk_2000s_8412376,4482_volyn_lutsk_2000s,4482,Volyn Lutsk,2000s,8412376,Oleh Fedyukov (8412376),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,51.8,51.8,,1,51.8
+4482_volyn_lutsk_1990s_8001537,4482_volyn_lutsk_1990s,4482,Volyn Lutsk,1990s,8001537,Volodymyr Mozolyuk (8001537),,Attack - Centre-Forward,Attack,FW,,,,,,,,,,,,69.2,69.2,,1,69.2
+4482_volyn_lutsk_2000s_8667157,4482_volyn_lutsk_2000s,4482,Volyn Lutsk,2000s,8667157,Vasyl Sachko (8667157),,Attack - Centre-Forward,Attack,FW,,,,,,,,,,,,71.6,71.6,,1,71.6
+4482_volyn_lutsk_2010s_8066564,4482_volyn_lutsk_2010s,4482,Volyn Lutsk,2010s,8066564,Oleksandr Pyschur (8066564),,Attack - Centre-Forward,Attack,FW,,,,,,,,,,,,74.9,74.9,,1,74.9
+6994_metalurg_zaporizhya_1990s_8756659,6994_metalurg_zaporizhya_1990s,6994,Metalurg Zaporizhya,1990s,8756659,Ihor Luchkevych (8756659),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,51.6,51.6,,1,51.6
+6994_metalurg_zaporizhya_1990s_8374660,6994_metalurg_zaporizhya_1990s,6994,Metalurg Zaporizhya,1990s,8374660,Yuriy Markin (8374660),,Defender - Centre-Back,Defender,CB,,,,,,,,,,,,57.7,57.7,,1,57.7
+6994_metalurg_zaporizhya_1990s_8829783,6994_metalurg_zaporizhya_1990s,6994,Metalurg Zaporizhya,1990s,8829783,Andriy Demchenko (8829783),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,51.2,51.2,,1,51.2
+6994_metalurg_zaporizhya_2000s_8829783,6994_metalurg_zaporizhya_2000s,6994,Metalurg Zaporizhya,2000s,8829783,Andriy Demchenko (8829783),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,67.2,67.2,,1,67.2
+6994_metalurg_zaporizhya_1990s_8892959,6994_metalurg_zaporizhya_1990s,6994,Metalurg Zaporizhya,1990s,8892959,Anatoliy Mushchynka (8892959),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,51.2,51.2,,1,51.2

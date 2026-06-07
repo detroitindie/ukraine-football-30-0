@@ -11,6 +11,7 @@ import {
   type SeasonVerdict,
 } from "@/lib/seasonSimulation";
 import { cleanPlayerName } from "@/lib/player-display";
+import { selectSeasonDescription } from "@/lib/season-description";
 
 const verdictKeys: Record<
   SeasonVerdict,
@@ -126,6 +127,7 @@ export function SeasonResultView() {
   }
 
   const { result } = savedSeason;
+  const description = selectSeasonDescription(savedSeason.lineup, result);
   const groupedLineup = lineupGroups.map((group) => ({
     ...group,
     players: group.slots
@@ -182,6 +184,10 @@ export function SeasonResultView() {
         ))}
       </section>
       <p className="result-verdict"><T id={verdictKeys[result.verdict]} /></p>
+      <p className="result-description">
+        <span className="localized-text" data-language="en">{description.en}</span>
+        <span className="localized-text" data-language="ua">{description.ua}</span>
+      </p>
       <section className="result-lineup">
         <h2><T id="result.lineup" /></h2>
         <div className="result-lineup-groups">

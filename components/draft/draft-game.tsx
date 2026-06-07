@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FormationBoard } from "@/components/formation/formation-board";
 import { T } from "@/components/localized-text";
@@ -23,6 +23,7 @@ import {
   safePlayerStat,
   safePlayerText,
 } from "@/lib/player-display";
+import { compareDraftPlayers } from "@/lib/player-sorting";
 
 type DraftGameProps = {
   mode: DraftMode;
@@ -65,6 +66,7 @@ export function DraftGame({ mode }: DraftGameProps) {
   const [currentRoll, setCurrentRoll] = useState<RollPoolEntry | null>(null);
   const [candidate, setCandidate] = useState<DraftPlayer | null>(null);
   const [pickLockedForRoll, setPickLockedForRoll] = useState(false);
+  const formationRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     let cancelled = false;
@@ -133,13 +135,16 @@ export function DraftGame({ mode }: DraftGameProps) {
       return [];
     }
 
-    return (playersByRoll.get(currentRoll.club_decade_id) ?? []).filter(
-      (player) =>
-        !selectedPlayerIds.has(player.player_id) &&
-        remainingSlots.some((slot) => playerFitsSlot(player, slot)),
-    );
+    return (playersByRoll.get(currentRoll.club_decade_id) ?? [])
+      .filter(
+        (player) =>
+          !selectedPlayerIds.has(player.player_id) &&
+          remainingSlots.some((slot) => playerFitsSlot(player, slot)),
+      )
+      .sort(compareDraftPlayers(mode));
   }, [
     currentRoll,
+    mode,
     pickLockedForRoll,
     playersByRoll,
     remainingSlots,
@@ -211,6 +216,29 @@ export function DraftGame({ mode }: DraftGameProps) {
     }));
     setCandidate(null);
     setPickLockedForRoll(true);
+  }
+
+  function selectCandidate(player: DraftPlayer) {
+    const hasValidSlot = remainingSlots.some((slot) => playerFitsSlot(player, slot));
+    setCandidate(player);
+
+    if (
+      !hasValidSlot
+      || !window.matchMedia("(max-width: 900px)").matches
+      || !formationRef.current
+    ) {
+      return;
+    }
+
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    window.requestAnimationFrame(() => {
+      formationRef.current?.scrollIntoView({
+        behavior: reducedMotion ? "auto" : "smooth",
+        block: "start",
+      });
+    });
   }
 
   function filledForLine(line: FormationLine) {
@@ -300,6 +328,7 @@ export function DraftGame({ mode }: DraftGameProps) {
 
         <FormationBoard
           lineup={lineup}
+          sectionRef={formationRef}
           slots={data.slots}
           validSlotIds={validSlotIds}
           onSlotClick={lockCandidate}
@@ -330,8 +359,11 @@ export function DraftGame({ mode }: DraftGameProps) {
               const position = safePlayerText(player.game_position, "POS");
               const club = safePlayerText(player.team_name, "Unknown club");
               const decade = safePlayerText(player.decade, "Unknown decade");
-              const showCleanSheets =
-                position === "GK" && cleanSheets !== null;
+              const isGoalkeeper = position === "GK";
+              const relevantStats = isGoalkeeper
+                ? [goals, assists, cleanSheets]
+                : [goals, assists];
+              const hasAnyStats = relevantStats.some((value) => value !== null);
 
               return (
                 <button
@@ -341,23 +373,33 @@ export function DraftGame({ mode }: DraftGameProps) {
                     `player-${player.player_id}`,
                   )}
                   type="button"
-                  onClick={() => setCandidate(player)}
+                  onClick={() => selectCandidate(player)}
                 >
                   <span className="available-position">{position}</span>
                   <span className="available-player-copy">
                     <strong>{cleanPlayerName(player.player_name)}</strong>
                     <span>{club} / {decade}</span>
-                    {mode === "normal" && (
+                    {mode === "normal" && hasAnyStats && (
                       <small>
-                        {goals !== null && (
-                          <span><T id="draft.statGoals" /> {goals}</span>
+                        <span>
+                          <T id="draft.statGoals" />{" "}
+                          {goals ?? <T id="draft.statUnavailable" />}
+                        </span>
+                        <span>
+                          <T id="draft.statAssists" />{" "}
+                          {assists ?? <T id="draft.statUnavailable" />}
+                        </span>
+                        {isGoalkeeper && (
+                          <span>
+                            <T id="draft.statCleanSheets" />{" "}
+                            {cleanSheets ?? <T id="draft.statUnavailable" />}
+                          </span>
                         )}
-                        {assists !== null && (
-                          <span><T id="draft.statAssists" /> {assists}</span>
-                        )}
-                        {showCleanSheets && (
-                          <span><T id="draft.statCleanSheets" /> {cleanSheets}</span>
-                        )}
+                      </small>
+                    )}
+                    {mode === "normal" && !hasAnyStats && (
+                      <small className="available-stats-missing">
+                        <T id="draft.statsNotReconstructed" />
                       </small>
                     )}
                   </span>

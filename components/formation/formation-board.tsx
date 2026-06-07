@@ -1,3 +1,4 @@
+import type { Ref } from "react";
 import { T } from "@/components/localized-text";
 import type {
   FormationLine,
@@ -14,6 +15,7 @@ type FormationBoardProps = {
   lineup: Lineup;
   validSlotIds: Set<string>;
   onSlotClick: (slotId: string) => void;
+  sectionRef?: Ref<HTMLElement>;
 };
 
 const lineOrder: FormationLine[] = [
@@ -35,9 +37,10 @@ export function FormationBoard({
   lineup,
   validSlotIds,
   onSlotClick,
+  sectionRef,
 }: FormationBoardProps) {
   return (
-    <section className="formation-shell">
+    <section className="formation-shell" ref={sectionRef}>
       <div className="formation-toolbar">
         <div>
           <span className="formation-label"><T id="draft.formation" /></span>

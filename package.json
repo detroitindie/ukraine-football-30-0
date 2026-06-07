@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "validate:patch-1-1": "python scripts/validate_patch_1_1.py"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

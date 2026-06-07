@@ -671,6 +671,7 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .draft-status-column {
   display: grid;
+  min-width: 0;
   min-height: 0;
   align-content: start;
   gap: 12px;
@@ -737,11 +738,14 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .draft-context {
   display: grid;
+  min-width: 0;
   grid-template-columns: 1fr;
   gap: 8px;
 }
 
 .draft-context > div {
+  min-width: 0;
+  max-width: 100%;
   padding: 13px 14px;
   border: 2px solid color-mix(in srgb, var(--blue) 45%, var(--line));
   border-radius: 12px;
@@ -751,20 +755,25 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .draft-context span {
   display: block;
+  max-width: 100%;
   color: var(--blue);
   font-size: 10px;
   font-weight: 800;
   letter-spacing: 0.07em;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 .draft-context strong {
   display: block;
-  overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
   margin-top: 4px;
   font-size: 14px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
 }
 
 .available-panel {
@@ -907,6 +916,13 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .available-player-copy small span {
   display: inline;
+}
+
+.available-player-copy .available-stats-missing {
+  margin-top: 3px;
+  color: var(--muted);
+  line-height: 1.25;
+  white-space: normal;
 }
 
 .available-select {
@@ -1060,6 +1076,20 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .result-page .stats-grid {
   width: 100%;
+}
+
+.result-description {
+  width: 100%;
+  max-width: 880px;
+  margin: 10px 0 0;
+  padding: 14px 16px;
+  border-left: 4px solid var(--yellow);
+  border-radius: 0 10px 10px 0;
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.55;
 }
 
 .result-lineup {
@@ -1467,6 +1497,11 @@ html[data-language="ua"] .draft-mode-prefix {
 
   .result-line span {
     white-space: normal;
+  }
+
+  .result-description {
+    padding: 12px 13px;
+    font-size: 13px;
   }
 
   .result-actions {
