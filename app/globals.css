@@ -1374,6 +1374,31 @@ html[data-language="ua"] .draft-mode-prefix {
   white-space: nowrap;
 }
 
+.leaderboard-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.leaderboard-pagination .button {
+  min-width: 112px;
+  min-height: 40px;
+}
+
+.leaderboard-pagination .button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.leaderboard-pagination span {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
 .leaderboard-submit {
   width: 100%;
   margin-top: 18px;
@@ -1828,6 +1853,23 @@ html[data-language="ua"] .draft-mode-prefix {
   .leaderboard-compact-list li {
     grid-template-columns: 22px minmax(0, 1fr) auto;
     gap: 8px;
+  }
+
+  .leaderboard-pagination {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .leaderboard-pagination span {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    text-align: center;
+  }
+
+  .leaderboard-pagination .button {
+    min-width: 0;
+    width: 100%;
   }
 
   .leaderboard-submit-row {

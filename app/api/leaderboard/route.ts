@@ -21,6 +21,11 @@ import runtimeRollPool from "@/public/data/roll_pool.json";
 
 export const dynamic = "force-dynamic";
 
+const DEFAULT_LIMIT = 10;
+const MAX_PAGE_SIZE = 100;
+const MAX_PAGE = 10_000;
+const MAX_OFFSET = 1_000_000;
+
 const playersByEntryId = new Map(
   (runtimePlayers as DraftPlayer[]).map((player) => [
     player.club_decade_player_id,
@@ -33,6 +38,24 @@ const reachableClubDecades = new Set(
 
 function errorResponse(message: string, status: number) {
   return Response.json({ error: message }, { status });
+}
+
+function integerParameter(
+  value: string | null,
+  fallback: number,
+  minimum: number,
+  maximum: number,
+) {
+  if (value === null) {
+    return fallback;
+  }
+  if (!/^\d+$/.test(value)) {
+    return null;
+  }
+  const parsed = Number(value);
+  return Number.isSafeInteger(parsed) && parsed >= minimum && parsed <= maximum
+    ? parsed
+    : null;
 }
 
 function canonicalLineup(submitted: Lineup): Lineup | null {
@@ -64,13 +87,66 @@ export async function GET(request: Request) {
   if (!isLeaderboardMode(mode)) {
     return errorResponse("Invalid leaderboard mode", 400);
   }
-  const requestedLimit = Number(url.searchParams.get("limit") ?? 10);
-  const limit = Number.isInteger(requestedLimit)
-    ? Math.min(100, Math.max(1, requestedLimit))
-    : 10;
+
+  const usesPagePagination = url.searchParams.has("page")
+    || url.searchParams.has("pageSize");
+  const usesOffsetPagination = url.searchParams.has("limit")
+    || url.searchParams.has("offset");
+  if (usesPagePagination && usesOffsetPagination) {
+    return errorResponse("Use page/pageSize or limit/offset, not both", 400);
+  }
+
+  const page = integerParameter(
+    url.searchParams.get("page"),
+    1,
+    1,
+    MAX_PAGE,
+  );
+  const pageSize = integerParameter(
+    usesPagePagination
+      ? url.searchParams.get("pageSize")
+      : url.searchParams.get("limit"),
+    DEFAULT_LIMIT,
+    1,
+    MAX_PAGE_SIZE,
+  );
+  const requestedOffset = integerParameter(
+    url.searchParams.get("offset"),
+    0,
+    0,
+    MAX_OFFSET,
+  );
+  if (page === null || pageSize === null || requestedOffset === null) {
+    return errorResponse("Invalid leaderboard pagination", 400);
+  }
+
+  const offset = usesPagePagination
+    ? (page - 1) * pageSize
+    : requestedOffset;
+  if (offset > MAX_OFFSET) {
+    return errorResponse("Invalid leaderboard pagination", 400);
+  }
 
   try {
-    return Response.json({ entries: await readLeaderboard(mode, limit) });
+    const { entries, totalCount } = await readLeaderboard(
+      mode,
+      pageSize,
+      offset,
+    );
+    const responsePage = usesPagePagination
+      ? page
+      : Math.floor(offset / pageSize) + 1;
+
+    return Response.json({
+      entries,
+      totalCount,
+      page: responsePage,
+      pageSize,
+      hasNextPage: totalCount === null
+        ? entries.length === pageSize
+        : offset + entries.length < totalCount,
+      hasPreviousPage: offset > 0,
+    });
   } catch (error) {
     if (error instanceof LeaderboardConfigurationError) {
       return errorResponse("Leaderboard is not configured", 503);

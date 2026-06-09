@@ -62,7 +62,8 @@ function isLeaderboardEntry(value: unknown): value is LeaderboardEntry {
 export async function readLeaderboard(
   mode: LeaderboardMode,
   limit: number,
-): Promise<LeaderboardEntry[]> {
+  offset: number,
+): Promise<{ entries: LeaderboardEntry[]; totalCount: number | null }> {
   const config = configuration();
   if (!config) {
     throw new LeaderboardConfigurationError("Supabase is not configured");
@@ -73,19 +74,34 @@ export async function readLeaderboard(
     mode: `eq.${mode}`,
     order: "wins.desc,draws.desc,losses.asc,score_points.desc,created_at.asc",
     limit: String(limit),
+    offset: String(offset),
   });
   const response = await fetch(
     `${config.url}/rest/v1/${TABLE_NAME}?${query.toString()}`,
     {
-      headers: headers(config.key),
+      headers: {
+        ...headers(config.key),
+        Prefer: "count=exact",
+      },
       cache: "no-store",
     },
   );
-  if (!response.ok) {
+  const contentRange = response.headers.get("content-range");
+  const totalText = contentRange?.split("/")[1];
+  const totalCount = totalText && totalText !== "*"
+    ? Number.parseInt(totalText, 10)
+    : null;
+
+  if (!response.ok && response.status !== 416) {
     throw new LeaderboardStorageError(`Supabase read failed: ${response.status}`);
   }
-  const rows = await response.json() as unknown;
-  return Array.isArray(rows) ? rows.filter(isLeaderboardEntry) : [];
+  const rows = response.ok ? await response.json() as unknown : [];
+  const entries = Array.isArray(rows) ? rows.filter(isLeaderboardEntry) : [];
+
+  return {
+    entries,
+    totalCount: Number.isInteger(totalCount) ? totalCount : null,
+  };
 }
 
 type InsertEntry = {
