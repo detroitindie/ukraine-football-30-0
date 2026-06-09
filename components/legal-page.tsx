@@ -18,6 +18,7 @@ const sections = {
     { name: "Five" },
     { name: "Six" },
     { name: "Seven", email: true },
+    { name: "Eight" },
   ],
   cookies: [
     {

@@ -1,4 +1,4 @@
-import type { DraftPlayer, Lineup } from "@/lib/draft-types";
+import type { DraftMode, DraftPlayer, Lineup } from "@/lib/draft-types";
 
 export const SEASON_RESULT_STORAGE_KEY = "uf30-season-result-v1";
 
@@ -21,6 +21,7 @@ export type SeasonResult = {
 };
 
 export type SavedSeason = {
+  mode: DraftMode;
   lineup: Lineup;
   result: SeasonResult;
 };

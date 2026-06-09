@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useMemo, useState, useSyncExternalStore } from "react";
+import { LeaderboardBoard } from "@/components/leaderboard/leaderboard-board";
+import { ResultSubmission } from "@/components/leaderboard/result-submission";
 import { T } from "@/components/localized-text";
 import {
   SEASON_RESULT_STORAGE_KEY,
@@ -58,7 +60,10 @@ function parseSavedSeason(rawValue: string | null): SavedSeason | null {
       return null;
     }
 
-    return saved as SavedSeason;
+    return {
+      ...saved,
+      mode: saved.mode === "hardcore" ? "hardcore" : "normal",
+    } as SavedSeason;
   } catch {
     return null;
   }
@@ -199,6 +204,8 @@ export function SeasonResultView() {
           ))}
         </div>
       </section>
+      <ResultSubmission season={savedSeason} />
+      <LeaderboardBoard compact initialMode={savedSeason.mode} />
       <div className="result-actions">
         <button className="button button-primary" type="button" onClick={shareResult}>
           <T id="result.share" />

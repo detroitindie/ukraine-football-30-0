@@ -18,6 +18,10 @@ export const pageTitles = {
     en: "Season Result | 30-0: Ukrainian League",
     ua: "Результат сезону | 30-0: Українська ліга",
   },
+  "/leaderboard": {
+    en: "Global Leaderboard | 30-0: Ukrainian League",
+    ua: "Глобальна таблиця лідерів | 30-0: Українська ліга",
+  },
   "/rules": {
     en: "Rules of the challenge | 30-0: Ukrainian League",
     ua: "Правила випробування | 30-0: Українська ліга",
