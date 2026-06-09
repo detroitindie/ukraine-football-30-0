@@ -16,6 +16,9 @@ MANUAL_PATH = AUDIT_DIR / "generated_patch_1_1_manual_review.csv"
 SUMMARY_PATH = AUDIT_DIR / "generated_patch_1_1_summary.md"
 PLAYERS_CSV = ROOT / "exports" / "club_decade_players.csv"
 PLAYERS_JSON = ROOT / "public" / "data" / "players.json"
+PATCH_1_2A_AUTO_FIXED = (
+    ROOT / "data-audit" / "patch-1-2a" / "duplicate_players_auto_fixed.csv"
+)
 
 
 def read_csv(path: Path) -> list[dict[str, str]]:
@@ -44,16 +47,26 @@ def main() -> None:
     runtime_rows = json.loads(PLAYERS_JSON.read_text(encoding="utf-8"))
     production_by_id = {key(row): row for row in production_rows}
     runtime_by_id = {key(row): row for row in runtime_rows}
+    superseded_ids = set()
+    if PATCH_1_2A_AUTO_FIXED.exists():
+        superseded_ids = {
+            f'{row["club_decade_id"]}_{row["removed_player_id"]}'
+            for row in read_csv(PATCH_1_2A_AUTO_FIXED)
+        }
 
     review_ids = [key(row) for row in review_rows]
     if len(review_ids) != len(set(review_ids)):
         raise SystemExit("Duplicate club_decade_player_id values in import review")
 
     missing_production = [
-        entry_id for entry_id in review_ids if entry_id not in production_by_id
+        entry_id
+        for entry_id in review_ids
+        if entry_id not in production_by_id and entry_id not in superseded_ids
     ]
     missing_runtime = [
-        entry_id for entry_id in review_ids if entry_id not in runtime_by_id
+        entry_id
+        for entry_id in review_ids
+        if entry_id not in runtime_by_id and entry_id not in superseded_ids
     ]
     if missing_production or missing_runtime:
         raise SystemExit(
@@ -67,6 +80,8 @@ def main() -> None:
         rating = float(row["provisional_rating"])
         if not 48 <= rating <= 92:
             raise SystemExit(f"Out-of-range rating for {row['player_name']}: {rating}")
+        if key(row) in superseded_ids:
+            continue
         production = production_by_id[key(row)]
         for stat in ("goals", "assists", "clean_sheets"):
             if row[stat] == "" and production[stat] != "":

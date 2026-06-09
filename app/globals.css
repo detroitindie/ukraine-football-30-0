@@ -1090,6 +1090,7 @@ html[data-language="ua"] .draft-mode-prefix {
   font-size: 14px;
   font-weight: 700;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .result-lineup {
