@@ -4,7 +4,7 @@
     "team_id": 9007,
     "team_name": "Arsenal Kyiv ( -2019)",
     "decade": "2000s",
-    "players_count": 44
+    "players_count": 45
   },
   {
     "club_decade_id": "9007_arsenal_kyiv__2019_2010s",
@@ -18,28 +18,28 @@
     "team_id": 3593,
     "team_name": "Borysfen Boryspil (- 2007)",
     "decade": "2000s",
-    "players_count": 11
+    "players_count": 13
   },
   {
     "club_decade_id": "6992_chornomorets_odesa_1990s",
     "team_id": 6992,
     "team_name": "Chornomorets Odesa",
     "decade": "1990s",
-    "players_count": 14
+    "players_count": 20
   },
   {
     "club_decade_id": "6992_chornomorets_odesa_2000s",
     "team_id": 6992,
     "team_name": "Chornomorets Odesa",
     "decade": "2000s",
-    "players_count": 25
+    "players_count": 30
   },
   {
     "club_decade_id": "6992_chornomorets_odesa_2010s",
     "team_id": 6992,
     "team_name": "Chornomorets Odesa",
     "decade": "2010s",
-    "players_count": 65
+    "players_count": 70
   },
   {
     "club_decade_id": "6992_chornomorets_odesa_2020s",
@@ -53,7 +53,7 @@
     "team_id": 16239,
     "team_name": "Desna Chernigiv",
     "decade": "2010s",
-    "players_count": 32
+    "players_count": 34
   },
   {
     "club_decade_id": "16239_desna_chernigiv_2020s",
@@ -88,35 +88,35 @@
     "team_id": 339,
     "team_name": "Dnipro Dnipropetrovsk (- 2020)",
     "decade": "2010s",
-    "players_count": 71
+    "players_count": 73
   },
   {
     "club_decade_id": "338_dynamo_kyiv_1990s",
     "team_id": 338,
     "team_name": "Dynamo Kyiv",
     "decade": "1990s",
-    "players_count": 17
+    "players_count": 27
   },
   {
     "club_decade_id": "338_dynamo_kyiv_2000s",
     "team_id": 338,
     "team_name": "Dynamo Kyiv",
     "decade": "2000s",
-    "players_count": 60
+    "players_count": 73
   },
   {
     "club_decade_id": "338_dynamo_kyiv_2010s",
     "team_id": 338,
     "team_name": "Dynamo Kyiv",
     "decade": "2010s",
-    "players_count": 85
+    "players_count": 91
   },
   {
     "club_decade_id": "338_dynamo_kyiv_2020s",
     "team_id": 338,
     "team_name": "Dynamo Kyiv",
     "decade": "2020s",
-    "players_count": 45
+    "players_count": 46
   },
   {
     "club_decade_id": "84122_epicentr_kamyanets_podilskyi_2020s",
@@ -158,14 +158,14 @@
     "team_id": 18303,
     "team_name": "FC Oleksandriya",
     "decade": "2010s",
-    "players_count": 44
+    "players_count": 45
   },
   {
     "club_decade_id": "18303_fc_oleksandriya_2020s",
     "team_id": 18303,
     "team_name": "FC Oleksandriya",
     "decade": "2020s",
-    "players_count": 98
+    "players_count": 99
   },
   {
     "club_decade_id": "16245_fc_sevastopol__2014_2010s",
@@ -221,21 +221,21 @@
     "team_id": 2477,
     "team_name": "Karpaty Lviv",
     "decade": "1990s",
-    "players_count": 18
+    "players_count": 19
   },
   {
     "club_decade_id": "2477_karpaty_lviv_2000s",
     "team_id": 2477,
     "team_name": "Karpaty Lviv",
     "decade": "2000s",
-    "players_count": 50
+    "players_count": 55
   },
   {
     "club_decade_id": "2477_karpaty_lviv_2010s",
     "team_id": 2477,
     "team_name": "Karpaty Lviv",
     "decade": "2010s",
-    "players_count": 104
+    "players_count": 108
   },
   {
     "club_decade_id": "85465_karpaty_lviv_2020s",
@@ -263,7 +263,7 @@
     "team_id": 3592,
     "team_name": "Kryvbas Kryvyi Rig",
     "decade": "2000s",
-    "players_count": 83
+    "players_count": 86
   },
   {
     "club_decade_id": "3592_kryvbas_kryvyi_rig_2010s",
@@ -305,14 +305,14 @@
     "team_id": 6414,
     "team_name": "Metalist Kharkiv",
     "decade": "2000s",
-    "players_count": 63
+    "players_count": 67
   },
   {
     "club_decade_id": "6414_metalist_kharkiv_2010s",
     "team_id": 6414,
     "team_name": "Metalist Kharkiv",
     "decade": "2010s",
-    "players_count": 85
+    "players_count": 87
   },
   {
     "club_decade_id": "83678_metalist_kharkiv_2020s",
@@ -326,42 +326,42 @@
     "team_id": 2783,
     "team_name": "Metalurg Donetsk (- 2015)",
     "decade": "1990s",
-    "players_count": 11
+    "players_count": 12
   },
   {
     "club_decade_id": "2783_metalurg_donetsk__2015_2000s",
     "team_id": 2783,
     "team_name": "Metalurg Donetsk (- 2015)",
     "decade": "2000s",
-    "players_count": 46
+    "players_count": 49
   },
   {
     "club_decade_id": "2783_metalurg_donetsk__2015_2010s",
     "team_id": 2783,
     "team_name": "Metalurg Donetsk (- 2015)",
     "decade": "2010s",
-    "players_count": 35
+    "players_count": 37
   },
   {
     "club_decade_id": "6994_metalurg_zaporizhya_1990s",
     "team_id": 6994,
     "team_name": "Metalurg Zaporizhya",
     "decade": "1990s",
-    "players_count": 12
+    "players_count": 16
   },
   {
     "club_decade_id": "6994_metalurg_zaporizhya_2000s",
     "team_id": 6994,
     "team_name": "Metalurg Zaporizhya",
     "decade": "2000s",
-    "players_count": 31
+    "players_count": 34
   },
   {
     "club_decade_id": "6994_metalurg_zaporizhya_2010s",
     "team_id": 6994,
     "team_name": "Metalurg Zaporizhya",
     "decade": "2010s",
-    "players_count": 43
+    "players_count": 45
   },
   {
     "club_decade_id": "26459_nk_veres_rivne_2010s",
@@ -438,7 +438,7 @@
     "team_id": 18303,
     "team_name": "PFC Oleksandriya",
     "decade": "2010s",
-    "players_count": 13
+    "players_count": 14
   },
   {
     "club_decade_id": "16247_pfc_stal_kamyanske_2018_2010s",
@@ -473,14 +473,14 @@
     "team_id": 60551,
     "team_name": "SC Dnipro-1",
     "decade": "2010s",
-    "players_count": 27
+    "players_count": 29
   },
   {
     "club_decade_id": "60551_sc_dnipro_1_2020s",
     "team_id": 60551,
     "team_name": "SC Dnipro-1",
     "decade": "2020s",
-    "players_count": 79
+    "players_count": 81
   },
   {
     "club_decade_id": "81401_sc_poltava_2020s",
@@ -508,21 +508,21 @@
     "team_id": 660,
     "team_name": "Shakhtar Donetsk",
     "decade": "1990s",
-    "players_count": 14
+    "players_count": 20
   },
   {
     "club_decade_id": "660_shakhtar_donetsk_2000s",
     "team_id": 660,
     "team_name": "Shakhtar Donetsk",
     "decade": "2000s",
-    "players_count": 50
+    "players_count": 58
   },
   {
     "club_decade_id": "660_shakhtar_donetsk_2010s",
     "team_id": 660,
     "team_name": "Shakhtar Donetsk",
     "decade": "2010s",
-    "players_count": 88
+    "players_count": 89
   },
   {
     "club_decade_id": "660_shakhtar_donetsk_2020s",
@@ -557,28 +557,28 @@
     "team_id": 4482,
     "team_name": "Volyn Lutsk",
     "decade": "2000s",
-    "players_count": 19
+    "players_count": 21
   },
   {
     "club_decade_id": "4482_volyn_lutsk_2010s",
     "team_id": 4482,
     "team_name": "Volyn Lutsk",
     "decade": "2010s",
-    "players_count": 50
+    "players_count": 51
   },
   {
     "club_decade_id": "2740_vorskla_poltava_2000s",
     "team_id": 2740,
     "team_name": "Vorskla Poltava",
     "decade": "2000s",
-    "players_count": 34
+    "players_count": 35
   },
   {
     "club_decade_id": "2740_vorskla_poltava_2010s",
     "team_id": 2740,
     "team_name": "Vorskla Poltava",
     "decade": "2010s",
-    "players_count": 107
+    "players_count": 108
   },
   {
     "club_decade_id": "2740_vorskla_poltava_2020s",

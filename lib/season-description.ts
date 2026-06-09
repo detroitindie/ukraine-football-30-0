@@ -3,6 +3,16 @@ import type { SeasonResult, SeasonVerdict } from "@/lib/seasonSimulation";
 
 type TeamProfile = {
   verdict: SeasonVerdict;
+  tier:
+    | "perfect"
+    | "dominantTitle"
+    | "championship"
+    | "titleChallenge"
+    | "europe"
+    | "strongMidTable"
+    | "midTable"
+    | "survival"
+    | "relegation";
   bestPosition: string;
   overall: number;
   attack: number;
@@ -13,12 +23,19 @@ type TeamProfile = {
   weak: boolean;
   lowScoringSolid: boolean;
   chaotic: boolean;
+  strongAttack: boolean;
+  strongDefense: boolean;
+  eliteGoalkeeper: boolean;
+  dominantMidfield: boolean;
+  overachieving: boolean;
+  underachieving: boolean;
 };
 
 type Description = {
   en: string;
   ua: string;
   matches: (profile: TeamProfile) => boolean;
+  priority?: number;
 };
 
 const rating = (player: DraftPlayer | undefined) =>
@@ -42,11 +59,30 @@ function teamProfile(lineup: Lineup, result: SeasonResult): TeamProfile {
   const goalkeeper = average([lineup.gk]);
   const midfield = average([lineup.lm, lineup.cm, lineup.am_cm, lineup.rm]);
   const units = [attack, defense, goalkeeper, midfield];
+  const overall = average(players);
+  const tier = result.wins === 30
+    ? "perfect"
+    : result.verdict === "championship" && (result.points >= 80 || result.wins >= 25)
+      ? "dominantTitle"
+      : result.verdict === "championship"
+        ? "championship"
+        : result.verdict === "europe" && result.points >= 57
+          ? "titleChallenge"
+          : result.verdict === "europe"
+            ? "europe"
+            : result.verdict === "midTable" && result.points >= 42
+              ? "strongMidTable"
+              : result.verdict === "midTable"
+                ? "midTable"
+                : result.points >= 24
+                  ? "survival"
+                  : "relegation";
 
   return {
     verdict: result.verdict,
+    tier,
     bestPosition: bestPlayer?.game_position ?? "",
-    overall: average(players),
+    overall,
     attack,
     defense,
     goalkeeper,
@@ -57,10 +93,190 @@ function teamProfile(lineup: Lineup, result: SeasonResult): TeamProfile {
     chaotic:
       (result.goalsFor >= 44 && result.goalsAgainst >= 40)
       || attack - defense >= 9,
+    strongAttack: attack >= 75 || result.goalsFor >= 52,
+    strongDefense: defense >= 74 || result.goalsAgainst <= 27,
+    eliteGoalkeeper: goalkeeper >= 80,
+    dominantMidfield: midfield >= 76 && midfield >= attack && midfield >= defense,
+    overachieving:
+      (result.verdict === "championship" && overall < 72)
+      || (result.verdict === "europe" && overall < 67)
+      || (result.verdict === "midTable" && overall < 61),
+    underachieving:
+      (result.verdict === "midTable" && overall >= 72)
+      || (result.verdict === "relegation" && overall >= 65),
   };
 }
 
 const defaults: Description[] = [
+  {
+    en: "Thirty matches, thirty wins, no loose ends. Perfection stopped being a target and became the weekly routine.",
+    ua: "Тридцять матчів, тридцять перемог, жодних недомовок. Досконалість перестала бути метою й стала щотижневою рутиною.",
+    matches: (profile) => profile.tier === "perfect",
+    priority: 10,
+  },
+  {
+    en: "A flawless season, signed and sealed. The opposition kept changing; the result stubbornly refused to.",
+    ua: "Бездоганний сезон із підписом і печаткою. Суперники змінювалися, результат уперто залишався тим самим.",
+    matches: (profile) => profile.tier === "perfect",
+    priority: 10,
+  },
+  {
+    en: "Champions at full volume. The title race became a procession long before the final whistle of the season.",
+    ua: "Чемпіони на повній гучності. Титульна гонка перетворилася на ходу переможців задовго до останнього свистка сезону.",
+    matches: (profile) => profile.tier === "dominantTitle",
+    priority: 8,
+  },
+  {
+    en: "The trophy was earned with margin to spare. Even the difficult weeks looked suspiciously comfortable.",
+    ua: "Трофей здобуто із солідним запасом. Навіть складні тижні виглядали підозріло комфортними.",
+    matches: (profile) => profile.tier === "dominantTitle",
+    priority: 8,
+  },
+  {
+    en: "The title challenge had substance, not just noise. One sharper run might have turned a fine season into a parade.",
+    ua: "У чемпіонських амбіціях було більше змісту, ніж шуму. Ще одна вдала серія могла перетворити сильний сезон на парад.",
+    matches: (profile) => profile.tier === "titleChallenge",
+    priority: 7,
+  },
+  {
+    en: "Close enough to dream, not quite ruthless enough to reign. The leaders were made to look over their shoulders.",
+    ua: "Достатньо близько, щоб мріяти, але не настільки безжально, щоб царювати. Лідерів принаймні змусили озиратися.",
+    matches: (profile) => profile.tier === "titleChallenge",
+    priority: 7,
+  },
+  {
+    en: "The attack wrote the headlines and rarely needed an editor. Goals arrived in waves, along with a title nobody could seriously dispute.",
+    ua: "Атака сама писала заголовки й майже не потребувала редактора. Голи приходили хвилями, а з ними й титул без серйозних заперечень.",
+    matches: (profile) =>
+      profile.verdict === "championship" && profile.strongAttack,
+    priority: 6,
+  },
+  {
+    en: "The title was protected before it was celebrated. A disciplined back line turned narrow leads into a season-long habit.",
+    ua: "Титул спочатку захистили, а вже потім відсвяткували. Дисциплінована оборона перетворила мінімальні переваги на сезонну звичку.",
+    matches: (profile) =>
+      profile.verdict === "championship" && profile.strongDefense,
+    priority: 6,
+  },
+  {
+    en: "The goalkeeper made difficult saves look administrative. Behind that security, the rest of the team played like champions.",
+    ua: "Воротар перетворив складні сейви на адміністративну процедуру. За такої надійності решта команди могла грати по-чемпіонськи.",
+    matches: (profile) =>
+      profile.verdict === "championship" && profile.eliteGoalkeeper,
+    priority: 6,
+  },
+  {
+    en: "The midfield ran the season like a control room. Matches were managed, accelerated and closed with impressive authority.",
+    ua: "Півзахист керував сезоном, наче диспетчерська. Матчі контролювали, прискорювали й закривали з переконливою владністю.",
+    matches: (profile) =>
+      profile.verdict === "championship" && profile.dominantMidfield,
+    priority: 6,
+  },
+  {
+    en: "No obvious weakness, no need for excuses. Balance carried this team through the long weeks and onto the top step.",
+    ua: "Без очевидних слабкостей і без потреби у виправданнях. Баланс провів команду крізь довгу дистанцію на найвищу сходинку.",
+    matches: (profile) =>
+      profile.verdict === "championship" && profile.balanced,
+    priority: 5,
+  },
+  {
+    en: "Champions by results, overachievers by reputation. The table confirms that good organisation can still embarrass grander plans.",
+    ua: "Чемпіони за результатом, надможливості за репутацією. Таблиця підтвердила: добра організація й досі вміє псувати чужі великі плани.",
+    matches: (profile) =>
+      profile.verdict === "championship" && profile.overachieving,
+    priority: 6,
+  },
+  {
+    en: "European qualification secured with attacking intent. Subtlety was optional; creating danger was not.",
+    ua: "Єврокубкову путівку здобуто з атакувальним наміром. Вишуканість була необов'язковою, небезпека біля воріт — постійною.",
+    matches: (profile) => profile.verdict === "europe" && profile.strongAttack,
+    priority: 5,
+  },
+  {
+    en: "Europe was reached through locked doors and narrow margins. The defence made sure one goal often felt like enough.",
+    ua: "До Європи дісталися через зачинені двері й мінімальні рахунки. Захист подбав, щоб одного гола часто було достатньо.",
+    matches: (profile) => profile.verdict === "europe" && profile.strongDefense,
+    priority: 5,
+  },
+  {
+    en: "The goalkeeper collected points as efficiently as saves. European qualification owes plenty to the last line.",
+    ua: "Воротар збирав очки не менш вправно, ніж сейви. Єврокубкова путівка багато чим завдячує останньому рубежу.",
+    matches: (profile) =>
+      profile.verdict === "europe" && profile.eliteGoalkeeper,
+    priority: 5,
+  },
+  {
+    en: "The midfield supplied the map and the tempo. Europe is the reward for a season played with a clear idea.",
+    ua: "Півзахист давав і карту, і темп. Єврокубки стали нагородою за сезон, проведений із чіткою ідеєю.",
+    matches: (profile) =>
+      profile.verdict === "europe" && profile.dominantMidfield,
+    priority: 5,
+  },
+  {
+    en: "A European place from a squad that looked stronger together than on paper. The table has a soft spot for collective nerve.",
+    ua: "Єврокубкове місце для команди, яка разом виглядала сильнішою, ніж на папері. Таблиця інколи винагороджує колективний характер.",
+    matches: (profile) =>
+      profile.verdict === "europe" && profile.overachieving,
+    priority: 5,
+  },
+  {
+    en: "A lively season with the handbrake apparently removed. The goals entertained; the defending occasionally joined the audience.",
+    ua: "Жвавий сезон із демонстративно знятим ручником. Голи розважали, а захист часом приєднувався до глядачів.",
+    matches: (profile) => profile.verdict === "midTable" && profile.chaotic,
+    priority: 5,
+  },
+  {
+    en: "Few goals, few gifts, few reasons to panic. It was not box-office football, but the foundation held.",
+    ua: "Мало голів, мало подарунків, мало причин для паніки. Не касове видовище, зате фундамент вистояв.",
+    matches: (profile) =>
+      profile.verdict === "midTable" && profile.lowScoringSolid,
+    priority: 5,
+  },
+  {
+    en: "A respectable finish with hints of something better. The team spent enough time looking upward to keep next season interesting.",
+    ua: "Пристойний фініш із натяками на більше. Команда досить часто дивилася вгору, щоб наступний сезон не здавався формальністю.",
+    matches: (profile) => profile.tier === "strongMidTable",
+    priority: 4,
+  },
+  {
+    en: "A season caught between ambition and reality: bright spells were there, but the table rarely rewards inconsistency.",
+    ua: "Команда зависла між амбіціями й реальністю: місцями було цікаво, але таблиця не пробачає пауз у грі.",
+    matches: (profile) => profile.tier === "midTable",
+    priority: 3,
+  },
+  {
+    en: "Too much talent for such an ordinary address in the table. The season promised progress and delivered a waiting room.",
+    ua: "Забагато таланту для такої буденної адреси в таблиці. Сезон обіцяв поступ, а запропонував зал очікування.",
+    matches: (profile) =>
+      profile.verdict === "midTable" && profile.underachieving,
+    priority: 6,
+  },
+  {
+    en: "Survival was secured without elegance but with enough stubbornness. In this part of the table, style points remain fictional.",
+    ua: "Виживання забезпечили без елегантності, зате з достатньою впертістю. У цій частині таблиці бали за стиль усе одно вигадані.",
+    matches: (profile) => profile.tier === "survival",
+    priority: 5,
+  },
+  {
+    en: "The goalkeeper kept the trapdoor closed one save at a time. It was tense, untidy and ultimately enough.",
+    ua: "Воротар тримав люк зачиненим сейв за сейвом. Було нервово, неохайно, але зрештою достатньо.",
+    matches: (profile) =>
+      profile.verdict === "relegation" && profile.eliteGoalkeeper,
+    priority: 6,
+  },
+  {
+    en: "The relegation battle exposed every loose bolt in the structure. There was effort, but the table prefers repairs to promises.",
+    ua: "Боротьба за виживання показала кожен розхитаний болт у конструкції. Старання були, але таблиця цінує ремонт більше за обіцянки.",
+    matches: (profile) => profile.tier === "relegation",
+    priority: 4,
+  },
+  {
+    en: "A squad built for calmer waters somehow found the emergency exit. Underachievement is the polite word; the table is less diplomatic.",
+    ua: "Склад для спокійніших вод чомусь шукав аварійний вихід. Недовиконання — слово ввічливе, таблиця висловилася різкіше.",
+    matches: (profile) =>
+      profile.verdict === "relegation" && profile.underachieving,
+    priority: 6,
+  },
   {
     en: "Champions with authority. The squad found answers in every line and kept setting the pace when the pressure rose.",
     ua: "Чемпіони без зайвих запитань. Команда знаходила відповіді в кожній лінії та додавала саме тоді, коли зростав тиск.",
@@ -136,7 +352,7 @@ const defaults: Description[] = [
   },
   {
     en: "There were good afternoons and too many forgettable ones. Mid-table feels fair for a squad that never found a long run of form.",
-    ua: "Були хороші матчі й надто багато таких, які хочеться забути. Середина таблиці справедлива для команди без тривалої серії форми.",
+    ua: "Сезон без катастрофи, але й без афіші. Команда часом додавала барв, та таблиця запам'ятала передусім нестабільність.",
     matches: (profile) => profile.verdict === "midTable",
   },
   {
@@ -208,7 +424,15 @@ export function selectSeasonDescription(lineup: Lineup, result: SeasonResult) {
     .sort()
     .join("|");
   const matchingDefaults = defaults.filter((description) => description.matches(profile));
-  const defaultPool = matchingDefaults.length > 0 ? matchingDefaults : defaults;
+  const highestPriority = matchingDefaults.reduce(
+    (highest, description) => Math.max(highest, description.priority ?? 0),
+    0,
+  );
+  const defaultPool = matchingDefaults.length > 0
+    ? matchingDefaults.filter(
+      (description) => (description.priority ?? 0) === highestPriority,
+    )
+    : defaults;
   const english = defaultPool[hash(`en:${signature}:${result.verdict}`) % defaultPool.length].en;
   const suitableSpecials = ukrainianSpecials.filter((description) =>
     description.verdicts.includes(result.verdict),

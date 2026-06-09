@@ -7,6 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "audit:30-0": "python scripts/audit_30_0_balance.py --check",
+    "audit:duplicate-players": "python scripts/audit_duplicate_players.py --check",
+    "validate:season-descriptions": "python scripts/validate_season_descriptions.py",
     "validate:patch-1-1": "python scripts/validate_patch_1_1.py"
   },
   "dependencies": {
