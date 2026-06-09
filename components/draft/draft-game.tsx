@@ -191,6 +191,7 @@ export function DraftGame({ mode }: DraftGameProps) {
   function usePrimaryAction() {
     if (draftComplete) {
       const savedSeason: SavedSeason = {
+        mode,
         lineup,
         result: simulateSeason(Object.values(lineup)),
       };
