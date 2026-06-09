@@ -77,9 +77,24 @@ def main() -> None:
     require(
         "components/leaderboard/leaderboard-board.tsx",
         (
+            "const COMPACT_LIMIT = 10",
+            "const FULL_PAGE_SIZE = 20",
+            "pageSize=${FULL_PAGE_SIZE}",
+            "(page - 1) * FULL_PAGE_SIZE + index + 1",
             "leaderboard-compact-rank",
             "leaderboard-col-lineup",
+            'id="leaderboard.previous"',
+            'id="leaderboard.next"',
             "player.game_position !== player.position_label",
+        ),
+    )
+    require(
+        "app/api/leaderboard/route.ts",
+        (
+            "hasNextPage",
+            "hasPreviousPage",
+            "totalCount",
+            "MAX_PAGE_SIZE = 100",
         ),
     )
 

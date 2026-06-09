@@ -1,15 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { T } from "@/components/localized-text";
 import {
   LEADERBOARD_MODES,
   type LeaderboardEntry,
   type LeaderboardMode,
+  type LeaderboardPage,
 } from "@/lib/leaderboard";
 
 export const LEADERBOARD_UPDATED_EVENT = "uf30-leaderboard-updated";
+const COMPACT_LIMIT = 10;
+const FULL_PAGE_SIZE = 20;
 
 type LeaderboardBoardProps = {
   compact?: boolean;
@@ -38,26 +41,41 @@ export function LeaderboardBoard({
 }: LeaderboardBoardProps) {
   const [mode, setMode] = useState<LeaderboardMode>(initialMode);
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
+  const [page, setPage] = useState(1);
+  const [hasNextPage, setHasNextPage] = useState(false);
+  const requestId = useRef(0);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
 
   const loadEntries = useCallback(async () => {
+    const currentRequestId = ++requestId.current;
     setStatus("loading");
     try {
+      const query = compact
+        ? `mode=${mode}&limit=${COMPACT_LIMIT}`
+        : `mode=${mode}&page=${page}&pageSize=${FULL_PAGE_SIZE}`;
       const response = await fetch(
-        `/api/leaderboard?mode=${mode}&limit=${compact ? 5 : 100}`,
+        `/api/leaderboard?${query}`,
         { cache: "no-store" },
       );
       if (!response.ok) {
         throw new Error("Leaderboard request failed");
       }
-      const data = await response.json() as { entries?: LeaderboardEntry[] };
+      const data = await response.json() as Partial<LeaderboardPage>;
+      if (currentRequestId !== requestId.current) {
+        return;
+      }
       setEntries(Array.isArray(data.entries) ? data.entries : []);
+      setHasNextPage(data.hasNextPage === true);
       setStatus("ready");
     } catch {
+      if (currentRequestId !== requestId.current) {
+        return;
+      }
       setEntries([]);
+      setHasNextPage(false);
       setStatus("error");
     }
-  }, [compact, mode]);
+  }, [compact, mode, page]);
 
   useEffect(() => {
     const timeout = window.setTimeout(() => void loadEntries(), 0);
@@ -89,7 +107,10 @@ export function LeaderboardBoard({
             aria-selected={mode === tabMode}
             className={mode === tabMode ? "is-active" : ""}
             key={tabMode}
-            onClick={() => setMode(tabMode)}
+            onClick={() => {
+              setPage(1);
+              setMode(tabMode);
+            }}
             role="tab"
             type="button"
           >
@@ -150,7 +171,9 @@ export function LeaderboardBoard({
               <tbody>
                 {entries.map((entry, index) => (
                   <tr key={entry.id}>
-                    <td className="leaderboard-rank">{index + 1}</td>
+                    <td className="leaderboard-rank">
+                      {(page - 1) * FULL_PAGE_SIZE + index + 1}
+                    </td>
                     <td>{entry.nickname}</td>
                     <td><strong>{record(entry)}</strong></td>
                     <td>{displayDate(entry.created_at)}</td>
@@ -175,6 +198,32 @@ export function LeaderboardBoard({
               </tbody>
             </table>
           </div>
+        )}
+        {!compact && status === "ready" && entries.length > 0 && (
+          <nav
+            aria-label="Leaderboard pagination"
+            className="leaderboard-pagination"
+          >
+            <button
+              className="button button-secondary"
+              disabled={page === 1}
+              onClick={() => setPage((currentPage) => currentPage - 1)}
+              type="button"
+            >
+              <T id="leaderboard.previous" />
+            </button>
+            <span>
+              <T id="leaderboard.page" /> {page}
+            </span>
+            <button
+              className="button button-secondary"
+              disabled={!hasNextPage}
+              onClick={() => setPage((currentPage) => currentPage + 1)}
+              type="button"
+            >
+              <T id="leaderboard.next" />
+            </button>
+          </nav>
         )}
       </div>
     </section>

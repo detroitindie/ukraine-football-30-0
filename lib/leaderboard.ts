@@ -27,6 +27,15 @@ export type LeaderboardEntry = {
   created_at: string;
 };
 
+export type LeaderboardPage = {
+  entries: LeaderboardEntry[];
+  totalCount: number | null;
+  page: number;
+  pageSize: number;
+  hasNextPage: boolean;
+  hasPreviousPage: boolean;
+};
+
 export type LeaderboardSubmission = {
   nickname: string;
   mode: DraftMode;
