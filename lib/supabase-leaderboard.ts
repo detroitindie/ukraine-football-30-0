@@ -42,11 +42,27 @@ function isPublicLineupPlayer(value: unknown): value is PublicLineupPlayer {
   );
 }
 
-function isLeaderboardEntry(value: unknown): value is LeagueLeaderboardEntry {
+type LegacyLeagueLeaderboardRow = {
+  id?: string;
+  nickname?: string;
+  mode?: LeaderboardMode;
+  wins?: number;
+  draws?: number;
+  losses?: number;
+  score_points?: number;
+  points?: number;
+  goals_for?: number;
+  goals_against?: number;
+  goal_difference?: number;
+  lineup?: unknown;
+  created_at?: string;
+};
+
+function isLeagueLeaderboardRow(value: unknown): value is LegacyLeagueLeaderboardRow {
   if (!value || typeof value !== "object") {
     return false;
   }
-  const entry = value as Partial<LeagueLeaderboardEntry>;
+  const entry = value as LegacyLeagueLeaderboardRow;
   return (
     typeof entry.id === "string"
     && typeof entry.nickname === "string"
@@ -54,16 +70,31 @@ function isLeaderboardEntry(value: unknown): value is LeagueLeaderboardEntry {
     && typeof entry.wins === "number"
     && typeof entry.draws === "number"
     && typeof entry.losses === "number"
-    && typeof entry.score_points === "number"
-    && (entry.points === undefined || typeof entry.points === "number")
-    && (entry.goals_for === undefined || typeof entry.goals_for === "number")
-    && (entry.goals_against === undefined || typeof entry.goals_against === "number")
-    && (entry.goal_difference === undefined || typeof entry.goal_difference === "number")
+    && (typeof entry.score_points === "number" || typeof entry.points === "number")
     && typeof entry.created_at === "string"
     && Array.isArray(entry.lineup)
     && entry.lineup.length === 11
     && entry.lineup.every(isPublicLineupPlayer)
   );
+}
+
+function normalizeLeagueRow(row: LegacyLeagueLeaderboardRow): LeagueLeaderboardEntry {
+  const scorePoints = row.score_points ?? row.points ?? (row.wins ?? 0) * 3 + (row.draws ?? 0);
+  return {
+    id: row.id as string,
+    nickname: row.nickname as string,
+    mode: row.mode as LeaderboardMode,
+    wins: row.wins as number,
+    draws: row.draws as number,
+    losses: row.losses as number,
+    score_points: scorePoints,
+    points: row.points ?? scorePoints,
+    ...(row.goals_for === undefined ? {} : { goals_for: row.goals_for }),
+    ...(row.goals_against === undefined ? {} : { goals_against: row.goals_against }),
+    ...(row.goal_difference === undefined ? {} : { goal_difference: row.goal_difference }),
+    lineup: row.lineup as PublicLineupPlayer[],
+    created_at: row.created_at as string,
+  };
 }
 
 function isCupPathItem(value: unknown): value is CupMatchResult {
@@ -125,7 +156,7 @@ export async function readLeaderboard(
   }
 
   const query = new URLSearchParams({
-    select: "id,nickname,mode,wins,draws,losses,score_points,goals_for,goals_against,goal_difference,lineup,created_at",
+    select: "id,nickname,mode,wins,draws,losses,score_points,lineup,created_at",
     mode: `eq.${mode}`,
     order: "wins.desc,draws.desc,losses.asc,score_points.desc,created_at.asc",
     limit: String(limit),
@@ -151,7 +182,9 @@ export async function readLeaderboard(
     throw new LeaderboardStorageError(`Supabase read failed: ${response.status}`);
   }
   const rows = response.ok ? await response.json() as unknown : [];
-  const entries = Array.isArray(rows) ? rows.filter(isLeaderboardEntry) : [];
+  const entries = Array.isArray(rows)
+    ? rows.filter(isLeagueLeaderboardRow).map(normalizeLeagueRow)
+    : [];
 
   return {
     entries,
