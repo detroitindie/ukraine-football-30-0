@@ -187,6 +187,7 @@ export async function GET(request: Request) {
       hasPreviousPage: offset > 0,
     });
   } catch (error) {
+    console.error("Leaderboard read failed:", error);
     if (error instanceof LeaderboardConfigurationError) {
       return errorResponse("Leaderboard is not configured", 503);
     }
@@ -253,6 +254,7 @@ export async function POST(request: Request) {
       });
       return Response.json({ entry }, { status: 201 });
     } catch (error) {
+      console.error("Cup leaderboard insert failed:", error);
       if (error instanceof LeaderboardConfigurationError) {
         return errorResponse("Leaderboard is not configured", 503);
       }
@@ -294,6 +296,7 @@ export async function POST(request: Request) {
     });
     return Response.json({ entry }, { status: 201 });
   } catch (error) {
+    console.error("League leaderboard insert failed:", error);
     if (error instanceof LeaderboardConfigurationError) {
       return errorResponse("Leaderboard is not configured", 503);
     }
