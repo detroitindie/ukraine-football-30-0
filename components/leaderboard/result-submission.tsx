@@ -2,18 +2,25 @@
 
 import { type FormEvent, useMemo, useState } from "react";
 import { LEADERBOARD_UPDATED_EVENT } from "@/components/leaderboard/leaderboard-board";
-import { T } from "@/components/localized-text";
 import {
   cupResultFingerprint,
   isValidNickname,
   resultFingerprint,
   sanitizeNickname,
 } from "@/lib/leaderboard";
+import { type Language } from "@/lib/language";
+import { translations } from "@/lib/translations";
 import type { SavedResult } from "@/lib/seasonSimulation";
 
 const SUBMISSION_KEY_PREFIX = "uf30-leaderboard-submitted:";
 
-export function ResultSubmission({ season }: { season: SavedResult }) {
+export function ResultSubmission({
+  season,
+  language,
+}: {
+  season: SavedResult;
+  language: Language;
+}) {
   const [nickname, setNickname] = useState("");
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "invalid" | "error" | "skipped"
@@ -99,19 +106,19 @@ export function ResultSubmission({ season }: { season: SavedResult }) {
   return (
     <section className="leaderboard-submit">
       <div>
-        <span className="eyebrow"><T id="leaderboard.optional" /></span>
-        <h2><T id="leaderboard.submitPrompt" /></h2>
-        <p><T id="leaderboard.submitBody" /></p>
+        <span className="eyebrow">{translations[language]["leaderboard.optional"]}</span>
+        <h2>{translations[language]["leaderboard.submitPrompt"]}</h2>
+        <p>{translations[language]["leaderboard.submitBody"]}</p>
       </div>
 
       {status === "success" ? (
         <p className="leaderboard-submit-message is-success" role="status">
-          <T id="leaderboard.submitSuccess" />
+          {translations[language]["leaderboard.submitSuccess"]}
         </p>
       ) : (
         <form onSubmit={submitResult}>
           <label htmlFor="leaderboard-nickname">
-            <T id="leaderboard.nicknameField" />
+            {translations[language]["leaderboard.nicknameField"]}
           </label>
           <div className="leaderboard-submit-row">
             <input
@@ -134,9 +141,9 @@ export function ResultSubmission({ season }: { season: SavedResult }) {
               disabled={status === "submitting"}
               type="submit"
             >
-              <T id={status === "submitting"
+              {translations[language][status === "submitting"
                 ? "leaderboard.submitting"
-                : "leaderboard.submit"} />
+                : "leaderboard.submit"]}
             </button>
             <button
               className="button button-secondary"
@@ -144,17 +151,17 @@ export function ResultSubmission({ season }: { season: SavedResult }) {
               onClick={() => setStatus("skipped")}
               type="button"
             >
-              <T id="leaderboard.skip" />
+              {translations[language]["leaderboard.skip"]}
             </button>
           </div>
           {status === "invalid" && (
             <p className="leaderboard-submit-message is-error" role="alert">
-              <T id="leaderboard.invalidNickname" />
+              {translations[language]["leaderboard.invalidNickname"]}
             </p>
           )}
           {status === "error" && (
             <p className="leaderboard-submit-message is-error" role="alert">
-              <T id="leaderboard.submitError" />
+              {translations[language]["leaderboard.submitError"]}
             </p>
           )}
         </form>

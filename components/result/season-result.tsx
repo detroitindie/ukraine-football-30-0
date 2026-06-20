@@ -10,7 +10,7 @@ import {
 } from "react";
 import { LeaderboardBoard } from "@/components/leaderboard/leaderboard-board";
 import { ResultSubmission } from "@/components/leaderboard/result-submission";
-import { T } from "@/components/localized-text";
+import { useLanguage, type Language } from "@/lib/language";
 import {
   type CupDecision,
   type CupMatchResult,
@@ -23,6 +23,7 @@ import {
 } from "@/lib/seasonSimulation";
 import { cleanPlayerName } from "@/lib/player-display";
 import { selectSeasonDescription } from "@/lib/season-description";
+import { translations, type TranslationKey } from "@/lib/translations";
 
 const verdictKeys: Record<
   SeasonVerdict,
@@ -66,6 +67,10 @@ const cupVerdictKeys = [
   ["result.cupVerdictFinalLossA", "result.cupVerdictFinalLossB"],
   ["result.cupVerdictWinA", "result.cupVerdictWinB"],
 ] as const;
+
+function text(language: Language, id: TranslationKey) {
+  return translations[language][id];
+}
 
 function isSeasonResult(value: unknown): value is SeasonResult {
   if (!value || typeof value !== "object") {
@@ -229,6 +234,35 @@ function cupMatchText(match: CupMatchResult, language: "en" | "ua") {
   return `${stage}: ${resultText}, ${score}${suffix}`;
 }
 
+function cupStageRankLabelText(result: CupSimulationResult, language: Language) {
+  if (result.wonCup) {
+    return language === "ua"
+      ? "Кубок України взято"
+      : "Won the Ukrainian Cup";
+  }
+
+  return language === "ua"
+    ? `Виліт: ${result.stageLabelUa}`
+    : `Eliminated: ${result.stageLabelEn}`;
+}
+
+function cupMatchTextSingle(match: CupMatchResult, language: Language) {
+  const stage = cupStageLabels[match.stage][language];
+  const resultText = language === "ua"
+    ? match.result === "win" ? "перемога" : "поразка"
+    : match.result;
+  const score = `${match.goalsFor}-${match.goalsAgainst}`;
+  const decision = cupDecisionLabels[match.decidedBy][language];
+  const suffix =
+    match.decidedBy === "regular_time"
+      ? ""
+      : match.decidedBy === "penalties"
+        ? ` (${decision}: ${match.penaltiesFor}-${match.penaltiesAgainst})`
+        : ` (${decision})`;
+
+  return `${stage}: ${resultText}, ${score}${suffix}`;
+}
+
 const lineupGroups = [
   {
     label: "result.goalkeeper" as const,
@@ -251,6 +285,7 @@ const lineupGroups = [
 export function SeasonResultView() {
   const router = useRouter();
   const [copied, setCopied] = useState(false);
+  const language = useLanguage();
   const storedSeason = useSyncExternalStore(
     subscribeToStorage,
     getStoredSeason,
@@ -265,10 +300,10 @@ export function SeasonResultView() {
     return (
       <div className="compact-page result-page">
         <section className="result-empty">
-          <h1><T id="result.emptyTitle" /></h1>
-          <p><T id="result.emptyBody" /></p>
+          <h1>{text(language, "result.emptyTitle")}</h1>
+          <p>{text(language, "result.emptyBody")}</p>
           <Link className="button button-primary" href="/draft">
-            <T id="result.backToDraft" />
+            {text(language, "result.backToDraft")}
           </Link>
         </section>
       </div>
@@ -327,47 +362,47 @@ export function SeasonResultView() {
   return (
     <div className="compact-page result-page">
       <header className="compact-heading">
-        <h1><T id="result.seasonResult" /></h1>
+        <h1>{text(language, "result.seasonResult")}</h1>
       </header>
       <section className="stats-grid">
         {stats.map((stat) => (
           <article className="stat-card" key={stat.label}>
-            <span><T id={stat.label} /></span>
+            <span>{text(language, stat.label)}</span>
             <strong>{stat.value}</strong>
           </article>
         ))}
       </section>
-      <p className="result-verdict"><T id={verdictKeys[result.verdict]} /></p>
+      <p className="result-verdict">{text(language, verdictKeys[result.verdict])}</p>
       <p className="result-description">
-        <span className="localized-text" data-language="en">{description.en}</span>
-        <span className="localized-text" data-language="ua">{description.ua}</span>
+        {description[language]}
       </p>
       <section className="result-lineup">
-        <h2><T id="result.lineup" /></h2>
+        <h2>{text(language, "result.lineup")}</h2>
         <div className="result-lineup-groups">
           {groupedLineup.map((group) => (
             <div className="result-line" key={group.label}>
-              <strong><T id={group.label} /></strong>
+              <strong>{text(language, group.label)}</strong>
               <span>{group.players.join(", ")}</span>
             </div>
           ))}
         </div>
       </section>
-      <ResultSubmission season={savedSeason} />
+      <ResultSubmission season={savedSeason} language={language} />
       <LeaderboardBoard
         compact
         initialCompetition="league"
         initialMode={savedSeason.mode}
+        language={language}
       />
       <div className="result-actions">
         <button className="button button-primary" type="button" onClick={shareResult}>
-          <T id="result.share" />
+          {text(language, "result.share")}
         </button>
         <button className="button button-secondary" type="button" onClick={playAgain}>
-          <T id="result.playAgain" />
+          {text(language, "result.playAgain")}
         </button>
         <span className={`copy-confirmation${copied ? " is-visible" : ""}`} aria-live="polite">
-          {copied && <T id="result.copied" />}
+          {copied && text(language, "result.copied")}
         </span>
       </div>
     </div>
@@ -383,6 +418,7 @@ function CupResultView({
 }) {
   const [visibleMatches, setVisibleMatches] = useState(0);
   const [copied, setCopied] = useState(false);
+  const language = useLanguage();
   const result = savedResult.result;
   const groupedLineup = lineupGroups.map((group) => ({
     ...group,
@@ -408,13 +444,13 @@ function CupResultView({
     return (
       <div className="compact-page result-page">
         <header className="compact-heading">
-          <h1><T id="result.cupPlaceholderTitle" /></h1>
-          <p><T id="result.cupPlaceholderBody" /></p>
+          <h1>{text(language, "result.cupPlaceholderTitle")}</h1>
+          <p>{text(language, "result.cupPlaceholderBody")}</p>
         </header>
         <CupLineup groupedLineup={groupedLineup} />
         <div className="result-actions">
           <button className="button button-secondary" type="button" onClick={onPlayAgain}>
-            <T id="result.playAgain" />
+            {text(language, "result.playAgain")}
           </button>
         </div>
       </div>
@@ -424,7 +460,7 @@ function CupResultView({
   const cupResult = result;
   const revealedMatches = cupResult.matches.slice(0, visibleMatches);
   const complete = visibleMatches >= cupResult.matches.length;
-  const finalLabel = cupStageRankLabel(cupResult);
+  const finalLabel = cupStageRankLabelText(cupResult, language);
 
   async function shareCupResult() {
     const lineupText = groupedLineup
@@ -437,7 +473,7 @@ function CupResultView({
       "30-0: Українська ліга",
       "Competition: Ukrainian Cup",
       `Mode: ${savedResult.mode === "hardcore" ? "Hardcore" : "Normal"}`,
-      `Result: ${finalLabel.en}`,
+      `Result: ${cupStageRankLabel(cupResult).en}`,
       window.location.origin,
       "",
       "Cup path:",
@@ -457,67 +493,60 @@ function CupResultView({
   }
 
   return (
-    <div className="compact-page result-page cup-result-page">
+    <div className="compact-page result-page">
       <header className="compact-heading">
-        <h1><T id="result.cupResult" /></h1>
+        <h1>{text(language, "result.cupResult")}</h1>
       </header>
       <section className="cup-path" aria-live="polite">
         {revealedMatches.map((match) => (
           <article className={`cup-match cup-match-${match.result}`} key={match.stage}>
-            <span className="localized-text" data-language="en">
-              {cupMatchText(match, "en")}
-            </span>
-            <span className="localized-text" data-language="ua">
-              {cupMatchText(match, "ua")}
-            </span>
+            {cupMatchTextSingle(match, language)}
           </article>
         ))}
         {!complete && (
-          <p className="cup-reveal-state"><T id="result.cupRevealing" /></p>
+          <p className="cup-reveal-state">{text(language, "result.cupRevealing")}</p>
         )}
       </section>
       {complete && (
         <>
           <section className="cup-result-summary">
             <article className="stat-card cup-result-card">
-              <span><T id="result.cupFinish" /></span>
-              <strong>
-                <span className="localized-text" data-language="en">{finalLabel.en}</span>
-                <span className="localized-text" data-language="ua">{finalLabel.ua}</span>
-              </strong>
+              <span>{text(language, "result.cupFinish")}</span>
+              <strong>{finalLabel}</strong>
             </article>
           </section>
           <section className="stats-grid cup-stats-grid">
             <article className="stat-card">
-              <span><T id="result.goals" /></span>
+              <span>{text(language, "result.goals")}</span>
               <strong>{cupResult.goalsFor}-{cupResult.goalsAgainst}</strong>
             </article>
             <article className="stat-card">
-              <span><T id="result.goalDifference" /></span>
+              <span>{text(language, "result.goalDifference")}</span>
               <strong>{signedGoalDifference(cupResult.goalDifference)}</strong>
             </article>
             <article className="stat-card">
-              <span><T id="result.cupRegularTimeWins" /></span>
+              <span>{text(language, "result.cupRegularTimeWins")}</span>
               <strong>{cupResult.regularTimeWins}</strong>
             </article>
           </section>
-          <p className="result-verdict"><T id={cupVerdictKey(cupResult)} /></p>
+          <p className="result-verdict">{text(language, cupVerdictKey(cupResult))}</p>
           <CupLineup groupedLineup={groupedLineup} />
-          <ResultSubmission season={savedResult} />
+          <ResultSubmission season={savedResult} language={language} />
           <LeaderboardBoard
             compact
             initialCompetition="cup"
             initialMode={savedResult.mode}
+            language={language}
           />
           <div className="result-actions">
             <button className="button button-primary" type="button" onClick={shareCupResult}>
-              <T id="result.share" />
+              {text(language, "result.share")}
             </button>
             <button className="button button-secondary" type="button" onClick={onPlayAgain}>
-              <T id="result.playAgain" />
+              {text(language, "result.playAgain")}
             </button>
             <span className={`copy-confirmation${copied ? " is-visible" : ""}`} aria-live="polite">
-              {copied && <T id="result.copied" />}
+              {copied && text(language, "result.copied")}
             </span>
           </div>
         </>
@@ -534,13 +563,14 @@ function CupLineup({
     players: string[];
   }>;
 }) {
+  const language = useLanguage();
   return (
     <section className="result-lineup">
-      <h2><T id="result.lineup" /></h2>
+      <h2>{text(language, "result.lineup")}</h2>
       <div className="result-lineup-groups">
         {groupedLineup.map((group) => (
           <div className="result-line" key={group.label}>
-            <strong><T id={group.label} /></strong>
+            <strong>{text(language, group.label)}</strong>
             <span>{group.players.join(", ")}</span>
           </div>
         ))}

@@ -1154,6 +1154,7 @@ html[data-language="ua"] .draft-mode-prefix {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  overflow-anchor: none;
 }
 
 .result-page .compact-heading {
@@ -1162,13 +1163,6 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .result-page .stats-grid {
   width: 100%;
-}
-
-.cup-result-page .leaderboard-submit,
-.cup-result-page > .leaderboard,
-.cup-result-page .result-lineup,
-.cup-result-page .result-actions {
-  overflow-anchor: none;
 }
 
 .cup-result-summary {

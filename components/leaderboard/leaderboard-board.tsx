@@ -12,6 +12,8 @@ import {
   type LeaderboardMode,
   type LeaderboardPage,
 } from "@/lib/leaderboard";
+import { type Language } from "@/lib/language";
+import { translations } from "@/lib/translations";
 
 export const LEADERBOARD_UPDATED_EVENT = "uf30-leaderboard-updated";
 const COMPACT_LIMIT = 10;
@@ -21,15 +23,23 @@ type LeaderboardBoardProps = {
   compact?: boolean;
   initialCompetition?: LeaderboardCompetition;
   initialMode?: LeaderboardMode;
+  language?: Language;
 };
+
+function boardText(id: keyof typeof translations.en, language?: Language) {
+  return language ? translations[language][id] : <T id={id} />;
+}
 
 function isCupEntry(entry: LeaderboardEntry): entry is CupLeaderboardEntry {
   return "stage_rank" in entry;
 }
 
-function record(entry: LeaderboardEntry) {
+function record(entry: LeaderboardEntry, language?: Language) {
   if (isCupEntry(entry)) {
     if (entry.won_cup) {
+      if (language) {
+        return language === "ua" ? "перемога в Кубку" : "won the Cup";
+      }
       return (
         <>
           <span className="localized-text" data-language="en">won the Cup</span>
@@ -38,12 +48,20 @@ function record(entry: LeaderboardEntry) {
       );
     }
     if (entry.stage_rank === 5) {
+      if (language) {
+        return language === "ua" ? "виліт у фіналі" : "lost in the final";
+      }
       return (
         <>
           <span className="localized-text" data-language="en">lost in the final</span>
           <span className="localized-text" data-language="ua">виліт у фіналі</span>
         </>
       );
+    }
+    if (language) {
+      return language === "ua"
+        ? `виліт у ${entry.stage_label_ua}`
+        : `eliminated in the ${entry.stage_label_en.toLocaleLowerCase("en")}`;
     }
     return (
       <>
@@ -76,6 +94,7 @@ export function LeaderboardBoard({
   compact = false,
   initialCompetition = "league",
   initialMode = "normal",
+  language,
 }: LeaderboardBoardProps) {
   const [competition, setCompetition] =
     useState<LeaderboardCompetition>(initialCompetition);
@@ -132,11 +151,11 @@ export function LeaderboardBoard({
     <section className={`leaderboard${compact ? " leaderboard-compact" : ""}`}>
       <div className="leaderboard-heading">
         <div>
-          <h2><T id="leaderboard.title" /></h2>
+          <h2>{boardText("leaderboard.title", language)}</h2>
         </div>
         {compact && (
           <Link className="leaderboard-link" href="/leaderboard">
-            <T id="leaderboard.viewAll" />
+            {boardText("leaderboard.viewAll", language)}
           </Link>
         )}
       </div>
@@ -154,11 +173,9 @@ export function LeaderboardBoard({
             role="tab"
             type="button"
           >
-            <T
-              id={tabCompetition === "league"
-                ? "leaderboard.league"
-                : "leaderboard.cup"}
-            />
+            {boardText(tabCompetition === "league"
+              ? "leaderboard.league"
+              : "leaderboard.cup", language)}
           </button>
         ))}
       </div>
@@ -176,29 +193,27 @@ export function LeaderboardBoard({
             role="tab"
             type="button"
           >
-            <T
-              id={tabMode === "normal"
-                ? "leaderboard.normal"
-                : "leaderboard.hardcore"}
-            />
+            {boardText(tabMode === "normal"
+              ? "leaderboard.normal"
+              : "leaderboard.hardcore", language)}
           </button>
         ))}
       </div>
 
       <div aria-live="polite" className="leaderboard-content">
         {status === "loading" && (
-          <p className="leaderboard-state"><T id="leaderboard.loading" /></p>
+          <p className="leaderboard-state">{boardText("leaderboard.loading", language)}</p>
         )}
         {status === "error" && (
           <div className="leaderboard-state">
-            <p><T id="leaderboard.loadError" /></p>
+            <p>{boardText("leaderboard.loadError", language)}</p>
             <button className="text-button" onClick={() => void loadEntries()} type="button">
-              <T id="leaderboard.retry" />
+              {boardText("leaderboard.retry", language)}
             </button>
           </div>
         )}
         {status === "ready" && entries.length === 0 && (
-          <p className="leaderboard-state"><T id="leaderboard.empty" /></p>
+          <p className="leaderboard-state">{boardText("leaderboard.empty", language)}</p>
         )}
         {status === "ready" && entries.length > 0 && compact && (
           <ol className="leaderboard-compact-list">
@@ -206,7 +221,7 @@ export function LeaderboardBoard({
               <li key={entry.id}>
                 <span className="leaderboard-compact-rank">{index + 1}</span>
                 <span className="leaderboard-compact-name">{entry.nickname}</span>
-                <strong>{record(entry)}</strong>
+                <strong>{record(entry, language)}</strong>
               </li>
             ))}
           </ol>
@@ -223,11 +238,11 @@ export function LeaderboardBoard({
               </colgroup>
               <thead>
                 <tr>
-                  <th><T id="leaderboard.rank" /></th>
-                  <th><T id="leaderboard.nickname" /></th>
-                  <th><T id="leaderboard.result" /></th>
-                  <th><T id="leaderboard.date" /></th>
-                  <th><T id="leaderboard.lineup" /></th>
+                  <th>{boardText("leaderboard.rank", language)}</th>
+                  <th>{boardText("leaderboard.nickname", language)}</th>
+                  <th>{boardText("leaderboard.result", language)}</th>
+                  <th>{boardText("leaderboard.date", language)}</th>
+                  <th>{boardText("leaderboard.lineup", language)}</th>
                 </tr>
               </thead>
               <tbody>
@@ -237,11 +252,11 @@ export function LeaderboardBoard({
                       {(page - 1) * FULL_PAGE_SIZE + index + 1}
                     </td>
                     <td>{entry.nickname}</td>
-                    <td><strong>{record(entry)}</strong></td>
+                    <td><strong>{record(entry, language)}</strong></td>
                     <td>{displayDate(entry.created_at)}</td>
                     <td>
                       <details className="leaderboard-lineup">
-                        <summary><T id="leaderboard.showLineup" /></summary>
+                        <summary>{boardText("leaderboard.showLineup", language)}</summary>
                         <ul>
                           {entry.lineup.map((player) => (
                             <li key={`${player.slot_position}:${player.player_name}`}>
@@ -272,10 +287,10 @@ export function LeaderboardBoard({
               onClick={() => setPage((currentPage) => currentPage - 1)}
               type="button"
             >
-              <T id="leaderboard.previous" />
+              {boardText("leaderboard.previous", language)}
             </button>
             <span>
-              <T id="leaderboard.page" /> {page}
+              {boardText("leaderboard.page", language)} {page}
             </span>
             <button
               className="button button-secondary"
@@ -283,7 +298,7 @@ export function LeaderboardBoard({
               onClick={() => setPage((currentPage) => currentPage + 1)}
               type="button"
             >
-              <T id="leaderboard.next" />
+              {boardText("leaderboard.next", language)}
             </button>
           </nav>
         )}
