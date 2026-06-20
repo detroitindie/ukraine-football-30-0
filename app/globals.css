@@ -1333,10 +1333,15 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .leaderboard-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   margin-top: 16px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
+}
+
+.leaderboard-mode-tabs {
+  margin-top: 8px;
 }
 
 .leaderboard-tabs button {

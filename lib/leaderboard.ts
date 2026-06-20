@@ -1,12 +1,18 @@
 import type { DraftMode, DraftPlayer, Lineup } from "@/lib/draft-types";
-import type { SeasonResult } from "@/lib/seasonSimulation";
+import type {
+  CupMatchResult,
+  CupSimulationResult,
+  SeasonResult,
+} from "@/lib/seasonSimulation";
 import { cleanPlayerName } from "@/lib/player-display";
 
 export const LEADERBOARD_MODES = ["normal", "hardcore"] as const;
+export const LEADERBOARD_COMPETITIONS = ["league", "cup"] as const;
 export const NICKNAME_MIN_LENGTH = 2;
 export const NICKNAME_MAX_LENGTH = 20;
 
 export type LeaderboardMode = (typeof LEADERBOARD_MODES)[number];
+export type LeaderboardCompetition = (typeof LEADERBOARD_COMPETITIONS)[number];
 
 export type PublicLineupPlayer = {
   player_name: string;
@@ -15,7 +21,7 @@ export type PublicLineupPlayer = {
   position_label: string;
 };
 
-export type LeaderboardEntry = {
+export type LeagueLeaderboardEntry = {
   id: string;
   nickname: string;
   mode: LeaderboardMode;
@@ -27,6 +33,26 @@ export type LeaderboardEntry = {
   created_at: string;
 };
 
+export type CupLeaderboardEntry = {
+  id: string;
+  nickname: string;
+  mode: LeaderboardMode;
+  stage_rank: number;
+  stage_label_ua: string;
+  stage_label_en: string;
+  won_cup: boolean;
+  regular_time_wins: number;
+  goals_for: number;
+  goals_against: number;
+  goal_difference: number;
+  cup_path: CupMatchResult[];
+  lineup: PublicLineupPlayer[];
+  language: "en" | "ua";
+  created_at: string;
+};
+
+export type LeaderboardEntry = LeagueLeaderboardEntry | CupLeaderboardEntry;
+
 export type LeaderboardPage = {
   entries: LeaderboardEntry[];
   totalCount: number | null;
@@ -37,10 +63,20 @@ export type LeaderboardPage = {
 };
 
 export type LeaderboardSubmission = {
+  competition: "league";
   nickname: string;
   mode: DraftMode;
   lineup: Lineup;
   result: SeasonResult;
+};
+
+export type CupLeaderboardSubmission = {
+  competition: "cup";
+  nickname: string;
+  mode: DraftMode;
+  lineup: Lineup;
+  result: CupSimulationResult;
+  language: "en" | "ua";
 };
 
 export const FORMATION_SLOTS = [
@@ -80,6 +116,12 @@ export function isValidNickname(value: string) {
 
 export function isLeaderboardMode(value: unknown): value is LeaderboardMode {
   return value === "normal" || value === "hardcore";
+}
+
+export function isLeaderboardCompetition(
+  value: unknown,
+): value is LeaderboardCompetition {
+  return value === "league" || value === "cup";
 }
 
 export function isValidSubmissionLineup(value: unknown): value is Lineup {
@@ -138,6 +180,37 @@ export function resultsMatch(left: SeasonResult, right: SeasonResult) {
   );
 }
 
+export function cupResultsMatch(
+  left: CupSimulationResult,
+  right: CupSimulationResult,
+) {
+  return (
+    left.competition === right.competition
+    && left.stageRank === right.stageRank
+    && left.stageLabelUa === right.stageLabelUa
+    && left.stageLabelEn === right.stageLabelEn
+    && left.wonCup === right.wonCup
+    && left.regularTimeWins === right.regularTimeWins
+    && left.goalsFor === right.goalsFor
+    && left.goalsAgainst === right.goalsAgainst
+    && left.goalDifference === right.goalDifference
+    && left.matches.length === right.matches.length
+    && left.matches.every((match, index) => {
+      const other = right.matches[index];
+      return (
+        match.stage === other.stage
+        && match.result === other.result
+        && match.goalsFor === other.goalsFor
+        && match.goalsAgainst === other.goalsAgainst
+        && match.decidedBy === other.decidedBy
+        && match.penaltiesFor === other.penaltiesFor
+        && match.penaltiesAgainst === other.penaltiesAgainst
+        && match.regularTimeWin === other.regularTimeWin
+      );
+    })
+  );
+}
+
 export function resultFingerprint(submission: Omit<LeaderboardSubmission, "nickname">) {
   const lineupSignature = FORMATION_SLOTS.map((slot) => {
     const player = submission.lineup[slot.slotId];
@@ -150,6 +223,35 @@ export function resultFingerprint(submission: Omit<LeaderboardSubmission, "nickn
     submission.result.draws,
     submission.result.losses,
     submission.result.points,
+    lineupSignature,
+  ].join(":");
+}
+
+export function cupResultFingerprint(
+  submission: Omit<CupLeaderboardSubmission, "nickname" | "language">,
+) {
+  const lineupSignature = FORMATION_SLOTS.map((slot) => {
+    const player = submission.lineup[slot.slotId];
+    return `${slot.slotId}:${player.player_id}:${player.club_decade_id}`;
+  }).join("|");
+  const pathSignature = submission.result.matches.map((match) => [
+    match.stage,
+    match.result,
+    match.goalsFor,
+    match.goalsAgainst,
+    match.decidedBy,
+    match.penaltiesFor ?? "",
+    match.penaltiesAgainst ?? "",
+  ].join(":")).join("|");
+
+  return [
+    submission.competition,
+    submission.mode,
+    submission.result.stageRank,
+    submission.result.wonCup ? "1" : "0",
+    submission.result.goalsFor,
+    submission.result.goalsAgainst,
+    pathSignature,
     lineupSignature,
   ].join(":");
 }

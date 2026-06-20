@@ -4,8 +4,11 @@ import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { T } from "@/components/localized-text";
 import {
+  LEADERBOARD_COMPETITIONS,
   LEADERBOARD_MODES,
+  type CupLeaderboardEntry,
   type LeaderboardEntry,
+  type LeaderboardCompetition,
   type LeaderboardMode,
   type LeaderboardPage,
 } from "@/lib/leaderboard";
@@ -16,10 +19,44 @@ const FULL_PAGE_SIZE = 20;
 
 type LeaderboardBoardProps = {
   compact?: boolean;
+  initialCompetition?: LeaderboardCompetition;
   initialMode?: LeaderboardMode;
 };
 
+function isCupEntry(entry: LeaderboardEntry): entry is CupLeaderboardEntry {
+  return "stage_rank" in entry;
+}
+
 function record(entry: LeaderboardEntry) {
+  if (isCupEntry(entry)) {
+    if (entry.won_cup) {
+      return (
+        <>
+          <span className="localized-text" data-language="en">won the Cup</span>
+          <span className="localized-text" data-language="ua">перемога в Кубку</span>
+        </>
+      );
+    }
+    if (entry.stage_rank === 5) {
+      return (
+        <>
+          <span className="localized-text" data-language="en">lost in the final</span>
+          <span className="localized-text" data-language="ua">виліт у фіналі</span>
+        </>
+      );
+    }
+    return (
+      <>
+        <span className="localized-text" data-language="en">
+          eliminated in the {entry.stage_label_en.toLocaleLowerCase("en")}
+        </span>
+        <span className="localized-text" data-language="ua">
+          виліт в {entry.stage_label_ua}
+        </span>
+      </>
+    );
+  }
+
   return `${entry.wins}-${entry.draws}-${entry.losses}`;
 }
 
@@ -37,8 +74,11 @@ function displayDate(value: string) {
 
 export function LeaderboardBoard({
   compact = false,
+  initialCompetition = "league",
   initialMode = "normal",
 }: LeaderboardBoardProps) {
+  const [competition, setCompetition] =
+    useState<LeaderboardCompetition>(initialCompetition);
   const [mode, setMode] = useState<LeaderboardMode>(initialMode);
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
   const [page, setPage] = useState(1);
@@ -51,8 +91,8 @@ export function LeaderboardBoard({
     setStatus("loading");
     try {
       const query = compact
-        ? `mode=${mode}&limit=${COMPACT_LIMIT}`
-        : `mode=${mode}&page=${page}&pageSize=${FULL_PAGE_SIZE}`;
+        ? `competition=${competition}&mode=${mode}&limit=${COMPACT_LIMIT}`
+        : `competition=${competition}&mode=${mode}&page=${page}&pageSize=${FULL_PAGE_SIZE}`;
       const response = await fetch(
         `/api/leaderboard?${query}`,
         { cache: "no-store" },
@@ -75,7 +115,7 @@ export function LeaderboardBoard({
       setHasNextPage(false);
       setStatus("error");
     }
-  }, [compact, mode, page]);
+  }, [compact, competition, mode, page]);
 
   useEffect(() => {
     const timeout = window.setTimeout(() => void loadEntries(), 0);
@@ -102,6 +142,28 @@ export function LeaderboardBoard({
       </div>
 
       <div className="leaderboard-tabs" role="tablist">
+        {LEADERBOARD_COMPETITIONS.map((tabCompetition) => (
+          <button
+            aria-selected={competition === tabCompetition}
+            className={competition === tabCompetition ? "is-active" : ""}
+            key={tabCompetition}
+            onClick={() => {
+              setPage(1);
+              setCompetition(tabCompetition);
+            }}
+            role="tab"
+            type="button"
+          >
+            <T
+              id={tabCompetition === "league"
+                ? "leaderboard.league"
+                : "leaderboard.cup"}
+            />
+          </button>
+        ))}
+      </div>
+
+      <div className="leaderboard-tabs leaderboard-mode-tabs" role="tablist">
         {LEADERBOARD_MODES.map((tabMode) => (
           <button
             aria-selected={mode === tabMode}
@@ -116,8 +178,8 @@ export function LeaderboardBoard({
           >
             <T
               id={tabMode === "normal"
-                ? "leaderboard.normalMode"
-                : "leaderboard.hardcoreMode"}
+                ? "leaderboard.normal"
+                : "leaderboard.hardcore"}
             />
           </button>
         ))}

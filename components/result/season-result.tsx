@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  type FormEvent,
   useEffect,
   useMemo,
   useState,
@@ -22,7 +21,6 @@ import {
   type SeasonResult,
   type SeasonVerdict,
 } from "@/lib/seasonSimulation";
-import { isValidNickname, sanitizeNickname } from "@/lib/leaderboard";
 import { cleanPlayerName } from "@/lib/player-display";
 import { selectSeasonDescription } from "@/lib/season-description";
 
@@ -356,7 +354,11 @@ export function SeasonResultView() {
         </div>
       </section>
       <ResultSubmission season={savedSeason} />
-      <LeaderboardBoard compact initialMode={savedSeason.mode} />
+      <LeaderboardBoard
+        compact
+        initialCompetition="league"
+        initialMode={savedSeason.mode}
+      />
       <div className="result-actions">
         <button className="button button-primary" type="button" onClick={shareResult}>
           <T id="result.share" />
@@ -499,7 +501,12 @@ function CupResultView({
           </section>
           <p className="result-verdict"><T id={cupVerdictKey(cupResult)} /></p>
           <CupLineup groupedLineup={groupedLineup} />
-          <CupResultSubmission result={cupResult} mode={savedResult.mode} />
+          <ResultSubmission season={savedResult} />
+          <LeaderboardBoard
+            compact
+            initialCompetition="cup"
+            initialMode={savedResult.mode}
+          />
           <div className="result-actions">
             <button className="button button-primary" type="button" onClick={shareCupResult}>
               <T id="result.share" />
@@ -536,95 +543,6 @@ function CupLineup({
           </div>
         ))}
       </div>
-    </section>
-  );
-}
-
-function CupResultSubmission({
-  result,
-  mode,
-}: {
-  result: CupSimulationResult;
-  mode: SavedResult["mode"];
-}) {
-  const [nickname, setNickname] = useState("");
-  const [status, setStatus] = useState<"idle" | "invalid" | "success" | "skipped">("idle");
-  const storageKey = [
-    "uf30-cup-leaderboard-nickname",
-    mode,
-    result.stageRank,
-    result.goalsFor,
-    result.goalsAgainst,
-    result.matches.map((match) => `${match.stage}:${match.result}`).join("|"),
-  ].join(":");
-
-  function submitResult(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const cleanNickname = sanitizeNickname(nickname);
-    if (!isValidNickname(cleanNickname)) {
-      setStatus("invalid");
-      return;
-    }
-
-    sessionStorage.setItem(storageKey, cleanNickname);
-    setNickname(cleanNickname);
-    setStatus("success");
-  }
-
-  if (status === "skipped") {
-    return null;
-  }
-
-  return (
-    <section className="leaderboard-submit">
-      <div>
-        <span className="eyebrow"><T id="leaderboard.optional" /></span>
-        <h2><T id="leaderboard.submitPrompt" /></h2>
-        <p><T id="result.cupSubmitBody" /></p>
-      </div>
-      {status === "success" ? (
-        <p className="leaderboard-submit-message is-success" role="status">
-          <T id="result.cupSubmitSuccess" />
-        </p>
-      ) : (
-        <form onSubmit={submitResult}>
-          <label htmlFor="cup-leaderboard-nickname">
-            <T id="leaderboard.nicknameField" />
-          </label>
-          <div className="leaderboard-submit-row">
-            <input
-              autoComplete="nickname"
-              id="cup-leaderboard-nickname"
-              maxLength={20}
-              minLength={2}
-              onChange={(event) => {
-                setNickname(event.target.value);
-                if (status === "invalid") {
-                  setStatus("idle");
-                }
-              }}
-              placeholder="2-20"
-              type="text"
-              value={nickname}
-            />
-            <button className="button button-primary" type="submit">
-              <T id="leaderboard.submit" />
-            </button>
-            <button
-              className="button button-secondary"
-              onClick={() => setStatus("skipped")}
-              type="button"
-            >
-              <T id="leaderboard.skip" />
-            </button>
-          </div>
-          {status === "invalid" && (
-            <p className="leaderboard-submit-message is-error" role="alert">
-              <T id="leaderboard.invalidNickname" />
-            </p>
-          )}
-        </form>
-      )}
     </section>
   );
 }

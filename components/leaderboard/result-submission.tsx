@@ -4,25 +4,42 @@ import { type FormEvent, useMemo, useState } from "react";
 import { LEADERBOARD_UPDATED_EVENT } from "@/components/leaderboard/leaderboard-board";
 import { T } from "@/components/localized-text";
 import {
+  cupResultFingerprint,
   isValidNickname,
   resultFingerprint,
   sanitizeNickname,
 } from "@/lib/leaderboard";
-import type { SavedSeason } from "@/lib/seasonSimulation";
+import type { SavedResult } from "@/lib/seasonSimulation";
 
 const SUBMISSION_KEY_PREFIX = "uf30-leaderboard-submitted:";
 
-export function ResultSubmission({ season }: { season: SavedSeason }) {
+export function ResultSubmission({ season }: { season: SavedResult }) {
   const [nickname, setNickname] = useState("");
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "invalid" | "error" | "skipped"
   >("idle");
   const fingerprint = useMemo(
-    () => resultFingerprint({
-      mode: season.mode,
-      lineup: season.lineup,
-      result: season.result,
-    }),
+    () => {
+      if (season.competition === "cup" && season.result) {
+        return cupResultFingerprint({
+          competition: season.competition,
+          mode: season.mode,
+          lineup: season.lineup,
+          result: season.result,
+        });
+      }
+
+      if (season.competition === "league") {
+        return resultFingerprint({
+          competition: season.competition,
+          mode: season.mode,
+          lineup: season.lineup,
+          result: season.result,
+        });
+      }
+
+      return "";
+    },
     [season],
   );
   const storageKey = `${SUBMISSION_KEY_PREFIX}${fingerprint}`;
@@ -41,14 +58,18 @@ export function ResultSubmission({ season }: { season: SavedSeason }) {
 
     setStatus("submitting");
     try {
+      const language =
+        document.documentElement.dataset.language === "ua" ? "ua" : "en";
       const response = await fetch("/api/leaderboard", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          competition: season.competition,
           nickname: cleanNickname,
           mode: season.mode,
           lineup: season.lineup,
           result: season.result,
+          language,
         }),
       });
       if (!response.ok) {
