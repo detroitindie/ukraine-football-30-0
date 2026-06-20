@@ -10,6 +10,7 @@
     "audit:30-0": "python scripts/audit_30_0_balance.py --check",
     "audit:cup-balance": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON scripts/audit_cup_balance.mts",
     "audit:duplicate-players": "python scripts/audit_duplicate_players.py --check",
+    "generate:cup-roll-pool": "python scripts/generate_cup_roll_pool.py",
     "diagnose:pools": "python scripts/diagnose_competition_pools.py",
     "validate:leaderboard": "python scripts/validate_leaderboard.py",
     "validate:season-descriptions": "python scripts/validate_season_descriptions.py",
