@@ -1152,8 +1152,19 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .result-page {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   flex-direction: column;
+  overflow-anchor: none;
+}
+
+.result-page > *,
+.result-page .cup-path,
+.result-page .cup-result-summary,
+.result-page .cup-stats-grid,
+.result-page .result-lineup,
+.result-page .leaderboard-submit,
+.result-page .leaderboard,
+.result-page .result-actions {
   overflow-anchor: none;
 }
 
