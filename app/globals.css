@@ -303,6 +303,65 @@ h3 {
   margin-top: 34px;
 }
 
+.home-start {
+  display: grid;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+.home-choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.home-choice {
+  appearance: none;
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.home-choice:hover,
+.home-choice.is-active {
+  border-color: var(--blue);
+  box-shadow: 0 10px 22px rgb(7 87 214 / 12%);
+  transform: translateY(-1px);
+}
+
+.new-badge {
+  display: inline-flex;
+  min-height: 20px;
+  align-items: center;
+  padding: 0 7px;
+  border-radius: 999px;
+  background: #b03535;
+  color: white;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.home-mode-group {
+  margin-top: 2px;
+  animation: home-mode-enter 220ms ease-out both;
+}
+
+.home-secondary-row {
+  margin-top: 14px;
+}
+
 .button {
   display: inline-flex;
   min-height: 50px;
@@ -796,6 +855,33 @@ html[data-language="ua"] .draft-mode-prefix {
   border-bottom: 1px solid var(--line);
 }
 
+.draft-sort-toggle {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.draft-sort-toggle button {
+  min-height: 32px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.draft-sort-toggle button.is-active {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: white;
+}
+
 .available-heading span {
   display: block;
   color: var(--muted);
@@ -1078,6 +1164,43 @@ html[data-language="ua"] .draft-mode-prefix {
   width: 100%;
 }
 
+.cup-result-page .leaderboard-submit,
+.cup-result-page > .leaderboard,
+.cup-result-page .result-lineup,
+.cup-result-page .result-actions {
+  overflow-anchor: none;
+}
+
+.cup-result-summary {
+  width: 100%;
+  margin: 18px 0 14px;
+}
+
+.cup-result-card {
+  width: 100%;
+}
+
+.cup-result-card strong {
+  max-width: 100%;
+  font-size: clamp(20px, 3vw, 30px);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.cup-stats-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+
+.cup-stats-grid .stat-card {
+  min-width: 0;
+}
+
+.cup-stats-grid .stat-card span {
+  display: block;
+  line-height: 1.25;
+}
+
 .result-description {
   width: 100%;
   max-width: 880px;
@@ -1091,6 +1214,38 @@ html[data-language="ua"] .draft-mode-prefix {
   font-weight: 700;
   line-height: 1.55;
   overflow-wrap: anywhere;
+}
+
+.cup-path {
+  display: grid;
+  width: 100%;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.cup-match {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 15px;
+  font-weight: 800;
+  animation: cup-match-enter 280ms ease-out both;
+}
+
+.cup-match-win {
+  border-color: color-mix(in srgb, var(--blue) 36%, var(--line));
+}
+
+.cup-match-loss {
+  border-color: color-mix(in srgb, #b03535 42%, var(--line));
+}
+
+.cup-reveal-state {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
 }
 
 .result-lineup {
@@ -1155,6 +1310,30 @@ html[data-language="ua"] .draft-mode-prefix {
   opacity: 1;
 }
 
+@keyframes home-mode-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cup-match-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 .home-page {
   display: grid;
   gap: 28px;
@@ -1217,10 +1396,15 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .leaderboard-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
   margin-top: 16px;
   padding-bottom: 12px;
   border-bottom: 1px solid var(--line);
+}
+
+.leaderboard-mode-tabs {
+  margin-top: 8px;
 }
 
 .leaderboard-tabs button {
@@ -1883,6 +2067,7 @@ html[data-language="ua"] .draft-mode-prefix {
 
 @media (prefers-reduced-motion: reduce) {
   * {
+    animation: none !important;
     scroll-behavior: auto !important;
     transition: none !important;
   }

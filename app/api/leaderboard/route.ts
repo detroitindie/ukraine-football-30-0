@@ -1,19 +1,28 @@
 import {
+  cupResultsMatch,
   FORMATION_SLOTS,
+  isLeaderboardCompetition,
   isLeaderboardMode,
   isValidNickname,
   isValidSubmissionLineup,
   publicLineup,
   resultsMatch,
   sanitizeNickname,
+  type CupLeaderboardSubmission,
   type LeaderboardSubmission,
 } from "@/lib/leaderboard";
 import type { DraftPlayer, Lineup } from "@/lib/draft-types";
-import { simulateSeason } from "@/lib/seasonSimulation";
 import {
+  type CupSimulationResult,
+  simulateCup,
+  simulateSeason,
+} from "@/lib/seasonSimulation";
+import {
+  insertCupLeaderboardEntry,
   insertLeaderboardEntry,
   LeaderboardConfigurationError,
   LeaderboardStorageError,
+  readCupLeaderboard,
   readLeaderboard,
 } from "@/lib/supabase-leaderboard";
 import runtimePlayers from "@/public/data/players.json";
@@ -81,8 +90,33 @@ function canonicalLineup(submitted: Lineup): Lineup | null {
   return canonical;
 }
 
+function isCupSimulationResult(value: unknown): value is CupSimulationResult {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+  const result = value as Partial<CupSimulationResult>;
+  return (
+    result.competition === "cup"
+    && Array.isArray(result.matches)
+    && result.matches.every((match) => Boolean(match) && typeof match === "object")
+    && typeof result.stageRank === "number"
+    && typeof result.stageLabelUa === "string"
+    && typeof result.stageLabelEn === "string"
+    && typeof result.wonCup === "boolean"
+    && typeof result.regularTimeWins === "number"
+    && typeof result.goalsFor === "number"
+    && typeof result.goalsAgainst === "number"
+    && typeof result.goalDifference === "number"
+  );
+}
+
 export async function GET(request: Request) {
   const url = new URL(request.url);
+  const requestedCompetition = url.searchParams.get("competition");
+  const competition = requestedCompetition ?? "league";
+  if (!isLeaderboardCompetition(competition)) {
+    return errorResponse("Invalid leaderboard competition", 400);
+  }
   const mode = url.searchParams.get("mode");
   if (!isLeaderboardMode(mode)) {
     return errorResponse("Invalid leaderboard mode", 400);
@@ -128,11 +162,9 @@ export async function GET(request: Request) {
   }
 
   try {
-    const { entries, totalCount } = await readLeaderboard(
-      mode,
-      pageSize,
-      offset,
-    );
+    const { entries, totalCount } = competition === "cup"
+      ? await readCupLeaderboard(mode, pageSize, offset)
+      : await readLeaderboard(mode, pageSize, offset);
     const responsePage = usesPagePagination
       ? page
       : Math.floor(offset / pageSize) + 1;
@@ -159,13 +191,14 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  let body: Partial<LeaderboardSubmission>;
+  let body: Partial<LeaderboardSubmission | CupLeaderboardSubmission>;
   try {
-    body = await request.json() as Partial<LeaderboardSubmission>;
+    body = await request.json() as Partial<LeaderboardSubmission | CupLeaderboardSubmission>;
   } catch {
     return errorResponse("Invalid JSON body", 400);
   }
 
+  const competition = body.competition === "cup" ? "cup" : "league";
   const nickname = sanitizeNickname(body.nickname);
   if (!isValidNickname(nickname)) {
     return errorResponse("Invalid nickname", 400);
@@ -181,8 +214,51 @@ export async function POST(request: Request) {
     return errorResponse("Lineup contains unavailable players", 400);
   }
 
+  if (competition === "cup") {
+    const cupBody = body as Partial<CupLeaderboardSubmission>;
+    if (!isCupSimulationResult(cupBody.result)) {
+      return errorResponse("Invalid lineup or result", 400);
+    }
+    const recomputedResult = simulateCup(Object.values(verifiedLineup));
+    if (!cupResultsMatch(cupBody.result, recomputedResult)) {
+      return errorResponse("Submitted result could not be verified", 400);
+    }
+    const language = cupBody.language === "ua" ? "ua" : "en";
+
+    try {
+      const entry = await insertCupLeaderboardEntry({
+        nickname,
+        mode: body.mode,
+        stage_rank: recomputedResult.stageRank,
+        stage_label_ua: recomputedResult.stageLabelUa,
+        stage_label_en: recomputedResult.stageLabelEn,
+        won_cup: recomputedResult.wonCup,
+        regular_time_wins: recomputedResult.regularTimeWins,
+        goals_for: recomputedResult.goalsFor,
+        goals_against: recomputedResult.goalsAgainst,
+        goal_difference: recomputedResult.goalDifference,
+        cup_path: recomputedResult.matches,
+        lineup: publicLineup(verifiedLineup),
+        language,
+      });
+      return Response.json({ entry }, { status: 201 });
+    } catch (error) {
+      if (error instanceof LeaderboardConfigurationError) {
+        return errorResponse("Leaderboard is not configured", 503);
+      }
+      if (error instanceof LeaderboardStorageError) {
+        return errorResponse("Result could not be submitted", 502);
+      }
+      return errorResponse("Result could not be submitted", 500);
+    }
+  }
+
+  const leagueBody = body as Partial<LeaderboardSubmission>;
+  if (!leagueBody.result) {
+    return errorResponse("Invalid lineup or result", 400);
+  }
   const recomputedResult = simulateSeason(Object.values(verifiedLineup));
-  if (!resultsMatch(body.result, recomputedResult)) {
+  if (!resultsMatch(leagueBody.result, recomputedResult)) {
     return errorResponse("Submitted result could not be verified", 400);
   }
 
