@@ -355,6 +355,7 @@ h3 {
 
 .home-mode-group {
   margin-top: 2px;
+  animation: home-mode-enter 220ms ease-out both;
 }
 
 .home-secondary-row {
@@ -1163,6 +1164,36 @@ html[data-language="ua"] .draft-mode-prefix {
   width: 100%;
 }
 
+.cup-result-summary {
+  width: 100%;
+  margin: 18px 0 14px;
+}
+
+.cup-result-card {
+  width: 100%;
+}
+
+.cup-result-card strong {
+  max-width: 100%;
+  font-size: clamp(20px, 3vw, 30px);
+  line-height: 1.2;
+  overflow-wrap: anywhere;
+}
+
+.cup-stats-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-bottom: 18px;
+}
+
+.cup-stats-grid .stat-card {
+  min-width: 0;
+}
+
+.cup-stats-grid .stat-card span {
+  display: block;
+  line-height: 1.25;
+}
+
 .result-description {
   width: 100%;
   max-width: 880px;
@@ -1181,7 +1212,7 @@ html[data-language="ua"] .draft-mode-prefix {
 .cup-path {
   display: grid;
   width: 100%;
-  gap: 8px;
+  gap: 12px;
   margin-top: 18px;
 }
 
@@ -1192,6 +1223,7 @@ html[data-language="ua"] .draft-mode-prefix {
   background: var(--surface);
   font-size: 15px;
   font-weight: 800;
+  animation: cup-match-enter 280ms ease-out both;
 }
 
 .cup-match-win {
@@ -1269,6 +1301,30 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .copy-confirmation.is-visible {
   opacity: 1;
+}
+
+@keyframes home-mode-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes cup-match-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .home-page {
@@ -2004,6 +2060,7 @@ html[data-language="ua"] .draft-mode-prefix {
 
 @media (prefers-reduced-motion: reduce) {
   * {
+    animation: none !important;
     scroll-behavior: auto !important;
     transition: none !important;
   }

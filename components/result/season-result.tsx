@@ -478,14 +478,16 @@ function CupResultView({
       </section>
       {complete && (
         <>
-          <section className="stats-grid">
-            <article className="stat-card">
+          <section className="cup-result-summary">
+            <article className="stat-card cup-result-card">
               <span><T id="result.cupFinish" /></span>
               <strong>
                 <span className="localized-text" data-language="en">{finalLabel.en}</span>
                 <span className="localized-text" data-language="ua">{finalLabel.ua}</span>
               </strong>
             </article>
+          </section>
+          <section className="stats-grid cup-stats-grid">
             <article className="stat-card">
               <span><T id="result.goals" /></span>
               <strong>{cupResult.goalsFor}-{cupResult.goalsAgainst}</strong>
