@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { FormationBoard } from "@/components/formation/formation-board";
 import { T } from "@/components/localized-text";
+import { rollPoolPathForCompetition } from "@/lib/competition-pools";
 import type {
   DraftData,
   DraftCompetition,
@@ -80,7 +81,7 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
       try {
         const [playersResponse, rollPoolResponse, slotsResponse] = await Promise.all([
           fetch("/data/players.json"),
-          fetch("/data/roll_pool.json"),
+          fetch(rollPoolPathForCompetition(competition)),
           fetch("/data/formation_slots.json"),
         ]);
 
@@ -113,7 +114,7 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [competition]);
 
   const playersByRoll = useMemo(() => {
     const grouped = new Map<string, DraftPlayer[]>();
