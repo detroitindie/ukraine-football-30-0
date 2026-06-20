@@ -12,7 +12,6 @@ import {
   type LeaderboardSubmission,
 } from "@/lib/leaderboard";
 import type { DraftPlayer, Lineup } from "@/lib/draft-types";
-import type { LeaderboardCompetition } from "@/lib/leaderboard";
 import {
   type CupSimulationResult,
   simulateCup,
@@ -45,9 +44,6 @@ const playersByEntryId = new Map(
 const reachableClubDecades = new Set(
   runtimeRollPool.map((entry) => entry.club_decade_id),
 );
-// TODO(v2 cup data): switch this to the regenerated Cup roll pool once the
-// source dataset exposes the club top-division eligibility field.
-const reachableCupClubDecades = reachableClubDecades;
 
 function errorResponse(message: string, status: number) {
   return Response.json({ error: message }, { status });
@@ -71,15 +67,9 @@ function integerParameter(
     : null;
 }
 
-function canonicalLineup(
-  submitted: Lineup,
-  competition: LeaderboardCompetition,
-): Lineup | null {
+function canonicalLineup(submitted: Lineup): Lineup | null {
   const canonical: Lineup = {};
   const playerIds = new Set<number>();
-  const reachableIds = competition === "cup"
-    ? reachableCupClubDecades
-    : reachableClubDecades;
 
   for (const slot of FORMATION_SLOTS) {
     const submittedPlayer = submitted[slot.slotId];
@@ -87,7 +77,7 @@ function canonicalLineup(
     if (
       !player
       || player.player_id !== submittedPlayer.player_id
-      || !reachableIds.has(player.club_decade_id)
+      || !reachableClubDecades.has(player.club_decade_id)
       || !slot.allowed.some((position) => position === player.game_position)
       || playerIds.has(player.player_id)
     ) {
@@ -219,7 +209,7 @@ export async function POST(request: Request) {
   if (!isValidSubmissionLineup(body.lineup) || !body.result) {
     return errorResponse("Invalid lineup or result", 400);
   }
-  const verifiedLineup = canonicalLineup(body.lineup, competition);
+  const verifiedLineup = canonicalLineup(body.lineup);
   if (!verifiedLineup) {
     return errorResponse("Lineup contains unavailable players", 400);
   }
