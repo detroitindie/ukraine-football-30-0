@@ -55,6 +55,10 @@ function isLeaderboardEntry(value: unknown): value is LeagueLeaderboardEntry {
     && typeof entry.draws === "number"
     && typeof entry.losses === "number"
     && typeof entry.score_points === "number"
+    && (entry.points === undefined || typeof entry.points === "number")
+    && (entry.goals_for === undefined || typeof entry.goals_for === "number")
+    && (entry.goals_against === undefined || typeof entry.goals_against === "number")
+    && (entry.goal_difference === undefined || typeof entry.goal_difference === "number")
     && typeof entry.created_at === "string"
     && Array.isArray(entry.lineup)
     && entry.lineup.length === 11
@@ -121,7 +125,7 @@ export async function readLeaderboard(
   }
 
   const query = new URLSearchParams({
-    select: "id,nickname,mode,wins,draws,losses,score_points,lineup,created_at",
+    select: "id,nickname,mode,wins,draws,losses,score_points,goals_for,goals_against,goal_difference,lineup,created_at",
     mode: `eq.${mode}`,
     order: "wins.desc,draws.desc,losses.asc,score_points.desc,created_at.asc",
     limit: String(limit),
@@ -207,6 +211,10 @@ type InsertEntry = {
   draws: number;
   losses: number;
   score_points: number;
+  points?: number;
+  goals_for?: number;
+  goals_against?: number;
+  goal_difference?: number;
   lineup: PublicLineupPlayer[];
 };
 
@@ -222,7 +230,12 @@ export async function insertLeaderboardEntry(entry: InsertEntry) {
       ...headers(config.key),
       Prefer: "return=representation",
     },
-    body: JSON.stringify(entry),
+    body: JSON.stringify({
+      ...entry,
+      ...(entry.goals_for === undefined ? {} : { goals_for: entry.goals_for }),
+      ...(entry.goals_against === undefined ? {} : { goals_against: entry.goals_against }),
+      ...(entry.goal_difference === undefined ? {} : { goal_difference: entry.goal_difference }),
+    }),
     cache: "no-store",
   });
   if (!response.ok) {

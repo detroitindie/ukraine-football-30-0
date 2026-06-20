@@ -29,6 +29,10 @@ export type LeagueLeaderboardEntry = {
   draws: number;
   losses: number;
   score_points: number;
+  points?: number;
+  goals_for?: number;
+  goals_against?: number;
+  goal_difference?: number;
   lineup: PublicLineupPlayer[];
   created_at: string;
 };
@@ -68,6 +72,9 @@ export type LeaderboardSubmission = {
   mode: DraftMode;
   lineup: Lineup;
   result: SeasonResult;
+  goals_for?: number;
+  goals_against?: number;
+  goal_difference?: number;
 };
 
 export type CupLeaderboardSubmission = {

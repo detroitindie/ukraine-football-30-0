@@ -270,6 +270,9 @@ export async function POST(request: Request) {
       draws: recomputedResult.draws,
       losses: recomputedResult.losses,
       score_points: recomputedResult.points,
+      goals_for: recomputedResult.goalsFor,
+      goals_against: recomputedResult.goalsAgainst,
+      goal_difference: recomputedResult.goalDifference,
       lineup: publicLineup(verifiedLineup),
     });
     return Response.json({ entry }, { status: 201 });

@@ -1445,7 +1445,7 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .leaderboard-compact-list li {
   display: grid;
-  grid-template-columns: 24px minmax(0, 1fr) auto;
+  grid-template-columns: 24px minmax(0, 1fr);
   gap: 10px;
   padding: 9px 4px;
   border-bottom: 1px solid var(--line);
@@ -1462,10 +1462,30 @@ html[data-language="ua"] .draft-mode-prefix {
   text-align: center;
 }
 
+.leaderboard-compact-body {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
 .leaderboard-compact-name {
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.leaderboard-compact-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.leaderboard-compact-summary strong {
+  color: var(--ink);
 }
 
 .leaderboard-table-wrap {
@@ -1475,7 +1495,7 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .leaderboard-table {
   width: 100%;
-  min-width: 760px;
+  min-width: 980px;
   table-layout: fixed;
   border-collapse: collapse;
   font-size: 13px;
@@ -1490,7 +1510,15 @@ html[data-language="ua"] .draft-mode-prefix {
 }
 
 .leaderboard-col-result {
-  width: 110px;
+  width: 210px;
+}
+
+.leaderboard-col-metric {
+  width: 130px;
+}
+
+.leaderboard-col-goals {
+  width: 120px;
 }
 
 .leaderboard-col-date {
@@ -1550,6 +1578,48 @@ html[data-language="ua"] .draft-mode-prefix {
 .leaderboard-lineup small {
   color: var(--muted);
   white-space: nowrap;
+}
+
+.leaderboard-mobile-list {
+  display: none;
+}
+
+.leaderboard-mobile-card {
+  padding: 14px 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.leaderboard-mobile-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.leaderboard-mobile-head strong {
+  display: block;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderboard-mobile-meta {
+  display: grid;
+  gap: 6px;
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.leaderboard-mobile-meta strong {
+  color: var(--ink);
+}
+
+.leaderboard-mobile-date {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
 }
 
 .leaderboard-pagination {
@@ -1632,6 +1702,37 @@ html[data-language="ua"] .draft-mode-prefix {
 
 .leaderboard-submit-message.is-error {
   color: #b42318;
+}
+
+@media (max-width: 760px) {
+  .leaderboard-table-wrap {
+    overflow: visible;
+  }
+
+  .leaderboard-desktop-table-wrap {
+    display: none;
+  }
+
+  .leaderboard-mobile-list {
+    display: grid;
+    margin-top: 12px;
+  }
+
+  .leaderboard-compact-list li {
+    gap: 8px;
+  }
+
+  .leaderboard-lineup ul {
+    width: 100%;
+  }
+
+  .leaderboard-lineup li {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+
+  .leaderboard-lineup li small {
+    grid-column: 2;
+  }
 }
 
 .leaderboard-page > .leaderboard {
