@@ -26,6 +26,7 @@ import {
   readLeaderboard,
 } from "@/lib/supabase-leaderboard";
 import runtimePlayers from "@/public/data/players.json";
+import runtimeCupRollPool from "@/public/data/cup_roll_pool.json";
 import runtimeRollPool from "@/public/data/roll_pool.json";
 
 export const dynamic = "force-dynamic";
@@ -43,6 +44,9 @@ const playersByEntryId = new Map(
 );
 const reachableClubDecades = new Set(
   runtimeRollPool.map((entry) => entry.club_decade_id),
+);
+const reachableCupClubDecades = new Set(
+  runtimeCupRollPool.map((entry) => entry.club_decade_id),
 );
 
 function errorResponse(message: string, status: number) {
@@ -67,7 +71,10 @@ function integerParameter(
     : null;
 }
 
-function canonicalLineup(submitted: Lineup): Lineup | null {
+function canonicalLineup(
+  submitted: Lineup,
+  validClubDecades: ReadonlySet<string>,
+): Lineup | null {
   const canonical: Lineup = {};
   const playerIds = new Set<number>();
 
@@ -77,7 +84,7 @@ function canonicalLineup(submitted: Lineup): Lineup | null {
     if (
       !player
       || player.player_id !== submittedPlayer.player_id
-      || !reachableClubDecades.has(player.club_decade_id)
+      || !validClubDecades.has(player.club_decade_id)
       || !slot.allowed.some((position) => position === player.game_position)
       || playerIds.has(player.player_id)
     ) {
@@ -209,17 +216,20 @@ export async function POST(request: Request) {
   if (!isValidSubmissionLineup(body.lineup) || !body.result) {
     return errorResponse("Invalid lineup or result", 400);
   }
-  const verifiedLineup = canonicalLineup(body.lineup);
-  if (!verifiedLineup) {
-    return errorResponse("Lineup contains unavailable players", 400);
-  }
 
   if (competition === "cup") {
     const cupBody = body as Partial<CupLeaderboardSubmission>;
     if (!isCupSimulationResult(cupBody.result)) {
       return errorResponse("Invalid lineup or result", 400);
     }
-    const recomputedResult = simulateCup(Object.values(verifiedLineup));
+    const verifiedCupLineup = canonicalLineup(
+      body.lineup,
+      reachableCupClubDecades,
+    );
+    if (!verifiedCupLineup) {
+      return errorResponse("Lineup contains unavailable players", 400);
+    }
+    const recomputedResult = simulateCup(Object.values(verifiedCupLineup));
     if (!cupResultsMatch(cupBody.result, recomputedResult)) {
       return errorResponse("Submitted result could not be verified", 400);
     }
@@ -238,7 +248,7 @@ export async function POST(request: Request) {
         goals_against: recomputedResult.goalsAgainst,
         goal_difference: recomputedResult.goalDifference,
         cup_path: recomputedResult.matches,
-        lineup: publicLineup(verifiedLineup),
+        lineup: publicLineup(verifiedCupLineup),
         language,
       });
       return Response.json({ entry }, { status: 201 });
@@ -257,7 +267,14 @@ export async function POST(request: Request) {
   if (!leagueBody.result) {
     return errorResponse("Invalid lineup or result", 400);
   }
-  const recomputedResult = simulateSeason(Object.values(verifiedLineup));
+  const verifiedLeagueLineup = canonicalLineup(
+    body.lineup,
+    reachableClubDecades,
+  );
+  if (!verifiedLeagueLineup) {
+    return errorResponse("Lineup contains unavailable players", 400);
+  }
+  const recomputedResult = simulateSeason(Object.values(verifiedLeagueLineup));
   if (!resultsMatch(leagueBody.result, recomputedResult)) {
     return errorResponse("Submitted result could not be verified", 400);
   }
@@ -270,7 +287,10 @@ export async function POST(request: Request) {
       draws: recomputedResult.draws,
       losses: recomputedResult.losses,
       score_points: recomputedResult.points,
-      lineup: publicLineup(verifiedLineup),
+      goals_for: recomputedResult.goalsFor,
+      goals_against: recomputedResult.goalsAgainst,
+      goal_difference: recomputedResult.goalDifference,
+      lineup: publicLineup(verifiedLeagueLineup),
     });
     return Response.json({ entry }, { status: 201 });
   } catch (error) {
