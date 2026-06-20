@@ -72,6 +72,10 @@ function text(language: Language, id: TranslationKey) {
   return translations[language][id];
 }
 
+function getActiveLanguage(): Language {
+  return document.documentElement.dataset.language === "ua" ? "ua" : "en";
+}
+
 function isSeasonResult(value: unknown): value is SeasonResult {
   if (!value || typeof value !== "object") {
     return false;
@@ -198,40 +202,9 @@ function signedGoalDifference(value: number) {
   return value > 0 ? `+${value}` : String(value);
 }
 
-function cupStageRankLabel(result: CupSimulationResult) {
-  if (result.wonCup) {
-    return {
-      en: "Won the Ukrainian Cup",
-      ua: "Кубок України виграно",
-    };
-  }
-
-  return {
-    en: `Eliminated: ${result.stageLabelEn}`,
-    ua: `Виліт: ${result.stageLabelUa}`,
-  };
-}
-
 function cupVerdictKey(result: CupSimulationResult) {
   const options = cupVerdictKeys[result.stageRank];
   return options[(result.goalsFor + result.goalsAgainst) % options.length];
-}
-
-function cupMatchText(match: CupMatchResult, language: "en" | "ua") {
-  const stage = cupStageLabels[match.stage][language];
-  const resultText = language === "ua"
-    ? match.result === "win" ? "перемога" : "поразка"
-    : match.result;
-  const score = `${match.goalsFor}-${match.goalsAgainst}`;
-  const decision = cupDecisionLabels[match.decidedBy][language];
-  const suffix =
-    match.decidedBy === "regular_time"
-      ? ""
-      : match.decidedBy === "penalties"
-        ? ` (${decision}: ${match.penaltiesFor}-${match.penaltiesAgainst})`
-        : ` (${decision})`;
-
-  return `${stage}: ${resultText}, ${score}${suffix}`;
 }
 
 function cupStageRankLabelText(result: CupSimulationResult, language: Language) {
@@ -332,14 +305,15 @@ export function SeasonResultView() {
   ];
 
   async function shareResult() {
+    const shareLanguage = getActiveLanguage();
     const lineupText = groupedLineup
       .map((group) => group.players.join(", "))
       .join("\n-\n");
     const shareText = [
-      "30-0: Українська ліга",
+      `30-0: ${text(shareLanguage, "home.competitionLeague")}`,
       window.location.origin,
       "",
-      "My team:",
+      text(shareLanguage, "result.lineup"),
       `${result.wins}-${result.draws}-${result.losses}, ${result.points} pts`,
       "",
       lineupText,
@@ -353,7 +327,6 @@ export function SeasonResultView() {
       setCopied(false);
     }
   }
-
   function playAgain() {
     sessionStorage.removeItem(SEASON_RESULT_STORAGE_KEY);
     router.push("/");
@@ -463,23 +436,28 @@ function CupResultView({
   const finalLabel = cupStageRankLabelText(cupResult, language);
 
   async function shareCupResult() {
+    const shareLanguage = getActiveLanguage();
     const lineupText = groupedLineup
       .map((group) => group.players.join(", "))
       .join("\n-\n");
     const pathText = cupResult.matches
-      .map((match) => cupMatchText(match, "en"))
+      .map((match) => cupMatchTextSingle(match, shareLanguage))
       .join("\n");
     const shareText = [
-      "30-0: Українська ліга",
-      "Competition: Ukrainian Cup",
-      `Mode: ${savedResult.mode === "hardcore" ? "Hardcore" : "Normal"}`,
-      `Result: ${cupStageRankLabel(cupResult).en}`,
+      `30-0: ${text(shareLanguage, "home.competitionCup")}`,
+      `${shareLanguage === "ua" ? "Турнір" : "Competition"}: ${text(shareLanguage, "leaderboard.cup")}`,
+      `${text(shareLanguage, "leaderboard.normalMode")}: ${
+        savedResult.mode === "hardcore"
+          ? text(shareLanguage, "leaderboard.hardcoreMode")
+          : text(shareLanguage, "leaderboard.normalMode")
+      }`,
+      `${text(shareLanguage, "result.cupFinish")}: ${cupStageRankLabelText(cupResult, shareLanguage)}`,
       window.location.origin,
       "",
-      "Cup path:",
+      `${text(shareLanguage, "result.cupResult")}:`,
       pathText,
       "",
-      "My team:",
+      text(shareLanguage, "result.lineup"),
       lineupText,
     ].join("\n");
 
@@ -491,7 +469,6 @@ function CupResultView({
       setCopied(false);
     }
   }
-
   return (
     <div className="compact-page result-page">
       <header className="compact-heading">
