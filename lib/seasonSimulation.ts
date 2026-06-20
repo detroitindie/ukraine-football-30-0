@@ -21,10 +21,20 @@ export type SeasonResult = {
 };
 
 export type SavedSeason = {
+  competition: "league";
   mode: DraftMode;
   lineup: Lineup;
   result: SeasonResult;
 };
+
+export type SavedCupPlaceholder = {
+  competition: "cup";
+  mode: DraftMode;
+  lineup: Lineup;
+  result: null;
+};
+
+export type SavedResult = SavedSeason | SavedCupPlaceholder;
 
 const OPPONENT_STRENGTHS = [
   79, 77, 75, 74, 72, 71, 70, 69, 68, 67,

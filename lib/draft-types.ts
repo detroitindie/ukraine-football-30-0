@@ -1,4 +1,6 @@
 export type DraftMode = "normal" | "hardcore";
+export type DraftCompetition = "league" | "cup";
+export type DraftSort = "stats" | "position";
 
 export type DraftPlayer = {
   club_decade_player_id: string;

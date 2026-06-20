@@ -6,7 +6,9 @@ import { FormationBoard } from "@/components/formation/formation-board";
 import { T } from "@/components/localized-text";
 import type {
   DraftData,
+  DraftCompetition,
   DraftMode,
+  DraftSort,
   DraftPlayer,
   FormationLine,
   FormationSlot,
@@ -16,7 +18,7 @@ import type {
 import {
   SEASON_RESULT_STORAGE_KEY,
   simulateSeason,
-  type SavedSeason,
+  type SavedResult,
 } from "@/lib/seasonSimulation";
 import {
   cleanPlayerName,
@@ -26,6 +28,7 @@ import {
 import { compareDraftPlayers } from "@/lib/player-sorting";
 
 type DraftGameProps = {
+  competition: DraftCompetition;
   mode: DraftMode;
 };
 
@@ -57,7 +60,7 @@ function randomItem<T>(items: T[]) {
   return items[Math.floor(Math.random() * items.length)];
 }
 
-export function DraftGame({ mode }: DraftGameProps) {
+export function DraftGame({ competition, mode }: DraftGameProps) {
   const router = useRouter();
   const [data, setData] = useState<DraftData>(EMPTY_DATA);
   const [loading, setLoading] = useState(true);
@@ -66,6 +69,7 @@ export function DraftGame({ mode }: DraftGameProps) {
   const [currentRoll, setCurrentRoll] = useState<RollPoolEntry | null>(null);
   const [candidate, setCandidate] = useState<DraftPlayer | null>(null);
   const [pickLockedForRoll, setPickLockedForRoll] = useState(false);
+  const [normalSort, setNormalSort] = useState<DraftSort>("stats");
   const formationRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -141,10 +145,11 @@ export function DraftGame({ mode }: DraftGameProps) {
           !selectedPlayerIds.has(player.player_id) &&
           remainingSlots.some((slot) => playerFitsSlot(player, slot)),
       )
-      .sort(compareDraftPlayers(mode));
+      .sort(compareDraftPlayers(mode, mode === "normal" ? normalSort : "position"));
   }, [
     currentRoll,
     mode,
+    normalSort,
     pickLockedForRoll,
     playersByRoll,
     remainingSlots,
@@ -190,11 +195,20 @@ export function DraftGame({ mode }: DraftGameProps) {
 
   function usePrimaryAction() {
     if (draftComplete) {
-      const savedSeason: SavedSeason = {
-        mode,
-        lineup,
-        result: simulateSeason(Object.values(lineup)),
-      };
+      const savedSeason: SavedResult =
+        competition === "league"
+          ? {
+              competition,
+              mode,
+              lineup,
+              result: simulateSeason(Object.values(lineup)),
+            }
+          : {
+              competition,
+              mode,
+              lineup,
+              result: null,
+            };
       sessionStorage.setItem(
         SEASON_RESULT_STORAGE_KEY,
         JSON.stringify(savedSeason),
@@ -257,6 +271,12 @@ export function DraftGame({ mode }: DraftGameProps) {
         <div className="draft-mode">
           <span className="draft-mode-prefix"><T id="draft.mode" /></span>
           <strong>
+            <T
+              id={competition === "cup"
+                ? "draft.competitionCup"
+                : "draft.competitionLeague"}
+            />
+            {" / "}
             <T id={mode === "hardcore" ? "draft.modeHardcore" : "draft.modeNormal"} />
           </strong>
         </div>
@@ -350,6 +370,24 @@ export function DraftGame({ mode }: DraftGameProps) {
               <T id={draftComplete ? "draft.seeResult" : "draft.reroll"} />
             </button>
           </div>
+          {mode === "normal" && (
+            <div className="draft-sort-toggle" role="group" aria-label="Player sorting">
+              <button
+                className={normalSort === "stats" ? "is-active" : ""}
+                type="button"
+                onClick={() => setNormalSort("stats")}
+              >
+                <T id="draft.sortStats" />
+              </button>
+              <button
+                className={normalSort === "position" ? "is-active" : ""}
+                type="button"
+                onClick={() => setNormalSort("position")}
+              >
+                <T id="draft.sortPositions" />
+              </button>
+            </div>
+          )}
 
           <div className="available-list">
             {availablePlayers.map((player) => {

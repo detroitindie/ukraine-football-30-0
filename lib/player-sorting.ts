@@ -1,4 +1,4 @@
-import type { DraftMode, DraftPlayer } from "@/lib/draft-types";
+import type { DraftMode, DraftPlayer, DraftSort } from "@/lib/draft-types";
 import { cleanPlayerName, safePlayerStat } from "@/lib/player-display";
 
 const POSITION_ORDER = [
@@ -45,9 +45,12 @@ function availableStatScore(player: DraftPlayer) {
   };
 }
 
-export function compareDraftPlayers(mode: DraftMode) {
+export function compareDraftPlayers(
+  mode: DraftMode,
+  sort: DraftSort = "stats",
+) {
   return (left: DraftPlayer, right: DraftPlayer) => {
-    if (mode === "normal") {
+    if (mode === "normal" && sort === "stats") {
       const leftStats = availableStatScore(left);
       const rightStats = availableStatScore(right);
 

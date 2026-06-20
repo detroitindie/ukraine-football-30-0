@@ -8,6 +8,7 @@ import { ResultSubmission } from "@/components/leaderboard/result-submission";
 import { T } from "@/components/localized-text";
 import {
   SEASON_RESULT_STORAGE_KEY,
+  type SavedResult,
   type SavedSeason,
   type SeasonResult,
   type SeasonVerdict,
@@ -49,20 +50,35 @@ function isSeasonResult(value: unknown): value is SeasonResult {
   );
 }
 
-function parseSavedSeason(rawValue: string | null): SavedSeason | null {
+function parseSavedResult(rawValue: string | null): SavedResult | null {
   try {
     if (!rawValue) {
       return null;
     }
 
-    const saved = JSON.parse(rawValue) as Partial<SavedSeason>;
-    if (!saved.lineup || !isSeasonResult(saved.result)) {
+    const saved = JSON.parse(rawValue) as Partial<SavedResult>;
+    if (!saved.lineup) {
       return null;
     }
 
+    const mode = saved.mode === "hardcore" ? "hardcore" : "normal";
+    const competition = saved.competition === "cup" ? "cup" : "league";
+    if (competition === "cup") {
+      return {
+        competition,
+        mode,
+        lineup: saved.lineup,
+        result: null,
+      };
+    }
+    if (!isSeasonResult(saved.result)) {
+      return null;
+    }
     return {
-      ...saved,
-      mode: saved.mode === "hardcore" ? "hardcore" : "normal",
+      competition,
+      mode,
+      lineup: saved.lineup,
+      result: saved.result,
     } as SavedSeason;
   } catch {
     return null;
@@ -112,12 +128,12 @@ export function SeasonResultView() {
     getStoredSeason,
     getServerSeason,
   );
-  const savedSeason = useMemo(
-    () => parseSavedSeason(storedSeason),
+  const savedResult = useMemo(
+    () => parseSavedResult(storedSeason),
     [storedSeason],
   );
 
-  if (savedSeason === null) {
+  if (savedResult === null) {
     return (
       <div className="compact-page result-page">
         <section className="result-empty">
@@ -131,6 +147,40 @@ export function SeasonResultView() {
     );
   }
 
+  if (savedResult.competition === "cup") {
+    return (
+      <div className="compact-page result-page">
+        <header className="compact-heading">
+          <h1><T id="result.cupPlaceholderTitle" /></h1>
+          <p><T id="result.cupPlaceholderBody" /></p>
+        </header>
+        <section className="result-lineup">
+          <h2><T id="result.lineup" /></h2>
+          <div className="result-lineup-groups">
+            {lineupGroups.map((group) => {
+              const players = group.slots
+                .map((slotId) => savedResult.lineup[slotId])
+                .filter(Boolean)
+                .map((player) => cleanPlayerName(player.player_name));
+              return (
+                <div className="result-line" key={group.label}>
+                  <strong><T id={group.label} /></strong>
+                  <span>{players.join(", ")}</span>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+        <div className="result-actions">
+          <button className="button button-secondary" type="button" onClick={playAgain}>
+            <T id="result.playAgain" />
+          </button>
+        </div>
+      </div>
+    );
+  }
+
+  const savedSeason = savedResult;
   const { result } = savedSeason;
   const description = selectSeasonDescription(savedSeason.lineup, result);
   const groupedLineup = lineupGroups.map((group) => ({

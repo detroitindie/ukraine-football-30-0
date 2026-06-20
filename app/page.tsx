@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { HomeStart } from "@/components/home/home-start";
 import { LeaderboardBoard } from "@/components/leaderboard/leaderboard-board";
 import { T } from "@/components/localized-text";
 import { createPageMetadata } from "@/lib/page-metadata";
@@ -13,13 +14,8 @@ export default function HomePage() {
         <div className="hero-copy">
           <h1><T id="home.title" /></h1>
           <p className="hero-lead"><T id="home.lead" /></p>
-          <div className="button-row">
-            <Link className="button button-primary" href="/draft?mode=normal">
-              <T id="home.normalMode" />
-            </Link>
-            <Link className="button button-hardcore" href="/draft?mode=hardcore">
-              <T id="home.hardcoreMode" />
-            </Link>
+          <HomeStart />
+          <div className="button-row home-secondary-row">
             <Link className="button button-secondary" href="/rules">
               <T id="home.rules" />
             </Link>
