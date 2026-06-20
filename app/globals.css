@@ -1738,11 +1738,22 @@ html[data-language="ua"] .draft-mode-prefix {
   }
 
   .leaderboard-lineup li {
-    grid-template-columns: 42px minmax(0, 1fr);
+    grid-template-columns: minmax(58px, 68px) minmax(0, 1fr);
+    align-items: start;
+  }
+
+  .leaderboard-lineup li strong {
+    white-space: nowrap;
+  }
+
+  .leaderboard-lineup li span {
+    overflow-wrap: anywhere;
+    word-break: normal;
   }
 
   .leaderboard-lineup li small {
     grid-column: 2;
+    margin-top: -1px;
   }
 }
 

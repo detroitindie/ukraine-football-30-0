@@ -446,10 +446,10 @@ function CupResultView({
     const shareText = [
       `30-0: ${text(shareLanguage, "home.competitionCup")}`,
       `${shareLanguage === "ua" ? "Турнір" : "Competition"}: ${text(shareLanguage, "leaderboard.cup")}`,
-      `${text(shareLanguage, "leaderboard.normalMode")}: ${
+      `${shareLanguage === "ua" ? "Режим" : "Mode"}: ${
         savedResult.mode === "hardcore"
-          ? text(shareLanguage, "leaderboard.hardcoreMode")
-          : text(shareLanguage, "leaderboard.normalMode")
+          ? text(shareLanguage, "leaderboard.hardcore")
+          : text(shareLanguage, "leaderboard.normal")
       }`,
       `${text(shareLanguage, "result.cupFinish")}: ${cupStageRankLabelText(cupResult, shareLanguage)}`,
       window.location.origin,
