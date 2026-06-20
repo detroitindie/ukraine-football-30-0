@@ -129,6 +129,7 @@ export function LeaderboardBoard({
   const [hasNextPage, setHasNextPage] = useState(false);
   const requestId = useRef(0);
   const [status, setStatus] = useState<"loading" | "ready" | "error">("loading");
+  const showGoals = competition === "cup";
 
   const loadEntries = useCallback(async () => {
     const currentRequestId = ++requestId.current;
@@ -247,7 +248,6 @@ export function LeaderboardBoard({
               const display = displayEntry(entry, uiLanguage);
               const metricText = metricLabel(competition, uiLanguage);
               const resultText = resultLabel(uiLanguage);
-              const goals = display.goals;
               return (
                 <li key={entry.id}>
                   <span className="leaderboard-compact-rank">{index + 1}</span>
@@ -260,9 +260,9 @@ export function LeaderboardBoard({
                       <span>
                         <strong>{metricText}:</strong> {display.metric}
                       </span>
-                      {goals && (
+                      {showGoals && display.goals && (
                         <span>
-                          <strong>{goalsLabel(uiLanguage)}:</strong> {goals}
+                          <strong>{goalsLabel(uiLanguage)}:</strong> {display.goals}
                         </span>
                       )}
                     </span>
@@ -275,13 +275,13 @@ export function LeaderboardBoard({
         {status === "ready" && entries.length > 0 && !compact && (
           <>
             <div className="leaderboard-table-wrap leaderboard-desktop-table-wrap">
-              <table className="leaderboard-table">
+              <table className={`leaderboard-table${showGoals ? "" : " leaderboard-table-league"}`}>
                 <colgroup>
                   <col className="leaderboard-col-rank" />
                   <col className="leaderboard-col-nickname" />
                   <col className="leaderboard-col-result" />
                   <col className="leaderboard-col-metric" />
-                  <col className="leaderboard-col-goals" />
+                  {showGoals && <col className="leaderboard-col-goals" />}
                   <col className="leaderboard-col-date" />
                   <col className="leaderboard-col-lineup" />
                 </colgroup>
@@ -291,7 +291,7 @@ export function LeaderboardBoard({
                     <th>{boardText("leaderboard.nickname", uiLanguage)}</th>
                     <th>{resultLabel(uiLanguage)}</th>
                     <th>{metricLabel(competition, uiLanguage)}</th>
-                    <th>{goalsLabel(uiLanguage)}</th>
+                    {showGoals && <th>{goalsLabel(uiLanguage)}</th>}
                     <th>{boardText("leaderboard.date", uiLanguage)}</th>
                     <th>{boardText("leaderboard.lineup", uiLanguage)}</th>
                   </tr>
@@ -307,7 +307,7 @@ export function LeaderboardBoard({
                         <td>{entry.nickname}</td>
                         <td><strong>{display.result}</strong></td>
                         <td><strong>{display.metric}</strong></td>
-                        <td>{display.goals || ""}</td>
+                        {showGoals && <td>{display.goals}</td>}
                         <td>{displayDate(entry.created_at)}</td>
                         <td>
                           <details className="leaderboard-lineup">
@@ -350,9 +350,11 @@ export function LeaderboardBoard({
                       <span>
                         <strong>{metricLabel(competition, uiLanguage)}:</strong> {display.metric}
                       </span>
-                      <span>
-                        <strong>{goalsLabel(uiLanguage)}:</strong> {display.goals || ""}
-                      </span>
+                      {showGoals && (
+                        <span>
+                          <strong>{goalsLabel(uiLanguage)}:</strong> {display.goals}
+                        </span>
+                      )}
                     </div>
                     <div className="leaderboard-mobile-date">{displayDate(entry.created_at)}</div>
                     <details className="leaderboard-lineup">
