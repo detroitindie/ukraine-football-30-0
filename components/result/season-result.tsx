@@ -457,7 +457,7 @@ function CupResultView({
   }
 
   return (
-    <div className="compact-page result-page">
+    <div className="compact-page result-page cup-result-page">
       <header className="compact-heading">
         <h1><T id="result.cupResult" /></h1>
       </header>
