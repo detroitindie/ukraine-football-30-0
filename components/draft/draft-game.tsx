@@ -17,6 +17,7 @@ import type {
 } from "@/lib/draft-types";
 import {
   SEASON_RESULT_STORAGE_KEY,
+  simulateCup,
   simulateSeason,
   type SavedResult,
 } from "@/lib/seasonSimulation";
@@ -207,7 +208,7 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
               competition,
               mode,
               lineup,
-              result: null,
+              result: simulateCup(Object.values(lineup)),
             };
       sessionStorage.setItem(
         SEASON_RESULT_STORAGE_KEY,

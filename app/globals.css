@@ -1178,6 +1178,37 @@ html[data-language="ua"] .draft-mode-prefix {
   overflow-wrap: anywhere;
 }
 
+.cup-path {
+  display: grid;
+  width: 100%;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.cup-match {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.cup-match-win {
+  border-color: color-mix(in srgb, var(--blue) 36%, var(--line));
+}
+
+.cup-match-loss {
+  border-color: color-mix(in srgb, #b03535 42%, var(--line));
+}
+
+.cup-reveal-state {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .result-lineup {
   width: 100%;
   margin-top: 18px;
