@@ -76818,6 +76818,27 @@
     "effective_global_rating": 77.7
   },
   {
+    "club_decade_player_id": "6994_metalurg_zaporizhya_2000s_24401",
+    "club_decade_id": "6994_metalurg_zaporizhya_2000s",
+    "team_id": 6994,
+    "team_name": "Metalurg Zaporizhya",
+    "decade": "2000s",
+    "player_id": 24401,
+    "player_name": "Andriy Glushchenko (24401)",
+    "position": "Goalkeeper",
+    "main_position": "Goalkeeper",
+    "game_position": "GK",
+    "goals": 0,
+    "assists": 0,
+    "clean_sheets": null,
+    "raw_score": 45,
+    "local_rating": 65.1,
+    "global_rating": 77.7,
+    "global_percentile": 0.8707000240558095,
+    "hidden_modifier": 1,
+    "effective_global_rating": 77.7
+  },
+  {
     "club_decade_player_id": "6994_metalurg_zaporizhya_2000s_35352",
     "club_decade_id": "6994_metalurg_zaporizhya_2000s",
     "team_id": 6994,
