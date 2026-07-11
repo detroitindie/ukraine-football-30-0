@@ -62,6 +62,8 @@ function syntheticPlayer(
     decade: "balance",
     player_id: uniqueId,
     player_name: `Synthetic Player ${uniqueId}`,
+    citizenships: [],
+    primary_citizenship: null,
     position: "Synthetic",
     main_position: "Synthetic",
     game_position: "Synthetic",

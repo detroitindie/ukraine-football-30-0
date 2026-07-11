@@ -1,0 +1,96 @@
+id,title_ua,title_en,competition,count,frequency,frequency_percent,observed_frequency_band,recommended_rarity,recommendation_reason
+1,Кєнти,Kents,Both,6,0.00001,0.001,legendary,legendary,requires specific named player IDs
+2,Файне місто,Faine Misto,Both,2502,0.00417,0.41700000000000004,epic,epic,requires roster targeting
+3,Третя сила,The Third Force,Both,826,0.0013766666666666667,0.13766666666666666,epic,epic,requires a competition result; requires roster targeting
+4,Мрія Луческу,Lucescu’s Dream,Both,0,0,0,legendary,legendary,requires roster targeting
+5,Іноземний легіон,Foreign Legion,Both,0,0,0,legendary,legendary,requires roster targeting
+6,Слава Україні!,Slava Ukraini!,Both,59278,0.09879666666666667,9.879666666666667,common,rare,requires roster targeting
+7,Донбас порожняк не гонить,Donbas Delivers,Both,56,0.00009333333333333333,0.009333333333333332,legendary,legendary,requires roster targeting
+8,Крим — це Україна!,Crimea Is Ukraine!,Both,6758,0.011263333333333334,1.1263333333333334,rare,rare,requires roster targeting
+9,Кубок Львову!,Cup to Lviv!,Cup,430,0.0007166666666666667,0.07166666666666667,legendary,legendary,requires a competition result; requires roster targeting
+10,Зрада,Zrada,Both,322446,0.53741,53.74100000000001,common,rare,requires roster targeting
+11,За вами виїхало СБУ,SBU Is Coming for You,Both,99544,0.16590666666666667,16.590666666666667,common,rare,requires roster targeting
+12,Перед каждою ігрою!..,Before Every Game!..,League,52220,0.08703333333333334,8.703333333333333,common,rare,requires a competition result
+13,"Здається, Бог наказує нас за щось","Apparently, God Punishes Us",Both,156088,0.2601466666666667,26.01466666666667,common,rare,requires a competition result
+14,Перші назавжди,First Forever,League,86,0.00014333333333333334,0.014333333333333333,legendary,legendary,requires a competition result; requires roster targeting
+15,Весна 1999,Spring 1999,Both,62,0.00010333333333333333,0.010333333333333333,legendary,legendary,requires a competition result; requires roster targeting
+16,Стамбул 2009,Istanbul 2009,Cup,4,0.000006666666666666667,0.0006666666666666666,legendary,legendary,requires a competition result; requires roster targeting
+17,Варшава 2015,Warsaw 2015,Cup,38,0.00006333333333333333,0.006333333333333333,legendary,legendary,requires a competition result; requires roster targeting
+18,Ударна пара,Strike Partnership,Both,6,0.00001,0.001,legendary,legendary,requires specific named player IDs
+19,Золотий м’яч,Ballon d’Or,Both,58,0.00009666666666666667,0.009666666666666667,legendary,legendary,requires a competition result; requires specific named player IDs
+20,СаШо,SaSho,Cup,242,0.00040333333333333334,0.04033333333333333,legendary,legendary,requires a competition result; requires specific named player IDs; depends on an extreme or narrow simulation outcome
+21,Німеччина 2006,Germany 2006,Both,0,0,0,legendary,legendary,requires a competition result; requires roster targeting
+22,Перший Кубок,The First Cup,Cup,6,0.00001,0.001,legendary,legendary,requires a competition result; requires roster targeting
+23,Непереможні,Invincibles,League,0,0,0,legendary,legendary,broad condition with no special targeting detected
+24,Безкомпромісні,No Compromises,League,30,0.00005,0.005,legendary,legendary,depends on an extreme or narrow simulation outcome
+25,Ідеально збалансовано,Perfectly Balanced,League,4228,0.007046666666666666,0.7046666666666667,epic,epic,depends on an extreme or narrow simulation outcome
+26,Потужно,Powerful Stuff,League,0,0,0,legendary,legendary,requires a competition result; depends on an extreme or narrow simulation outcome
+27,Сухий закон,Prohibition,Both,52,0.00008666666666666667,0.008666666666666666,legendary,legendary,requires a competition result
+28,На класі,Pure Class,Cup,240,0.0004,0.04,legendary,legendary,requires a competition result
+29,Нерви зі сталі,Nerves of Steel,Cup,310,0.0005166666666666667,0.051666666666666666,legendary,legendary,requires a competition result; requires roster targeting; depends on an extreme or narrow simulation outcome
+30,Завдання провалено успішно,Task Failed Successfully,Cup,0,0,0,legendary,legendary,requires a competition result
+31,Я так бачу,Trust My Eyes,Both,1522,0.0025366666666666667,0.25366666666666665,epic,epic,requires a competition result; mode restricted
+32,Монобільшість,Single-Party Majority,Both,18,0.00003,0.003,legendary,legendary,requires roster targeting
+33,Коаліція,Coalition,Both,120394,0.20065666666666668,20.06566666666667,common,rare,requires roster targeting
+34,Три мушкетери,The Three Musketeers,Both,146,0.00024333333333333333,0.024333333333333332,legendary,legendary,formation restricted; requires roster targeting
+35,Автобус припарковано,Bus Parked,Both,156,0.00026,0.026,legendary,legendary,requires a competition result; formation restricted; requires roster targeting
+36,"Гдє «Дінамо», гдє?",Where TF “Dynamo” at?,Both,56,0.00009333333333333333,0.009333333333333332,legendary,legendary,requires a competition result; requires roster targeting
+37,На благо города і всєх харьковчан,For the Good of Kharkiv and All of the Citizens,Both,32,0.00005333333333333333,0.005333333333333333,legendary,legendary,requires a competition result; requires roster targeting
+38,Ящик горілки,A Crate of Vodka,Both,932,0.0015533333333333334,0.15533333333333335,epic,epic,requires a competition result; requires roster targeting
+39,Полтавська битва,Battle of Poltava,Cup,134,0.00022333333333333333,0.022333333333333334,legendary,legendary,requires a competition result; requires roster targeting
+40,Дніпровський тандем,Dnipro Tandem,Both,170,0.00028333333333333335,0.028333333333333335,legendary,legendary,requires specific named player IDs
+41,Серце «Шахтаря»,Heart of Shakhtar,Both,26,0.000043333333333333334,0.004333333333333333,legendary,legendary,requires a competition result; requires specific named player IDs
+42,Бразильський трикутник,Brazilian Triangle,Both,0,0,0,legendary,legendary,requires specific named player IDs; requires roster targeting
+43,Слава нації,"Good Evening, We Are from Ukraine",Both,93,0.000155,0.0155,legendary,legendary,requires a competition result; mode restricted; requires roster targeting
+44,ООН,United Nations,Both,216,0.00036,0.036000000000000004,legendary,legendary,requires roster targeting
+45,Балканський експрес,Balkan Express,Both,0,0,0,legendary,legendary,requires roster targeting
+46,Латиноамериканський квартал,Latin Quarter,Both,10,0.000016666666666666667,0.0016666666666666668,legendary,legendary,requires roster targeting
+47,Різні епохи. Один склад.,Different Eras. One Squad.,Both,410100,0.6835,68.35,common,common,broad condition with no special targeting detected
+48,Жити по-новому,Living a New Way,Both,33950,0.05658333333333333,5.658333333333333,common,rare,requires roster targeting
+49,Назад у 90-ті,Back to the ’90s,Both,4058,0.006763333333333333,0.6763333333333333,epic,epic,requires roster targeting
+50,Пропало все. Господи допоможи,Everything Is Lost. God Save Us All,League,14,0.000023333333333333332,0.002333333333333333,legendary,legendary,requires a competition result
+51,Нічия влаштовує,A Draw Will Do,League,1118,0.0018633333333333334,0.18633333333333335,epic,epic,broad condition with no special targeting detected
+52,"Маємо те, що маємо",It Is What It Is,League,9140,0.015233333333333333,1.5233333333333332,rare,rare,depends on an extreme or narrow simulation outcome
+53,На тоненького,By a Thread,League,10,0.000016666666666666667,0.0016666666666666668,legendary,legendary,requires a competition result
+54,Бавовна,Bavovna,League,0,0,0,legendary,legendary,depends on an extreme or narrow simulation outcome
+55,Захист для слабаків,Defense Optional,League,0,0,0,legendary,legendary,depends on an extreme or narrow simulation outcome
+56,Лото «Забава»,The Lottery,Cup,292,0.00048666666666666666,0.048666666666666664,legendary,legendary,requires a competition result; depends on an extreme or narrow simulation outcome
+57,На 120-й,In the 120th,Cup,130,0.00021666666666666666,0.021666666666666667,legendary,legendary,requires a competition result; depends on an extreme or narrow simulation outcome
+58,"Пливли-пливли, а на березі...",Ch-ch-ch-choke Me!,Cup,4444,0.007406666666666666,0.7406666666666667,epic,epic,requires a competition result
+59,"I Am from Bosnia, Take Me to America","I Am from Bosnia, Take Me to America",Both,1372,0.002286666666666667,0.22866666666666668,epic,epic,requires specific named player IDs
+60,На мінімалках,Bare Minimum,Cup,158,0.00026333333333333336,0.026333333333333337,legendary,legendary,requires a competition result
+61,Динамівські серця,Hearts of “Dynamo”,Both,42,0.00007,0.006999999999999999,legendary,legendary,requires roster targeting
+62,Фінал 2006,Final 2006,Cup,28,0.000046666666666666665,0.004666666666666666,legendary,legendary,requires a competition result; requires roster targeting
+63,Легенда «Барселони»,Barcelona’s Legend,Both,1648,0.002746666666666667,0.27466666666666667,epic,epic,requires specific named player IDs
+64,Промислова революція,Industrial Revolution,Both,16240,0.027066666666666666,2.7066666666666666,rare,rare,requires roster targeting
+65,Два крила,Two Wings,Both,28,0.000046666666666666665,0.004666666666666666,legendary,legendary,requires a competition result; requires specific named player IDs; requires roster targeting
+66,Крізь роки,Through the Years,Both,214,0.00035666666666666664,0.035666666666666666,legendary,legendary,requires roster targeting
+67,Кобзарі,The Kobzars,Both,12,0.00002,0.002,legendary,legendary,requires roster targeting
+68,Акт Злуки,Act of Unity,Both,62708,0.10451333333333333,10.451333333333332,common,rare,requires roster targeting
+69,Кордони 1991,Borders of 1991,Both,1074,0.00179,0.179,epic,epic,requires a competition result
+70,Львівське метро,Lviv Metro,Both,4258,0.007096666666666667,0.7096666666666667,epic,epic,broad condition with no special targeting detected
+71,Котлета по-київськи,Chicken Kyiv,Both,2304,0.00384,0.384,epic,epic,requires roster targeting
+72,Кубок світу,World Cup,Both,0,0,0,legendary,legendary,requires a competition result; requires roster targeting
+73,Кубок Африки,Africa Cup,Both,2,0.0000033333333333333333,0.0003333333333333333,legendary,legendary,requires a competition result; requires roster targeting
+74,День бабака,Groundhog Day,Cup,3602,0.006003333333333334,0.6003333333333334,epic,epic,requires a competition result; requires roster targeting; depends on an extreme or narrow simulation outcome
+75,Стара школа,Old School,Both,505,0.0008416666666666667,0.08416666666666667,legendary,legendary,requires a competition result; mode restricted; formation restricted
+76,Так!,Yes!,Both,28378,0.04729666666666667,4.729666666666667,rare,rare,requires roster targeting
+77,Покращення вже сьогодні,A Better Life Today,Both,59782,0.09963666666666667,9.963666666666667,common,rare,requires roster targeting
+78,Опорник із Запоріжжя,CDM from Zaporizhzhia,Both,6312,0.01052,1.052,rare,rare,broad condition with no special targeting detected
+79,Мужики,The Lads,Both,3912,0.00652,0.652,epic,epic,requires roster targeting
+80,Бойся Бога і пацанов с Крівова Рога,Fear God and Chaps from Kryvyi Rih,Both,4524,0.00754,0.754,epic,epic,requires roster targeting
+81,Олександрійське диво,Oleksandriya Miracle,Both,592,0.0009866666666666667,0.09866666666666667,legendary,legendary,requires specific named player IDs; requires roster targeting
+82,Ковалівка в Європі,Kovalivka in Europe,Both,858,0.00143,0.14300000000000002,epic,epic,requires a competition result; requires roster targeting
+83,Потримай моє пиво,Hold My Beer,Both,1982,0.0033033333333333335,0.33033333333333337,epic,epic,requires a competition result; requires roster targeting
+84,Українське класичне,Ukrainian Clásico,Both,2320,0.0038666666666666667,0.38666666666666666,epic,epic,requires roster targeting
+85,"Ми всі різні, але ми українці",United Ukraine,Both,12914,0.021523333333333332,2.152333333333333,rare,rare,requires roster targeting
+86,Міміно,Mimino,Both,124,0.00020666666666666666,0.020666666666666667,legendary,legendary,requires roster targeting
+87,Суперорли,Super Eagles,Both,68,0.00011333333333333333,0.011333333333333332,legendary,legendary,requires roster targeting
+88,Лінія Мажино,Maginot Line,Both,0,0,0,legendary,legendary,formation restricted; requires roster targeting
+89,П’ять пальців,Five Fingers,Both,151650,0.25275,25.275,common,rare,formation restricted; requires roster targeting
+90,П’ятий елемент,The Fifth Element,Both,602,0.0010033333333333333,0.10033333333333333,epic,epic,formation restricted; requires roster targeting
+91,Тризуб,Tryzub,Both,94084,0.15680666666666668,15.680666666666667,common,rare,formation restricted; requires roster targeting
+92,Дуплет,Double Tap,Both,14342,0.023903333333333332,2.3903333333333334,rare,rare,requires a competition result; requires roster targeting
+93,Це нормально,This Is Fine,League,142,0.00023666666666666665,0.023666666666666666,legendary,legendary,depends on an extreme or narrow simulation outcome
+94,Кийов і Львов не указ Ужгородови,Kyiv and Lviv Don’t Rule Uzhorod,Both,20588,0.034313333333333335,3.4313333333333333,rare,rare,requires roster targeting
+95,Албанська мафія,"Ti Shqipëri, më jep nder",Both,132,0.00022,0.022000000000000002,legendary,legendary,requires roster targeting

@@ -1,0 +1,39 @@
+{
+  "random_draft_monte_carlo": {
+    "seed": 2303,
+    "iterations_per_competition_formation": 10000,
+    "runtime_ms": 19511,
+    "attempted_drafts": 60000,
+    "completed_drafts": 60000,
+    "evaluated_runs": 120000,
+    "approximation": "Mirrors draft roll legality using real roll pools, real generated players, slot compatibility, club-decade rolls, duplicate player_id blocking, and random legal slot assignment. It approximates a neutral user by choosing uniformly among valid rolls, available players and valid slots; UI sorting is intentionally ignored.",
+    "failed_or_skipped_runs": [],
+    "command": "node scripts/audit_achievement_drafts.mjs --iterations 10000 --seed 2303 --output data-audit/v2-3-achievements/post-patch-smoke"
+  },
+  "git": {
+    "branch": "feature/v2.3-achievements",
+    "commit": "b9ebad76738abb72ac2d5d0faa0275fe3fa2b7ed"
+  },
+  "node": "v24.16.0",
+  "updated_at": "2026-07-11T14:46:08.815Z",
+  "league_threshold_audit": {
+    "seed": 2303,
+    "iterations_per_bucket": 10000,
+    "runtime_ms": 2952,
+    "approximation": "Synthetic fixed-strength 11-player lineups; bucket strengths are player-rating percentiles from public/data/players.json. Production simulateSeason and evaluateAchievements are invoked.",
+    "failed_or_skipped_runs": [],
+    "command": "node scripts/audit_achievement_league_thresholds.mjs --iterations 10000 --seed 2303 --output data-audit/v2-3-achievements/post-patch-smoke"
+  },
+  "reachability_validation": {
+    "command": "node scripts/validate_achievements.mjs --output data-audit\\v2-3-achievements\\post-patch-smoke",
+    "registry_count": 95,
+    "rarity_distribution": {
+      "legendary": 53,
+      "epic": 22,
+      "common": 12,
+      "rare": 8
+    },
+    "all_positive_fixtures_passed": true,
+    "failures": []
+  }
+}

@@ -1283,6 +1283,7 @@ html[data-language="ua"] .draft-mode-prefix {
 .result-page .cup-result-summary,
 .result-page .cup-stats-grid,
 .result-page .result-lineup,
+.result-page .result-achievements,
 .result-page .leaderboard-submit,
 .result-page .leaderboard,
 .result-page .result-actions {
@@ -1422,6 +1423,91 @@ html[data-language="ua"] .draft-mode-prefix {
   color: var(--ink);
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.result-achievements {
+  width: 100%;
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid var(--line);
+}
+
+.result-achievements h2 {
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.result-achievement-list {
+  display: grid;
+  gap: 8px;
+}
+
+.result-achievement {
+  display: grid;
+  gap: 3px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.result-achievement-heading {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.result-achievement strong {
+  min-width: 0;
+  font-size: 13px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+}
+
+.achievement-rarity {
+  display: inline-flex;
+  min-height: 22px;
+  align-items: center;
+  padding: 3px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.achievement-rarity-common {
+  border-color: color-mix(in srgb, var(--muted) 28%, var(--line));
+  background: color-mix(in srgb, var(--muted) 10%, var(--surface));
+  color: var(--muted);
+}
+
+.achievement-rarity-rare {
+  border-color: color-mix(in srgb, var(--blue) 45%, var(--line));
+  background: color-mix(in srgb, var(--blue) 12%, var(--surface));
+  color: var(--blue);
+}
+
+.achievement-rarity-epic {
+  border-color: color-mix(in srgb, #7c3aed 45%, var(--line));
+  background: color-mix(in srgb, #7c3aed 12%, var(--surface));
+  color: color-mix(in srgb, #7c3aed 78%, var(--ink));
+}
+
+.achievement-rarity-legendary {
+  border-color: color-mix(in srgb, #b7791f 55%, var(--line));
+  background: color-mix(in srgb, #f6c453 20%, var(--surface));
+  color: color-mix(in srgb, #8a5a12 78%, var(--ink));
+}
+
+.result-achievement > span {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
 }
 
 .result-actions {

@@ -17,12 +17,14 @@ function slot(
   line: FormationLine,
   allowed_positions: string[],
   slot_order: number,
+  semantic_positions = allowed_positions,
 ): FormationSlot {
   return {
     slot_id,
     slot_label,
     line,
     allowed_positions,
+    semantic_positions,
     slot_order,
   };
 }
@@ -55,8 +57,8 @@ export const FORMATIONS: Record<FormationId, FormationConfig> = {
       [slot("am_fw", "AM/FW", "attack", ["AM", "FW"], 10), slot("fw", "FW", "attack", ["FW"], 11)],
       [
         slot("lm", "LM", "midfield", ["LM"], 5),
-        slot("cdm_cm", "CDM/CM", "midfield", ["CM"], 6),
-        slot("cdm_cm_am", "CDM/CM/AM", "midfield", ["CM", "AM"], 7),
+        slot("cdm_cm", "CDM/CM", "midfield", ["CM"], 6, ["CDM", "CM"]),
+        slot("cdm_cm_am", "CDM/CM/AM", "midfield", ["CM", "AM"], 7, ["CDM", "CM", "AM"]),
         slot("cm_am", "CM/AM", "midfield", ["CM", "AM"], 8),
         slot("rm", "RM", "midfield", ["RM"], 9),
       ],
@@ -74,8 +76,8 @@ export const FORMATIONS: Record<FormationId, FormationConfig> = {
     rows: [
       [slot("am_fw", "AM/FW", "attack", ["AM", "FW"], 10), slot("fw", "FW", "attack", ["FW"], 11)],
       [
-        slot("cdm_cm", "CDM/CM", "midfield", ["CM"], 7),
-        slot("cdm_cm_am", "CDM/CM/AM", "midfield", ["CM", "AM"], 8),
+        slot("cdm_cm", "CDM/CM", "midfield", ["CM"], 7, ["CDM", "CM"]),
+        slot("cdm_cm_am", "CDM/CM/AM", "midfield", ["CM", "AM"], 8, ["CDM", "CM", "AM"]),
         slot("cm_am", "CM/AM", "midfield", ["CM", "AM"], 9),
       ],
       [

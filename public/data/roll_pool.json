@@ -102,14 +102,14 @@
     "team_id": 338,
     "team_name": "Dynamo Kyiv",
     "decade": "2000s",
-    "players_count": 73
+    "players_count": 74
   },
   {
     "club_decade_id": "338_dynamo_kyiv_2010s",
     "team_id": 338,
     "team_name": "Dynamo Kyiv",
     "decade": "2010s",
-    "players_count": 91
+    "players_count": 92
   },
   {
     "club_decade_id": "338_dynamo_kyiv_2020s",
@@ -515,7 +515,7 @@
     "team_id": 660,
     "team_name": "Shakhtar Donetsk",
     "decade": "2000s",
-    "players_count": 58
+    "players_count": 59
   },
   {
     "club_decade_id": "660_shakhtar_donetsk_2010s",

@@ -1,0 +1,782 @@
+{
+  "generated_at": "2026-07-11T14:46:08.812Z",
+  "real_production_evaluator": true,
+  "registry_count": 95,
+  "expected_count": 95,
+  "rarity_distribution": {
+    "legendary": 53,
+    "epic": 22,
+    "common": 12,
+    "rare": 8
+  },
+  "expected_rarity_distribution": {
+    "common": 12,
+    "rare": 8,
+    "epic": 22,
+    "legendary": 53
+  },
+  "all_positive_fixtures_passed": true,
+  "failures": [],
+  "achievements": [
+    {
+      "id": "1",
+      "title_ua": "Кєнти",
+      "title_en": "Kents",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "2",
+      "title_ua": "Файне місто",
+      "title_en": "Faine Misto",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "3",
+      "title_ua": "Третя сила",
+      "title_en": "The Third Force",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "4",
+      "title_ua": "Мрія Луческу",
+      "title_en": "Lucescu’s Dream",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "5",
+      "title_ua": "Іноземний легіон",
+      "title_en": "Foreign Legion",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "6",
+      "title_ua": "Слава Україні!",
+      "title_en": "Slava Ukraini!",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "7",
+      "title_ua": "Донбас порожняк не гонить",
+      "title_en": "Donbas Delivers",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "8",
+      "title_ua": "Крим — це Україна!",
+      "title_en": "Crimea Is Ukraine!",
+      "competition": "Both",
+      "rarity": "rare",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "9",
+      "title_ua": "Кубок Львову!",
+      "title_en": "Cup to Lviv!",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "10",
+      "title_ua": "Зрада",
+      "title_en": "Zrada",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "11",
+      "title_ua": "За Вами виїхала СБУ",
+      "title_en": "SBU Is Coming for You",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "12",
+      "title_ua": "Перед каждою ігрою!..",
+      "title_en": "Before Every Game!..",
+      "competition": "League",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "13",
+      "title_ua": "Здається, Бог наказує нас за щось",
+      "title_en": "Apparently, God Punishes Us",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "14",
+      "title_ua": "Перші назавжди",
+      "title_en": "First Forever",
+      "competition": "League",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "15",
+      "title_ua": "Весна 1999",
+      "title_en": "Spring 1999",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "16",
+      "title_ua": "Стамбул 2009",
+      "title_en": "Istanbul 2009",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "17",
+      "title_ua": "Варшава 2015",
+      "title_en": "Warsaw 2015",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "18",
+      "title_ua": "Ударна пара",
+      "title_en": "Strike Partnership",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "19",
+      "title_ua": "Золотий м’яч",
+      "title_en": "Ballon d’Or",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "20",
+      "title_ua": "СаШо",
+      "title_en": "SaSho",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "21",
+      "title_ua": "Німеччина 2006",
+      "title_en": "Germany 2006",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "22",
+      "title_ua": "Перший Кубок",
+      "title_en": "The First Cup",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "23",
+      "title_ua": "Непереможні",
+      "title_en": "Invincibles",
+      "competition": "League",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "24",
+      "title_ua": "Безкомпромісні",
+      "title_en": "No Compromises",
+      "competition": "League",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "25",
+      "title_ua": "Ідеально збалансовано",
+      "title_en": "Perfectly Balanced",
+      "competition": "League",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "26",
+      "title_ua": "Потужно",
+      "title_en": "Powerful Stuff",
+      "competition": "League",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "27",
+      "title_ua": "Сухий закон",
+      "title_en": "Prohibition",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "28",
+      "title_ua": "На класі",
+      "title_en": "Pure Class",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "29",
+      "title_ua": "Нерви зі сталі",
+      "title_en": "Nerves of Steel",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "30",
+      "title_ua": "Завдання провалено успішно",
+      "title_en": "Task Failed Successfully",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "31",
+      "title_ua": "Я так бачу",
+      "title_en": "Trust My Eyes",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "32",
+      "title_ua": "Монобільшість",
+      "title_en": "Single-Party Majority",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "33",
+      "title_ua": "Коаліція",
+      "title_en": "Coalition",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "34",
+      "title_ua": "Три мушкетери",
+      "title_en": "The Three Musketeers",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "35",
+      "title_ua": "Автобус припарковано",
+      "title_en": "Bus Parked",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "36",
+      "title_ua": "Гдє «Дінамо», гдє?",
+      "title_en": "Where TF “Dynamo” at?",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "37",
+      "title_ua": "На благо города і всєх харьковчан",
+      "title_en": "For the Good of Kharkiv and All of the Citizens",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "38",
+      "title_ua": "Ящик горілки",
+      "title_en": "A Crate of Vodka",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "39",
+      "title_ua": "Полтавська битва",
+      "title_en": "Battle of Poltava",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "40",
+      "title_ua": "Дніпровський тандем",
+      "title_en": "Dnipro Tandem",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "41",
+      "title_ua": "Серце «Шахтаря»",
+      "title_en": "Heart of Shakhtar",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "42",
+      "title_ua": "Бразильський трикутник",
+      "title_en": "Brazilian Triangle",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "43",
+      "title_ua": "Слава нації",
+      "title_en": "Good Evening, We Are from Ukraine",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "44",
+      "title_ua": "ООН",
+      "title_en": "United Nations",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "45",
+      "title_ua": "Балканський експрес",
+      "title_en": "Balkan Express",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "46",
+      "title_ua": "Латиноамериканський квартал",
+      "title_en": "Latin Quarter",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "47",
+      "title_ua": "Різні епохи. Один склад.",
+      "title_en": "Different Eras. One Squad.",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "48",
+      "title_ua": "Жити по-новому",
+      "title_en": "Living a New Way",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "49",
+      "title_ua": "Назад у 90-ті",
+      "title_en": "Back to the ’90s",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "50",
+      "title_ua": "Пропало все. Господи допоможи",
+      "title_en": "Everything Is Lost. God Save Us All",
+      "competition": "League",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "51",
+      "title_ua": "Нічия влаштовує",
+      "title_en": "A Draw Will Do",
+      "competition": "League",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "52",
+      "title_ua": "Маємо те, що маємо",
+      "title_en": "It Is What It Is",
+      "competition": "League",
+      "rarity": "rare",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "53",
+      "title_ua": "На тоненького",
+      "title_en": "By a Thread",
+      "competition": "League",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "54",
+      "title_ua": "Бавовна",
+      "title_en": "Bavovna",
+      "competition": "League",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "55",
+      "title_ua": "Захист для слабаків",
+      "title_en": "Defense Optional",
+      "competition": "League",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "56",
+      "title_ua": "Лото «Забава»",
+      "title_en": "The Lottery",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "57",
+      "title_ua": "На 120-й",
+      "title_en": "In the 120th",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "58",
+      "title_ua": "Пливли-пливли, а на березі...",
+      "title_en": "Ch-ch-ch-choke Me!",
+      "competition": "Cup",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "59",
+      "title_ua": "I Am from Bosnia, Take Me to America",
+      "title_en": "I Am from Bosnia, Take Me to America",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "60",
+      "title_ua": "На мінімалках",
+      "title_en": "Bare Minimum",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "61",
+      "title_ua": "Динамівські серця",
+      "title_en": "Hearts of “Dynamo”",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "62",
+      "title_ua": "Фінал 2006",
+      "title_en": "Final 2006",
+      "competition": "Cup",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "63",
+      "title_ua": "Легенда «Барселони»",
+      "title_en": "Barcelona’s Legend",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "64",
+      "title_ua": "Промислова революція",
+      "title_en": "Industrial Revolution",
+      "competition": "Both",
+      "rarity": "rare",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "65",
+      "title_ua": "Два крила",
+      "title_en": "Two Wings",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "66",
+      "title_ua": "Крізь роки",
+      "title_en": "Through the Years",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "67",
+      "title_ua": "Кобзарі",
+      "title_en": "The Kobzars",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "68",
+      "title_ua": "Акт Злуки",
+      "title_en": "Act of Unity",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "69",
+      "title_ua": "Кордони 1991",
+      "title_en": "Borders of 1991",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "70",
+      "title_ua": "Львівське метро",
+      "title_en": "Lviv Metro",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "71",
+      "title_ua": "Котлета по-київськи",
+      "title_en": "Chicken Kyiv",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "72",
+      "title_ua": "Кубок світу",
+      "title_en": "World Cup",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "73",
+      "title_ua": "Кубок Африки",
+      "title_en": "Africa Cup",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "74",
+      "title_ua": "День бабака",
+      "title_en": "Groundhog Day",
+      "competition": "Cup",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "75",
+      "title_ua": "Стара школа",
+      "title_en": "Old School",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "76",
+      "title_ua": "Так!",
+      "title_en": "Yes!",
+      "competition": "Both",
+      "rarity": "rare",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "77",
+      "title_ua": "Покращення вже сьогодні",
+      "title_en": "A Better Life Today",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "78",
+      "title_ua": "Опорник із Запоріжжя",
+      "title_en": "CDM from Zaporizhzhia",
+      "competition": "Both",
+      "rarity": "rare",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "79",
+      "title_ua": "Мужики",
+      "title_en": "The Lads",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "80",
+      "title_ua": "Бойся Бога і пацанов с Крівова Рога",
+      "title_en": "Fear God and Chaps from Kryvyi Rih",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "81",
+      "title_ua": "Олександрійське диво",
+      "title_en": "Oleksandriya Miracle",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "82",
+      "title_ua": "Ковалівка в Європі",
+      "title_en": "Kovalivka in Europe",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "83",
+      "title_ua": "Потримай моє пиво",
+      "title_en": "Hold My Beer",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "84",
+      "title_ua": "Українське класичне",
+      "title_en": "Ukrainian Clásico",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "85",
+      "title_ua": "Ми всі різні, але ми українці",
+      "title_en": "United Ukraine",
+      "competition": "Both",
+      "rarity": "rare",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "86",
+      "title_ua": "Міміно",
+      "title_en": "Mimino",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "87",
+      "title_ua": "Суперорли",
+      "title_en": "Super Eagles",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "88",
+      "title_ua": "Лінія Мажино",
+      "title_en": "Maginot Line",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "89",
+      "title_ua": "П’ять пальців",
+      "title_en": "Five Fingers",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "90",
+      "title_ua": "П’ятий елемент",
+      "title_en": "The Fifth Element",
+      "competition": "Both",
+      "rarity": "epic",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "91",
+      "title_ua": "Тризуб",
+      "title_en": "Tryzub",
+      "competition": "Both",
+      "rarity": "common",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "92",
+      "title_ua": "Дуплет",
+      "title_en": "Double Tap",
+      "competition": "Both",
+      "rarity": "rare",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "93",
+      "title_ua": "Це нормально",
+      "title_en": "This Is Fine",
+      "competition": "League",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "94",
+      "title_ua": "Кийов і Львов не указ Ужгородови",
+      "title_en": "Kyiv and Lviv Don’t Rule Uzhorod",
+      "competition": "Both",
+      "rarity": "rare",
+      "positive_fixture_passed": true
+    },
+    {
+      "id": "95",
+      "title_ua": "Албанська мафія",
+      "title_en": "Ti Shqipëri, më jep nder",
+      "competition": "Both",
+      "rarity": "legendary",
+      "positive_fixture_passed": true
+    }
+  ]
+}

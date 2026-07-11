@@ -10,6 +10,9 @@ import {
 } from "react";
 import { LeaderboardBoard } from "@/components/leaderboard/leaderboard-board";
 import { ResultSubmission } from "@/components/leaderboard/result-submission";
+import { evaluateAchievements } from "@/lib/achievements/evaluate";
+import { achievementShareLines } from "@/lib/achievements/share";
+import type { Achievement } from "@/lib/achievements/types";
 import { useLanguage, type Language } from "@/lib/language";
 import {
   DEFAULT_FORMATION_ID,
@@ -77,6 +80,10 @@ const cupVerdictKeys = [
 
 function text(language: Language, id: TranslationKey) {
   return translations[language][id];
+}
+
+function rarityLabelKey(rarity: Achievement["rarity"]): TranslationKey {
+  return `achievement.rarity.${rarity}` as TranslationKey;
 }
 
 function getActiveLanguage(): Language {
@@ -317,6 +324,7 @@ export function SeasonResultView() {
   const savedSeason = savedResult;
   const { result } = savedSeason;
   const description = selectSeasonDescription(savedSeason.lineup, result);
+  const achievements = evaluateAchievements(savedSeason);
   const groupedLineup = groupedLineupForFormation(
     savedSeason.lineup,
     savedSeason.formationId,
@@ -342,6 +350,7 @@ export function SeasonResultView() {
       `${result.wins}-${result.draws}-${result.losses}, ${result.points} pts`,
       "",
       lineupText,
+      ...achievementShareLines(achievements, shareLanguage),
     ].join("\n");
 
     try {
@@ -389,6 +398,7 @@ export function SeasonResultView() {
           ))}
         </div>
       </section>
+      <AchievementList achievements={achievements} />
       <ResultSubmission season={savedSeason} language={language} />
       <LeaderboardBoard
         compact
@@ -463,6 +473,9 @@ function CupResultView({
   const cupResult = result;
   const revealedMatches = cupResult.matches.slice(0, visibleMatches);
   const complete = visibleMatches >= cupResult.matches.length;
+  const achievements = complete
+    ? evaluateAchievements({ ...savedResult, result: cupResult })
+    : [];
   const finalLabel = cupStageRankLabelText(cupResult, language);
 
   async function shareCupResult() {
@@ -490,6 +503,7 @@ function CupResultView({
       "",
       text(shareLanguage, "result.lineup"),
       lineupText,
+      ...achievementShareLines(achievements, shareLanguage),
     ].join("\n");
 
     try {
@@ -543,6 +557,7 @@ function CupResultView({
           </section>
           <p className="result-verdict">{text(language, cupVerdictKey(cupResult))}</p>
           <CupLineup groupedLineup={groupedLineup} />
+          <AchievementList achievements={achievements} />
           <ResultSubmission season={savedResult} language={language} />
           <LeaderboardBoard
             compact
@@ -564,6 +579,33 @@ function CupResultView({
         </>
       )}
     </div>
+  );
+}
+
+function AchievementList({ achievements }: { achievements: Achievement[] }) {
+  const language = useLanguage();
+
+  if (achievements.length === 0) {
+    return null;
+  }
+
+  return (
+    <section className="result-achievements">
+      <h2>{text(language, "result.achievements")}</h2>
+      <div className="result-achievement-list">
+        {achievements.map((achievement) => (
+          <article className="result-achievement" key={achievement.id}>
+            <div className="result-achievement-heading">
+              <strong>{achievement.title[language]}</strong>
+              <span className={`achievement-rarity achievement-rarity-${achievement.rarity}`}>
+                {text(language, rarityLabelKey(achievement.rarity))}
+              </span>
+            </div>
+            <span>{achievement.description[language]}</span>
+          </article>
+        ))}
+      </div>
+    </section>
   );
 }
 

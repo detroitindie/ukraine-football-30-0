@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import json
 import math
+import re
 from pathlib import Path
 from typing import Any, Callable
 
@@ -22,6 +23,8 @@ PLAYER_FIELDS: dict[str, Callable[[str], Any]] = {
     "decade": str,
     "player_id": int,
     "player_name": str,
+    "citizenships": str,
+    "primary_citizenship": str,
     "position": str,
     "main_position": str,
     "game_position": str,
@@ -84,6 +87,37 @@ def select_fields(
     }
 
 
+COUNTRY_ALIASES = {
+    "Bosnia-Herzegovina": "Bosnia and Herzegovina",
+}
+
+
+def normalize_citizenships(raw_value: str | None) -> list[str]:
+    if raw_value is None:
+        return []
+
+    value = raw_value.strip()
+    if not value or value.lower() in {"nan", "null", "none"}:
+        return []
+
+    countries: list[str] = []
+    seen: set[str] = set()
+    for country in re.split(r"\s{2,}", value):
+        normalized = COUNTRY_ALIASES.get(country.strip(), country.strip())
+        if normalized and normalized not in seen:
+            countries.append(normalized)
+            seen.add(normalized)
+    return countries
+
+
+def select_player_fields(row: dict[str, str]) -> dict[str, Any]:
+    citizenships = normalize_citizenships(row.get("citizenship"))
+    selected = select_fields(row, PLAYER_FIELDS)
+    selected["citizenships"] = citizenships
+    selected["primary_citizenship"] = citizenships[0] if citizenships else None
+    return selected
+
+
 def has_player_name(row: dict[str, str]) -> bool:
     player_name = row.get("player_name")
     return (
@@ -97,7 +131,7 @@ def export_players() -> tuple[list[dict[str, Any]], int]:
     rows = read_csv("club_decade_players.csv")
     valid_rows = [row for row in rows if has_player_name(row)]
     return (
-        [select_fields(row, PLAYER_FIELDS) for row in valid_rows],
+        [select_player_fields(row) for row in valid_rows],
         len(rows) - len(valid_rows),
     )
 

@@ -1,0 +1,926 @@
+{
+  "status": "Final product decision for v2.3",
+  "achievement_count": 95,
+  "production_condition_changes": [
+    {
+      "id": 47,
+      "title_en": "Different Eras. One Squad.",
+      "old_condition": "At least one player from each of the 1990s, 2000s, 2010s and 2020s.",
+      "new_condition": "At least two players from each of the 1990s, 2000s, 2010s and 2020s.",
+      "audit_frequency_percent_after_change": 21.2792
+    },
+    {
+      "id": 54,
+      "title_en": "Bavovna",
+      "old_condition": "League goalsFor >= 100.",
+      "new_condition": "League goalsFor >= 75.",
+      "rarity": "epic",
+      "audit_note": "User-approved final threshold. Focused audit showed 75 goals at 4.245% for elite and 0.015% for strong synthetic lineups."
+    },
+    {
+      "id": 55,
+      "title_en": "Defense Optional",
+      "old_condition": "League goalsFor >= 80 and goalsAgainst >= 60.",
+      "new_condition": "League goalsFor >= 55 and goalsAgainst >= 40.",
+      "rarity": "epic"
+    }
+  ],
+  "rarity_model": {
+    "labels": {
+      "common": {
+        "ua": "Звичайне",
+        "en": "Common"
+      },
+      "rare": {
+        "ua": "Рідкісне",
+        "en": "Rare"
+      },
+      "epic": {
+        "ua": "Епічне",
+        "en": "Epic"
+      },
+      "legendary": {
+        "ua": "Легендарне",
+        "en": "Legendary"
+      }
+    },
+    "distribution": {
+      "common": 12,
+      "rare": 8,
+      "epic": 22,
+      "legendary": 53
+    },
+    "method": "Use observed neutral-draft frequency bands from the completed audit. Bavovna and Defense Optional use the focused threshold-sweep results."
+  },
+  "ui_rules": {
+    "show_badge_next_to_title": true,
+    "badge_labels_are_localized": true,
+    "suggested_visual_treatment": {
+      "common": "neutral/slate",
+      "rare": "blue",
+      "epic": "purple",
+      "legendary": "gold/amber"
+    },
+    "preserve_registry_order": true,
+    "do_not_include_rarity_in_clipboard_share": true,
+    "do_not_add_points_or_leaderboard_effects": true,
+    "do_not_add_catalog_or_persistence": true
+  },
+  "achievements": [
+    {
+      "id": 1,
+      "title_ua": "Кєнти",
+      "title_en": "Kents",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.001
+    },
+    {
+      "id": 2,
+      "title_ua": "Файне місто",
+      "title_en": "Faine Misto",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.41700000000000004
+    },
+    {
+      "id": 3,
+      "title_ua": "Третя сила",
+      "title_en": "The Third Force",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.13766666666666666
+    },
+    {
+      "id": 4,
+      "title_ua": "Мрія Луческу",
+      "title_en": "Lucescu’s Dream",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 5,
+      "title_ua": "Іноземний легіон",
+      "title_en": "Foreign Legion",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 6,
+      "title_ua": "Слава Україні!",
+      "title_en": "Slava Ukraini!",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 9.879666666666667
+    },
+    {
+      "id": 7,
+      "title_ua": "Донбас порожняк не гонить",
+      "title_en": "Donbas Delivers",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.009333333333333332
+    },
+    {
+      "id": 8,
+      "title_ua": "Крим — це Україна!",
+      "title_en": "Crimea Is Ukraine!",
+      "rarity": "rare",
+      "rarity_ua": "Рідкісне",
+      "rarity_en": "Rare",
+      "audit_frequency_percent_before_final_threshold_patch": 1.1263333333333334
+    },
+    {
+      "id": 9,
+      "title_ua": "Кубок Львову!",
+      "title_en": "Cup to Lviv!",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.07166666666666667
+    },
+    {
+      "id": 10,
+      "title_ua": "Зрада",
+      "title_en": "Zrada",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 53.74100000000001
+    },
+    {
+      "id": 11,
+      "title_ua": "За Вами виїхала СБУ",
+      "title_en": "SBU Is Coming for You",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 16.590666666666667
+    },
+    {
+      "id": 12,
+      "title_ua": "Перед каждою ігрою!..",
+      "title_en": "Before Every Game!..",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 8.703333333333333
+    },
+    {
+      "id": 13,
+      "title_ua": "Здається, Бог наказує нас за щось",
+      "title_en": "Apparently, God Punishes Us",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 26.01466666666667
+    },
+    {
+      "id": 14,
+      "title_ua": "Перші назавжди",
+      "title_en": "First Forever",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.014333333333333333
+    },
+    {
+      "id": 15,
+      "title_ua": "Весна 1999",
+      "title_en": "Spring 1999",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.010333333333333333
+    },
+    {
+      "id": 16,
+      "title_ua": "Стамбул 2009",
+      "title_en": "Istanbul 2009",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0006666666666666666
+    },
+    {
+      "id": 17,
+      "title_ua": "Варшава 2015",
+      "title_en": "Warsaw 2015",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.006333333333333333
+    },
+    {
+      "id": 18,
+      "title_ua": "Ударна пара",
+      "title_en": "Strike Partnership",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.001
+    },
+    {
+      "id": 19,
+      "title_ua": "Золотий м’яч",
+      "title_en": "Ballon d’Or",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.009666666666666667
+    },
+    {
+      "id": 20,
+      "title_ua": "СаШо",
+      "title_en": "SaSho",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.04033333333333333
+    },
+    {
+      "id": 21,
+      "title_ua": "Німеччина 2006",
+      "title_en": "Germany 2006",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 22,
+      "title_ua": "Перший Кубок",
+      "title_en": "The First Cup",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.001
+    },
+    {
+      "id": 23,
+      "title_ua": "Непереможні",
+      "title_en": "Invincibles",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 24,
+      "title_ua": "Безкомпромісні",
+      "title_en": "No Compromises",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.005
+    },
+    {
+      "id": 25,
+      "title_ua": "Ідеально збалансовано",
+      "title_en": "Perfectly Balanced",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.7046666666666667
+    },
+    {
+      "id": 26,
+      "title_ua": "Потужно",
+      "title_en": "Powerful Stuff",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 27,
+      "title_ua": "Сухий закон",
+      "title_en": "Prohibition",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.008666666666666666
+    },
+    {
+      "id": 28,
+      "title_ua": "На класі",
+      "title_en": "Pure Class",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.04
+    },
+    {
+      "id": 29,
+      "title_ua": "Нерви зі сталі",
+      "title_en": "Nerves of Steel",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.051666666666666666
+    },
+    {
+      "id": 30,
+      "title_ua": "Завдання провалено успішно",
+      "title_en": "Task Failed Successfully",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 31,
+      "title_ua": "Я так бачу",
+      "title_en": "Trust My Eyes",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.25366666666666665
+    },
+    {
+      "id": 32,
+      "title_ua": "Монобільшість",
+      "title_en": "Single-Party Majority",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.003
+    },
+    {
+      "id": 33,
+      "title_ua": "Коаліція",
+      "title_en": "Coalition",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 20.06566666666667
+    },
+    {
+      "id": 34,
+      "title_ua": "Три мушкетери",
+      "title_en": "The Three Musketeers",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.024333333333333332
+    },
+    {
+      "id": 35,
+      "title_ua": "Автобус припарковано",
+      "title_en": "Bus Parked",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.026
+    },
+    {
+      "id": 36,
+      "title_ua": "Гдє «Дінамо», гдє?",
+      "title_en": "Where TF “Dynamo” at?",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.009333333333333332
+    },
+    {
+      "id": 37,
+      "title_ua": "На благо города і всєх харьковчан",
+      "title_en": "For the Good of Kharkiv and All of the Citizens",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.005333333333333333
+    },
+    {
+      "id": 38,
+      "title_ua": "Ящик горілки",
+      "title_en": "A Crate of Vodka",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.15533333333333335
+    },
+    {
+      "id": 39,
+      "title_ua": "Полтавська битва",
+      "title_en": "Battle of Poltava",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.022333333333333334
+    },
+    {
+      "id": 40,
+      "title_ua": "Дніпровський тандем",
+      "title_en": "Dnipro Tandem",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.028333333333333335
+    },
+    {
+      "id": 41,
+      "title_ua": "Серце «Шахтаря»",
+      "title_en": "Heart of Shakhtar",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.004333333333333333
+    },
+    {
+      "id": 42,
+      "title_ua": "Бразильський трикутник",
+      "title_en": "Brazilian Triangle",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 43,
+      "title_ua": "Слава нації",
+      "title_en": "Good Evening, We Are from Ukraine",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0155
+    },
+    {
+      "id": 44,
+      "title_ua": "ООН",
+      "title_en": "United Nations",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.036000000000000004
+    },
+    {
+      "id": 45,
+      "title_ua": "Балканський експрес",
+      "title_en": "Balkan Express",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 46,
+      "title_ua": "Латиноамериканський квартал",
+      "title_en": "Latin Quarter",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0016666666666666668
+    },
+    {
+      "id": 47,
+      "title_ua": "Різні епохи. Один склад.",
+      "title_en": "Different Eras. One Squad.",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 68.35
+    },
+    {
+      "id": 48,
+      "title_ua": "Жити по-новому",
+      "title_en": "Living a New Way",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 5.658333333333333
+    },
+    {
+      "id": 49,
+      "title_ua": "Назад у 90-ті",
+      "title_en": "Back to the ’90s",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.6763333333333333
+    },
+    {
+      "id": 50,
+      "title_ua": "Пропало все. Господи допоможи",
+      "title_en": "Everything Is Lost. God Save Us All",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.002333333333333333
+    },
+    {
+      "id": 51,
+      "title_ua": "Нічия влаштовує",
+      "title_en": "A Draw Will Do",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.18633333333333335
+    },
+    {
+      "id": 52,
+      "title_ua": "Маємо те, що маємо",
+      "title_en": "It Is What It Is",
+      "rarity": "rare",
+      "rarity_ua": "Рідкісне",
+      "rarity_en": "Rare",
+      "audit_frequency_percent_before_final_threshold_patch": 1.5233333333333332
+    },
+    {
+      "id": 53,
+      "title_ua": "На тоненького",
+      "title_en": "By a Thread",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0016666666666666668
+    },
+    {
+      "id": 54,
+      "title_ua": "Бавовна",
+      "title_en": "Bavovna",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 55,
+      "title_ua": "Захист для слабаків",
+      "title_en": "Defense Optional",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 56,
+      "title_ua": "Лото «Забава»",
+      "title_en": "The Lottery",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.048666666666666664
+    },
+    {
+      "id": 57,
+      "title_ua": "На 120-й",
+      "title_en": "In the 120th",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.021666666666666667
+    },
+    {
+      "id": 58,
+      "title_ua": "Пливли-пливли, а на березі...",
+      "title_en": "Ch-ch-ch-choke Me!",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.7406666666666667
+    },
+    {
+      "id": 59,
+      "title_ua": "I Am from Bosnia, Take Me to America",
+      "title_en": "I Am from Bosnia, Take Me to America",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.22866666666666668
+    },
+    {
+      "id": 60,
+      "title_ua": "На мінімалках",
+      "title_en": "Bare Minimum",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.026333333333333337
+    },
+    {
+      "id": 61,
+      "title_ua": "Динамівські серця",
+      "title_en": "Hearts of “Dynamo”",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.006999999999999999
+    },
+    {
+      "id": 62,
+      "title_ua": "Фінал 2006",
+      "title_en": "Final 2006",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.004666666666666666
+    },
+    {
+      "id": 63,
+      "title_ua": "Легенда «Барселони»",
+      "title_en": "Barcelona’s Legend",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.27466666666666667
+    },
+    {
+      "id": 64,
+      "title_ua": "Промислова революція",
+      "title_en": "Industrial Revolution",
+      "rarity": "rare",
+      "rarity_ua": "Рідкісне",
+      "rarity_en": "Rare",
+      "audit_frequency_percent_before_final_threshold_patch": 2.7066666666666666
+    },
+    {
+      "id": 65,
+      "title_ua": "Два крила",
+      "title_en": "Two Wings",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.004666666666666666
+    },
+    {
+      "id": 66,
+      "title_ua": "Крізь роки",
+      "title_en": "Through the Years",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.035666666666666666
+    },
+    {
+      "id": 67,
+      "title_ua": "Кобзарі",
+      "title_en": "The Kobzars",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.002
+    },
+    {
+      "id": 68,
+      "title_ua": "Акт Злуки",
+      "title_en": "Act of Unity",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 10.451333333333332
+    },
+    {
+      "id": 69,
+      "title_ua": "Кордони 1991",
+      "title_en": "Borders of 1991",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.179
+    },
+    {
+      "id": 70,
+      "title_ua": "Львівське метро",
+      "title_en": "Lviv Metro",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.7096666666666667
+    },
+    {
+      "id": 71,
+      "title_ua": "Котлета по-київськи",
+      "title_en": "Chicken Kyiv",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.384
+    },
+    {
+      "id": 72,
+      "title_ua": "Кубок світу",
+      "title_en": "World Cup",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 73,
+      "title_ua": "Кубок Африки",
+      "title_en": "Africa Cup",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0003333333333333333
+    },
+    {
+      "id": 74,
+      "title_ua": "День бабака",
+      "title_en": "Groundhog Day",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.6003333333333334
+    },
+    {
+      "id": 75,
+      "title_ua": "Стара школа",
+      "title_en": "Old School",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.08416666666666667
+    },
+    {
+      "id": 76,
+      "title_ua": "Так!",
+      "title_en": "Yes!",
+      "rarity": "rare",
+      "rarity_ua": "Рідкісне",
+      "rarity_en": "Rare",
+      "audit_frequency_percent_before_final_threshold_patch": 4.729666666666667
+    },
+    {
+      "id": 77,
+      "title_ua": "Покращення вже сьогодні",
+      "title_en": "A Better Life Today",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 9.963666666666667
+    },
+    {
+      "id": 78,
+      "title_ua": "Опорник із Запоріжжя",
+      "title_en": "CDM from Zaporizhzhia",
+      "rarity": "rare",
+      "rarity_ua": "Рідкісне",
+      "rarity_en": "Rare",
+      "audit_frequency_percent_before_final_threshold_patch": 1.052
+    },
+    {
+      "id": 79,
+      "title_ua": "Мужики",
+      "title_en": "The Lads",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.652
+    },
+    {
+      "id": 80,
+      "title_ua": "Бойся Бога і пацанов с Крівова Рога",
+      "title_en": "Fear God and Chaps from Kryvyi Rih",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.754
+    },
+    {
+      "id": 81,
+      "title_ua": "Олександрійське диво",
+      "title_en": "Oleksandriya Miracle",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.09866666666666667
+    },
+    {
+      "id": 82,
+      "title_ua": "Ковалівка в Європі",
+      "title_en": "Kovalivka in Europe",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.14300000000000002
+    },
+    {
+      "id": 83,
+      "title_ua": "Потримай моє пиво",
+      "title_en": "Hold My Beer",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.33033333333333337
+    },
+    {
+      "id": 84,
+      "title_ua": "Українське класичне",
+      "title_en": "Ukrainian Clásico",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.38666666666666666
+    },
+    {
+      "id": 85,
+      "title_ua": "Ми всі різні, але ми українці",
+      "title_en": "United Ukraine",
+      "rarity": "rare",
+      "rarity_ua": "Рідкісне",
+      "rarity_en": "Rare",
+      "audit_frequency_percent_before_final_threshold_patch": 2.152333333333333
+    },
+    {
+      "id": 86,
+      "title_ua": "Міміно",
+      "title_en": "Mimino",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.020666666666666667
+    },
+    {
+      "id": 87,
+      "title_ua": "Суперорли",
+      "title_en": "Super Eagles",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.011333333333333332
+    },
+    {
+      "id": 88,
+      "title_ua": "Лінія Мажино",
+      "title_en": "Maginot Line",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.0
+    },
+    {
+      "id": 89,
+      "title_ua": "П’ять пальців",
+      "title_en": "Five Fingers",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 25.275
+    },
+    {
+      "id": 90,
+      "title_ua": "П’ятий елемент",
+      "title_en": "The Fifth Element",
+      "rarity": "epic",
+      "rarity_ua": "Епічне",
+      "rarity_en": "Epic",
+      "audit_frequency_percent_before_final_threshold_patch": 0.10033333333333333
+    },
+    {
+      "id": 91,
+      "title_ua": "Тризуб",
+      "title_en": "Tryzub",
+      "rarity": "common",
+      "rarity_ua": "Звичайне",
+      "rarity_en": "Common",
+      "audit_frequency_percent_before_final_threshold_patch": 15.680666666666667
+    },
+    {
+      "id": 92,
+      "title_ua": "Дуплет",
+      "title_en": "Double Tap",
+      "rarity": "rare",
+      "rarity_ua": "Рідкісне",
+      "rarity_en": "Rare",
+      "audit_frequency_percent_before_final_threshold_patch": 2.3903333333333334
+    },
+    {
+      "id": 93,
+      "title_ua": "Це нормально",
+      "title_en": "This Is Fine",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.023666666666666666
+    },
+    {
+      "id": 94,
+      "title_ua": "Кийов і Львов не указ Ужгородови",
+      "title_en": "Kyiv and Lviv Don’t Rule Uzhorod",
+      "rarity": "rare",
+      "rarity_ua": "Рідкісне",
+      "rarity_en": "Rare",
+      "audit_frequency_percent_before_final_threshold_patch": 3.4313333333333333
+    },
+    {
+      "id": 95,
+      "title_ua": "Албанська мафія",
+      "title_en": "Ti Shqipëri, më jep nder",
+      "rarity": "legendary",
+      "rarity_ua": "Легендарне",
+      "rarity_en": "Legendary",
+      "audit_frequency_percent_before_final_threshold_patch": 0.022000000000000002
+    }
+  ]
+}

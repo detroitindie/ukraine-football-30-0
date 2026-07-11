@@ -1,4 +1,4 @@
-﻿club_decade_player_id,club_decade_id,team_id,team_name,decade,player_id,player_name,citizenship,position,main_position,game_position,seasons_count,rows_count,goals,assists,clean_sheets,goals_conceded,yellow_cards,direct_red_cards,penalty_goals,minutes_played,raw_score,local_rating,global_rating,global_percentile,hidden_modifier,effective_global_rating
+club_decade_player_id,club_decade_id,team_id,team_name,decade,player_id,player_name,citizenship,position,main_position,game_position,seasons_count,rows_count,goals,assists,clean_sheets,goals_conceded,yellow_cards,direct_red_cards,penalty_goals,minutes_played,raw_score,local_rating,global_rating,global_percentile,hidden_modifier,effective_global_rating
 10468_stal_alchevsk_2000s_24008,10468_stal_alchevsk_2000s,10468,Stal Alchevsk,2000s,24008,Rubén Gomez (24008),Argentina,Midfield - Central Midfield,Midfield,CM,2,2,1.0,5,0,0,6,0,0,1397.0,31.0,95.0,74.0,0.8010584556170315,1.0,74.0
 10468_stal_alchevsk_2000s_418361,10468_stal_alchevsk_2000s,10468,Stal Alchevsk,2000s,418361,Yakiv Kripak (418361),Ukraine,Attack - Centre-Forward,Attack,FW,1,1,2.0,1,0,0,0,0,0,429.0,17.0,74.7,68.6,0.6645417368294443,1.0,68.6
 10468_stal_alchevsk_2000s_59039,10468_stal_alchevsk_2000s,10468,Stal Alchevsk,2000s,59039,Andriy Gavryushov (59039),Ukraine,Defender - Right-Back,Defender,RB,2,2,0.0,1,0,0,12,0,0,0.0,10.0,64.5,63.6,0.5188838104402214,1.0,63.6
@@ -4264,3 +4264,6 @@
 6994_metalurg_zaporizhya_1990s_8829783,6994_metalurg_zaporizhya_1990s,6994,Metalurg Zaporizhya,1990s,8829783,Andriy Demchenko (8829783),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,51.2,51.2,,1,51.2
 6994_metalurg_zaporizhya_2000s_8829783,6994_metalurg_zaporizhya_2000s,6994,Metalurg Zaporizhya,2000s,8829783,Andriy Demchenko (8829783),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,67.2,67.2,,1,67.2
 6994_metalurg_zaporizhya_1990s_8892959,6994_metalurg_zaporizhya_1990s,6994,Metalurg Zaporizhya,1990s,8892959,Anatoliy Mushchynka (8892959),,Midfield - Central Midfield,Midfield,CM,,,,,,,,,,,,51.2,51.2,,1,51.2
+338_dynamo_kyiv_2000s_9796,338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,9796,Oleksandr Aliev (9796),Ukraine,Midfield - Attacking Midfield,Midfield,AM,5,5,,,,,,,,,,,,,,
+338_dynamo_kyiv_2010s_9796,338_dynamo_kyiv_2010s,338,Dynamo Kyiv,2010s,9796,Oleksandr Aliev (9796),Ukraine,Midfield - Attacking Midfield,Midfield,AM,1,1,,,,,,,,,,,,,,
+660_shakhtar_donetsk_2000s_38297,660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,38297,Bohdan Shust (38297),Ukraine,Goalkeeper,Goalkeeper,GK,1,1,,,,,,,,,,,,,,

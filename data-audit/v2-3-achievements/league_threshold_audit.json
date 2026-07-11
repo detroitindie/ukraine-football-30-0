@@ -1,0 +1,712 @@
+{
+  "generated_at": "2026-07-11T13:53:27.276Z",
+  "seed": 2303,
+  "iterations_per_bucket": 100000,
+  "runtime_ms": 27907,
+  "bucket_method": "Synthetic fixed-strength 11-player lineups; bucket strengths are player-rating percentiles from public/data/players.json. Production simulateSeason and evaluateAchievements are invoked.",
+  "tracked_attention_ids": [
+    "12",
+    "13",
+    "23",
+    "24",
+    "25",
+    "26",
+    "27",
+    "35",
+    "50",
+    "51",
+    "52",
+    "53",
+    "54",
+    "55",
+    "93"
+  ],
+  "buckets": [
+    {
+      "name": "weak",
+      "strength": 51.2,
+      "definition": "15th percentile effective/global player rating from current generated player data",
+      "iterations": 100000,
+      "averages": {
+        "wins": 4.28319,
+        "draws": 6.66711,
+        "losses": 19.0497,
+        "points": 19.51668,
+        "goalsFor": 19.18117,
+        "goalsAgainst": 51.80801,
+        "goalDifference": -32.62684
+      },
+      "verdicts": {
+        "championship": 0,
+        "europe": 1,
+        "midTable": 5883,
+        "relegation": 94116
+      },
+      "achievements": [
+        {
+          "id": "12",
+          "title_ua": "Перед каждою ігрою!..",
+          "title_en": "Before Every Game!..",
+          "competition": "League",
+          "count": 91515,
+          "frequency": 0.91515,
+          "frequency_percent": 91.515
+        },
+        {
+          "id": "13",
+          "title_ua": "Здається, Бог наказує нас за щось",
+          "title_en": "Apparently, God Punishes Us",
+          "competition": "Both",
+          "count": 94116,
+          "frequency": 0.94116,
+          "frequency_percent": 94.116
+        },
+        {
+          "id": "23",
+          "title_ua": "Непереможні",
+          "title_en": "Invincibles",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "24",
+          "title_ua": "Безкомпромісні",
+          "title_en": "No Compromises",
+          "competition": "League",
+          "count": 45,
+          "frequency": 0.00045,
+          "frequency_percent": 0.045
+        },
+        {
+          "id": "25",
+          "title_ua": "Ідеально збалансовано",
+          "title_en": "Perfectly Balanced",
+          "competition": "League",
+          "count": 3,
+          "frequency": 0.00003,
+          "frequency_percent": 0.003
+        },
+        {
+          "id": "26",
+          "title_ua": "Потужно",
+          "title_en": "Powerful Stuff",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "27",
+          "title_ua": "Сухий закон",
+          "title_en": "Prohibition",
+          "competition": "Both",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "35",
+          "title_ua": "Автобус припарковано",
+          "title_en": "Bus Parked",
+          "competition": "Both",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "50",
+          "title_ua": "Пропало все. Господи допоможи",
+          "title_en": "Everything Is Lost. God Save Us All",
+          "competition": "League",
+          "count": 857,
+          "frequency": 0.00857,
+          "frequency_percent": 0.857
+        },
+        {
+          "id": "51",
+          "title_ua": "Нічия влаштовує",
+          "title_en": "A Draw Will Do",
+          "competition": "League",
+          "count": 61,
+          "frequency": 0.00061,
+          "frequency_percent": 0.061
+        },
+        {
+          "id": "52",
+          "title_ua": "Маємо те, що маємо",
+          "title_en": "It Is What It Is",
+          "competition": "League",
+          "count": 2,
+          "frequency": 0.00002,
+          "frequency_percent": 0.002
+        },
+        {
+          "id": "53",
+          "title_ua": "На тоненького",
+          "title_en": "By a Thread",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "54",
+          "title_ua": "Бавовна",
+          "title_en": "Bavovna",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "55",
+          "title_ua": "Захист для слабаків",
+          "title_en": "Defense Optional",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "93",
+          "title_ua": "Це нормально",
+          "title_en": "This Is Fine",
+          "competition": "League",
+          "count": 43,
+          "frequency": 0.00043,
+          "frequency_percent": 0.043
+        }
+      ]
+    },
+    {
+      "name": "average",
+      "strength": 63.6,
+      "definition": "50th percentile effective/global player rating from current generated player data",
+      "iterations": 100000,
+      "averages": {
+        "wins": 9.86258,
+        "draws": 7.82015,
+        "losses": 12.31727,
+        "points": 37.40789,
+        "goalsFor": 34.19259,
+        "goalsAgainst": 39.27904,
+        "goalDifference": -5.08645
+      },
+      "verdicts": {
+        "championship": 72,
+        "europe": 3978,
+        "midTable": 86466,
+        "relegation": 9484
+      },
+      "achievements": [
+        {
+          "id": "12",
+          "title_ua": "Перед каждою ігрою!..",
+          "title_en": "Before Every Game!..",
+          "competition": "League",
+          "count": 11251,
+          "frequency": 0.11251,
+          "frequency_percent": 11.251
+        },
+        {
+          "id": "13",
+          "title_ua": "Здається, Бог наказує нас за щось",
+          "title_en": "Apparently, God Punishes Us",
+          "competition": "Both",
+          "count": 9484,
+          "frequency": 0.09484,
+          "frequency_percent": 9.484
+        },
+        {
+          "id": "23",
+          "title_ua": "Непереможні",
+          "title_en": "Invincibles",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "24",
+          "title_ua": "Безкомпромісні",
+          "title_en": "No Compromises",
+          "competition": "League",
+          "count": 13,
+          "frequency": 0.00013,
+          "frequency_percent": 0.013
+        },
+        {
+          "id": "25",
+          "title_ua": "Ідеально збалансовано",
+          "title_en": "Perfectly Balanced",
+          "competition": "League",
+          "count": 1639,
+          "frequency": 0.01639,
+          "frequency_percent": 1.6389999999999998
+        },
+        {
+          "id": "26",
+          "title_ua": "Потужно",
+          "title_en": "Powerful Stuff",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "27",
+          "title_ua": "Сухий закон",
+          "title_en": "Prohibition",
+          "competition": "Both",
+          "count": 1,
+          "frequency": 0.00001,
+          "frequency_percent": 0.001
+        },
+        {
+          "id": "31",
+          "title_ua": "Я так бачу",
+          "title_en": "Trust My Eyes",
+          "competition": "Both",
+          "count": 72,
+          "frequency": 0.00072,
+          "frequency_percent": 0.07200000000000001
+        },
+        {
+          "id": "35",
+          "title_ua": "Автобус припарковано",
+          "title_en": "Bus Parked",
+          "competition": "Both",
+          "count": 4,
+          "frequency": 0.00004,
+          "frequency_percent": 0.004
+        },
+        {
+          "id": "50",
+          "title_ua": "Пропало все. Господи допоможи",
+          "title_en": "Everything Is Lost. God Save Us All",
+          "competition": "League",
+          "count": 2,
+          "frequency": 0.00002,
+          "frequency_percent": 0.002
+        },
+        {
+          "id": "51",
+          "title_ua": "Нічия влаштовує",
+          "title_en": "A Draw Will Do",
+          "competition": "League",
+          "count": 405,
+          "frequency": 0.00405,
+          "frequency_percent": 0.40499999999999997
+        },
+        {
+          "id": "52",
+          "title_ua": "Маємо те, що маємо",
+          "title_en": "It Is What It Is",
+          "competition": "League",
+          "count": 3866,
+          "frequency": 0.03866,
+          "frequency_percent": 3.866
+        },
+        {
+          "id": "53",
+          "title_ua": "На тоненького",
+          "title_en": "By a Thread",
+          "competition": "League",
+          "count": 1,
+          "frequency": 0.00001,
+          "frequency_percent": 0.001
+        },
+        {
+          "id": "54",
+          "title_ua": "Бавовна",
+          "title_en": "Bavovna",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "55",
+          "title_ua": "Захист для слабаків",
+          "title_en": "Defense Optional",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "75",
+          "title_ua": "Стара школа",
+          "title_en": "Old School",
+          "competition": "Both",
+          "count": 72,
+          "frequency": 0.00072,
+          "frequency_percent": 0.07200000000000001
+        },
+        {
+          "id": "93",
+          "title_ua": "Це нормально",
+          "title_en": "This Is Fine",
+          "competition": "League",
+          "count": 35,
+          "frequency": 0.00035,
+          "frequency_percent": 0.034999999999999996
+        }
+      ]
+    },
+    {
+      "name": "strong",
+      "strength": 74.3,
+      "definition": "80th percentile effective/global player rating from current generated player data",
+      "iterations": 100000,
+      "averages": {
+        "wins": 15.73054,
+        "draws": 7.25819,
+        "losses": 7.01127,
+        "points": 54.44981,
+        "goalsFor": 47.89127,
+        "goalsAgainst": 28.36097,
+        "goalDifference": 19.5303
+      },
+      "verdicts": {
+        "championship": 23112,
+        "europe": 53417,
+        "midTable": 23464,
+        "relegation": 7
+      },
+      "achievements": [
+        {
+          "id": "12",
+          "title_ua": "Перед каждою ігрою!..",
+          "title_en": "Before Every Game!..",
+          "competition": "League",
+          "count": 9,
+          "frequency": 0.00009,
+          "frequency_percent": 0.009000000000000001
+        },
+        {
+          "id": "13",
+          "title_ua": "Здається, Бог наказує нас за щось",
+          "title_en": "Apparently, God Punishes Us",
+          "competition": "Both",
+          "count": 7,
+          "frequency": 0.00007,
+          "frequency_percent": 0.006999999999999999
+        },
+        {
+          "id": "23",
+          "title_ua": "Непереможні",
+          "title_en": "Invincibles",
+          "competition": "League",
+          "count": 16,
+          "frequency": 0.00016,
+          "frequency_percent": 0.016
+        },
+        {
+          "id": "24",
+          "title_ua": "Безкомпромісні",
+          "title_en": "No Compromises",
+          "competition": "League",
+          "count": 18,
+          "frequency": 0.00018,
+          "frequency_percent": 0.018000000000000002
+        },
+        {
+          "id": "25",
+          "title_ua": "Ідеально збалансовано",
+          "title_en": "Perfectly Balanced",
+          "competition": "League",
+          "count": 229,
+          "frequency": 0.00229,
+          "frequency_percent": 0.22899999999999998
+        },
+        {
+          "id": "26",
+          "title_ua": "Потужно",
+          "title_en": "Powerful Stuff",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "27",
+          "title_ua": "Сухий закон",
+          "title_en": "Prohibition",
+          "competition": "Both",
+          "count": 463,
+          "frequency": 0.00463,
+          "frequency_percent": 0.46299999999999997
+        },
+        {
+          "id": "31",
+          "title_ua": "Я так бачу",
+          "title_en": "Trust My Eyes",
+          "competition": "Both",
+          "count": 23112,
+          "frequency": 0.23112,
+          "frequency_percent": 23.112
+        },
+        {
+          "id": "35",
+          "title_ua": "Автобус припарковано",
+          "title_en": "Bus Parked",
+          "competition": "Both",
+          "count": 4173,
+          "frequency": 0.04173,
+          "frequency_percent": 4.173
+        },
+        {
+          "id": "50",
+          "title_ua": "Пропало все. Господи допоможи",
+          "title_en": "Everything Is Lost. God Save Us All",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "51",
+          "title_ua": "Нічия влаштовує",
+          "title_en": "A Draw Will Do",
+          "competition": "League",
+          "count": 180,
+          "frequency": 0.0018,
+          "frequency_percent": 0.18
+        },
+        {
+          "id": "52",
+          "title_ua": "Маємо те, що маємо",
+          "title_en": "It Is What It Is",
+          "competition": "League",
+          "count": 395,
+          "frequency": 0.00395,
+          "frequency_percent": 0.395
+        },
+        {
+          "id": "53",
+          "title_ua": "На тоненького",
+          "title_en": "By a Thread",
+          "competition": "League",
+          "count": 4,
+          "frequency": 0.00004,
+          "frequency_percent": 0.004
+        },
+        {
+          "id": "54",
+          "title_ua": "Бавовна",
+          "title_en": "Bavovna",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "55",
+          "title_ua": "Захист для слабаків",
+          "title_en": "Defense Optional",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "75",
+          "title_ua": "Стара школа",
+          "title_en": "Old School",
+          "competition": "Both",
+          "count": 23112,
+          "frequency": 0.23112,
+          "frequency_percent": 23.112
+        },
+        {
+          "id": "93",
+          "title_ua": "Це нормально",
+          "title_en": "This Is Fine",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        }
+      ]
+    },
+    {
+      "name": "elite",
+      "strength": 84.6,
+      "definition": "95th percentile effective/global player rating from current generated player data",
+      "iterations": 100000,
+      "averages": {
+        "wins": 21.07607,
+        "draws": 5.619,
+        "losses": 3.30493,
+        "points": 68.84721,
+        "goalsFor": 61.01144,
+        "goalsAgainst": 18.3202,
+        "goalDifference": 42.69124
+      },
+      "verdicts": {
+        "championship": 93793,
+        "europe": 6110,
+        "midTable": 97,
+        "relegation": 0
+      },
+      "achievements": [
+        {
+          "id": "12",
+          "title_ua": "Перед каждою ігрою!..",
+          "title_en": "Before Every Game!..",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "13",
+          "title_ua": "Здається, Бог наказує нас за щось",
+          "title_en": "Apparently, God Punishes Us",
+          "competition": "Both",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "23",
+          "title_ua": "Непереможні",
+          "title_en": "Invincibles",
+          "competition": "League",
+          "count": 2790,
+          "frequency": 0.0279,
+          "frequency_percent": 2.79
+        },
+        {
+          "id": "24",
+          "title_ua": "Безкомпромісні",
+          "title_en": "No Compromises",
+          "competition": "League",
+          "count": 174,
+          "frequency": 0.00174,
+          "frequency_percent": 0.174
+        },
+        {
+          "id": "25",
+          "title_ua": "Ідеально збалансовано",
+          "title_en": "Perfectly Balanced",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "26",
+          "title_ua": "Потужно",
+          "title_en": "Powerful Stuff",
+          "competition": "League",
+          "count": 1,
+          "frequency": 0.00001,
+          "frequency_percent": 0.001
+        },
+        {
+          "id": "27",
+          "title_ua": "Сухий закон",
+          "title_en": "Prohibition",
+          "competition": "Both",
+          "count": 26395,
+          "frequency": 0.26395,
+          "frequency_percent": 26.395000000000003
+        },
+        {
+          "id": "31",
+          "title_ua": "Я так бачу",
+          "title_en": "Trust My Eyes",
+          "competition": "Both",
+          "count": 93793,
+          "frequency": 0.93793,
+          "frequency_percent": 93.793
+        },
+        {
+          "id": "35",
+          "title_ua": "Автобус припарковано",
+          "title_en": "Bus Parked",
+          "competition": "Both",
+          "count": 68580,
+          "frequency": 0.6858,
+          "frequency_percent": 68.58
+        },
+        {
+          "id": "50",
+          "title_ua": "Пропало все. Господи допоможи",
+          "title_en": "Everything Is Lost. God Save Us All",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "51",
+          "title_ua": "Нічия влаштовує",
+          "title_en": "A Draw Will Do",
+          "competition": "League",
+          "count": 15,
+          "frequency": 0.00015,
+          "frequency_percent": 0.015
+        },
+        {
+          "id": "52",
+          "title_ua": "Маємо те, що маємо",
+          "title_en": "It Is What It Is",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "53",
+          "title_ua": "На тоненького",
+          "title_en": "By a Thread",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "54",
+          "title_ua": "Бавовна",
+          "title_en": "Bavovna",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "55",
+          "title_ua": "Захист для слабаків",
+          "title_en": "Defense Optional",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        },
+        {
+          "id": "75",
+          "title_ua": "Стара школа",
+          "title_en": "Old School",
+          "competition": "Both",
+          "count": 93793,
+          "frequency": 0.93793,
+          "frequency_percent": 93.793
+        },
+        {
+          "id": "93",
+          "title_ua": "Це нормально",
+          "title_en": "This Is Fine",
+          "competition": "League",
+          "count": 0,
+          "frequency": 0,
+          "frequency_percent": 0
+        }
+      ]
+    }
+  ]
+}

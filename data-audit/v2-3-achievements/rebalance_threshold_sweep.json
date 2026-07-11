@@ -1,0 +1,2859 @@
+{
+  "generated_at": "2026-07-11T14:14:20.176Z",
+  "seed": 2303,
+  "threshold_iterations_per_bucket": 100000,
+  "draft_iterations_per_competition_formation": 100000,
+  "runtime_ms": 205421,
+  "bavovna": {
+    "current_threshold": 100,
+    "tested_thresholds": [
+      65,
+      70,
+      75,
+      80,
+      85,
+      90,
+      100
+    ],
+    "buckets": [
+      {
+        "bucket": "weak",
+        "strength": 51.2,
+        "definition": "15th percentile effective/global player rating from current generated player data",
+        "maxGoalsFor": 45,
+        "p90": 25,
+        "p95": 27,
+        "p99": 30,
+        "p999": 34
+      },
+      {
+        "bucket": "average",
+        "strength": 63.6,
+        "definition": "50th percentile effective/global player rating from current generated player data",
+        "maxGoalsFor": 63,
+        "p90": 42,
+        "p95": 44,
+        "p99": 48,
+        "p999": 54
+      },
+      {
+        "bucket": "strong",
+        "strength": 74.3,
+        "definition": "80th percentile effective/global player rating from current generated player data",
+        "maxGoalsFor": 81,
+        "p90": 57,
+        "p95": 59,
+        "p99": 65,
+        "p999": 70
+      },
+      {
+        "bucket": "elite",
+        "strength": 84.6,
+        "definition": "95th percentile effective/global player rating from current generated player data",
+        "maxGoalsFor": 95,
+        "p90": 71,
+        "p95": 74,
+        "p99": 80,
+        "p999": 86
+      }
+    ],
+    "rows": [
+      {
+        "section": "bavovna",
+        "bucket": "weak",
+        "strength": 51.2,
+        "threshold": 65,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 45,
+        "p90_goals_for": 25,
+        "p95_goals_for": 27,
+        "p99_goals_for": 30,
+        "p999_goals_for": 34
+      },
+      {
+        "section": "bavovna",
+        "bucket": "weak",
+        "strength": 51.2,
+        "threshold": 70,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 45,
+        "p90_goals_for": 25,
+        "p95_goals_for": 27,
+        "p99_goals_for": 30,
+        "p999_goals_for": 34
+      },
+      {
+        "section": "bavovna",
+        "bucket": "weak",
+        "strength": 51.2,
+        "threshold": 75,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 45,
+        "p90_goals_for": 25,
+        "p95_goals_for": 27,
+        "p99_goals_for": 30,
+        "p999_goals_for": 34
+      },
+      {
+        "section": "bavovna",
+        "bucket": "weak",
+        "strength": 51.2,
+        "threshold": 80,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 45,
+        "p90_goals_for": 25,
+        "p95_goals_for": 27,
+        "p99_goals_for": 30,
+        "p999_goals_for": 34
+      },
+      {
+        "section": "bavovna",
+        "bucket": "weak",
+        "strength": 51.2,
+        "threshold": 85,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 45,
+        "p90_goals_for": 25,
+        "p95_goals_for": 27,
+        "p99_goals_for": 30,
+        "p999_goals_for": 34
+      },
+      {
+        "section": "bavovna",
+        "bucket": "weak",
+        "strength": 51.2,
+        "threshold": 90,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 45,
+        "p90_goals_for": 25,
+        "p95_goals_for": 27,
+        "p99_goals_for": 30,
+        "p999_goals_for": 34
+      },
+      {
+        "section": "bavovna",
+        "bucket": "weak",
+        "strength": 51.2,
+        "threshold": 100,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 45,
+        "p90_goals_for": 25,
+        "p95_goals_for": 27,
+        "p99_goals_for": 30,
+        "p999_goals_for": 34
+      },
+      {
+        "section": "bavovna",
+        "bucket": "average",
+        "strength": 63.6,
+        "threshold": 65,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 63,
+        "p90_goals_for": 42,
+        "p95_goals_for": 44,
+        "p99_goals_for": 48,
+        "p999_goals_for": 54
+      },
+      {
+        "section": "bavovna",
+        "bucket": "average",
+        "strength": 63.6,
+        "threshold": 70,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 63,
+        "p90_goals_for": 42,
+        "p95_goals_for": 44,
+        "p99_goals_for": 48,
+        "p999_goals_for": 54
+      },
+      {
+        "section": "bavovna",
+        "bucket": "average",
+        "strength": 63.6,
+        "threshold": 75,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 63,
+        "p90_goals_for": 42,
+        "p95_goals_for": 44,
+        "p99_goals_for": 48,
+        "p999_goals_for": 54
+      },
+      {
+        "section": "bavovna",
+        "bucket": "average",
+        "strength": 63.6,
+        "threshold": 80,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 63,
+        "p90_goals_for": 42,
+        "p95_goals_for": 44,
+        "p99_goals_for": 48,
+        "p999_goals_for": 54
+      },
+      {
+        "section": "bavovna",
+        "bucket": "average",
+        "strength": 63.6,
+        "threshold": 85,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 63,
+        "p90_goals_for": 42,
+        "p95_goals_for": 44,
+        "p99_goals_for": 48,
+        "p999_goals_for": 54
+      },
+      {
+        "section": "bavovna",
+        "bucket": "average",
+        "strength": 63.6,
+        "threshold": 90,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 63,
+        "p90_goals_for": 42,
+        "p95_goals_for": 44,
+        "p99_goals_for": 48,
+        "p999_goals_for": 54
+      },
+      {
+        "section": "bavovna",
+        "bucket": "average",
+        "strength": 63.6,
+        "threshold": 100,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 63,
+        "p90_goals_for": 42,
+        "p95_goals_for": 44,
+        "p99_goals_for": 48,
+        "p999_goals_for": 54
+      },
+      {
+        "section": "bavovna",
+        "bucket": "strong",
+        "strength": 74.3,
+        "threshold": 65,
+        "count": 1031,
+        "frequency": 0.01031,
+        "frequency_percent": 1.031,
+        "maximum_goals_for": 81,
+        "p90_goals_for": 57,
+        "p95_goals_for": 59,
+        "p99_goals_for": 65,
+        "p999_goals_for": 70
+      },
+      {
+        "section": "bavovna",
+        "bucket": "strong",
+        "strength": 74.3,
+        "threshold": 70,
+        "count": 127,
+        "frequency": 0.00127,
+        "frequency_percent": 0.127,
+        "maximum_goals_for": 81,
+        "p90_goals_for": 57,
+        "p95_goals_for": 59,
+        "p99_goals_for": 65,
+        "p999_goals_for": 70
+      },
+      {
+        "section": "bavovna",
+        "bucket": "strong",
+        "strength": 74.3,
+        "threshold": 75,
+        "count": 15,
+        "frequency": 0.00015,
+        "frequency_percent": 0.015,
+        "maximum_goals_for": 81,
+        "p90_goals_for": 57,
+        "p95_goals_for": 59,
+        "p99_goals_for": 65,
+        "p999_goals_for": 70
+      },
+      {
+        "section": "bavovna",
+        "bucket": "strong",
+        "strength": 74.3,
+        "threshold": 80,
+        "count": 2,
+        "frequency": 0.00002,
+        "frequency_percent": 0.002,
+        "maximum_goals_for": 81,
+        "p90_goals_for": 57,
+        "p95_goals_for": 59,
+        "p99_goals_for": 65,
+        "p999_goals_for": 70
+      },
+      {
+        "section": "bavovna",
+        "bucket": "strong",
+        "strength": 74.3,
+        "threshold": 85,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 81,
+        "p90_goals_for": 57,
+        "p95_goals_for": 59,
+        "p99_goals_for": 65,
+        "p999_goals_for": 70
+      },
+      {
+        "section": "bavovna",
+        "bucket": "strong",
+        "strength": 74.3,
+        "threshold": 90,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 81,
+        "p90_goals_for": 57,
+        "p95_goals_for": 59,
+        "p99_goals_for": 65,
+        "p999_goals_for": 70
+      },
+      {
+        "section": "bavovna",
+        "bucket": "strong",
+        "strength": 74.3,
+        "threshold": 100,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 81,
+        "p90_goals_for": 57,
+        "p95_goals_for": 59,
+        "p99_goals_for": 65,
+        "p999_goals_for": 70
+      },
+      {
+        "section": "bavovna",
+        "bucket": "elite",
+        "strength": 84.6,
+        "threshold": 65,
+        "count": 31869,
+        "frequency": 0.31869,
+        "frequency_percent": 31.868999999999996,
+        "maximum_goals_for": 95,
+        "p90_goals_for": 71,
+        "p95_goals_for": 74,
+        "p99_goals_for": 80,
+        "p999_goals_for": 86
+      },
+      {
+        "section": "bavovna",
+        "bucket": "elite",
+        "strength": 84.6,
+        "threshold": 70,
+        "count": 13495,
+        "frequency": 0.13495,
+        "frequency_percent": 13.495,
+        "maximum_goals_for": 95,
+        "p90_goals_for": 71,
+        "p95_goals_for": 74,
+        "p99_goals_for": 80,
+        "p999_goals_for": 86
+      },
+      {
+        "section": "bavovna",
+        "bucket": "elite",
+        "strength": 84.6,
+        "threshold": 75,
+        "count": 4245,
+        "frequency": 0.04245,
+        "frequency_percent": 4.245,
+        "maximum_goals_for": 95,
+        "p90_goals_for": 71,
+        "p95_goals_for": 74,
+        "p99_goals_for": 80,
+        "p999_goals_for": 86
+      },
+      {
+        "section": "bavovna",
+        "bucket": "elite",
+        "strength": 84.6,
+        "threshold": 80,
+        "count": 1031,
+        "frequency": 0.01031,
+        "frequency_percent": 1.031,
+        "maximum_goals_for": 95,
+        "p90_goals_for": 71,
+        "p95_goals_for": 74,
+        "p99_goals_for": 80,
+        "p999_goals_for": 86
+      },
+      {
+        "section": "bavovna",
+        "bucket": "elite",
+        "strength": 84.6,
+        "threshold": 85,
+        "count": 167,
+        "frequency": 0.00167,
+        "frequency_percent": 0.167,
+        "maximum_goals_for": 95,
+        "p90_goals_for": 71,
+        "p95_goals_for": 74,
+        "p99_goals_for": 80,
+        "p999_goals_for": 86
+      },
+      {
+        "section": "bavovna",
+        "bucket": "elite",
+        "strength": 84.6,
+        "threshold": 90,
+        "count": 26,
+        "frequency": 0.00026,
+        "frequency_percent": 0.026,
+        "maximum_goals_for": 95,
+        "p90_goals_for": 71,
+        "p95_goals_for": 74,
+        "p99_goals_for": 80,
+        "p999_goals_for": 86
+      },
+      {
+        "section": "bavovna",
+        "bucket": "elite",
+        "strength": 84.6,
+        "threshold": 100,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0,
+        "maximum_goals_for": 95,
+        "p90_goals_for": 71,
+        "p95_goals_for": 74,
+        "p99_goals_for": 80,
+        "p999_goals_for": 86
+      }
+    ],
+    "recommended_threshold": 80,
+    "recommendation_reason": "Closest tested strong/elite average frequency to an epic/legendary 0.1%-1% target: 0.5165%."
+  },
+  "defense_optional": {
+    "current_thresholds": {
+      "goalsFor": 80,
+      "goalsAgainst": 60
+    },
+    "tested_goals_for": [
+      55,
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "tested_goals_against": [
+      40,
+      45,
+      50,
+      55,
+      60
+    ],
+    "grid": [
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 40,
+        "count": 27,
+        "frequency": 0.00027,
+        "frequency_percent": 0.027
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 45,
+        "count": 10,
+        "frequency": 0.0001,
+        "frequency_percent": 0.01
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 50,
+        "count": 5,
+        "frequency": 0.00005,
+        "frequency_percent": 0.005
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 40,
+        "count": 2,
+        "frequency": 0.00002,
+        "frequency_percent": 0.002
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 45,
+        "count": 1,
+        "frequency": 0.00001,
+        "frequency_percent": 0.001
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 40,
+        "count": 354,
+        "frequency": 0.00354,
+        "frequency_percent": 0.35400000000000004
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 45,
+        "count": 37,
+        "frequency": 0.00037,
+        "frequency_percent": 0.037
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 50,
+        "count": 4,
+        "frequency": 0.00004,
+        "frequency_percent": 0.004
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 40,
+        "count": 98,
+        "frequency": 0.00098,
+        "frequency_percent": 0.098
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 45,
+        "count": 13,
+        "frequency": 0.00013,
+        "frequency_percent": 0.013
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 50,
+        "count": 1,
+        "frequency": 0.00001,
+        "frequency_percent": 0.001
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 40,
+        "count": 30,
+        "frequency": 0.0003,
+        "frequency_percent": 0.03
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 45,
+        "count": 4,
+        "frequency": 0.00004,
+        "frequency_percent": 0.004
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 40,
+        "count": 3,
+        "frequency": 0.00003,
+        "frequency_percent": 0.003
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 40,
+        "count": 1,
+        "frequency": 0.00001,
+        "frequency_percent": 0.001
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 55,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 60,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 65,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 70,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 75,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 40,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 45,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 50,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 55,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      },
+      {
+        "section": "defense_optional_grid",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 80,
+        "goals_against_threshold": 60,
+        "count": 0,
+        "frequency": 0,
+        "frequency_percent": 0
+      }
+    ],
+    "maximum_goals_for_when_goals_against_at_least": [
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_against_threshold": 40,
+        "maximum_goals_for": 45,
+        "sample_count": 96185
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_against_threshold": 45,
+        "maximum_goals_for": 45,
+        "sample_count": 84672
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_against_threshold": 50,
+        "maximum_goals_for": 39,
+        "sample_count": 61794
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_against_threshold": 55,
+        "maximum_goals_for": 39,
+        "sample_count": 34605
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_against_threshold": 60,
+        "maximum_goals_for": 39,
+        "sample_count": 14232
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_against_threshold": 40,
+        "maximum_goals_for": 63,
+        "sample_count": 47563
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_against_threshold": 45,
+        "maximum_goals_for": 63,
+        "sample_count": 19869
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_against_threshold": 50,
+        "maximum_goals_for": 59,
+        "sample_count": 5489
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_against_threshold": 55,
+        "maximum_goals_for": 51,
+        "sample_count": 988
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_against_threshold": 60,
+        "maximum_goals_for": 51,
+        "sample_count": 111
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_against_threshold": 40,
+        "maximum_goals_for": 77,
+        "sample_count": 2261
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_against_threshold": 45,
+        "maximum_goals_for": 69,
+        "sample_count": 245
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_against_threshold": 50,
+        "maximum_goals_for": 63,
+        "sample_count": 11
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_against_threshold": 55,
+        "maximum_goals_for": 48,
+        "sample_count": 1
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_against_threshold": 60,
+        "maximum_goals_for": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_against_threshold": 40,
+        "maximum_goals_for": 53,
+        "sample_count": 1
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_against_threshold": 45,
+        "maximum_goals_for": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_against_threshold": 50,
+        "maximum_goals_for": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_against_threshold": 55,
+        "maximum_goals_for": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_for_by_goals_against",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_against_threshold": 60,
+        "maximum_goals_for": 0,
+        "sample_count": 0
+      }
+    ],
+    "maximum_goals_against_when_goals_for_at_least": [
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 55,
+        "maximum_goals_against": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 60,
+        "maximum_goals_against": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 65,
+        "maximum_goals_against": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 70,
+        "maximum_goals_against": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 75,
+        "maximum_goals_against": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "weak",
+        "strength": 51.2,
+        "goals_for_threshold": 80,
+        "maximum_goals_against": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 55,
+        "maximum_goals_against": 51,
+        "sample_count": 63
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 60,
+        "maximum_goals_against": 46,
+        "sample_count": 4
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 65,
+        "maximum_goals_against": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 70,
+        "maximum_goals_against": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 75,
+        "maximum_goals_against": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "average",
+        "strength": 63.6,
+        "goals_for_threshold": 80,
+        "maximum_goals_against": 0,
+        "sample_count": 0
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 55,
+        "maximum_goals_against": 53,
+        "sample_count": 16878
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 60,
+        "maximum_goals_against": 50,
+        "sample_count": 4895
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 65,
+        "maximum_goals_against": 49,
+        "sample_count": 1031
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 70,
+        "maximum_goals_against": 44,
+        "sample_count": 127
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 75,
+        "maximum_goals_against": 44,
+        "sample_count": 15
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "strong",
+        "strength": 74.3,
+        "goals_for_threshold": 80,
+        "maximum_goals_against": 27,
+        "sample_count": 2
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 55,
+        "maximum_goals_against": 38,
+        "sample_count": 79913
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 60,
+        "maximum_goals_against": 38,
+        "sample_count": 57190
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 65,
+        "maximum_goals_against": 38,
+        "sample_count": 31869
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 70,
+        "maximum_goals_against": 38,
+        "sample_count": 13495
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 75,
+        "maximum_goals_against": 38,
+        "sample_count": 4245
+      },
+      {
+        "section": "max_goals_against_by_goals_for",
+        "bucket": "elite",
+        "strength": 84.6,
+        "goals_for_threshold": 80,
+        "maximum_goals_against": 36,
+        "sample_count": 1031
+      }
+    ],
+    "recommended_thresholds": {
+      "goalsFor": 55,
+      "goalsAgainst": 40
+    },
+    "recommendation_reason": "Preserves high-scoring chaotic result and lands near the 0.1%-1% average/strong target: 0.1905%."
+  },
+  "different_eras": {
+    "alternatives": {
+      "current": {
+        "count": 820706,
+        "frequency": 0.6839216666666666,
+        "frequency_percent": 68.39216666666667,
+        "percentage_with_at_least_one": 0.9786741666666666,
+        "average_achievements_per_run": 2.987814166666667,
+        "distribution": {
+          "zero": 25591,
+          "one": 146611,
+          "two": 294393,
+          "three_or_more": 733405
+        },
+        "scopes": [
+          {
+            "alternative": "current",
+            "scope": "competition:league",
+            "runs": 600000,
+            "count": 325288,
+            "frequency": 0.5421466666666667,
+            "frequency_percent": 54.214666666666666
+          },
+          {
+            "alternative": "current",
+            "scope": "formation:4-4-2",
+            "runs": 400000,
+            "count": 272804,
+            "frequency": 0.68201,
+            "frequency_percent": 68.201
+          },
+          {
+            "alternative": "current",
+            "scope": "competition:league|formation:4-4-2",
+            "runs": 200000,
+            "count": 107826,
+            "frequency": 0.53913,
+            "frequency_percent": 53.913
+          },
+          {
+            "alternative": "current",
+            "scope": "formation:3-5-2",
+            "runs": 400000,
+            "count": 273994,
+            "frequency": 0.684985,
+            "frequency_percent": 68.49849999999999
+          },
+          {
+            "alternative": "current",
+            "scope": "competition:league|formation:3-5-2",
+            "runs": 200000,
+            "count": 108536,
+            "frequency": 0.54268,
+            "frequency_percent": 54.26800000000001
+          },
+          {
+            "alternative": "current",
+            "scope": "formation:5-3-2",
+            "runs": 400000,
+            "count": 273908,
+            "frequency": 0.68477,
+            "frequency_percent": 68.477
+          },
+          {
+            "alternative": "current",
+            "scope": "competition:league|formation:5-3-2",
+            "runs": 200000,
+            "count": 108926,
+            "frequency": 0.54463,
+            "frequency_percent": 54.462999999999994
+          },
+          {
+            "alternative": "current",
+            "scope": "competition:cup",
+            "runs": 600000,
+            "count": 495418,
+            "frequency": 0.8256966666666666,
+            "frequency_percent": 82.56966666666666
+          },
+          {
+            "alternative": "current",
+            "scope": "competition:cup|formation:4-4-2",
+            "runs": 200000,
+            "count": 164978,
+            "frequency": 0.82489,
+            "frequency_percent": 82.489
+          },
+          {
+            "alternative": "current",
+            "scope": "competition:cup|formation:3-5-2",
+            "runs": 200000,
+            "count": 165458,
+            "frequency": 0.82729,
+            "frequency_percent": 82.729
+          },
+          {
+            "alternative": "current",
+            "scope": "competition:cup|formation:5-3-2",
+            "runs": 200000,
+            "count": 164982,
+            "frequency": 0.82491,
+            "frequency_percent": 82.491
+          }
+        ],
+        "most_common_pairs_involving_47": [
+          {
+            "key": "10+47",
+            "count": 452118
+          },
+          {
+            "key": "13+47",
+            "count": 225986
+          },
+          {
+            "key": "47+89",
+            "count": 209636
+          },
+          {
+            "key": "33+47",
+            "count": 170740
+          },
+          {
+            "key": "11+47",
+            "count": 142448
+          },
+          {
+            "key": "47+91",
+            "count": 129038
+          },
+          {
+            "key": "47+68",
+            "count": 87478
+          },
+          {
+            "key": "6+47",
+            "count": 82346
+          },
+          {
+            "key": "12+47",
+            "count": 53478
+          },
+          {
+            "key": "47+77",
+            "count": 48118
+          }
+        ],
+        "most_common_triples_involving_47": [
+          {
+            "key": "10+47+89",
+            "count": 112268
+          },
+          {
+            "key": "10+47+91",
+            "count": 71402
+          },
+          {
+            "key": "13+47+89",
+            "count": 60838
+          },
+          {
+            "key": "33+47+89",
+            "count": 57270
+          },
+          {
+            "key": "10+47+68",
+            "count": 47026
+          },
+          {
+            "key": "13+47+91",
+            "count": 36030
+          },
+          {
+            "key": "11+47+89",
+            "count": 34342
+          },
+          {
+            "key": "33+47+91",
+            "count": 30600
+          },
+          {
+            "key": "10+47+77",
+            "count": 25376
+          },
+          {
+            "key": "6+47+91",
+            "count": 23678
+          }
+        ]
+      },
+      "balanced": {
+        "count": 255350,
+        "frequency": 0.21279166666666666,
+        "frequency_percent": 21.279166666666665,
+        "percentage_with_at_least_one": 0.939735,
+        "average_achievements_per_run": 2.516684166666667,
+        "distribution": {
+          "zero": 72318,
+          "one": 225996,
+          "two": 331899,
+          "three_or_more": 569787
+        },
+        "scopes": [
+          {
+            "alternative": "balanced",
+            "scope": "competition:league",
+            "runs": 600000,
+            "count": 64812,
+            "frequency": 0.10802,
+            "frequency_percent": 10.802
+          },
+          {
+            "alternative": "balanced",
+            "scope": "formation:4-4-2",
+            "runs": 400000,
+            "count": 84340,
+            "frequency": 0.21085,
+            "frequency_percent": 21.085
+          },
+          {
+            "alternative": "balanced",
+            "scope": "competition:league|formation:4-4-2",
+            "runs": 200000,
+            "count": 21012,
+            "frequency": 0.10506,
+            "frequency_percent": 10.506
+          },
+          {
+            "alternative": "balanced",
+            "scope": "formation:3-5-2",
+            "runs": 400000,
+            "count": 86422,
+            "frequency": 0.216055,
+            "frequency_percent": 21.6055
+          },
+          {
+            "alternative": "balanced",
+            "scope": "competition:league|formation:3-5-2",
+            "runs": 200000,
+            "count": 22006,
+            "frequency": 0.11003,
+            "frequency_percent": 11.003
+          },
+          {
+            "alternative": "balanced",
+            "scope": "formation:5-3-2",
+            "runs": 400000,
+            "count": 84588,
+            "frequency": 0.21147,
+            "frequency_percent": 21.147
+          },
+          {
+            "alternative": "balanced",
+            "scope": "competition:league|formation:5-3-2",
+            "runs": 200000,
+            "count": 21794,
+            "frequency": 0.10897,
+            "frequency_percent": 10.897
+          },
+          {
+            "alternative": "balanced",
+            "scope": "competition:cup",
+            "runs": 600000,
+            "count": 190538,
+            "frequency": 0.3175633333333333,
+            "frequency_percent": 31.75633333333333
+          },
+          {
+            "alternative": "balanced",
+            "scope": "competition:cup|formation:4-4-2",
+            "runs": 200000,
+            "count": 63328,
+            "frequency": 0.31664,
+            "frequency_percent": 31.663999999999998
+          },
+          {
+            "alternative": "balanced",
+            "scope": "competition:cup|formation:3-5-2",
+            "runs": 200000,
+            "count": 64416,
+            "frequency": 0.32208,
+            "frequency_percent": 32.208
+          },
+          {
+            "alternative": "balanced",
+            "scope": "competition:cup|formation:5-3-2",
+            "runs": 200000,
+            "count": 62794,
+            "frequency": 0.31397,
+            "frequency_percent": 31.397000000000002
+          }
+        ],
+        "most_common_pairs_involving_47": [
+          {
+            "key": "10+47",
+            "count": 144300
+          },
+          {
+            "key": "13+47",
+            "count": 76998
+          },
+          {
+            "key": "47+89",
+            "count": 65722
+          },
+          {
+            "key": "33+47",
+            "count": 56974
+          },
+          {
+            "key": "11+47",
+            "count": 46414
+          },
+          {
+            "key": "47+91",
+            "count": 41110
+          },
+          {
+            "key": "47+68",
+            "count": 26642
+          },
+          {
+            "key": "6+47",
+            "count": 26586
+          },
+          {
+            "key": "12+47",
+            "count": 9960
+          },
+          {
+            "key": "47+64",
+            "count": 7794
+          }
+        ],
+        "most_common_triples_involving_47": [
+          {
+            "key": "10+47+89",
+            "count": 36198
+          },
+          {
+            "key": "10+47+91",
+            "count": 23390
+          },
+          {
+            "key": "13+47+89",
+            "count": 20780
+          },
+          {
+            "key": "33+47+89",
+            "count": 18954
+          },
+          {
+            "key": "10+47+68",
+            "count": 14740
+          },
+          {
+            "key": "13+47+91",
+            "count": 12584
+          },
+          {
+            "key": "11+47+89",
+            "count": 11222
+          },
+          {
+            "key": "33+47+91",
+            "count": 10378
+          },
+          {
+            "key": "6+47+91",
+            "count": 7666
+          },
+          {
+            "key": "6+47+89",
+            "count": 7626
+          }
+        ]
+      },
+      "edge_eras": {
+        "count": 389956,
+        "frequency": 0.3249633333333333,
+        "frequency_percent": 32.49633333333333,
+        "percentage_with_at_least_one": 0.94881,
+        "average_achievements_per_run": 2.628855833333333,
+        "distribution": {
+          "zero": 61428,
+          "one": 206783,
+          "two": 322236,
+          "three_or_more": 609553
+        },
+        "scopes": [
+          {
+            "alternative": "edge_eras",
+            "scope": "competition:league",
+            "runs": 600000,
+            "count": 93870,
+            "frequency": 0.15645,
+            "frequency_percent": 15.645000000000001
+          },
+          {
+            "alternative": "edge_eras",
+            "scope": "formation:4-4-2",
+            "runs": 400000,
+            "count": 129102,
+            "frequency": 0.322755,
+            "frequency_percent": 32.2755
+          },
+          {
+            "alternative": "edge_eras",
+            "scope": "competition:league|formation:4-4-2",
+            "runs": 200000,
+            "count": 30686,
+            "frequency": 0.15343,
+            "frequency_percent": 15.343000000000002
+          },
+          {
+            "alternative": "edge_eras",
+            "scope": "formation:3-5-2",
+            "runs": 400000,
+            "count": 131946,
+            "frequency": 0.329865,
+            "frequency_percent": 32.9865
+          },
+          {
+            "alternative": "edge_eras",
+            "scope": "competition:league|formation:3-5-2",
+            "runs": 200000,
+            "count": 31722,
+            "frequency": 0.15861,
+            "frequency_percent": 15.861
+          },
+          {
+            "alternative": "edge_eras",
+            "scope": "formation:5-3-2",
+            "runs": 400000,
+            "count": 128908,
+            "frequency": 0.32227,
+            "frequency_percent": 32.227
+          },
+          {
+            "alternative": "edge_eras",
+            "scope": "competition:league|formation:5-3-2",
+            "runs": 200000,
+            "count": 31462,
+            "frequency": 0.15731,
+            "frequency_percent": 15.731
+          },
+          {
+            "alternative": "edge_eras",
+            "scope": "competition:cup",
+            "runs": 600000,
+            "count": 296086,
+            "frequency": 0.4934766666666667,
+            "frequency_percent": 49.34766666666667
+          },
+          {
+            "alternative": "edge_eras",
+            "scope": "competition:cup|formation:4-4-2",
+            "runs": 200000,
+            "count": 98416,
+            "frequency": 0.49208,
+            "frequency_percent": 49.208
+          },
+          {
+            "alternative": "edge_eras",
+            "scope": "competition:cup|formation:3-5-2",
+            "runs": 200000,
+            "count": 100224,
+            "frequency": 0.50112,
+            "frequency_percent": 50.112
+          },
+          {
+            "alternative": "edge_eras",
+            "scope": "competition:cup|formation:5-3-2",
+            "runs": 200000,
+            "count": 97446,
+            "frequency": 0.48723,
+            "frequency_percent": 48.723
+          }
+        ],
+        "most_common_pairs_involving_47": [
+          {
+            "key": "10+47",
+            "count": 217978
+          },
+          {
+            "key": "13+47",
+            "count": 118606
+          },
+          {
+            "key": "47+89",
+            "count": 100464
+          },
+          {
+            "key": "33+47",
+            "count": 88774
+          },
+          {
+            "key": "11+47",
+            "count": 69224
+          },
+          {
+            "key": "47+91",
+            "count": 63308
+          },
+          {
+            "key": "6+47",
+            "count": 41884
+          },
+          {
+            "key": "47+68",
+            "count": 40712
+          },
+          {
+            "key": "12+47",
+            "count": 14482
+          },
+          {
+            "key": "47+64",
+            "count": 11162
+          }
+        ],
+        "most_common_triples_involving_47": [
+          {
+            "key": "10+47+89",
+            "count": 54608
+          },
+          {
+            "key": "10+47+91",
+            "count": 35756
+          },
+          {
+            "key": "13+47+89",
+            "count": 31938
+          },
+          {
+            "key": "33+47+89",
+            "count": 29562
+          },
+          {
+            "key": "10+47+68",
+            "count": 22178
+          },
+          {
+            "key": "13+47+91",
+            "count": 19498
+          },
+          {
+            "key": "11+47+89",
+            "count": 16868
+          },
+          {
+            "key": "33+47+91",
+            "count": 16362
+          },
+          {
+            "key": "6+47+91",
+            "count": 12088
+          },
+          {
+            "key": "6+47+89",
+            "count": 11950
+          }
+        ]
+      },
+      "no_dominant_era": {
+        "count": 455646,
+        "frequency": 0.379705,
+        "frequency_percent": 37.9705,
+        "percentage_with_at_least_one": 0.9562825,
+        "average_achievements_per_run": 2.6835975,
+        "distribution": {
+          "zero": 52461,
+          "one": 196378,
+          "two": 321904,
+          "three_or_more": 629257
+        },
+        "scopes": [
+          {
+            "alternative": "no_dominant_era",
+            "scope": "competition:league",
+            "runs": 600000,
+            "count": 152850,
+            "frequency": 0.25475,
+            "frequency_percent": 25.474999999999998
+          },
+          {
+            "alternative": "no_dominant_era",
+            "scope": "formation:4-4-2",
+            "runs": 400000,
+            "count": 150954,
+            "frequency": 0.377385,
+            "frequency_percent": 37.7385
+          },
+          {
+            "alternative": "no_dominant_era",
+            "scope": "competition:league|formation:4-4-2",
+            "runs": 200000,
+            "count": 50156,
+            "frequency": 0.25078,
+            "frequency_percent": 25.078
+          },
+          {
+            "alternative": "no_dominant_era",
+            "scope": "formation:3-5-2",
+            "runs": 400000,
+            "count": 152660,
+            "frequency": 0.38165,
+            "frequency_percent": 38.165
+          },
+          {
+            "alternative": "no_dominant_era",
+            "scope": "competition:league|formation:3-5-2",
+            "runs": 200000,
+            "count": 51156,
+            "frequency": 0.25578,
+            "frequency_percent": 25.578
+          },
+          {
+            "alternative": "no_dominant_era",
+            "scope": "formation:5-3-2",
+            "runs": 400000,
+            "count": 152032,
+            "frequency": 0.38008,
+            "frequency_percent": 38.007999999999996
+          },
+          {
+            "alternative": "no_dominant_era",
+            "scope": "competition:league|formation:5-3-2",
+            "runs": 200000,
+            "count": 51538,
+            "frequency": 0.25769,
+            "frequency_percent": 25.769
+          },
+          {
+            "alternative": "no_dominant_era",
+            "scope": "competition:cup",
+            "runs": 600000,
+            "count": 302796,
+            "frequency": 0.50466,
+            "frequency_percent": 50.466
+          },
+          {
+            "alternative": "no_dominant_era",
+            "scope": "competition:cup|formation:4-4-2",
+            "runs": 200000,
+            "count": 100798,
+            "frequency": 0.50399,
+            "frequency_percent": 50.39900000000001
+          },
+          {
+            "alternative": "no_dominant_era",
+            "scope": "competition:cup|formation:3-5-2",
+            "runs": 200000,
+            "count": 101504,
+            "frequency": 0.50752,
+            "frequency_percent": 50.751999999999995
+          },
+          {
+            "alternative": "no_dominant_era",
+            "scope": "competition:cup|formation:5-3-2",
+            "runs": 200000,
+            "count": 100494,
+            "frequency": 0.50247,
+            "frequency_percent": 50.247
+          }
+        ],
+        "most_common_pairs_involving_47": [
+          {
+            "key": "10+47",
+            "count": 254540
+          },
+          {
+            "key": "13+47",
+            "count": 130330
+          },
+          {
+            "key": "47+89",
+            "count": 117508
+          },
+          {
+            "key": "33+47",
+            "count": 99562
+          },
+          {
+            "key": "11+47",
+            "count": 80814
+          },
+          {
+            "key": "47+91",
+            "count": 72498
+          },
+          {
+            "key": "47+68",
+            "count": 48008
+          },
+          {
+            "key": "6+47",
+            "count": 47290
+          },
+          {
+            "key": "12+47",
+            "count": 24768
+          },
+          {
+            "key": "47+94",
+            "count": 13888
+          }
+        ],
+        "most_common_triples_involving_47": [
+          {
+            "key": "10+47+89",
+            "count": 63690
+          },
+          {
+            "key": "10+47+91",
+            "count": 40850
+          },
+          {
+            "key": "13+47+89",
+            "count": 35230
+          },
+          {
+            "key": "33+47+89",
+            "count": 33394
+          },
+          {
+            "key": "10+47+68",
+            "count": 26450
+          },
+          {
+            "key": "13+47+91",
+            "count": 20990
+          },
+          {
+            "key": "11+47+89",
+            "count": 19678
+          },
+          {
+            "key": "33+47+91",
+            "count": 18240
+          },
+          {
+            "key": "6+47+89",
+            "count": 13768
+          },
+          {
+            "key": "6+47+91",
+            "count": 13496
+          }
+        ]
+      }
+    },
+    "recommended_alternative": "balanced",
+    "recommendation_reason": "Recommended alternative keeps the achievement visible while avoiding the current majority-of-runs frequency."
+  },
+  "zrada_verification": {
+    "evaluated_runs": 1200000,
+    "player_match_counts": {
+      "citizenship_only": 819664,
+      "flagged_only": 30434,
+      "both": 40288
+    },
+    "unique_match_runs": 646614,
+    "unique_match_frequency": 0.538845,
+    "two_unique_match_runs": 198940,
+    "two_unique_match_frequency": 0.16578333333333334,
+    "top_manual_override_player_ids": [
+      {
+        "key": 4602,
+        "count": 17448
+      },
+      {
+        "key": 59908,
+        "count": 7052
+      },
+      {
+        "key": 89222,
+        "count": 4396
+      },
+      {
+        "key": 118850,
+        "count": 2873
+      },
+      {
+        "key": 712857,
+        "count": 2696
+      },
+      {
+        "key": 8562832,
+        "count": 896
+      }
+    ],
+    "top_russia_belarus_citizenship_strings": [
+      {
+        "key": "Russia",
+        "count": 376413
+      },
+      {
+        "key": "Belarus",
+        "count": 62818
+      }
+    ],
+    "conclusion": "Counting is consistent with the approved rule: Russia/Belarus citizenship and manual overrides are counted as unique player matches, with duplicate player IDs deduplicated by lineup generation and evaluator semantics."
+  },
+  "projected_after_recommended_changes": {
+    "different_eras_alternative": "balanced",
+    "percentage_with_at_least_one": 0.939735,
+    "average_achievements_per_run": 2.516684166666667,
+    "distribution": {
+      "zero": 72318,
+      "one": 225996,
+      "two": 331899,
+      "three_or_more": 569787
+    }
+  },
+  "approximations": [
+    "Bavovna and Defense Optional sweeps use fixed-strength synthetic lineups whose strengths are derived from current generated player rating percentiles; production simulateSeason is used.",
+    "Different Eras and Zrada use the real roll pools, real generated players, formation slot compatibility, duplicate player_id blocking and production evaluateAchievements; neutral drafting is approximated by uniform valid roll/player/slot choices."
+  ]
+}
