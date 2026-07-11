@@ -21,5 +21,11 @@ export default async function DraftPage({ searchParams }: DraftPageProps) {
     requestedCompetition === "cup" ? "cup" : "league";
   const mode: DraftMode = requestedMode === "hardcore" ? "hardcore" : "normal";
 
-  return <DraftGame competition={competition} mode={mode} />;
+  return (
+    <DraftGame
+      competition={competition}
+      key={`${competition}:${mode}`}
+      mode={mode}
+    />
+  );
 }

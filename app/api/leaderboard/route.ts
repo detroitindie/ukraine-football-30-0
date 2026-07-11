@@ -1,6 +1,5 @@
 import {
   cupResultsMatch,
-  FORMATION_SLOTS,
   isLeaderboardCompetition,
   isLeaderboardMode,
   isValidNickname,
@@ -12,6 +11,7 @@ import {
   type LeaderboardSubmission,
 } from "@/lib/leaderboard";
 import type { DraftPlayer, Lineup } from "@/lib/draft-types";
+import { formationSlots, matchingFormationForLineup } from "@/lib/formations";
 import {
   type CupSimulationResult,
   simulateCup,
@@ -77,20 +77,24 @@ function canonicalLineup(
 ): Lineup | null {
   const canonical: Lineup = {};
   const playerIds = new Set<number>();
+  const formationId = matchingFormationForLineup(submitted);
+  if (!formationId) {
+    return null;
+  }
 
-  for (const slot of FORMATION_SLOTS) {
-    const submittedPlayer = submitted[slot.slotId];
+  for (const slot of formationSlots(formationId)) {
+    const submittedPlayer = submitted[slot.slot_id];
     const player = playersByEntryId.get(submittedPlayer.club_decade_player_id);
     if (
       !player
       || player.player_id !== submittedPlayer.player_id
       || !validClubDecades.has(player.club_decade_id)
-      || !slot.allowed.some((position) => position === player.game_position)
+      || !slot.allowed_positions.some((position) => position === player.game_position)
       || playerIds.has(player.player_id)
     ) {
       return null;
     }
-    canonical[slot.slotId] = player;
+    canonical[slot.slot_id] = player;
     playerIds.add(player.player_id);
   }
 

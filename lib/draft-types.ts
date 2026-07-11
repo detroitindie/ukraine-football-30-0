@@ -45,7 +45,6 @@ export type FormationSlot = {
 export type DraftData = {
   players: DraftPlayer[];
   rollPool: RollPoolEntry[];
-  slots: FormationSlot[];
 };
 
 export type Lineup = Record<string, DraftPlayer>;

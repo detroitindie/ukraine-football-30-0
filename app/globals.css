@@ -659,9 +659,15 @@ html[data-language="ua"] .draft-mode-prefix {
   gap: 8px;
 }
 
+.formation-row[data-formation="3-5-2"][data-line="defense"] {
+  justify-content: center;
+  gap: 18px;
+}
+
 .player-card {
   appearance: none;
   width: 82px;
+  min-width: 0;
   padding: 6px 5px;
   border: 1px solid rgb(255 255 255 / 30%);
   border-radius: 9px;
@@ -672,6 +678,10 @@ html[data-language="ua"] .draft-mode-prefix {
   backdrop-filter: blur(8px);
   cursor: default;
   font: inherit;
+}
+
+.formation-row:has(.player-card:nth-child(5)) .player-card {
+  width: min(82px, 18.5%);
 }
 
 .player-number {
@@ -691,6 +701,12 @@ html[data-language="ua"] .draft-mode-prefix {
   font-weight: 900;
   line-height: 1;
   white-space: nowrap;
+}
+
+.player-number-long {
+  max-width: calc(100% - 4px);
+  padding-inline: 4px;
+  font-size: 7px;
 }
 
 .player-card strong {
@@ -880,6 +896,111 @@ html[data-language="ua"] .draft-mode-prefix {
   border-color: var(--blue);
   background: var(--blue);
   color: white;
+}
+
+.formation-selector {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+.formation-selector > span {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.formation-selector > div {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.formation-selector button {
+  min-width: 0;
+  min-height: 32px;
+  padding: 6px 7px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.formation-selector button.is-active {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: white;
+}
+
+.formation-selector button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.formation-dialog-backdrop {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: grid;
+  padding: 18px;
+  place-items: center;
+  background: rgb(12 17 25 / 54%);
+  backdrop-filter: blur(8px);
+}
+
+.formation-dialog {
+  display: grid;
+  width: min(360px, 100%);
+  gap: 14px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.formation-dialog h2 {
+  margin: 0;
+  font-size: 20px;
+  letter-spacing: -0.035em;
+}
+
+.formation-dialog-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.formation-dialog-options button {
+  min-width: 0;
+  min-height: 42px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.formation-dialog-options button.is-active {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: white;
+}
+
+.formation-dialog-confirm {
+  width: 100%;
+  min-height: 44px;
 }
 
 .available-heading span {
@@ -1219,6 +1340,17 @@ html[data-language="ua"] .draft-mode-prefix {
   font-weight: 700;
   line-height: 1.55;
   overflow-wrap: anywhere;
+}
+
+.result-meta {
+  margin: -4px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.result-meta strong {
+  color: var(--blue);
 }
 
 .cup-path {
@@ -2034,6 +2166,11 @@ html[data-language="ua"] .draft-mode-prefix {
     overflow: visible;
   }
 
+  .formation-row[data-formation="3-5-2"][data-line="defense"] {
+    justify-content: center;
+    gap: 12px;
+  }
+
   /* Avoid mobile compositing drops when disabled slots become valid after a pick. */
   .player-card {
     display: flex;
@@ -2053,6 +2190,24 @@ html[data-language="ua"] .draft-mode-prefix {
     box-shadow: none;
     backdrop-filter: none;
     transition: none;
+  }
+
+  .formation-row:has(.player-card:nth-child(5)) {
+    gap: 4px;
+  }
+
+  .formation-row:has(.player-card:nth-child(5)) .player-card {
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    flex: 1 1 0;
+    padding-inline: 2px;
+  }
+
+  .formation-row:has(.player-card:nth-child(5)) .player-number {
+    max-width: 100%;
+    padding-inline: 3px;
+    font-size: 7px;
   }
 
   .player-card.is-valid {
@@ -2077,6 +2232,13 @@ html[data-language="ua"] .draft-mode-prefix {
     padding: 3px 6px;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .player-number-long {
+    max-width: 100%;
+    min-width: 0;
+    padding-inline: 3px;
+    font-size: 7px;
   }
 
   .player-card strong {

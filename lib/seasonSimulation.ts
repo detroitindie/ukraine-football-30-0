@@ -1,4 +1,5 @@
 import type { DraftMode, DraftPlayer, Lineup } from "@/lib/draft-types";
+import type { FormationId } from "@/lib/formations";
 
 export const SEASON_RESULT_STORAGE_KEY = "uf30-season-result-v1";
 
@@ -57,6 +58,7 @@ export type CupSimulationResult = {
 export type SavedSeason = {
   competition: "league";
   mode: DraftMode;
+  formationId: FormationId;
   lineup: Lineup;
   result: SeasonResult;
 };
@@ -64,6 +66,7 @@ export type SavedSeason = {
 export type SavedCupPlaceholder = {
   competition: "cup";
   mode: DraftMode;
+  formationId: FormationId;
   lineup: Lineup;
   result: CupSimulationResult | null;
 };

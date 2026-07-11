@@ -12,6 +12,13 @@ import { LeaderboardBoard } from "@/components/leaderboard/leaderboard-board";
 import { ResultSubmission } from "@/components/leaderboard/result-submission";
 import { useLanguage, type Language } from "@/lib/language";
 import {
+  DEFAULT_FORMATION_ID,
+  FORMATIONS,
+  formationSlots,
+  isFormationId,
+  type FormationId,
+} from "@/lib/formations";
+import {
   type CupDecision,
   type CupMatchResult,
   type CupSimulationResult,
@@ -163,11 +170,15 @@ function parseSavedResult(rawValue: string | null): SavedResult | null {
 
     const mode = saved.mode === "hardcore" ? "hardcore" : "normal";
     const competition = saved.competition === "cup" ? "cup" : "league";
+    const formationId = isFormationId(saved.formationId)
+      ? saved.formationId
+      : DEFAULT_FORMATION_ID;
     if (competition === "cup") {
       const result = isCupSimulationResult(saved.result) ? saved.result : null;
       return {
         competition,
         mode,
+        formationId,
         lineup: saved.lineup,
         result,
       };
@@ -178,6 +189,7 @@ function parseSavedResult(rawValue: string | null): SavedResult | null {
     return {
       competition,
       mode,
+      formationId,
       lineup: saved.lineup,
       result: saved.result,
     } as SavedSeason;
@@ -239,21 +251,36 @@ function cupMatchTextSingle(match: CupMatchResult, language: Language) {
 const lineupGroups = [
   {
     label: "result.goalkeeper" as const,
+    line: "goalkeeper" as const,
     slots: ["gk"],
   },
   {
     label: "result.defenders" as const,
+    line: "defense" as const,
     slots: ["lb", "cb_1", "cb_2", "rb"],
   },
   {
     label: "result.midfielders" as const,
+    line: "midfield" as const,
     slots: ["lm", "cm", "am_cm", "rm"],
   },
   {
     label: "result.forwards" as const,
+    line: "attack" as const,
     slots: ["am_fw", "fw"],
   },
 ];
+
+function groupedLineupForFormation(lineup: SavedResult["lineup"], formationId: FormationId) {
+  return lineupGroups.map((group) => ({
+    ...group,
+    players: formationSlots(formationId)
+      .filter((slot) => slot.line === group.line)
+      .map((slot) => lineup[slot.slot_id])
+      .filter(Boolean)
+      .map((player) => cleanPlayerName(player.player_name)),
+  }));
+}
 
 export function SeasonResultView() {
   const router = useRouter();
@@ -290,13 +317,10 @@ export function SeasonResultView() {
   const savedSeason = savedResult;
   const { result } = savedSeason;
   const description = selectSeasonDescription(savedSeason.lineup, result);
-  const groupedLineup = lineupGroups.map((group) => ({
-    ...group,
-    players: group.slots
-      .map((slotId) => savedSeason.lineup[slotId])
-      .filter(Boolean)
-      .map((player) => cleanPlayerName(player.player_name)),
-  }));
+  const groupedLineup = groupedLineupForFormation(
+    savedSeason.lineup,
+    savedSeason.formationId,
+  );
   const stats = [
     { label: "result.record" as const, value: `${result.wins}-${result.draws}-${result.losses}` },
     { label: "result.pointsLong" as const, value: String(result.points) },
@@ -311,6 +335,7 @@ export function SeasonResultView() {
       .join("\n-\n");
     const shareText = [
       `30-0: ${text(shareLanguage, "home.competitionLeague")}`,
+      `${text(shareLanguage, "draft.formation")}: ${FORMATIONS[savedSeason.formationId].name}`,
       window.location.origin,
       "",
       text(shareLanguage, "result.lineup"),
@@ -336,6 +361,10 @@ export function SeasonResultView() {
     <div className="compact-page result-page">
       <header className="compact-heading">
         <h1>{text(language, "result.seasonResult")}</h1>
+        <p className="result-meta">
+          <strong>{text(language, "draft.formation")}:</strong>{" "}
+          {FORMATIONS[savedSeason.formationId].name}
+        </p>
       </header>
       <section className="stats-grid">
         {stats.map((stat) => (
@@ -393,13 +422,10 @@ function CupResultView({
   const [copied, setCopied] = useState(false);
   const language = useLanguage();
   const result = savedResult.result;
-  const groupedLineup = lineupGroups.map((group) => ({
-    ...group,
-    players: group.slots
-      .map((slotId) => savedResult.lineup[slotId])
-      .filter(Boolean)
-      .map((player) => cleanPlayerName(player.player_name)),
-  }));
+  const groupedLineup = groupedLineupForFormation(
+    savedResult.lineup,
+    savedResult.formationId,
+  );
 
   useEffect(() => {
     if (!result || visibleMatches >= result.matches.length) {
@@ -418,6 +444,10 @@ function CupResultView({
       <div className="compact-page result-page">
         <header className="compact-heading">
           <h1>{text(language, "result.cupPlaceholderTitle")}</h1>
+          <p className="result-meta">
+            <strong>{text(language, "draft.formation")}:</strong>{" "}
+            {FORMATIONS[savedResult.formationId].name}
+          </p>
           <p>{text(language, "result.cupPlaceholderBody")}</p>
         </header>
         <CupLineup groupedLineup={groupedLineup} />
@@ -451,6 +481,7 @@ function CupResultView({
           ? text(shareLanguage, "leaderboard.hardcore")
           : text(shareLanguage, "leaderboard.normal")
       }`,
+      `${text(shareLanguage, "draft.formation")}: ${FORMATIONS[savedResult.formationId].name}`,
       `${text(shareLanguage, "result.cupFinish")}: ${cupStageRankLabelText(cupResult, shareLanguage)}`,
       window.location.origin,
       "",
@@ -473,6 +504,10 @@ function CupResultView({
     <div className="compact-page result-page">
       <header className="compact-heading">
         <h1>{text(language, "result.cupResult")}</h1>
+        <p className="result-meta">
+          <strong>{text(language, "draft.formation")}:</strong>{" "}
+          {FORMATIONS[savedResult.formationId].name}
+        </p>
       </header>
       <section className="cup-path" aria-live="polite">
         {revealedMatches.map((match) => (
