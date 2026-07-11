@@ -1,0 +1,1415 @@
+{
+  "metadata": {
+    "project": "30-0: Ukrainian League",
+    "release_scope": "Achievements release",
+    "achievement_count": 95,
+    "status": "Finalized and approved",
+    "final_rarity_distribution": {
+      "common": 12,
+      "rare": 8,
+      "epic": 22,
+      "legendary": 53
+    },
+    "production_condition_changes": {
+      "47": "At least two unique players from each decade: 1990s, 2000s, 2010s and 2020s",
+      "54": "League goalsFor >=75",
+      "55": "League goalsFor >=55 and goalsAgainst >=40"
+    }
+  },
+  "global_rules": {
+    "multiple_achievements_per_run": true,
+    "show_only_current_run_achievements": true,
+    "public_catalog": false,
+    "progress_tracking": false,
+    "local_storage_collection": false,
+    "result_page": {
+      "show_title_and_description": true,
+      "hide_section_when_empty": true,
+      "cup_show_after_full_reveal": true
+    },
+    "clipboard_share": {
+      "include_achievements_when_present": true,
+      "format": "localized header plus bullet list of localized achievement titles",
+      "omit_section_when_empty": true
+    },
+    "evaluation": {
+      "pure_deterministic_function": true,
+      "evaluate_all_rules": true,
+      "preserve_registry_order": true,
+      "deduplicate_by_achievement_id": true
+    }
+  },
+  "citizenship_rules": {
+    "export_source_field": "citizenship",
+    "runtime_field": "citizenships",
+    "runtime_type": "string[]",
+    "normalization": "Inspect actual CSV separators and normalize all listed citizenships without losing data.",
+    "ukrainian": "citizenships includes Ukraine",
+    "legionnaire": "citizenships is known/non-empty and does not include Ukraine",
+    "dual_ukrainian": "not a legionnaire when Ukraine is one of multiple citizenships",
+    "country_specific": "counts when target country appears anywhere in citizenships",
+    "primary_citizenship": "for diversity achievements use the first normalized citizenship from source order",
+    "unknown": "does not count as Ukrainian or legionnaire and must not create false positives"
+  },
+  "country_sets": {
+    "balkans": [
+      "Albania",
+      "Bosnia and Herzegovina",
+      "Bulgaria",
+      "Croatia",
+      "Greece",
+      "Kosovo",
+      "Montenegro",
+      "North Macedonia",
+      "Romania",
+      "Serbia",
+      "Slovenia"
+    ],
+    "south_america": [
+      "Argentina",
+      "Bolivia",
+      "Brazil",
+      "Chile",
+      "Colombia",
+      "Ecuador",
+      "Guyana",
+      "Paraguay",
+      "Peru",
+      "Suriname",
+      "Uruguay",
+      "Venezuela"
+    ],
+    "africa": "Use an explicit maintained set of sovereign African countries."
+  },
+  "team_id_sets": {
+    "dynamo_kyiv": [
+      338
+    ],
+    "shakhtar_donetsk": [
+      660
+    ],
+    "dnipro": [
+      339
+    ],
+    "tavriya": [
+      2227
+    ],
+    "chornomorets_odesa": [
+      6992
+    ],
+    "metalist_kharkiv": [
+      6414,
+      83678
+    ],
+    "volyn_lutsk": [
+      4482
+    ],
+    "vorskla_poltava": [
+      2740
+    ],
+    "zorya_luhansk": [
+      10690
+    ],
+    "kryvbas_kryvyi_rih": [
+      3592
+    ],
+    "oleksandriya": [
+      18303
+    ],
+    "kolos_kovalivka": [
+      48332
+    ],
+    "obolon": [
+      2742,
+      39097
+    ],
+    "metalurh_zaporizhzhia": [
+      6994
+    ],
+    "metalurh_donetsk": [
+      2783
+    ],
+    "mariupol_line": [
+      6993
+    ],
+    "karpaty_lviv": [
+      2477,
+      85465
+    ],
+    "nyva_ternopil": [
+      2712
+    ],
+    "donbas": [
+      660,
+      2783,
+      23611,
+      6993,
+      10690,
+      10468
+    ],
+    "crimea": [
+      2227,
+      16245
+    ],
+    "kyiv": [
+      338,
+      9007,
+      2744,
+      32131,
+      39097,
+      2742,
+      86209
+    ],
+    "lviv": [
+      2477,
+      85465,
+      18105,
+      48726
+    ],
+    "uzhhorod": [
+      6996
+    ]
+  },
+  "named_player_ids": {
+    "artem_milevskyi": 9800,
+    "oleksandr_aliev": 9796,
+    "andriy_shevchenko": 3522,
+    "serhiy_rebrov": 8205827,
+    "oleksandr_shovkovskyi": 8816756,
+    "jadson": 29261,
+    "ruslan_rotan": 24049,
+    "sergiy_nazarenko": 24043,
+    "darijo_srna": 14942,
+    "fernandinho": 26267,
+    "willian_shakhtar": 52769,
+    "taras_stepanenko": 59970,
+    "sergiy_sydorchuk": 124182,
+    "andriy_yarmolenko": 69015,
+    "yevhen_konoplyanka": 58949,
+    "volodymyr_brazhko": 669306,
+    "danylo_ignatenko": 376082,
+    "nikola_vasilj": 248454,
+    "yaya_toure": 13091,
+    "bohdan_shust": 38297
+  },
+  "flagged_zrada_player_ids": [
+    712857,
+    4602,
+    8562832,
+    118850,
+    59908,
+    89222
+  ],
+  "data_fixes": {
+    "oleksandr_aliev": {
+      "player_id": 9796,
+      "name": "Oleksandr Aliev",
+      "required_entries": [
+        {
+          "team_id": 338,
+          "team_name": "Dynamo Kyiv",
+          "decade": "2000s"
+        },
+        {
+          "team_id": 338,
+          "team_name": "Dynamo Kyiv",
+          "decade": "2010s"
+        }
+      ],
+      "position": "AM",
+      "citizenships": "Must include Ukraine. Preserve any additional verified citizenships from existing source data; do not infer.",
+      "statistics": "Use only values present in existing Patch 1.1 candidate/manual-review files. Never estimate; null is allowed.",
+      "germany_2006_eligible": false
+    },
+    "bohdan_shust": {
+      "player_id": 38297,
+      "name": "Bohdan Shust",
+      "minimum_required_entry": {
+        "team_id": 660,
+        "team_name": "Shakhtar Donetsk",
+        "decade": "2000s"
+      },
+      "position": "GK",
+      "citizenships": [
+        "Ukraine"
+      ],
+      "statistics": "Use verified source values when available; otherwise leave missing statistics null. Never estimate.",
+      "germany_2006_eligible": true
+    }
+  },
+  "germany_2006": {
+    "rule": "At least 5 unique players from the official final 23-man Ukraine World Cup squad.",
+    "important_correction": "Bohdan Shust counts after import. Oleksandr Aliev does not count.",
+    "matching": "Use stable player IDs, not club-decade IDs or names.",
+    "official_final_23_names": [
+      "Oleksandr Shovkovskyi",
+      "Andriy Pyatov",
+      "Bohdan Shust",
+      "Andriy Nesmachnyi",
+      "Oleksandr Yatsenko",
+      "Volodymyr Yezerskyi",
+      "Andriy Rusol",
+      "Dmytro Chygrynskyi",
+      "Vladyslav Vashchuk",
+      "Vyacheslav Sviderskyi",
+      "Anatoliy Tymoshchuk",
+      "Oleg Shelayev",
+      "Oleg Husyev",
+      "Serhiy Rebrov",
+      "Andriy Husin",
+      "Sergiy Nazarenko",
+      "Maksym Kalynychenko",
+      "Ruslan Rotan",
+      "Andriy Shevchenko",
+      "Andriy Voronin",
+      "Artem Milevskyi",
+      "Andriy Vorobey",
+      "Oleksiy Byelik"
+    ],
+    "explicit_exclusion": [
+      "Oleksandr Aliev was not in the final senior World Cup squad; he was a Ukraine U21 player in 2006."
+    ]
+  },
+  "achievements": [
+    {
+      "id": 1,
+      "title_ua": "Кєнти",
+      "title_en": "Kents",
+      "description_ua": "Зберіть в одному складі Артема Мілевського та Олександра Алієва.",
+      "description_en": "Field Artem Milevskyi and Oleksandr Aliyev in the same squad.",
+      "competition": "Both",
+      "condition": "Milevskyi + Aliyev, any clubs/eras",
+      "technical_dependency": "Named player IDs + controlled player import",
+      "audit_status": "NEEDS DATA FIX: Oleksandr Aliev exists in Patch 1.1 candidate/manual-review files, but is absent from the current playable CSV/players JSON. Import TM player_id 9796.",
+      "rarity": "legendary"
+    },
+    {
+      "id": 2,
+      "title_ua": "Файне місто",
+      "title_en": "Faine Misto",
+      "description_ua": "Зберіть щонайменше двох гравців тернопільської «Ниви».",
+      "description_en": "Field at least two Nyva Ternopil players.",
+      "competition": "Both",
+      "condition": "Nyva Ternopil players >= 2",
+      "technical_dependency": "Team IDs",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 3,
+      "title_ua": "Третя сила",
+      "title_en": "The Third Force",
+      "description_ua": "Виграйте турнір без гравців «Динамо» Київ та «Шахтаря».",
+      "description_en": "Win the competition without Dynamo Kyiv or Shakhtar players.",
+      "competition": "Both",
+      "condition": "Win League/Cup; Dynamo count = 0; Shakhtar count = 0",
+      "technical_dependency": "Team IDs + result",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 4,
+      "title_ua": "Мрія Луческу",
+      "title_en": "Lucescu’s Dream",
+      "description_ua": "Зберіть у складі щонайменше дев’ятьох бразильців.",
+      "description_en": "Field at least nine players with Brazilian citizenship.",
+      "competition": "Both",
+      "condition": "Players whose citizenships include Brazil >= 9",
+      "technical_dependency": "Citizenship pipeline",
+      "audit_status": "Needs citizenship export",
+      "rarity": "legendary"
+    },
+    {
+      "id": 5,
+      "title_ua": "Іноземний легіон",
+      "title_en": "Foreign Legion",
+      "description_ua": "Зберіть склад з одинадцяти легіонерів.",
+      "description_en": "Build a starting eleven made entirely of foreign players.",
+      "competition": "Both",
+      "condition": "All 11 have known citizenship; none includes Ukraine",
+      "technical_dependency": "Citizenship pipeline",
+      "audit_status": "Needs citizenship export",
+      "rarity": "legendary"
+    },
+    {
+      "id": 6,
+      "title_ua": "Слава Україні!",
+      "title_en": "Slava Ukraini!",
+      "description_ua": "Зберіть склад виключно з громадян України.",
+      "description_en": "Build a squad consisting entirely of Ukrainian citizens.",
+      "competition": "Both",
+      "condition": "All 11 citizenship arrays include Ukraine",
+      "technical_dependency": "Citizenship pipeline",
+      "audit_status": "Needs citizenship export",
+      "rarity": "common"
+    },
+    {
+      "id": 7,
+      "title_ua": "Донбас порожняк не гонить",
+      "title_en": "Donbas Delivers",
+      "description_ua": "Зберіть щонайменше вісьмох гравців клубів Донеччини та Луганщини.",
+      "description_en": "Field at least eight players from Donetsk and Luhansk region clubs.",
+      "competition": "Both",
+      "condition": "Approved Donbas team IDs count >= 8",
+      "technical_dependency": "Team ID group",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 8,
+      "title_ua": "Крим — це Україна!",
+      "title_en": "Crimea Is Ukraine!",
+      "description_ua": "Зберіть щонайменше трьох гравців клубів Кримського півострова.",
+      "description_en": "Field at least three players from clubs of the Crimean Peninsula.",
+      "competition": "Both",
+      "condition": "Approved Crimea team IDs count >= 3",
+      "technical_dependency": "Team ID group",
+      "audit_status": "Ready",
+      "rarity": "rare"
+    },
+    {
+      "id": 9,
+      "title_ua": "Кубок Львову!",
+      "title_en": "Cup to Lviv!",
+      "description_ua": "Виграйте Кубок України з гравцем львівських «Карпат».",
+      "description_en": "Win the Ukrainian Cup with a Karpaty Lviv player.",
+      "competition": "Cup",
+      "condition": "Won Cup; Karpaty Lviv count >= 1",
+      "technical_dependency": "Team IDs + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 10,
+      "title_ua": "Зрада",
+      "title_en": "Zrada",
+      "description_ua": "Додайте до складу громадянина Росії/Білорусі або футболіста з антиукраїнськими поглядами та вчинками.",
+      "description_en": "Field a Russian/Belarusian citizen or one of the players with anti-Ukrainian views and actions.",
+      "competition": "Both",
+      "condition": "Any unique player matches: citizenships include Russia/Belarus OR player_id in FLAGGED_ZRADA_PLAYER_IDS",
+      "technical_dependency": "Citizenship pipeline + named player override set",
+      "audit_status": "Ready after citizenship export; count each player once",
+      "rarity": "common"
+    },
+    {
+      "id": 11,
+      "title_ua": "За Вами виїхала СБУ",
+      "title_en": "SBU Is Coming for You",
+      "description_ua": "Додайте до складу щонайменше двох громадян Росії/Білорусі або футболістів з антиукраїнськими поглядами та вчинками.",
+      "description_en": "Field at least two Russian/Belarusian citizens or players with anti-Ukrainian views and actions.",
+      "competition": "Both",
+      "condition": "At least 2 unique players match: citizenships include Russia/Belarus OR player_id in FLAGGED_ZRADA_PLAYER_IDS",
+      "technical_dependency": "Citizenship pipeline + named player override set",
+      "audit_status": "Ready after citizenship export; deduplicate citizenship + override matches",
+      "rarity": "common"
+    },
+    {
+      "id": 12,
+      "title_ua": "Перед каждою ігрою!..",
+      "title_en": "Before Every Game!..",
+      "description_ua": "Завершіть чемпіонат із більшою кількістю поразок, ніж перемог і нічиїх разом.",
+      "description_en": "Finish the league with more losses than wins and draws combined.",
+      "competition": "League",
+      "condition": "losses > wins + draws",
+      "technical_dependency": "League result",
+      "audit_status": "Ready",
+      "rarity": "common"
+    },
+    {
+      "id": 13,
+      "title_ua": "Здається, Бог наказує нас за щось",
+      "title_en": "Apparently, God Punishes Us",
+      "description_ua": "Вилетіть із Кубка в першому матчі або завершіть чемпіонат у боротьбі за виживання.",
+      "description_en": "Lose your first Cup match or finish the league in a relegation battle.",
+      "competition": "Both",
+      "condition": "Cup first match loss OR League verdict = relegation",
+      "technical_dependency": "Result",
+      "audit_status": "Ready",
+      "rarity": "common"
+    },
+    {
+      "id": 14,
+      "title_ua": "Перші назавжди",
+      "title_en": "First Forever",
+      "description_ua": "Виграйте чемпіонат із двома гравцями «Таврії».",
+      "description_en": "Win the league with at least two Tavriya players.",
+      "competition": "League",
+      "condition": "League champion; Tavriya count >= 2",
+      "technical_dependency": "Team IDs + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 15,
+      "title_ua": "Весна 1999",
+      "title_en": "Spring 1999",
+      "description_ua": "Виграйте турнір із двома динамівцями 1990-х або чотирма динамівцями будь-яких епох.",
+      "description_en": "Win with two 1990s Dynamo players or four Dynamo players from any eras.",
+      "competition": "Both",
+      "condition": "Win; (Dynamo 1990s >= 2 OR Dynamo any >= 4)",
+      "technical_dependency": "Team IDs + decade + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 16,
+      "title_ua": "Стамбул 2009",
+      "title_en": "Istanbul 2009",
+      "description_ua": "Виграйте Кубок із двома гравцями «Шахтаря» 2000-х або чотирма будь-яких епох.",
+      "description_en": "Win the Cup with two 2000s Shakhtar players or four from any eras.",
+      "competition": "Cup",
+      "condition": "Won Cup; (Shakhtar 2000s >= 2 OR Shakhtar any >= 4)",
+      "technical_dependency": "Team IDs + decade + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 17,
+      "title_ua": "Варшава 2015",
+      "title_en": "Warsaw 2015",
+      "description_ua": "Дійдіть до фіналу Кубка з двома гравцями «Дніпра» 2010-х або чотирма будь-яких епох.",
+      "description_en": "Reach the Cup final with two 2010s Dnipro players or four from any eras.",
+      "competition": "Cup",
+      "condition": "Reached final; (Dnipro 2010s >= 2 OR Dnipro any >= 4)",
+      "technical_dependency": "Team IDs + decade + Cup stage",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 18,
+      "title_ua": "Ударна пара",
+      "title_en": "Strike Partnership",
+      "description_ua": "Об’єднайте Андрія Шевченка та Сергія Реброва.",
+      "description_en": "Reunite Andriy Shevchenko and Serhiy Rebrov.",
+      "competition": "Both",
+      "condition": "Shevchenko + Rebrov",
+      "technical_dependency": "Named player IDs",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 19,
+      "title_ua": "Золотий м’яч",
+      "title_en": "Ballon d’Or",
+      "description_ua": "Виграйте турнір з Андрієм Шевченком.",
+      "description_en": "Win the competition with Andriy Shevchenko.",
+      "competition": "Both",
+      "condition": "Win; Andriy Shevchenko in squad",
+      "technical_dependency": "Named player ID + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 20,
+      "title_ua": "СаШо",
+      "title_en": "SaSho",
+      "description_ua": "Виграйте серію пенальті з Олександром Шовковським.",
+      "description_en": "Win a penalty shootout with Oleksandr Shovkovskyi.",
+      "competition": "Cup",
+      "condition": "Shovkovskyi in squad; any penalty shootout win",
+      "technical_dependency": "Named player ID + Cup matches",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 21,
+      "title_ua": "Німеччина 2006",
+      "title_en": "Germany 2006",
+      "description_ua": "Зберіть п’ятьох футболістів із заявки України на ЧС-2006.",
+      "description_en": "Field five members of Ukraine’s 2006 World Cup squad.",
+      "competition": "Both",
+      "condition": "Approved 2006 squad player ID set count >= 5",
+      "technical_dependency": "Named player ID set",
+      "audit_status": "Ready after Shust import: Bohdan Shust is in the official 23-man 2006 World Cup squad; Oleksandr Aliev is not and must not count for this achievement.",
+      "rarity": "legendary"
+    },
+    {
+      "id": 22,
+      "title_ua": "Перший Кубок",
+      "title_en": "The First Cup",
+      "description_ua": "Виграйте Кубок із трьома гравцями «Чорноморця».",
+      "description_en": "Win the Cup with at least three Chornomorets players.",
+      "competition": "Cup",
+      "condition": "Won Cup; Chornomorets count >= 3",
+      "technical_dependency": "Team IDs + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 23,
+      "title_ua": "Непереможні",
+      "title_en": "Invincibles",
+      "description_ua": "Завершіть чемпіонат без поразок.",
+      "description_en": "Finish the league season unbeaten.",
+      "competition": "League",
+      "condition": "losses = 0",
+      "technical_dependency": "League result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 24,
+      "title_ua": "Безкомпромісні",
+      "title_en": "No Compromises",
+      "description_ua": "Завершіть чемпіонат без нічиїх.",
+      "description_en": "Finish the league season without a draw.",
+      "competition": "League",
+      "condition": "draws = 0",
+      "technical_dependency": "League result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 25,
+      "title_ua": "Ідеально збалансовано",
+      "title_en": "Perfectly Balanced",
+      "description_ua": "Завершіть сезон із результатом 10–10–10.",
+      "description_en": "Finish the season with a 10–10–10 record.",
+      "competition": "League",
+      "condition": "wins = 10; draws = 10; losses = 10",
+      "technical_dependency": "League result",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 26,
+      "title_ua": "Потужно",
+      "title_en": "Powerful Stuff",
+      "description_ua": "Виграйте всі 30 матчів чемпіонату.",
+      "description_en": "Win all 30 league matches.",
+      "competition": "League",
+      "condition": "wins = 30",
+      "technical_dependency": "League result",
+      "audit_status": "Ready; rarity audit recommended",
+      "rarity": "legendary"
+    },
+    {
+      "id": 27,
+      "title_ua": "Сухий закон",
+      "title_en": "Prohibition",
+      "description_ua": "Пропустіть не більше 15 голів у Лізі або виграйте Кубок без пропущених.",
+      "description_en": "Concede no more than 15 in the league or win the Cup without conceding.",
+      "competition": "Both",
+      "condition": "League GA <= 15 OR (Won Cup AND Cup GA = 0)",
+      "technical_dependency": "Result thresholds",
+      "audit_status": "NEEDS SIMULATION AUDIT",
+      "rarity": "legendary"
+    },
+    {
+      "id": 28,
+      "title_ua": "На класі",
+      "title_en": "Pure Class",
+      "description_ua": "Виграйте Кубок, завершивши всі матчі в основний час.",
+      "description_en": "Win the Cup with every tie settled in regular time.",
+      "competition": "Cup",
+      "condition": "Won Cup; regularTimeWins = matches.length",
+      "technical_dependency": "Cup result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 29,
+      "title_ua": "Нерви зі сталі",
+      "title_en": "Nerves of Steel",
+      "description_ua": "Виграйте Кубок, тричі пройшовши додатковий час або пенальті.",
+      "description_en": "Win the Cup after at least three extra-time or penalty ties.",
+      "competition": "Cup",
+      "condition": "Won Cup; ET/penalty matches >= 3",
+      "technical_dependency": "Cup matches",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 30,
+      "title_ua": "Завдання провалено успішно",
+      "title_en": "Task Failed Successfully",
+      "description_ua": "Виграйте Кубок без жодної перемоги в основний час.",
+      "description_en": "Win the Cup without a single regular-time victory.",
+      "competition": "Cup",
+      "condition": "Won Cup; regularTimeWins = 0",
+      "technical_dependency": "Cup result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 31,
+      "title_ua": "Я так бачу",
+      "title_en": "Trust My Eyes",
+      "description_ua": "Виграйте турнір у хардкорному режимі.",
+      "description_en": "Win the competition in Hardcore mode.",
+      "competition": "Both",
+      "condition": "mode = hardcore; win League/Cup",
+      "technical_dependency": "Mode + result",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 32,
+      "title_ua": "Монобільшість",
+      "title_en": "Single-Party Majority",
+      "description_ua": "Зберіть щонайменше шістьох гравців одного клубу.",
+      "description_en": "Field at least six players from one club.",
+      "competition": "Both",
+      "condition": "max count by team_id >= 6",
+      "technical_dependency": "Team IDs",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 33,
+      "title_ua": "Коаліція",
+      "title_en": "Coalition",
+      "description_ua": "Зберіть одинадцять гравців з одинадцяти різних клубів.",
+      "description_en": "Field players from eleven different clubs.",
+      "competition": "Both",
+      "condition": "unique team_ids = 11",
+      "technical_dependency": "Team IDs",
+      "audit_status": "Ready",
+      "rarity": "common"
+    },
+    {
+      "id": 34,
+      "title_ua": "Три мушкетери",
+      "title_en": "The Three Musketeers",
+      "description_ua": "У схемі 3-5-2 поставте трьох центрбеків одного клубу.",
+      "description_en": "In a 3-5-2, field three centre-backs from the same club.",
+      "competition": "Both",
+      "condition": "formation 3-5-2; three CB slot team_ids identical",
+      "technical_dependency": "Formation slot assignments",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 35,
+      "title_ua": "Автобус припарковано",
+      "title_en": "Bus Parked",
+      "description_ua": "Виграйте з 5-3-2, пропустивши не більше 20 у Лізі або двох у Кубку.",
+      "description_en": "Win with a 5-3-2 while conceding at most 20 in the league or two in the Cup.",
+      "competition": "Both",
+      "condition": "formation 5-3-2; win; League GA <=20 OR Cup GA <=2",
+      "technical_dependency": "Formation + thresholds",
+      "audit_status": "NEEDS SIMULATION AUDIT",
+      "rarity": "legendary"
+    },
+    {
+      "id": 36,
+      "title_ua": "Гдє «Дінамо», гдє?",
+      "title_en": "Where TF “Dynamo” at?",
+      "description_ua": "Виграйте з Жадсоном або з трьома гравцями «Шахтаря» і без гравців «Динамо».",
+      "description_en": "Win with Jádson, or with three Shakhtar players and no Dynamo players.",
+      "competition": "Both",
+      "condition": "Win; (Jádson OR (Shakhtar >=3 AND Dynamo=0))",
+      "technical_dependency": "Player ID + team IDs + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 37,
+      "title_ua": "На благо города і всєх харьковчан",
+      "title_en": "For the Good of Kharkiv and All of the Citizens",
+      "description_ua": "Виграйте з двома гравцями «Металіста» 2010-х або чотирма будь-яких епох.",
+      "description_en": "Win with two 2010s Metalist players or four from any eras.",
+      "competition": "Both",
+      "condition": "Win; (Metalist 2010s >=2 OR Metalist any >=4)",
+      "technical_dependency": "Team IDs + decade + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 38,
+      "title_ua": "Ящик горілки",
+      "title_en": "A Crate of Vodka",
+      "description_ua": "Зберіть трьох гравців «Волині» та виграйте хоча б один матч.",
+      "description_en": "Field three Volyn players and win at least one match.",
+      "competition": "Both",
+      "condition": "Volyn >=3; at least one League/Cup win",
+      "technical_dependency": "Team ID + result",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 39,
+      "title_ua": "Полтавська битва",
+      "title_en": "Battle of Poltava",
+      "description_ua": "Виграйте Кубок із двома гравцями «Ворскли».",
+      "description_en": "Win the Cup with at least two Vorskla players.",
+      "competition": "Cup",
+      "condition": "Won Cup; Vorskla >=2",
+      "technical_dependency": "Team ID + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 40,
+      "title_ua": "Дніпровський тандем",
+      "title_en": "Dnipro Tandem",
+      "description_ua": "Об’єднайте Руслана Ротаня та Сергія Назаренка.",
+      "description_en": "Reunite Ruslan Rotan and Serhiy Nazarenko.",
+      "competition": "Both",
+      "condition": "Rotan + Nazarenko",
+      "technical_dependency": "Named player IDs",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 41,
+      "title_ua": "Серце «Шахтаря»",
+      "title_en": "Heart of Shakhtar",
+      "description_ua": "Виграйте турнір із Дарійо Срною.",
+      "description_en": "Win the competition with Darijo Srna.",
+      "competition": "Both",
+      "condition": "Win; Darijo Srna in squad",
+      "technical_dependency": "Named player ID + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 42,
+      "title_ua": "Бразильський трикутник",
+      "title_en": "Brazilian Triangle",
+      "description_ua": "Зберіть разом Жадсона, Фернандіньйо та Вілліана.",
+      "description_en": "Field Jádson, Fernandinho and Willian together.",
+      "competition": "Both",
+      "condition": "Jádson + Fernandinho + Shakhtar Willian",
+      "technical_dependency": "Named player IDs",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 43,
+      "title_ua": "Слава нації",
+      "title_en": "Good Evening, We Are from Ukraine",
+      "description_ua": "Виграйте турнір у Hardcore повністю українським складом.",
+      "description_en": "Win in Hardcore with an entirely Ukrainian squad.",
+      "competition": "Both",
+      "condition": "hardcore; win; all 11 include Ukraine",
+      "technical_dependency": "Mode + citizenship + result",
+      "audit_status": "Needs citizenship export",
+      "rarity": "legendary"
+    },
+    {
+      "id": 44,
+      "title_ua": "ООН",
+      "title_en": "United Nations",
+      "description_ua": "Зберіть представників щонайменше восьми країн.",
+      "description_en": "Field players representing at least eight countries.",
+      "competition": "Both",
+      "condition": "unique primary normalized citizenships >=8",
+      "technical_dependency": "Citizenship pipeline",
+      "audit_status": "Needs primary-citizenship normalization",
+      "rarity": "legendary"
+    },
+    {
+      "id": 45,
+      "title_ua": "Балканський експрес",
+      "title_en": "Balkan Express",
+      "description_ua": "Зберіть п’ятьох футболістів із балканських країн.",
+      "description_en": "Field at least five players from Balkan countries.",
+      "competition": "Both",
+      "condition": "approved Balkan citizenship set count >=5",
+      "technical_dependency": "Citizenship + country set",
+      "audit_status": "OPEN DECISION: exact Balkan country list",
+      "rarity": "legendary"
+    },
+    {
+      "id": 46,
+      "title_ua": "Латиноамериканський квартал",
+      "title_en": "Latin Quarter",
+      "description_ua": "Зберіть шістьох футболістів із Південної Америки.",
+      "description_en": "Field at least six South American players.",
+      "competition": "Both",
+      "condition": "South American citizenship set count >=6",
+      "technical_dependency": "Citizenship + country set",
+      "audit_status": "Needs citizenship export",
+      "rarity": "legendary"
+    },
+    {
+      "id": 47,
+      "title_ua": "Різні епохи. Один склад.",
+      "title_en": "Different Eras. One Squad.",
+      "description_ua": "Зберіть щонайменше по два гравці з 1990-х, 2000-х, 2010-х і 2020-х.",
+      "description_en": "Field at least two players from each of the 1990s, 2000s, 2010s and 2020s.",
+      "competition": "Both",
+      "condition": "At least two unique players from each decade: 1990s, 2000s, 2010s and 2020s",
+      "technical_dependency": "Decade",
+      "audit_status": "Ready",
+      "rarity": "common"
+    },
+    {
+      "id": 48,
+      "title_ua": "Жити по-новому",
+      "title_en": "Living a New Way",
+      "description_ua": "Зберіть щонайменше шістьох гравців із 2020-х.",
+      "description_en": "Field at least six players from the 2020s.",
+      "competition": "Both",
+      "condition": "2020s count >=6",
+      "technical_dependency": "Decade",
+      "audit_status": "Ready",
+      "rarity": "common"
+    },
+    {
+      "id": 49,
+      "title_ua": "Назад у 90-ті",
+      "title_en": "Back to the ’90s",
+      "description_ua": "Зберіть щонайменше шістьох гравців із 1990-х.",
+      "description_en": "Field at least six players from the 1990s.",
+      "competition": "Both",
+      "condition": "1990s count >=6",
+      "technical_dependency": "Decade",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 50,
+      "title_ua": "Пропало все. Господи допоможи",
+      "title_en": "Everything Is Lost. God Save Us All",
+      "description_ua": "Не виграйте жодного матчу чемпіонату.",
+      "description_en": "Finish the league season without a single win.",
+      "competition": "League",
+      "condition": "wins = 0",
+      "technical_dependency": "League result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 51,
+      "title_ua": "Нічия влаштовує",
+      "title_en": "A Draw Will Do",
+      "description_ua": "Завершіть чемпіонат із щонайменше 15 нічиїми.",
+      "description_en": "Finish the league season with at least 15 draws.",
+      "competition": "League",
+      "condition": "draws >=15",
+      "technical_dependency": "League result",
+      "audit_status": "Ready; rarity audit recommended",
+      "rarity": "epic"
+    },
+    {
+      "id": 52,
+      "title_ua": "Маємо те, що маємо",
+      "title_en": "It Is What It Is",
+      "description_ua": "Завершіть сезон у середині таблиці з нульовою різницею м’ячів.",
+      "description_en": "Finish mid-table with a zero goal difference.",
+      "competition": "League",
+      "condition": "verdict = midTable; goalDifference = 0",
+      "technical_dependency": "League result",
+      "audit_status": "Ready",
+      "rarity": "rare"
+    },
+    {
+      "id": 53,
+      "title_ua": "На тоненького",
+      "title_en": "By a Thread",
+      "description_ua": "Станьте чемпіоном із різницею м’ячів не більшою за +10.",
+      "description_en": "Become champion with a goal difference no higher than +10.",
+      "competition": "League",
+      "condition": "verdict = championship; goalDifference <=10",
+      "technical_dependency": "Result threshold",
+      "audit_status": "NEEDS SIMULATION AUDIT",
+      "rarity": "legendary"
+    },
+    {
+      "id": 54,
+      "title_ua": "Бавовна",
+      "title_en": "Bavovna",
+      "description_ua": "Забийте щонайменше 75 голів у чемпіонаті.",
+      "description_en": "Score at least 75 league goals.",
+      "competition": "League",
+      "condition": "League goalsFor >=75",
+      "technical_dependency": "Result threshold",
+      "audit_status": "Final approved threshold after focused audit: 75+ League goals.",
+      "rarity": "epic"
+    },
+    {
+      "id": 55,
+      "title_ua": "Захист для слабаків",
+      "title_en": "Defense Optional",
+      "description_ua": "Забийте щонайменше 55 голів і пропустіть щонайменше 40 у чемпіонаті.",
+      "description_en": "Score at least 55 league goals and concede at least 40.",
+      "competition": "League",
+      "condition": "League goalsFor >=55 and goalsAgainst >=40",
+      "technical_dependency": "Result thresholds",
+      "audit_status": "NEEDS SIMULATION AUDIT",
+      "rarity": "epic"
+    },
+    {
+      "id": 56,
+      "title_ua": "Лото «Забава»",
+      "title_en": "The Lottery",
+      "description_ua": "Виграйте фінал Кубка в серії пенальті.",
+      "description_en": "Win the Cup final on penalties.",
+      "competition": "Cup",
+      "condition": "Won Cup; final decidedBy = penalties",
+      "technical_dependency": "Cup matches",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 57,
+      "title_ua": "На 120-й",
+      "title_en": "In the 120th",
+      "description_ua": "Виграйте фінал Кубка після додаткового часу.",
+      "description_en": "Win the Cup final after extra time.",
+      "competition": "Cup",
+      "condition": "Won Cup; final decidedBy = extra_time",
+      "technical_dependency": "Cup matches",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 58,
+      "title_ua": "Пливли-пливли, а на березі...",
+      "title_en": "Ch-ch-ch-choke Me!",
+      "description_ua": "Дійдіть до фіналу Кубка і програйте його.",
+      "description_en": "Reach the Cup final and lose it.",
+      "competition": "Cup",
+      "condition": "Last played stage = final; wonCup = false",
+      "technical_dependency": "Cup stage/result",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 59,
+      "title_ua": "I Am from Bosnia, Take Me to America",
+      "title_en": "I Am from Bosnia, Take Me to America",
+      "description_ua": "Додайте у склад боснійського воротаря Ніколу Васіля.",
+      "description_en": "Field Bosnian goalkeeper Nikola Vasilj.",
+      "competition": "Both",
+      "condition": "player_id = 248454 is present in the final squad",
+      "technical_dependency": "Named player ID",
+      "audit_status": "Ready: Nikola Vasilj is present for Zorya in the 2010s and 2020s",
+      "rarity": "epic"
+    },
+    {
+      "id": 60,
+      "title_ua": "На мінімалках",
+      "title_en": "Bare Minimum",
+      "description_ua": "Виграйте Кубок, не перемігши нікого більш ніж в один м’яч.",
+      "description_en": "Win the Cup without beating anyone by more than one goal.",
+      "competition": "Cup",
+      "condition": "Won Cup; every non-penalty win margin <=1",
+      "technical_dependency": "Cup matches",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 61,
+      "title_ua": "Динамівські серця",
+      "title_en": "Hearts of “Dynamo”",
+      "description_ua": "Зберіть щонайменше чотирьох українців із київського «Динамо».",
+      "description_en": "Field at least four Ukrainian Dynamo Kyiv players.",
+      "competition": "Both",
+      "condition": "Dynamo players whose citizenships include Ukraine >=4",
+      "technical_dependency": "Team ID + citizenship",
+      "audit_status": "Needs citizenship export",
+      "rarity": "legendary"
+    },
+    {
+      "id": 62,
+      "title_ua": "Фінал 2006",
+      "title_en": "Final 2006",
+      "description_ua": "Дійдіть до фіналу Кубка з двома гравцями запорізького «Металурга» 2000-х або чотирма будь-яких епох.",
+      "description_en": "Reach the Cup final with two 2000s Metalurh Zaporizhzhia players or four from any eras.",
+      "competition": "Cup",
+      "condition": "Reached final; (Metalurh Zap 2000s >=2 OR any >=4)",
+      "technical_dependency": "Team ID + decade + Cup stage",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 63,
+      "title_ua": "Легенда «Барселони»",
+      "title_en": "Barcelona’s Legend",
+      "description_ua": "Зберіть у складі Яя Туре з донецького «Металурга».",
+      "description_en": "Field Yaya Touré of Metalurh Donetsk.",
+      "competition": "Both",
+      "condition": "player_id = 13091 is present in the final squad",
+      "technical_dependency": "Named player ID",
+      "audit_status": "Ready: Yaya Touré is present for Metalurh Donetsk in the 2000s",
+      "rarity": "epic"
+    },
+    {
+      "id": 64,
+      "title_ua": "Промислова революція",
+      "title_en": "Industrial Revolution",
+      "description_ua": "Зберіть представників трьох українських «Металургів».",
+      "description_en": "Field players from three Ukrainian Metalurh club lines.",
+      "competition": "Both",
+      "condition": ">=1 each: Metalurh Zap, Metalurh Donetsk, Mariupol line",
+      "technical_dependency": "Team ID groups",
+      "audit_status": "Ready",
+      "rarity": "rare"
+    },
+    {
+      "id": 65,
+      "title_ua": "Два крила",
+      "title_en": "Two Wings",
+      "description_ua": "Об’єднайте Андрія Ярмоленка та Євгена Коноплянку.",
+      "description_en": "Field Andriy Yarmolenko and Yevhen Konoplyanka together.",
+      "competition": "Both",
+      "condition": "Yarmolenko + Konoplyanka",
+      "technical_dependency": "Named player IDs",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 66,
+      "title_ua": "Крізь роки",
+      "title_en": "Through the Years",
+      "description_ua": "Представте один клуб у всіх чотирьох десятиліттях.",
+      "description_en": "Represent one club in all four decades.",
+      "competition": "Both",
+      "condition": "same team_id has 1990s, 2000s, 2010s, 2020s entries",
+      "technical_dependency": "Team ID + decade",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 67,
+      "title_ua": "Кобзарі",
+      "title_en": "The Kobzars",
+      "description_ua": "Зберіть трьох різних футболістів із прізвищем Шевченко.",
+      "description_en": "Field three different players named Shevchenko.",
+      "competition": "Both",
+      "condition": "approved Shevchenko player ID set count >=3",
+      "technical_dependency": "Named player ID set",
+      "audit_status": "Ready: at least 7 distinct Shevchenkos present",
+      "rarity": "legendary"
+    },
+    {
+      "id": 68,
+      "title_ua": "Акт Злуки",
+      "title_en": "Act of Unity",
+      "description_ua": "Зберіть щонайменше двох гравців клубів Донбасу та двох гравців львівських клубів.",
+      "description_en": "Field at least two Donbas-club and two Lviv-club players.",
+      "competition": "Both",
+      "condition": "Donbas >=2; Lviv club group >=2",
+      "technical_dependency": "Team ID groups",
+      "audit_status": "Ready",
+      "rarity": "common"
+    },
+    {
+      "id": 69,
+      "title_ua": "Кордони 1991",
+      "title_en": "Borders of 1991",
+      "description_ua": "Виграйте турнір із представниками Криму та Донбасу.",
+      "description_en": "Win with at least one player from Crimea and one from Donbas.",
+      "competition": "Both",
+      "condition": "Win; Crimea >=1; Donbas >=1",
+      "technical_dependency": "Team ID groups + result",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 70,
+      "title_ua": "Львівське метро",
+      "title_en": "Lviv Metro",
+      "description_ua": "Зберіть по гравцю «Карпат», «Руху» та ПФК «Львів».",
+      "description_en": "Field a player from Karpaty, Rukh and PFC Lviv.",
+      "competition": "Both",
+      "condition": "Karpaty >=1; Rukh >=1; PFC Lviv >=1",
+      "technical_dependency": "Team IDs",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 71,
+      "title_ua": "Котлета по-київськи",
+      "title_en": "Chicken Kyiv",
+      "description_ua": "Зберіть п’ятьох гравців київських клубів із щонайменше трьох різних клубів.",
+      "description_en": "Field five Kyiv-club players representing at least three different clubs.",
+      "competition": "Both",
+      "condition": "Kyiv club count >=5; unique approved Kyiv team_ids >=3",
+      "technical_dependency": "Team ID group",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 72,
+      "title_ua": "Кубок світу",
+      "title_en": "World Cup",
+      "description_ua": "Зберіть одинадцять гравців з одинадцятьма різними основними громадянствами.",
+      "description_en": "Field eleven players with eleven different primary citizenships.",
+      "competition": "Both",
+      "condition": "unique primary citizenships = 11",
+      "technical_dependency": "Citizenship pipeline",
+      "audit_status": "Needs primary-citizenship normalization",
+      "rarity": "legendary"
+    },
+    {
+      "id": 73,
+      "title_ua": "Кубок Африки",
+      "title_en": "Africa Cup",
+      "description_ua": "Зберіть щонайменше п’ятьох футболістів з африканським громадянством.",
+      "description_en": "Field at least five players with African citizenship.",
+      "competition": "Both",
+      "condition": "African citizenship set count >=5",
+      "technical_dependency": "Citizenship + country set",
+      "audit_status": "Needs citizenship export",
+      "rarity": "legendary"
+    },
+    {
+      "id": 74,
+      "title_ua": "День бабака",
+      "title_en": "Groundhog Day",
+      "description_ua": "Тричі виграйте в Кубку з однаковим рахунком.",
+      "description_en": "Win three Cup matches by the same score.",
+      "competition": "Cup",
+      "condition": ">=3 wins with identical goalsFor-goalsAgainst; pre-shootout score for penalties",
+      "technical_dependency": "Cup matches",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 75,
+      "title_ua": "Стара школа",
+      "title_en": "Old School",
+      "description_ua": "Виграйте турнір у Hardcore зі схемою 4-4-2.",
+      "description_en": "Win in Hardcore using a 4-4-2.",
+      "competition": "Both",
+      "condition": "hardcore; formation 4-4-2; win",
+      "technical_dependency": "Mode + formation + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 76,
+      "title_ua": "Так!",
+      "title_en": "Yes!",
+      "description_ua": "Зберіть щонайменше шістьох гравців із 2000-х.",
+      "description_en": "Field at least six players from the 2000s.",
+      "competition": "Both",
+      "condition": "2000s count >=6",
+      "technical_dependency": "Decade",
+      "audit_status": "Ready",
+      "rarity": "rare"
+    },
+    {
+      "id": 77,
+      "title_ua": "Покращення вже сьогодні",
+      "title_en": "A Better Life Today",
+      "description_ua": "Зберіть щонайменше шістьох гравців із 2010-х.",
+      "description_en": "Field at least six players from the 2010s.",
+      "competition": "Both",
+      "condition": "2010s count >=6",
+      "technical_dependency": "Decade",
+      "audit_status": "Ready",
+      "rarity": "common"
+    },
+    {
+      "id": 78,
+      "title_ua": "Опорник із Запоріжжя",
+      "title_en": "CDM from Zaporizhzhia",
+      "description_ua": "Поставте Сидорчука, Степаненка, Бражка або Ігнатенка у слот, що підтримує CDM.",
+      "description_en": "Assign Sydorchuk, Stepanenko, Brazhko or Ignatenko to a CDM-compatible slot.",
+      "competition": "Both",
+      "condition": "eligible player ID assigned to slot whose allowed_positions includes CDM",
+      "technical_dependency": "Player IDs + slot semantics",
+      "audit_status": "Ready; do NOT rely on visible slot label",
+      "rarity": "rare"
+    },
+    {
+      "id": 79,
+      "title_ua": "Мужики",
+      "title_en": "The Lads",
+      "description_ua": "Зберіть трьох гравців «Зорі» або досягніть успіху з двома.",
+      "description_en": "Field three Zorya players, or succeed with at least two.",
+      "competition": "Both",
+      "condition": "Zorya>=3 OR (Zorya>=2 AND champion/europe/Cup win)",
+      "technical_dependency": "Team ID + result",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 80,
+      "title_ua": "Бойся Бога і пацанов с Крівова Рога",
+      "title_en": "Fear God and Chaps from Kryvyi Rih",
+      "description_ua": "Зберіть трьох гравців «Кривбасу» або досягніть успіху з двома.",
+      "description_en": "Field three Kryvbas players, or succeed with at least two.",
+      "competition": "Both",
+      "condition": "Kryvbas>=3 OR (Kryvbas>=2 AND champion/europe/Cup win)",
+      "technical_dependency": "Team ID + result",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 81,
+      "title_ua": "Олександрійське диво",
+      "title_en": "Oleksandriya Miracle",
+      "description_ua": "Досягніть успіху з двома гравцями «Олександрії» 2010-х або трьома будь-яких епох.",
+      "description_en": "Succeed with two 2010s Oleksandriya players or three from any eras.",
+      "competition": "Both",
+      "condition": "champion/europe/Cup win AND (Oleksandriya 2010s>=2 OR any>=3)",
+      "technical_dependency": "Team ID + decade + result",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 82,
+      "title_ua": "Ковалівка в Європі",
+      "title_en": "Kovalivka in Europe",
+      "description_ua": "Зберіть щонайменше двох гравців «Колоса» та дійдіть до півфіналу Кубка, кваліфікуйтеся до єврокубків або станьте чемпіоном України.",
+      "description_en": "Field at least two Kolos players and reach the Cup semi-final, qualify for Europe, or win the Ukrainian league.",
+      "competition": "Both",
+      "condition": "Kolos count >= 2 AND (Cup reached semi-final/final/won OR League verdict IN {European qualification, championship})",
+      "technical_dependency": "Team ID + Cup stage / League verdict",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 83,
+      "title_ua": "Потримай моє пиво",
+      "title_en": "Hold My Beer",
+      "description_ua": "Зберіть трьох гравців «Оболоні» та виграйте хоча б один матч.",
+      "description_en": "Field three Obolon players and win at least one match.",
+      "competition": "Both",
+      "condition": "approved Obolon IDs >=3; at least one win",
+      "technical_dependency": "Team IDs + result",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 84,
+      "title_ua": "Українське класичне",
+      "title_en": "Ukrainian Clásico",
+      "description_ua": "Зберіть щонайменше двох динамівців і двох гравців «Шахтаря».",
+      "description_en": "Field at least two Dynamo and two Shakhtar players.",
+      "competition": "Both",
+      "condition": "Dynamo>=2; Shakhtar>=2",
+      "technical_dependency": "Team IDs",
+      "audit_status": "Ready",
+      "rarity": "epic"
+    },
+    {
+      "id": 85,
+      "title_ua": "Ми всі різні, але ми українці",
+      "title_en": "United Ukraine",
+      "description_ua": "Зберіть одинадцять українців з одинадцяти різних клубів.",
+      "description_en": "Field eleven Ukrainian players from eleven different clubs.",
+      "competition": "Both",
+      "condition": "all 11 include Ukraine; unique team_ids=11",
+      "technical_dependency": "Citizenship + team IDs",
+      "audit_status": "Needs citizenship export",
+      "rarity": "rare"
+    },
+    {
+      "id": 86,
+      "title_ua": "Міміно",
+      "title_en": "Mimino",
+      "description_ua": "Зберіть щонайменше трьох грузинських футболістів.",
+      "description_en": "Field at least three players with Georgian citizenship.",
+      "competition": "Both",
+      "condition": "citizenships include Georgia count >=3",
+      "technical_dependency": "Citizenship pipeline",
+      "audit_status": "Needs citizenship export",
+      "rarity": "legendary"
+    },
+    {
+      "id": 87,
+      "title_ua": "Суперорли",
+      "title_en": "Super Eagles",
+      "description_ua": "Зберіть щонайменше трьох нігерійських футболістів.",
+      "description_en": "Field at least three players with Nigerian citizenship.",
+      "competition": "Both",
+      "condition": "citizenships include Nigeria count >=3",
+      "technical_dependency": "Citizenship pipeline",
+      "audit_status": "Needs citizenship export",
+      "rarity": "legendary"
+    },
+    {
+      "id": 88,
+      "title_ua": "Лінія Мажино",
+      "title_en": "Maginot Line",
+      "description_ua": "У схемі 5-3-2 зберіть усю п’ятірку захисту з одного клубу.",
+      "description_en": "In a 5-3-2, field all five defenders from one club.",
+      "competition": "Both",
+      "condition": "formation 5-3-2; five defensive slot team_ids identical",
+      "technical_dependency": "Formation slot assignments",
+      "audit_status": "Ready",
+      "rarity": "legendary"
+    },
+    {
+      "id": 89,
+      "title_ua": "П’ять пальців",
+      "title_en": "Five Fingers",
+      "description_ua": "У схемі 5-3-2 зберіть п’ятьох захисників із п’яти різних клубів.",
+      "description_en": "In a 5-3-2, field defenders from five different clubs.",
+      "competition": "Both",
+      "condition": "formation 5-3-2; five defensive slot team_ids unique",
+      "technical_dependency": "Formation slot assignments",
+      "audit_status": "Ready",
+      "rarity": "common"
+    },
+    {
+      "id": 90,
+      "title_ua": "П’ятий елемент",
+      "title_en": "The Fifth Element",
+      "description_ua": "У схемі 3-5-2 зберіть півзахист із п’яти різних основних громадянств.",
+      "description_en": "In a 3-5-2, field a midfield of five different primary citizenships.",
+      "competition": "Both",
+      "condition": "formation 3-5-2; five midfield slots have five unique primary citizenships",
+      "technical_dependency": "Formation + citizenship",
+      "audit_status": "Needs citizenship export",
+      "rarity": "epic"
+    },
+    {
+      "id": 91,
+      "title_ua": "Тризуб",
+      "title_en": "Tryzub",
+      "description_ua": "У схемі 3-5-2 поставте трьох українських центрбеків із різних клубів.",
+      "description_en": "In a 3-5-2, field three Ukrainian centre-backs from different clubs.",
+      "competition": "Both",
+      "condition": "formation 3-5-2; all CB include Ukraine; three unique team_ids",
+      "technical_dependency": "Formation + citizenship + teams",
+      "audit_status": "Needs citizenship export",
+      "rarity": "common"
+    },
+    {
+      "id": 92,
+      "title_ua": "Дуплет",
+      "title_en": "Double Tap",
+      "description_ua": "Поставте в атакувальні слоти двох гравців одного клубу та виграйте матч.",
+      "description_en": "Field two attackers from one club and win at least one match.",
+      "competition": "Both",
+      "condition": "two attack slot team_ids identical; at least one win",
+      "technical_dependency": "Slot assignments + result",
+      "audit_status": "Ready",
+      "rarity": "rare"
+    },
+    {
+      "id": 93,
+      "title_ua": "Це нормально",
+      "title_en": "This Is Fine",
+      "description_ua": "Пропустіть щонайменше 60 голів, але не потрапте в боротьбу за виживання.",
+      "description_en": "Concede at least 60 league goals without a relegation-battle verdict.",
+      "competition": "League",
+      "condition": "goalsAgainst >=60; verdict != relegation",
+      "technical_dependency": "Result threshold",
+      "audit_status": "NEEDS SIMULATION AUDIT",
+      "rarity": "legendary"
+    },
+    {
+      "id": 94,
+      "title_ua": "Кийов і Львов не указ Ужгородови",
+      "title_en": "Kyiv and Lviv Don’t Rule Uzhorod",
+      "description_ua": "Зберіть гравця ужгородського клубу без жодного представника Києва та Львова.",
+      "description_en": "Field an Uzhhorod-club player with no Kyiv or Lviv club players.",
+      "competition": "Both",
+      "condition": "Uzhhorod>=1; Kyiv=0; Lviv=0",
+      "technical_dependency": "Team ID groups",
+      "audit_status": "Ready",
+      "rarity": "rare"
+    },
+    {
+      "id": 95,
+      "title_ua": "Албанська мафія",
+      "title_en": "Ti Shqipëri, më jep nder",
+      "description_ua": "Зберіть щонайменше двох футболістів з албанським громадянством.",
+      "description_en": "Field at least two players with Albanian citizenship.",
+      "competition": "Both",
+      "condition": "citizenships include Albania count >=2",
+      "technical_dependency": "Citizenship pipeline",
+      "audit_status": "Needs citizenship export",
+      "rarity": "legendary"
+    }
+  ]
+}

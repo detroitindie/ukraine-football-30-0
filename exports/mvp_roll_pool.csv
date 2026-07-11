@@ -13,8 +13,8 @@ club_decade_id,team_id,team_name,decade,players_count,avg_global_rating,max_glob
 339_dnipro_dnipropetrovsk__2020_2000s,339,Dnipro Dnipropetrovsk (- 2020),2000s,60,51.90333333333333,67.8,54.80333333333333,95.0,True
 339_dnipro_dnipropetrovsk__2020_2010s,339,Dnipro Dnipropetrovsk (- 2020),2010s,73,52.42535211267605,71.1,55.157746478873236,95.0,True
 338_dynamo_kyiv_1990s,338,Dynamo Kyiv,1990s,27,53.88235294117647,73.2,57.51176470588236,95.0,True
-338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,73,52.885,87.5,53.46,95.0,True
-338_dynamo_kyiv_2010s,338,Dynamo Kyiv,2010s,91,52.870588235294115,95.0,52.870588235294115,95.0,True
+338_dynamo_kyiv_2000s,338,Dynamo Kyiv,2000s,74,52.885,87.5,53.46,95.0,True
+338_dynamo_kyiv_2010s,338,Dynamo Kyiv,2010s,92,52.870588235294115,95.0,52.870588235294115,95.0,True
 338_dynamo_kyiv_2020s,338,Dynamo Kyiv,2020s,46,51.879999999999995,69.1,54.39777777777778,95.0,True
 84122_epicentr_kamyanets_podilskyi_2020s,84122,Epicentr Kamyanets-Podilskyi,2020s,24,50.21666666666667,50.5,68.53750000000001,95.0,True
 87883_fc_kudrivka_2020s,87883,FC Kudrivka,2020s,13,50.315384615384616,50.8,66.78461538461539,95.0,True
@@ -72,7 +72,7 @@ club_decade_id,team_id,team_name,decade,players_count,avg_global_rating,max_glob
 2227_sc_tavriya_simferopol_2022_2000s,2227,SC Tavriya Simferopol (-2022),2000s,31,51.99354838709677,63.6,56.54838709677419,95.0,True
 2227_sc_tavriya_simferopol_2022_2010s,2227,SC Tavriya Simferopol (-2022),2010s,25,52.08,60.6,58.832,95.0,True
 660_shakhtar_donetsk_1990s,660,Shakhtar Donetsk,1990s,20,51.949999999999996,59.4,59.34285714285714,95.0,True
-660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,58,53.996,76.5,56.778,95.0,True
+660_shakhtar_donetsk_2000s,660,Shakhtar Donetsk,2000s,59,53.996,76.5,56.778,95.0,True
 660_shakhtar_donetsk_2010s,660,Shakhtar Donetsk,2010s,89,54.7625,76.8,57.96818181818182,95.0,True
 660_shakhtar_donetsk_2020s,660,Shakhtar Donetsk,2020s,79,52.44177215189873,64.9,57.33037974683545,95.0,True
 10468_stal_alchevsk_2000s,10468,Stal Alchevsk,2000s,12,50.53333333333333,51.9,62.35,95.0,True

@@ -1,0 +1,53 @@
+{
+  "reachability_validation": {
+    "command": "node scripts/validate_achievements.mjs --output data-audit\\v2-3-achievements",
+    "registry_count": 95,
+    "all_positive_fixtures_passed": true,
+    "failures": []
+  },
+  "updated_at": "2026-07-11T14:14:20.247Z",
+  "cup_threshold_audit": {
+    "seed": 2303,
+    "iterations_per_bucket": 100000,
+    "runtime_ms": 27474,
+    "approximation": "Synthetic fixed-strength 11-player lineups; bucket strengths are player-rating percentiles from public/data/players.json. Production simulateCup and evaluateAchievements are invoked.",
+    "failed_or_skipped_runs": [],
+    "command": "node scripts/audit_achievement_cup_thresholds.mjs --iterations 100000 --seed 2303 --output data-audit\\v2-3-achievements"
+  },
+  "git": {
+    "branch": "feature/v2.3-achievements",
+    "commit": "b9ebad76738abb72ac2d5d0faa0275fe3fa2b7ed"
+  },
+  "node": "v24.16.0",
+  "random_draft_monte_carlo": {
+    "seed": 2303,
+    "iterations_per_competition_formation": 50000,
+    "runtime_ms": 100205,
+    "attempted_drafts": 300000,
+    "completed_drafts": 300000,
+    "evaluated_runs": 600000,
+    "approximation": "Mirrors draft roll legality using real roll pools, real generated players, slot compatibility, club-decade rolls, duplicate player_id blocking, and random legal slot assignment. It approximates a neutral user by choosing uniformly among valid rolls, available players and valid slots; UI sorting is intentionally ignored.",
+    "failed_or_skipped_runs": [],
+    "command": "node scripts/audit_achievement_drafts.mjs --iterations 50000 --seed 2303 --output data-audit\\v2-3-achievements"
+  },
+  "league_threshold_audit": {
+    "seed": 2303,
+    "iterations_per_bucket": 100000,
+    "runtime_ms": 27907,
+    "approximation": "Synthetic fixed-strength 11-player lineups; bucket strengths are player-rating percentiles from public/data/players.json. Production simulateSeason and evaluateAchievements are invoked.",
+    "failed_or_skipped_runs": [],
+    "command": "node scripts/audit_achievement_league_thresholds.mjs --iterations 100000 --seed 2303 --output data-audit\\v2-3-achievements"
+  },
+  "rebalance_threshold_sweep": {
+    "seed": 2303,
+    "threshold_iterations_per_bucket": 100000,
+    "draft_iterations_per_competition_formation": 100000,
+    "runtime_ms": 205421,
+    "command": "node scripts/audit_achievement_rebalance.mjs --iterations 100000 --threshold-iterations 100000 --seed 2303 --output data-audit\\v2-3-achievements",
+    "reports": [
+      "data-audit\\v2-3-achievements\\rebalance_threshold_sweep.json",
+      "data-audit\\v2-3-achievements\\rebalance_threshold_sweep.csv",
+      "data-audit\\v2-3-achievements\\rebalance_threshold_sweep.md"
+    ]
+  }
+}

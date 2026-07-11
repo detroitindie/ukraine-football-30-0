@@ -10,6 +10,8 @@ export type DraftPlayer = {
   decade: string;
   player_id: number;
   player_name: string;
+  citizenships: string[];
+  primary_citizenship: string | null;
   position: string;
   main_position: string;
   game_position: string;
@@ -39,6 +41,7 @@ export type FormationSlot = {
   slot_label: string;
   line: FormationLine;
   allowed_positions: string[];
+  semantic_positions?: string[];
   slot_order: number;
 };
 
