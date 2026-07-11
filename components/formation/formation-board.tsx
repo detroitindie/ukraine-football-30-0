@@ -1,39 +1,24 @@
 import type { Ref } from "react";
 import { T } from "@/components/localized-text";
 import type {
-  FormationLine,
-  FormationSlot,
   Lineup,
 } from "@/lib/draft-types";
+import type { FormationConfig } from "@/lib/formations";
 import {
   cleanPlayerName,
   safePlayerText,
 } from "@/lib/player-display";
 
 type FormationBoardProps = {
-  slots: FormationSlot[];
+  formation: FormationConfig;
   lineup: Lineup;
   validSlotIds: Set<string>;
   onSlotClick: (slotId: string) => void;
   sectionRef?: Ref<HTMLElement>;
 };
 
-const lineOrder: FormationLine[] = [
-  "attack",
-  "midfield",
-  "defense",
-  "goalkeeper",
-];
-
-const visualSlotOrder: Record<string, number> = {
-  lm: 1,
-  cm: 2,
-  am_cm: 3,
-  rm: 4,
-};
-
 export function FormationBoard({
-  slots,
+  formation,
   lineup,
   validSlotIds,
   onSlotClick,
@@ -44,7 +29,7 @@ export function FormationBoard({
       <div className="formation-toolbar">
         <div>
           <span className="formation-label"><T id="draft.formation" /></span>
-          <strong className="formation-value">4-4-2</strong>
+          <strong className="formation-value">{formation.name}</strong>
         </div>
         <div>
           <span className="formation-label"><T id="draft.status" /></span>
@@ -54,18 +39,17 @@ export function FormationBoard({
         </div>
       </div>
       <div className="pitch">
-        {lineOrder.map((line) => (
-          <div className="formation-row" key={line}>
-            {slots
-              .filter((slot) => slot.line === line)
-              .sort(
-                (left, right) =>
-                  (visualSlotOrder[left.slot_id] ?? left.slot_order) -
-                  (visualSlotOrder[right.slot_id] ?? right.slot_order),
-              )
-              .map((slot) => {
+        {formation.rows.map((row, rowIndex) => (
+          <div
+            className="formation-row"
+            data-formation={formation.id}
+            data-line={row[0]?.line}
+            key={`${formation.id}-${rowIndex}`}
+          >
+            {row.map((slot) => {
                 const player = lineup[slot.slot_id];
                 const valid = validSlotIds.has(slot.slot_id);
+                const longLabel = slot.slot_label.length >= 8;
 
                 return (
                   <button
@@ -75,7 +59,9 @@ export function FormationBoard({
                     type="button"
                     onClick={() => onSlotClick(slot.slot_id)}
                   >
-                    <span className="player-number">{slot.slot_label}</span>
+                    <span className={`player-number${longLabel ? " player-number-long" : ""}`}>
+                      {slot.slot_label}
+                    </span>
                     <strong>
                       {player ? cleanPlayerName(player.player_name) : <T id="draft.emptySlot" />}
                     </strong>

@@ -12,6 +12,7 @@
     "audit:duplicate-players": "python scripts/audit_duplicate_players.py --check",
     "generate:cup-roll-pool": "python scripts/generate_cup_roll_pool.py",
     "diagnose:pools": "python scripts/diagnose_competition_pools.py",
+    "validate:formations": "node scripts/validate_formations.mjs",
     "validate:leaderboard": "python scripts/validate_leaderboard.py",
     "validate:season-descriptions": "python scripts/validate_season_descriptions.py",
     "validate:patch-1-1": "python scripts/validate_patch_1_1.py"

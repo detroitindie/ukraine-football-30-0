@@ -5,6 +5,14 @@ import { useRouter } from "next/navigation";
 import { FormationBoard } from "@/components/formation/formation-board";
 import { T } from "@/components/localized-text";
 import { rollPoolPathForCompetition } from "@/lib/competition-pools";
+import {
+  DEFAULT_FORMATION_ID,
+  FORMATION_IDS,
+  FORMATIONS,
+  formationLineTotal,
+  formationSlots,
+  type FormationId,
+} from "@/lib/formations";
 import type {
   DraftData,
   DraftCompetition,
@@ -37,18 +45,16 @@ type DraftGameProps = {
 const EMPTY_DATA: DraftData = {
   players: [],
   rollPool: [],
-  slots: [],
 };
 
-const lineSummary: Array<{
+const lineSummaryLines: Array<{
   key: "draft.goalkeepersShort" | "draft.defendersShort" | "draft.midfieldersShort" | "draft.forwardsShort";
   line: FormationLine;
-  total: number;
 }> = [
-  { key: "draft.goalkeepersShort", line: "goalkeeper", total: 1 },
-  { key: "draft.defendersShort", line: "defense", total: 4 },
-  { key: "draft.midfieldersShort", line: "midfield", total: 4 },
-  { key: "draft.forwardsShort", line: "attack", total: 2 },
+  { key: "draft.goalkeepersShort", line: "goalkeeper" },
+  { key: "draft.defendersShort", line: "defense" },
+  { key: "draft.midfieldersShort", line: "midfield" },
+  { key: "draft.forwardsShort", line: "attack" },
 ];
 
 function playerFitsSlot(player: DraftPlayer, slot: FormationSlot) {
@@ -72,6 +78,9 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
   const [candidate, setCandidate] = useState<DraftPlayer | null>(null);
   const [pickLockedForRoll, setPickLockedForRoll] = useState(false);
   const [normalSort, setNormalSort] = useState<DraftSort>("stats");
+  const [formationId, setFormationId] =
+    useState<FormationId>(DEFAULT_FORMATION_ID);
+  const [formationDialogOpen, setFormationDialogOpen] = useState(true);
   const formationRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -79,24 +88,22 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
 
     async function loadDraftData() {
       try {
-        const [playersResponse, rollPoolResponse, slotsResponse] = await Promise.all([
+        const [playersResponse, rollPoolResponse] = await Promise.all([
           fetch("/data/players.json"),
           fetch(rollPoolPathForCompetition(competition)),
-          fetch("/data/formation_slots.json"),
         ]);
 
-        if (!playersResponse.ok || !rollPoolResponse.ok || !slotsResponse.ok) {
+        if (!playersResponse.ok || !rollPoolResponse.ok) {
           throw new Error("Draft data request failed");
         }
 
-        const [players, rollPool, slots] = await Promise.all([
+        const [players, rollPool] = await Promise.all([
           playersResponse.json() as Promise<DraftPlayer[]>,
           rollPoolResponse.json() as Promise<RollPoolEntry[]>,
-          slotsResponse.json() as Promise<FormationSlot[]>,
         ]);
 
         if (!cancelled) {
-          setData({ players, rollPool, slots });
+          setData({ players, rollPool });
           setLoadFailed(false);
         }
       } catch {
@@ -116,6 +123,9 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
     };
   }, [competition]);
 
+  const selectedFormation = FORMATIONS[formationId];
+  const slots = useMemo(() => formationSlots(formationId), [formationId]);
+
   const playersByRoll = useMemo(() => {
     const grouped = new Map<string, DraftPlayer[]>();
     for (const player of data.players) {
@@ -132,8 +142,8 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
   );
 
   const remainingSlots = useMemo(
-    () => data.slots.filter((slot) => !lineup[slot.slot_id]),
-    [data.slots, lineup],
+    () => slots.filter((slot) => !lineup[slot.slot_id]),
+    [lineup, slots],
   );
 
   const availablePlayers = useMemo(() => {
@@ -171,7 +181,9 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
   }, [candidate, remainingSlots]);
 
   const filled = Object.keys(lineup).length;
-  const draftComplete = data.slots.length > 0 && filled === data.slots.length;
+  const draftComplete = slots.length > 0 && filled === slots.length;
+  const formationLocked = currentRoll !== null || filled > 0;
+  const showFormationDialog = formationDialogOpen && !formationLocked;
   const canUsePrimaryAction =
     !loading &&
     !loadFailed &&
@@ -202,12 +214,14 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
           ? {
               competition,
               mode,
+              formationId,
               lineup,
               result: simulateSeason(Object.values(lineup)),
             }
           : {
               competition,
               mode,
+              formationId,
               lineup,
               result: simulateCup(Object.values(lineup)),
             };
@@ -259,13 +273,46 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
   }
 
   function filledForLine(line: FormationLine) {
-    return data.slots.filter(
+    return slots.filter(
       (slot) => slot.line === line && lineup[slot.slot_id],
     ).length;
   }
 
   return (
     <div className="draft-workspace">
+      {showFormationDialog && (
+        <div className="formation-dialog-backdrop">
+          <section
+            aria-labelledby="formation-dialog-title"
+            aria-modal="true"
+            className="formation-dialog"
+            role="dialog"
+          >
+            <h2 id="formation-dialog-title"><T id="draft.chooseFormation" /></h2>
+            <div className="formation-dialog-options" role="group">
+              {FORMATION_IDS.map((optionId) => (
+                <button
+                  aria-pressed={formationId === optionId}
+                  className={formationId === optionId ? "is-active" : ""}
+                  key={optionId}
+                  type="button"
+                  onClick={() => setFormationId(optionId)}
+                >
+                  {FORMATIONS[optionId].name}
+                </button>
+              ))}
+            </div>
+            <button
+              className="button button-primary formation-dialog-confirm"
+              type="button"
+              onClick={() => setFormationDialogOpen(false)}
+            >
+              <T id="draft.confirmFormation" />
+            </button>
+          </section>
+        </div>
+      )}
+
       <header className="draft-heading">
         <div>
           <h1><T id="draft.title" /></h1>
@@ -295,13 +342,33 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
               <span style={{ width: `${(filled / 11) * 100}%` }} />
             </div>
             <ul className="summary-list">
-              {lineSummary.map((summary) => (
+              {lineSummaryLines.map((summary) => (
                 <li key={summary.line}>
                   <span><T id={summary.key} /></span>
-                  <strong>{filledForLine(summary.line)}/{summary.total}</strong>
+                  <strong>
+                    {filledForLine(summary.line)}/{formationLineTotal(formationId, summary.line)}
+                  </strong>
                 </li>
               ))}
             </ul>
+          </div>
+
+          <div className="formation-selector" aria-labelledby="formation-selector-label">
+            <span id="formation-selector-label"><T id="draft.formation" /></span>
+            <div role="group">
+              {FORMATION_IDS.map((optionId) => (
+                <button
+                  aria-pressed={formationId === optionId}
+                  className={formationId === optionId ? "is-active" : ""}
+                  disabled={formationLocked}
+                  key={optionId}
+                  type="button"
+                  onClick={() => setFormationId(optionId)}
+                >
+                  {FORMATIONS[optionId].name}
+                </button>
+              ))}
+            </div>
           </div>
 
           <div className="draft-context">
@@ -350,9 +417,9 @@ export function DraftGame({ competition, mode }: DraftGameProps) {
         </aside>
 
         <FormationBoard
+          formation={selectedFormation}
           lineup={lineup}
           sectionRef={formationRef}
-          slots={data.slots}
           validSlotIds={validSlotIds}
           onSlotClick={lockCandidate}
         />

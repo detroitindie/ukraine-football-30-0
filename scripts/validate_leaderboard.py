@@ -23,11 +23,11 @@ def main() -> None:
     require(
         "app/api/leaderboard/route.ts",
         (
-            "simulateSeason(Object.values(verifiedLineup))",
+            "simulateSeason(Object.values(verifiedLeagueLineup))",
             "canonicalLineup",
             "sanitizeNickname",
             "resultsMatch",
-            "publicLineup(verifiedLineup)",
+            "publicLineup(verifiedLeagueLineup)",
         ),
     )
     require(
@@ -69,8 +69,8 @@ def main() -> None:
     require(
         "components/result/season-result.tsx",
         (
-            "<ResultSubmission season={savedSeason} />",
-            "<LeaderboardBoard compact initialMode={savedSeason.mode} />",
+            "<ResultSubmission season={savedSeason} language={language} />",
+            'initialMode={savedSeason.mode}',
             "async function shareResult()",
         ),
     )
@@ -83,8 +83,8 @@ def main() -> None:
             "(page - 1) * FULL_PAGE_SIZE + index + 1",
             "leaderboard-compact-rank",
             "leaderboard-col-lineup",
-            'id="leaderboard.previous"',
-            'id="leaderboard.next"',
+            'boardText("leaderboard.previous", uiLanguage)',
+            'boardText("leaderboard.next", uiLanguage)',
             "player.game_position !== player.position_label",
         ),
     )

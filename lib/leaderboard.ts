@@ -1,4 +1,9 @@
 import type { DraftMode, DraftPlayer, Lineup } from "@/lib/draft-types";
+import {
+  DEFAULT_FORMATION_ID,
+  formationSlots,
+  matchingFormationForLineup,
+} from "@/lib/formations";
 import type {
   CupMatchResult,
   CupSimulationResult,
@@ -86,19 +91,11 @@ export type CupLeaderboardSubmission = {
   language: "en" | "ua";
 };
 
-export const FORMATION_SLOTS = [
-  { slotId: "gk", label: "GK", allowed: ["GK"] },
-  { slotId: "lb", label: "LB", allowed: ["LB"] },
-  { slotId: "cb_1", label: "CB", allowed: ["CB"] },
-  { slotId: "cb_2", label: "CB", allowed: ["CB"] },
-  { slotId: "rb", label: "RB", allowed: ["RB"] },
-  { slotId: "cm", label: "CM", allowed: ["CM", "CDM"] },
-  { slotId: "am_cm", label: "AM/CM", allowed: ["AM", "CM"] },
-  { slotId: "lm", label: "LM", allowed: ["LM"] },
-  { slotId: "rm", label: "RM", allowed: ["RM"] },
-  { slotId: "am_fw", label: "AM/FW", allowed: ["AM", "FW"] },
-  { slotId: "fw", label: "FW", allowed: ["FW"] },
-] as const;
+export const FORMATION_SLOTS = formationSlots(DEFAULT_FORMATION_ID).map((slot) => ({
+  slotId: slot.slot_id,
+  label: slot.slot_label,
+  allowed: slot.allowed_positions,
+}));
 
 const CONTROL_CHARACTERS = /[\u0000-\u001f\u007f]/g;
 const DISALLOWED_NICKNAME_CHARACTERS = /[<>{}[\]\\/"'`]/g;
@@ -137,10 +134,14 @@ export function isValidSubmissionLineup(value: unknown): value is Lineup {
   }
 
   const lineup = value as Record<string, Partial<DraftPlayer>>;
+  const formationId = matchingFormationForLineup(lineup as Lineup);
+  if (!formationId) {
+    return false;
+  }
   const playerIds = new Set<number>();
 
-  for (const slot of FORMATION_SLOTS) {
-    const player = lineup[slot.slotId];
+  for (const slot of formationSlots(formationId)) {
+    const player = lineup[slot.slot_id];
     if (
       !player
       || typeof player.club_decade_player_id !== "string"
@@ -148,7 +149,7 @@ export function isValidSubmissionLineup(value: unknown): value is Lineup {
       || typeof player.club_decade_id !== "string"
       || typeof player.player_name !== "string"
       || typeof player.game_position !== "string"
-      || !slot.allowed.some((position) => position === player.game_position)
+      || !slot.allowed_positions.some((position) => position === player.game_position)
     ) {
       return false;
     }
@@ -158,17 +159,18 @@ export function isValidSubmissionLineup(value: unknown): value is Lineup {
     playerIds.add(player.player_id);
   }
 
-  return Object.keys(lineup).length === FORMATION_SLOTS.length;
+  return Object.keys(lineup).length === formationSlots(formationId).length;
 }
 
 export function publicLineup(lineup: Lineup): PublicLineupPlayer[] {
-  return FORMATION_SLOTS.map((slot) => {
-    const player = lineup[slot.slotId];
+  const slots = formationSlots(matchingFormationForLineup(lineup) ?? DEFAULT_FORMATION_ID);
+  return slots.map((slot) => {
+    const player = lineup[slot.slot_id];
     return {
       player_name: cleanPlayerName(player.player_name).slice(0, 80),
       game_position: player.game_position.slice(0, 8),
-      slot_position: slot.slotId,
-      position_label: slot.label,
+      slot_position: slot.slot_id,
+      position_label: slot.slot_label,
     };
   });
 }
@@ -219,9 +221,10 @@ export function cupResultsMatch(
 }
 
 export function resultFingerprint(submission: Omit<LeaderboardSubmission, "nickname">) {
-  const lineupSignature = FORMATION_SLOTS.map((slot) => {
-    const player = submission.lineup[slot.slotId];
-    return `${slot.slotId}:${player.player_id}:${player.club_decade_id}`;
+  const slots = formationSlots(matchingFormationForLineup(submission.lineup) ?? DEFAULT_FORMATION_ID);
+  const lineupSignature = slots.map((slot) => {
+    const player = submission.lineup[slot.slot_id];
+    return `${slot.slot_id}:${player.player_id}:${player.club_decade_id}`;
   }).join("|");
 
   return [
@@ -237,9 +240,10 @@ export function resultFingerprint(submission: Omit<LeaderboardSubmission, "nickn
 export function cupResultFingerprint(
   submission: Omit<CupLeaderboardSubmission, "nickname" | "language">,
 ) {
-  const lineupSignature = FORMATION_SLOTS.map((slot) => {
-    const player = submission.lineup[slot.slotId];
-    return `${slot.slotId}:${player.player_id}:${player.club_decade_id}`;
+  const slots = formationSlots(matchingFormationForLineup(submission.lineup) ?? DEFAULT_FORMATION_ID);
+  const lineupSignature = slots.map((slot) => {
+    const player = submission.lineup[slot.slot_id];
+    return `${slot.slot_id}:${player.player_id}:${player.club_decade_id}`;
   }).join("|");
   const pathSignature = submission.result.matches.map((match) => [
     match.stage,
